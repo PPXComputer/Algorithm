@@ -416,14 +416,13 @@ void ArrayAlgo::longestTotalArray() {
 		}
 		else if (sum < k) {
 			right += 1;
-			if (right == size )break;
+			if (right == size)break;
 			sum += arr[right];
 
 		}
 		else {
 			int interval = right - left + 1;
-			std::string data = fmt::format(
-				"{}", fmt::join(arr.begin() + left, arr.begin() + right + 1, ","));
+			std::string data = fmt::format("{}", fmt::join(arr.begin() + left, arr.begin() + right + 1, ","));
 			dbg(data, left, right);
 			if (interval < result) {
 				result = interval;
