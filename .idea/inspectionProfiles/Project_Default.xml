@@ -1,0 +1,47 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="OCUnusedGlobalDeclaration" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="OCUnusedStruct" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="OCUnusedTypeAlias" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="3">
+            <item index="0" class="java.lang.String" itemvalue="PyInstaller" />
+            <item index="1" class="java.lang.String" itemvalue="PyQt5" />
+            <item index="2" class="java.lang.String" itemvalue="vtk" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E402" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="vtk.qt" />
+          <option value="PyQt5.QtWidgets.clicked.connect" />
+          <option value="PyQt5.QtCore.Qt.AlignTop" />
+          <option value="PyQt5.QtCore.Qt.AlignLeft" />
+          <option value="PyQt5.QtCore.Qt.AlignRight" />
+          <option value="PyQt5.QtCore.pyqtSignal.connect" />
+          <option value="PyQt5.QtWidgets.triggered.connect" />
+          <option value="PyQt5.QtCore.pyqtSignal.emit" />
+          <option value="PyQt5.QtCore.destroyed.connect" />
+          <option value="argparse.ArgumentParser.*" />
+          <option value="PyQt5.QtWidgets.valueChanged.emit" />
+          <option value="PyQt5.QtWidgets.sliderReleased.connect" />
+          <option value="PyQt5.QtWidgets.sliderPressed.connect" />
+          <option value="PyQt5.QtWidgets.valueChanged.connect" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="UnusedValue" enabled="false" level="WARNING" enabled_by_default="false" />
+  </profile>
+</component>
