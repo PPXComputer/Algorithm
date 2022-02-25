@@ -689,14 +689,84 @@ void Dynamic::snake()
 		{0,-9,-2,2,-7},
 	};
 
-	const auto& dfs = [&data](int x, int y, int cur, int minimum = INT_MAX, auto&& dfs)->int {
-		if (cur < 0)return INT_M;
+	// 递归暴力解法
+	const auto& enumDfs = [&data](int x, int y, int cur, int minimum = INT_MAX, auto&& dfs)->int {
+		if (cur < 0)return INT_MIN;
 		if (x >= 5 or x < 0 or y >= 5 or y < 0)return cur;
 		if (minimum > data[x][y]) minimum = data[x][y];
 		cur = cur + data[x][y];
 		return  std::max(dfs(x + 1, y, cur, minimum, dfs),
 			dfs(x - 1, y + 1, cur, minimum, dfs),
 			dfs(x, y + 1, cur, minimum, dfs));
+	};
+	int result = INT_MIN;
+	for (const auto& item : data) {
+		for (int& i : data) {
+
+			if (i < 0) {
+				int a = dfs(0, 0, 0, INT_MAX, dfs);
+				i = -i;
+				int b = dfs(0, 0, 0, INT_MAX, dfs);
+				result = std::max({ result,a,b });
+			}
+			else {
+				result = std::max(result, dfs(0, 0, 0, INT_MAX, dfs));
+			}
+		}
+	}
+
+
+	struct MazeResult {
+		int cur_value;
+		int find_minimum;
+		bool used_flip;
+	};
+
+
+	// 添加到当前的 最小值判断中将当前 可能遇到的值中变化一次常数
+	// 当前的值和过程中遇到的最小的数
+	const auto& cacheMinimum = [&data](int x, int y, MazeResult cur, auto&& dfs)->MazeResult {
+		//越界返回
+		if (x >= 5 or x < 0 or y >= 5 or y < 0)return cur;
+
+		// 记录路上碰到的最小值
+		if (cur.find_minimum > data[x][y]) cur.find_minimum = data[x][y];
+
+		//走到当前的步骤时进行记录
+		cur.cur_value += data[x][y];
+
+		//如果记录当前值后为负数 则可能直接返回
+		if (cur.cur_value < 0) {
+			if (cur.used_flip == false and cur.cur_value - cur.find_minimum >= 0) {
+				//当前为负数 并未使用过翻转所以 将最后一个元素转换为的正数
+				cur.used_flip = true;
+				cur.cur_value -= cur.find_minimum;
+			}
+			else {
+				return cur; //如果为负值 且路径上通过翻转也不可能变成正数 则返回
+			}
+		}
+		MazeResult left = dfs(x + 1, y, cur, dfs);
+		MazeResult rightUp = dfs(x - 1, y + 1, cur, dfs);
+		MazeResult right = dfs(x, y + 1, cur, dfs);
+
+		auto get_potential = [left, right, rightUp]() {
+			if (left.used_flip == false and left.find_minimum < 0) {
+				left.used_flip = true;
+				left.cur_value -= left.find_minimum;
+			}
+			if (right.used_flip == false and right.find_minimum < 0) {
+				right.used_flip = true;
+				right.cur_value -= right.find_minimum;
+			}
+			if (rightUp.used_flip == false and rightUp.find_minimum < 0) {
+				rightUp.used_flip = true;
+				rightUp.cur_value -= rightUp.find_minimum;
+			}
+			return std::max({ left,rightUp,right }, [](MazeResult& lhs, MazeResult& rhs) {
+				return lhs.cur_value < rhs.cur_value});
+		};
+		return get_potential();
 	};
 
 }
