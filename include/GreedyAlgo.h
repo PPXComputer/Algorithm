@@ -69,6 +69,7 @@ private:
     static int enum_rope_way2(const fbvector<int> &data, int rope_len);
 
     static int enum_rope(const fbvector<int> &data, const int rope_len);
+
     static int money_way3(const fbvector<int> &cost, int aim);
 
     static int money_way2(const fbvector<int> &cost, int aim);

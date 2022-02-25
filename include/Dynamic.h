@@ -41,5 +41,7 @@ public:
     static void winner();
 
     static void color();
+
+    static void snake();
 private:
 };
