@@ -1,5 +1,6 @@
 #include "../include/Dynamic.h"
 #include "../include/GreedyAlgo.h"
+#include<ciso646>
 #include <initializer_list>
 #include <iostream>
 #include <optional>
@@ -207,7 +208,7 @@ void Dynamic::container() {
 }
 
 void Dynamic::partition() {
-	array data = { 123, 231, 52, 742, 31, 67, 9, 687, 12578 };
+	std::array data = { 123, 231, 52, 742, 31, 67, 9, 687, 12578 };
 	int result = INT_MIN;
 
 	for (int i = 1; i < data.size() - 1; i++) {
