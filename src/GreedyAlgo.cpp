@@ -1,4 +1,5 @@
 #include "../include/GreedyAlgo.h"
+#include <iso646.h>
 
 
 void GreedyAlgo::concat_strings() {

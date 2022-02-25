@@ -7,7 +7,6 @@
 #include <random>
 #include <array>
 #include <memory>
-
 #include<cassert>
 using std::cout;
 using std::initializer_list;
@@ -682,7 +681,7 @@ void Dynamic::snake()
 {
 
 	std::array<std::array<int, 5>, 5> data{
-		{3,1,-1,4,-7},
+		 std::array<int, 5>{3,1,-1,4,-7},
 		{1,1,-1,7,-1},
 		{5,-6,-7,8,5},
 		{6,-1,-10,1,3},
@@ -695,22 +694,22 @@ void Dynamic::snake()
 		if (x >= 5 or x < 0 or y >= 5 or y < 0)return cur;
 		if (minimum > data[x][y]) minimum = data[x][y];
 		cur = cur + data[x][y];
-		return  std::max(dfs(x + 1, y, cur, minimum, dfs),
+		return  std::max({dfs(x + 1, y, cur, minimum, dfs),
 			dfs(x - 1, y + 1, cur, minimum, dfs),
-			dfs(x, y + 1, cur, minimum, dfs));
+			dfs(x, y + 1, cur, minimum, dfs)});
 	};
 	int result = INT_MIN;
-	for (const auto& item : data) {
-		for (int& i : data) {
+	for (auto& item : data) {
+		for (int& i : item) {
 
 			if (i < 0) {
-				int a = dfs(0, 0, 0, INT_MAX, dfs);
+				int a = enumDfs(0, 0, 0, INT_MAX, enumDfs);
 				i = -i;
-				int b = dfs(0, 0, 0, INT_MAX, dfs);
+				int b = enumDfs(0, 0, 0, INT_MAX, enumDfs);
 				result = std::max({ result,a,b });
 			}
 			else {
-				result = std::max(result, dfs(0, 0, 0, INT_MAX, dfs));
+				result = std::max(result, enumDfs(0, 0, 0, INT_MAX, enumDfs));
 			}
 		}
 	}

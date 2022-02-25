@@ -1,5 +1,7 @@
 #include "../include/ArrayAlgo.h"
 #include "folly/Random.h"
+
+#include<vector>
 #include <dbg.h>
 #include <memory>
 #include <optional>
@@ -10,7 +12,7 @@ void ArrayAlgo::huffman_tree() {
 		result.reserve(end);
 		int start = 0;
 		while (start != end) {
-			if (start == 0 or start == 1)
+			if (start == 0 || start == 1)
 				result.push_back(1);
 			else {
 				size_t len = result.size();
