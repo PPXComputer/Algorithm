@@ -82,7 +82,7 @@ inline void GreedyAlgo::get_maximum_matrix() {
             for (int j = col - 2; j >= 0; j--) {
                 int cur = matrix[i][j];
                 if (cur) {
-                    right[i][j] = right[i][j + 1] + 1;
+                    right[i][j] = right[i][static_cast<std::array<int, 6Ui64>::size_type>(j) + 1] + 1;
                 } else {
                     right[i][j] = cur;
                 }

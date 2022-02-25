@@ -1,5 +1,6 @@
 #include "../include/Dynamic.h"
 #include "../include/GreedyAlgo.h"
+#include<ciso646>
 #include <initializer_list>
 #include <iostream>
 #include <optional>
@@ -207,7 +208,7 @@ void Dynamic::container() {
 }
 
 void Dynamic::partition() {
-	array data = { 123, 231, 52, 742, 31, 67, 9, 687, 12578 };
+	std::array data = { 123, 231, 52, 742, 31, 67, 9, 687, 12578 };
 	int result = INT_MIN;
 
 	for (int i = 1; i < data.size() - 1; i++) {
@@ -689,27 +690,27 @@ void Dynamic::snake()
 	};
 
 	// 递归暴力解法
-	const auto& enumDfs = [&data](int x, int y, int cur, int minimum = INT_MAX, auto&& dfs)->int {
+	const auto& enumDfs = [&data](int x, int y, int cur, auto&& dfs, int minimum)->int {
 		if (cur < 0)return INT_MIN;
 		if (x >= 5 or x < 0 or y >= 5 or y < 0)return cur;
 		if (minimum > data[x][y]) minimum = data[x][y];
 		cur = cur + data[x][y];
-		return  std::max({dfs(x + 1, y, cur, minimum, dfs),
-			dfs(x - 1, y + 1, cur, minimum, dfs),
-			dfs(x, y + 1, cur, minimum, dfs)});
+		return  std::max({dfs(x + 1, y, cur, dfs, minimum),
+			dfs(x - 1, y + 1, cur, dfs, minimum),
+			dfs(x, y + 1, cur, dfs, minimum)});
 	};
 	int result = INT_MIN;
 	for (auto& item : data) {
 		for (int& i : item) {
 
 			if (i < 0) {
-				int a = enumDfs(0, 0, 0, INT_MAX, enumDfs);
+				int a = enumDfs(0, 0, 0, enumDfs, INT_MAX);
 				i = -i;
-				int b = enumDfs(0, 0, 0, INT_MAX, enumDfs);
+				int b = enumDfs(0, 0, 0, enumDfs, INT_MAX);
 				result = std::max({ result,a,b });
 			}
 			else {
-				result = std::max(result, enumDfs(0, 0, 0, INT_MAX, enumDfs));
+				result = std::max(result, enumDfs(0, 0, 0, enumDfs, INT_MAX));
 			}
 		}
 	}
@@ -721,10 +722,13 @@ void Dynamic::snake()
 		bool used_flip;
 	};
 
-
+	
+	//MazeResult dp[5][5] = {};
 	// 添加到当前的 最小值判断中将当前 可能遇到的值中变化一次常数
 	// 当前的值和过程中遇到的最小的数
 	const auto& cacheMinimum = [&data](int x, int y, MazeResult cur, auto&& dfs)->MazeResult {
+		
+		
 		//越界返回
 		if (x >= 5 or x < 0 or y >= 5 or y < 0)return cur;
 

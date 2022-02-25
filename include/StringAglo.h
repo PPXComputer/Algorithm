@@ -36,6 +36,8 @@ public:
     static void string_replace();
 
     static void  boolean_expression();
+
+    static void expression();
 private:
     static void printAll(const fbstring &cur, size_t index, const fbstring &data);
 };

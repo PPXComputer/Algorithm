@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.20)
 project(Algorithm CXX)
 
 
-SET(CMAKE_CXX_STANDARD 17)
 # SET(CMAKE_CXX_FLAGS "-fsanitize=address")
 
 #SET(DBG_MACRO_INCLUDE_DIRS "DEBUG")

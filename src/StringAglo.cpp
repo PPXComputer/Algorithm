@@ -121,7 +121,7 @@ void StringAglo::string_expression()
 		if (static_cast<unsigned long long>(index) + 1 == len) //已经是最后一个字符了
 			return result;
 
-		auto concat_value = data.at(index) * 10 + data.at(index + 1);
+		auto concat_value = data.at(index) * 10 + data.at(static_cast<std::array<std::_Enforce_same<int, int, int, int, int>::type, 5Ui64>::size_type>(index) + 1);
 		if (static_cast<unsigned long long>(index) + 1 < len and concat_value < 27) {
 			result += impl(index + 2, impl);
 		}
@@ -284,6 +284,18 @@ void StringAglo::boolean_expression()
             return result;
     };
 	impl(impl, false, 0, expression.size() - 1);
+
+}
+
+void StringAglo::expression()
+{
+	fbstring str1 = "48*((70-65)-43)+8*1";
+	fbstring str2 = "3+1*4";
+	struct StrResult{
+		int find_right_bracket; //遇到右括号 或者终止
+
+	};
+
 
 }
 
