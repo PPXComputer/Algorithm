@@ -143,6 +143,7 @@ void StringAglo::find_longest_not_repeat_sub()
     std::array<int, 256> data{};
     std::fill(data.begin(), data.end(), -1);
     fbstring str = R"(assdgdhkasdgftyzxcyt)";
+	
     int result_len = 0;
     int interval = 0;
     int pre = -1;// 判断当前可以判断的字符起始位置在哪里
@@ -151,7 +152,7 @@ void StringAglo::find_longest_not_repeat_sub()
     for (size_t i = 0; i < size; i++)
     {
         // 当前的起始位置 要不就是与上一次一致  要不然就是上一次出现当前字符的位置
-		pre = std::max(pre, data[str[i]]);
+		pre = std::max(pre, data[static_cast<size_t>(str[i])]);
         // 当前可以达到的最大长度为
         interval = i - pre;
 		dbg(interval, 
@@ -293,8 +294,24 @@ void StringAglo::expression()
 	fbstring str2 = "3+1*4";
 	struct StrResult{
 		int find_right_bracket; //遇到右括号 或者终止
+		int end_position;
+	};
+
+	auto dfs = [&str1](int start, int cur, auto&& dfs)->StrResult {
+		fbvector<int> stack(str1.size()); //stack 存储当前的表达式 
+		// 按照当前的进栈规则行进
+		
+		while (start!=str1.size() and str1[start]!='}')
+		{
+
+		}
+
+		// stack  Manipulate
+	
+		
 
 	};
+
 
 
 }
