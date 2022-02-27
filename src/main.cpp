@@ -4,6 +4,7 @@
 #include"../include/GreedyAlgo.h"
 #include "../include/StringAglo.h"
 #include"../include/TreeAlgo.h"
+#include"../include/LeetCode.h"
 #include "dbg.h"
 using std::string;
 using folly::fbvector;
@@ -56,7 +57,8 @@ int main() {
     //ArrayAlgo::change_array_data();
     //ArrayAlgo::JosephProblem();
     /*ArrayAlgo::longestTotalArray();*/
-    ArrayAlgo::longestTotalArray();
+    //ArrayAlgo::longestTotalArray();
+    LeetCode::medium_34();
 }
 
 //#include <iostream>

@@ -303,7 +303,7 @@ void StringAglo::expression()
 		
 		while (start!=str1.size() and str1[start]!='}')
 		{
-
+			;
 		}
 
 		// stack  Manipulate
