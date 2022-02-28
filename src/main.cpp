@@ -58,7 +58,8 @@ int main() {
     //ArrayAlgo::JosephProblem();
     /*ArrayAlgo::longestTotalArray();*/
     //ArrayAlgo::longestTotalArray();
-    LeetCode::medium_34();
+    //LeetCode::medium_34();
+    LeetCode::medium_33();
 }
 
 //#include <iostream>
