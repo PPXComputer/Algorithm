@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 project(Algorithm CXX)
 
 
-# SET(CMAKE_CXX_FLAGS "-fsanitize=address")
+# SET(CMAKE_CXX_FLAGS "-fsanitize=address") folly ½ûÖ¹Ê¹ÓÃ....
 
 #SET(DBG_MACRO_INCLUDE_DIRS "DEBUG")
 SET(folly_DIR "D:\\Code\\tools\\vcpkg\\installed\\x64-windows\\share\\folly")
