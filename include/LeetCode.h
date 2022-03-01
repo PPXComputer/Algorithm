@@ -15,12 +15,17 @@ public:
 
 	// 25  k 个一组翻转链表
 	static void reverseKGroup();
+	//162 寻找峰值
+	static void findPeakElement();
+
+	// 153 找到旋转数组的的最小值
+	static void findMin();
 private:
 
 	struct RawNode
 	{
 		RawNode() :val(0), next{ nullptr }{}
-		RawNode(int x) :val(x), next(nullptr) {}
+		explicit RawNode(int x) :val(x), next(nullptr) {}
 		RawNode(int x, RawNode* raw_ptr) :val(x), next(raw_ptr) {}
 		RawNode(const RawNode&) = delete;
 		~RawNode() {
@@ -32,12 +37,12 @@ private:
 
 		}
 		static std::unique_ptr<RawNode> new_list(size_t length) {
-			auto root = new RawNode(0);
+			auto root = std::make_unique< RawNode>(0);
 			for (size_t i = 1; i < length; i++)
 			{
 				root->next = new RawNode(i);
 			}
-			return std::make_unique<RawNode>(root);
+			return root;
 		}
 		RawNode* next;
 		int val;

@@ -2,6 +2,7 @@
 #include <dbg.h>
 #include <cassert>
 #include <array>
+#include <fmt/format.h>
 void LeetCode::medium_33()
 {
 	//旋转后的数组 
@@ -97,7 +98,7 @@ void LeetCode::medium_74()
 	int left = 0;
 	constexpr size_t matrix_column = matrix.front().size();
 	constexpr size_t matrix_row = matrix.size();
-	int right = static_cast<int> (matrix_row * matrix_column);
+	int right = static_cast<int> (matrix_row * matrix_column - 1);
 	int target = 3;
 	auto transform_really_pos = [](int pos, int row, int column)->std::pair<int, int> {
 		assert(pos >= 0 and pos < row* column);
@@ -107,25 +108,25 @@ void LeetCode::medium_74()
 		while (left < right)
 		{
 			int mid = ((right - left) >> 1) + left;
-
+			dbg(fmt::format("{} {} {} ", left, right, mid));
 			auto pos = transform_really_pos(mid, matrix_row, matrix_column);
+			dbg(fmt::format("{}", matrix[pos.first][pos.second]));
 			if (matrix[pos.first][pos.second] == target) {
 				return true;
 			}
 			else if (matrix[pos.first][pos.second] > target) {
-				left = mid + 1;
+				right = mid - 1;
 			}
 			else
 			{
-				right = mid - 1;
+				left = mid + 1;
 			}
-
 		}
 		auto pos = transform_really_pos(left, matrix_row, matrix_column);
 		return matrix[pos.first][pos.second] == target;
 
 	};
-	find();
+	dbg(find());
 
 }
 
@@ -133,30 +134,22 @@ void LeetCode::reverseKGroup()
 {
 	constexpr int length = 10;
 	std::unique_ptr<RawNode> root_ptr = LeetCode::RawNode::new_list(length);
-	RawNode* head = nullptr;
-	RawNode* cur = nullptr;
-	RawNode* first_head = nullptr;
 	RawNode* root = root_ptr.get();
 	//多个值相连
 	//旋转当前中最近的数据
 	int k = 4;
 	int time = length / 4;
 	int count = 0;
-	RawNode* result = nullptr;
 
+
+	// 翻转后的 头  尾 和后一个元素
 	auto reverse_list = [](RawNode* start, int need) {
 		RawNode* head = nullptr;
 		RawNode* cur = nullptr;
 		int repeat_time = 0;
-		// 翻转后的 头  尾 和后一个元素
-		std::tuple<RawNode*, RawNode*, RawNode*> result{nullptr, start,nullptr };
+		std::tuple<RawNode*, RawNode*, RawNode*> result{ nullptr, start,nullptr };
 		while (repeat_time != need)
 		{
-			bool isFirstTime = repeat_time == 0; //第一次记录
-			if (isFirstTime) {
-				std::get<1>(result) = start;
-			}
-
 			cur = start->next;
 			start->next = head;
 			head = start;
@@ -167,33 +160,82 @@ void LeetCode::reverseKGroup()
 			if (isLastTime)
 			{
 				//将当前最后一个的元素保留下来
-				result[0] = nullptr;
+				std::get<0>(result) = head;
+				std::get<2>(result) = cur;
 			}
 		}
+		return result;
 	};
+
+	RawNode* result = nullptr;
+	RawNode* lastTail = nullptr;
+	RawNode* lastStart = root;
 	if (time > 0 and length != 1) {
-		vector<RawNode*> last_container; //将每次最后一个的链表给链接上
-		last_container.reserve(time);
-		while (time != 0) {
-			//翻转
-			if (count == k) {
-				bool isFirstFlip = time == length - 4;
-				if (isFirstFlip) { //第一次翻转
-					result = head;
-				}
-				root = cur;
-				first_head->next = root;
-				count = 0; time -= 1;
+		int start = 0;
+		while (time != start) {
+			auto result_tuple = reverse_list(lastStart, k);
+			if (start == 0) {
+				result = std::get<0>(result_tuple); //将结果保存
 			}
-			if (count == 0) {
-				first_head = root;
+			else {
+				if (lastTail)lastTail->next = std::get<0>(result_tuple);
+
 			}
-			cur = root->next;
-			root->next = head;
-			head = head->next;
-			count++;
+			lastStart = std::get<2>(result_tuple);
+			lastTail = std::get<1>(result_tuple);
+			start++;
 		}
 	}
 
+
+}
+
+void LeetCode::findPeakElement()
+{
+	vector<int> data{ 1,2,1,3,5,6,4 };
+	int left = 0; int right = data.size() - 1;
+	while (left < right) {
+		int mid = ((right - left) >> 1) + left;
+
+		dbg(fmt::format("{} {} {} ", left, right, mid));
+		dbg(fmt::format("{} {} {} ", data[left], data[right], data[mid]));
+
+		if (data[mid] < data[static_cast<size_t>(mid + 1)])
+		{
+			left = mid + 1;
+		}
+		else {
+			right = mid;
+		}
+	}
+	dbg(left);
+
+}
+
+void LeetCode::findMin()
+{
+	std::vector<int> data = { 3,4,5,1,2 };
+	auto ans = [](vector<int>& nums) {
+		// 一边有序的数组
+		int left = 0;
+		int right = static_cast<int>(nums.size() - 1);
+
+		while (left < right)
+		{
+			int mid = ((right - left) >> 1) + left;
+			dbg(fmt::format("{} {} {} ", left, right, mid));
+			dbg(fmt::format("{} {} {} ", nums[left], nums[right], nums[mid]));
+			if (nums[right] < nums[left]) //右侧有序 则答案在左边 ?
+			{
+				left = mid;
+			}
+			else { //左侧有序
+				right = mid + 1;
+			}
+		}
+		dbg(nums[left]);
+
+	};
+	ans(data);
 
 }

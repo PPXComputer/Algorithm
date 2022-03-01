@@ -59,7 +59,10 @@ int main() {
     /*ArrayAlgo::longestTotalArray();*/
     //ArrayAlgo::longestTotalArray();
     //LeetCode::medium_34();
-    LeetCode::medium_33();
+    //LeetCode::medium_33();
+    //LeetCode::findPeakElement();
+    //LeetCode::medium_74();
+    LeetCode::findMin();
 }
 
 //#include <iostream>
