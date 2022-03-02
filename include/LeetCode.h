@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include<memory>
+#include <cassert>
 using std::vector;
 
 class LeetCode
@@ -20,51 +21,63 @@ public:
 
 	// 153 找到旋转数组的的最小值
 	static void findMin();
+
+	//82. 删除排序链表中的重复元素 II
+	static void		deleteDuplicatesFromList();
+
+	//15. 三数之和
+	static void three_num();
 private:
-
-	struct RawNode
-	{
-		RawNode() :val(0), next{ nullptr }{}
-		explicit RawNode(int x) :val(x), next(nullptr) {}
-		RawNode(int x, RawNode* raw_ptr) :val(x), next(raw_ptr) {}
-		RawNode(const RawNode&) = delete;
-		~RawNode() {
-			while (next != nullptr)
-			{
-				auto last = next->next;
-				delete next;
-			}
-
-		}
-		static std::unique_ptr<RawNode> new_list(size_t length) {
-			auto root = std::make_unique< RawNode>(0);
-			for (size_t i = 1; i < length; i++)
-			{
-				root->next = new RawNode(i);
-			}
-			return root;
-		}
-		RawNode* next;
-		int val;
-
-	};
 
 	struct ListNode
 	{
-
 		ListNode() :val(0), next{ nullptr }{}
-		ListNode(int x) :val(x), next(nullptr) {}
+		explicit ListNode(int x) :val(x), next(nullptr) {}
 		ListNode(int x, ListNode* raw_ptr) :val(x), next(raw_ptr) {}
-		std::shared_ptr<ListNode> next;
+		ListNode(const ListNode&) = delete;
+		ListNode* next;
 		int val;
 
-		static std::shared_ptr<ListNode> new_list(size_t length) {
-			auto root = std::make_shared<ListNode>(0);
+
+
+		static std::unique_ptr<ListNode> new_list(size_t length) {
+			assert(length != 0);
+			auto result = std::make_unique<ListNode>(0);
+			result->node.reserve(length - 1);
+			auto root = result.get();
 			for (size_t i = 1; i < length; i++)
 			{
-				root->next = std::make_shared<ListNode>(i);
+				root->next = new ListNode(i);
+				root = root->next;
+				result->node.emplace_back(root);
 			}
-			return root;
+			return result;
 		}
+
+		static std::unique_ptr<ListNode> new_list(const std::vector<int>& data) {
+			if (data.empty())return nullptr;
+			auto result = std::make_unique< ListNode>(data[0]);
+			auto root = result.get();
+			result->node.reserve(data.size() - 1);
+			size_t size = data.size();
+			for (size_t i = 1; i < size; i++)
+			{
+				root->next = new ListNode(data[i]);
+				root = root->next;
+				result->node.emplace_back(root);
+			}
+			return result;
+		}
+		~ListNode() {
+
+			for (auto data : node) {
+				delete data;
+			}
+		}
+	private:
+
+		std::vector<ListNode*> node = {};
 	};
+
+
 };

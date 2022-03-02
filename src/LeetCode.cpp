@@ -133,8 +133,8 @@ void LeetCode::medium_74()
 void LeetCode::reverseKGroup()
 {
 	constexpr int length = 10;
-	std::unique_ptr<RawNode> root_ptr = LeetCode::RawNode::new_list(length);
-	RawNode* root = root_ptr.get();
+	std::unique_ptr<ListNode> root_ptr = LeetCode::ListNode::new_list(length);
+	ListNode* root = root_ptr.get();
 	//多个值相连
 	//旋转当前中最近的数据
 	int k = 4;
@@ -143,11 +143,11 @@ void LeetCode::reverseKGroup()
 
 
 	// 翻转后的 头  尾 和后一个元素
-	auto reverse_list = [](RawNode* start, int need) {
-		RawNode* head = nullptr;
-		RawNode* cur = nullptr;
+	auto reverse_list = [](ListNode* start, int need) {
+		ListNode* head = nullptr;
+		ListNode* cur = nullptr;
 		int repeat_time = 0;
-		std::tuple<RawNode*, RawNode*, RawNode*> result{ nullptr, start,nullptr };
+		std::tuple<ListNode*, ListNode*, ListNode*> result{ nullptr, start,nullptr };
 		while (repeat_time != need)
 		{
 			cur = start->next;
@@ -167,9 +167,9 @@ void LeetCode::reverseKGroup()
 		return result;
 	};
 
-	RawNode* result = nullptr;
-	RawNode* lastTail = nullptr;
-	RawNode* lastStart = root;
+	ListNode* result = nullptr;
+	ListNode* lastTail = nullptr;
+	ListNode* lastStart = root;
 	if (time > 0 and length != 1) {
 		int start = 0;
 		while (time != start) {
@@ -191,7 +191,7 @@ void LeetCode::reverseKGroup()
 }
 
 void LeetCode::findPeakElement()
-{
+{ //爬坡 不断向旁边最高前进
 	vector<int> data{ 1,2,1,3,5,6,4 };
 	int left = 0; int right = data.size() - 1;
 	while (left < right) {
@@ -205,7 +205,7 @@ void LeetCode::findPeakElement()
 			left = mid + 1;
 		}
 		else {
-			right = mid;
+			right = mid; // 保留当前位置的点
 		}
 	}
 	dbg(left);
@@ -227,6 +227,10 @@ void LeetCode::findMin()
 			int mid = ((right - left) >> 1) + left;
 			dbg(fmt::format("{} {} {} ", left, right, mid));
 			dbg(fmt::format("{} {} {} ", nums[left], nums[right], nums[mid]));
+			if (nums[mid] < nums[right])
+				right = mid;
+			else
+				left = mid + 1;
 
 		}
 		dbg(nums[left]);
@@ -234,4 +238,83 @@ void LeetCode::findMin()
 	};
 	ans(data);
 
+}
+
+void LeetCode::deleteDuplicatesFromList()
+{
+	//给定一个已排序的链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字 。返回 已排序的链表 。
+	std::vector<int> data = { 1,1,2,2 };
+	std::unique_ptr<ListNode> ptr = ListNode::new_list(data);
+	auto head = ptr.get();
+	auto answer_forward = [&]() {
+		auto root = head;
+		if (root == nullptr)return head;
+		int val;
+		auto cur = root->next;
+		ListNode* prev = root;
+		bool isFirstTime = true;
+		while (cur != nullptr) {
+			val = root->val;
+
+			if (val == cur->val) {
+				while (cur != nullptr and cur->val == val) {
+					cur = cur->next;
+				}
+
+				if (prev == root) {
+					if (cur == nullptr)return  static_cast<ListNode*>(nullptr);
+					else {
+						head = cur;
+						prev = cur;
+						root = cur;
+					}
+				}
+				else
+				{
+					prev->next = cur;
+					root = cur;
+				}
+				if (cur == nullptr)break;
+				cur = cur->next;
+
+			}
+			else {
+				prev = root;
+				root = cur;
+				cur = cur->next;
+			}
+
+		}
+		return head;
+	};
+	//answer_forward();
+	auto answer_dummpy_head = [&]() {
+		auto root = head;
+		if (root == nullptr)return head;
+		auto dummy = std::make_unique<ListNode>(0, head);
+		auto cur = dummy.get();
+		while (cur->next != nullptr and cur->next->next != nullptr)
+		{
+			if (cur->next->val == cur->next->next->val) {
+				auto forward = cur->next->next;
+				do { forward = forward->next; } while (forward != nullptr and forward->val != cur->next->val);
+				cur->next = forward;
+			}
+			else {
+				cur = cur->next;
+			}
+		}
+		return dummy->next;
+	};
+}
+
+void LeetCode::three_num()
+{
+	// 找到所有和为 0的不重复的三元组
+	std::vector nums = { -1,0,1,2,-1,-4 };
+	
+	auto answer = [&]()->std::vector<std::vector<int>> {
+		if (nums.size() < 3)return {};
+
+	};
 }

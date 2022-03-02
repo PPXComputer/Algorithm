@@ -62,7 +62,8 @@ int main() {
     //LeetCode::medium_33();
     //LeetCode::findPeakElement();
     //LeetCode::medium_74();
-    LeetCode::findMin();
+    //LeetCode::findMin();
+    LeetCode::deleteDuplicatesFromList();
 }
 
 //#include <iostream>
