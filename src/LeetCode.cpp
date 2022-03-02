@@ -425,18 +425,16 @@ void LeetCode::three_num()
 
 void LeetCode::fib()
 {
-	constexpr auto answer = [](int n) {
-		if (n <= 1)
-		{
-			return n;
-		}
-		int data[] = { 0,1,1 };
-		while (n-- != 2) {
-			int tmp = data[2];
-			data[2] = data[0] + data[1];
-			data[0] = data[1];
-			data[1] = tmp;
-		}
-		return data[2];
+	constexpr auto answer = [] {
+		constexpr int n = 3;
+		constexpr auto fib_impl = [] {
+			std::array<int, 31> fib{ 0, 1 };
+			for (int i = 2; i != 31; ++i) {
+				fib[i] = fib[i - 1] + fib[i - 2];
+			}
+			return fib;
+		}();
+
+		return fib_impl[n];
 	};
 }
