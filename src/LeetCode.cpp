@@ -329,8 +329,6 @@ void LeetCode::three_num()
 		}
 		dbg(map);
 		std::vector<std::vector<int>> result;
-
-
 		for (auto first : data) {
 			if (map[first] > 0) {
 				//找到当前的元素为第一个元素
@@ -346,14 +344,21 @@ void LeetCode::three_num()
 						map[second] -= 1;
 						int third = value - second;
 						if (map.find(third) != map.end() and map[third] > 0) {
-							result.emplace_back(vector<int>{first, second, third});
-							map[third] -= 1;
-							if (if_not_match) {
-								if_not_match = false;
-							}
-							else {
+							if (not if_not_match) {
+								if (map[first] <= 0) {
+									map[second] += 1;
+									continue;
+								}
 								map[first] -= 1;
 							}
+							else {
+								if_not_match = false;
+							}
+							map[third] -= 1;
+							dbg(map[third], map[first], if_not_match ? map[first] : map[first] - 1);
+
+							result.emplace_back(vector<int>{first, second, third});
+
 						}
 						else {
 							map[second] += 1;
@@ -368,8 +373,70 @@ void LeetCode::three_num()
 			}
 		}
 		dbg(map);
+		dbg(result);
 		return result;
 
 	};
-	answer(nums);
+	//answer(nums);
+
+	auto sort_answer = [&](std::vector<int>& data)->std::vector<std::vector<int>> {
+		std::vector<int>::size_type size = data.size();
+		if (size < 3)return {};
+		std::sort(data.begin(), data.end());
+		int start = 0;
+
+		std::vector<std::vector<int>> result;
+		while (start < size - 2 and data[start] <= 0) {
+			if (start > 0 and data[start] == data[static_cast<size_t>(start) - 1]) {
+				start++;
+				continue;
+			} // 相同直接跳答案处
+			//data 已经排序完成了 如果大于零则没必要再继续下去了
+			int left = start + 1;
+			int right = static_cast<int>(size - 1);
+			while (left < right)
+			{
+				int cur = data[left] + data[start] + data[right];
+				//auto str = fmt::format("left{} right{} start{}", left, right, start);
+				//dbg(str, cur);
+				if (cur == 0) {
+					//dbg(data[start], data[left], data[right]);
+					result.emplace_back(std::vector<int>{data[start], data[left], data[right]});
+					// 跳过相同的left 到达了最后一个相同的位置
+					while (left < right and data[left] == data[static_cast<size_t>(left) + 1])left++;
+					while (left < right and data[right] == data[static_cast<size_t>(right) - 1])right--;
+					left++;
+					right--; //到达两者都不重复上上一解的地方
+				}
+				else if (cur > 0) {
+					right -= 1;
+				}
+				else {
+					left += 1;
+				}
+			}
+			start++;
+		}
+		return result;
+	};
+	auto parm = vector<int>{ -1,0,1,2,-1,-4 };
+	dbg(sort_answer(parm));
+}
+
+void LeetCode::fib()
+{
+	constexpr auto answer = [](int n) {
+		if (n <= 1)
+		{
+			return n;
+		}
+		int data[] = { 0,1,1 };
+		while (n-- != 2) {
+			int tmp = data[2];
+			data[2] = data[0] + data[1];
+			data[0] = data[1];
+			data[1] = tmp;
+		}
+		return data[2];
+	};
 }

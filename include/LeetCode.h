@@ -27,6 +27,9 @@ public:
 
 	//15. 三数之和
 	static void three_num();
+
+	//509 斐波那契 数
+	static void fib();
 private:
 
 	struct ListNode
