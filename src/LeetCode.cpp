@@ -3,6 +3,7 @@
 #include <cassert>
 #include <array>
 #include <fmt/format.h>
+#include <unordered_map>
 void LeetCode::medium_33()
 {
 	//旋转后的数组 
@@ -311,10 +312,64 @@ void LeetCode::deleteDuplicatesFromList()
 void LeetCode::three_num()
 {
 	// 找到所有和为 0的不重复的三元组
-	std::vector nums = { -1,0,1,2,-1,-4 };
-	
-	auto answer = [&]()->std::vector<std::vector<int>> {
+	std::vector nums = { -2,0,0,2,2 };
+
+	auto answer = [&](const std::vector<int>& data)->std::vector<std::vector<int>> {
 		if (nums.size() < 3)return {};
+		// 二元组问题
+		std::unordered_map<int, int> map;
+		for (auto i : data) {
+			if (map.find(i) == map.end())
+			{
+				map.insert({ i, 1 });
+			}
+			else {
+				map[i] += 1;
+			}
+		}
+		dbg(map);
+		std::vector<std::vector<int>> result;
+
+
+		for (auto first : data) {
+			if (map[first] > 0) {
+				//找到当前的元素为第一个元素
+
+				int take_time = -1;
+				int value = -first;
+				map[first] -= 1;
+				bool if_not_match = true;
+				for (auto second : data)
+				{
+					if (map[second] > 0) {
+						//找到对称的数据
+						map[second] -= 1;
+						int third = value - second;
+						if (map.find(third) != map.end() and map[third] > 0) {
+							result.emplace_back(vector<int>{first, second, third});
+							map[third] -= 1;
+							if (if_not_match) {
+								if_not_match = false;
+							}
+							else {
+								map[first] -= 1;
+							}
+						}
+						else {
+							map[second] += 1;
+						}
+					}
+				}
+				if (if_not_match)
+				{
+					map[first] += 1;
+				}
+
+			}
+		}
+		dbg(map);
+		return result;
 
 	};
+	answer(nums);
 }
