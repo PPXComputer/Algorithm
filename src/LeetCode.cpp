@@ -215,6 +215,8 @@ void LeetCode::findPeakElement()
 void LeetCode::findMin()
 {
 	std::vector<int> data = { 3,4,5,1,2 };
+	//找到旋转数组的最小值
+	// 找到当前每次中到达的数据点 找到一个数当前的 左边的数大于他 右边的数小于他
 	auto ans = [](vector<int>& nums) {
 		// 一边有序的数组
 		int left = 0;
@@ -225,13 +227,7 @@ void LeetCode::findMin()
 			int mid = ((right - left) >> 1) + left;
 			dbg(fmt::format("{} {} {} ", left, right, mid));
 			dbg(fmt::format("{} {} {} ", nums[left], nums[right], nums[mid]));
-			if (nums[right] < nums[left]) //右侧有序 则答案在左边 ?
-			{
-				left = mid;
-			}
-			else { //左侧有序
-				right = mid + 1;
-			}
+
 		}
 		dbg(nums[left]);
 
