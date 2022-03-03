@@ -42,6 +42,12 @@ public:
 
 	//198. 打家劫舍
 	static void houseRobber();
+
+	//844. 比较含退格的字符串
+	static void backspaceCompare();
+
+	//986. 区间列表的交集 
+	static void intervalIntersection();
 private:
 
 	struct ListNode
