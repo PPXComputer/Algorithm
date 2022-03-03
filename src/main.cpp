@@ -64,7 +64,8 @@ int main() {
     //LeetCode::medium_74();
     //LeetCode::findMin();
     //LeetCode::deleteDuplicatesFromList();
-    LeetCode::three_num();
+    //LeetCode::three_num();
+    LeetCode::backspaceCompare();
 }
 
 //#include <iostream>

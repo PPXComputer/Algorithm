@@ -1,12 +1,13 @@
-#include "../include/LeetCode.h"
+ï»¿#include "../include/LeetCode.h"
 #include <dbg.h>
 #include <cassert>
 #include <array>
 #include <fmt/format.h>
 #include <unordered_map>
+using std::string;
 void LeetCode::medium_33()
 {
-	//Ğı×ªºóµÄÊı×é 
+	//æ—‹è½¬åçš„æ•°ç»„ 
 	auto impl = []() {
 		std::array<int, 7> nums{ 4,5,6,7,0,1,2 };
 		int target = 0;
@@ -16,23 +17,23 @@ void LeetCode::medium_33()
 			int mid = ((right - left) >> 1) + left;
 			dbg(left, right, mid, nums[mid]);
 			if (target == nums[mid]) return mid;
-			if (nums[mid] <= nums[right]) // ÓÒ²àÓĞĞò
+			if (nums[mid] <= nums[right]) // å³ä¾§æœ‰åº
 			{
 				if (target <= nums[right] and target > nums[mid]) {
 					left = mid + 1;
 				}
 				else {
-					//Ïò×ó±ßÕÒ
+					//å‘å·¦è¾¹æ‰¾
 					right = mid - 1;
 				}
 
 			}
-			else { //×ó²àÓĞĞò
+			else { //å·¦ä¾§æœ‰åº
 				if (target >= nums[left] and target < nums[mid]) {
 					right = mid - 1;
 				}
 				else {
-					//ÏòÓÒ±ßÕÒ
+					//å‘å³è¾¹æ‰¾
 					left = mid + 1;
 				}
 			}
@@ -50,7 +51,7 @@ void LeetCode::medium_34()
 		int left = 0;
 		int right = static_cast<int>(nums.size() - 1);
 		while (left < right) {
-			//ÕÒµ½µÚÒ»¸ö³öÏÖtargetµÄµØ·½
+			//æ‰¾åˆ°ç¬¬ä¸€ä¸ªå‡ºç°targetçš„åœ°æ–¹
 			int mid = left + ((right - left) >> 1);
 			dbg(left, right, mid, nums[mid]);
 			if (nums[mid] > target) {
@@ -60,7 +61,7 @@ void LeetCode::medium_34()
 				left = mid + 1;
 			}
 			else {
-				right = mid; //µÈÓÚÔò²»¶¯ ¿ÉÄÜËû¾ÍÊÇµÚÒ»¸ö
+				right = mid; //ç­‰äºåˆ™ä¸åŠ¨ å¯èƒ½ä»–å°±æ˜¯ç¬¬ä¸€ä¸ª
 			}
 		}
 		if (nums[left] != target)return { -1,-1 };
@@ -68,8 +69,8 @@ void LeetCode::medium_34()
 		left = 0; right = static_cast<int>(nums.size() - 1);
 
 		while (left < right) {
-			//ÕÒµ½×îºóÒ»¸ö³öÏÖtargetµÄµØ·½
-			int mid = left + ((right - left) >> 1) + 1; //ÏòÓÒ²àÆ«ÒÆÒ»¸ñ ÏòÓÒ±ß¿¿
+			//æ‰¾åˆ°æœ€åä¸€ä¸ªå‡ºç°targetçš„åœ°æ–¹
+			int mid = left + ((right - left) >> 1) + 1; //å‘å³ä¾§åç§»ä¸€æ ¼ å‘å³è¾¹é 
 			dbg(left, right, mid, nums[mid]);
 			if (nums[mid] > target) {
 				right = mid - 1;
@@ -95,7 +96,7 @@ void LeetCode::medium_74()
 		{10,11,16,20},
 		{23,30,34,60}
 	};
-	// ½«µ±Ç°µÄËÑË÷ ×ª»»Îª¶şÎ¬×ø±ê
+	// å°†å½“å‰çš„æœç´¢ è½¬æ¢ä¸ºäºŒç»´åæ ‡
 	int left = 0;
 	constexpr size_t matrix_column = matrix.front().size();
 	constexpr size_t matrix_row = matrix.size();
@@ -136,14 +137,14 @@ void LeetCode::reverseKGroup()
 	constexpr int length = 10;
 	std::unique_ptr<ListNode> root_ptr = LeetCode::ListNode::new_list(length);
 	ListNode* root = root_ptr.get();
-	//¶à¸öÖµÏàÁ¬
-	//Ğı×ªµ±Ç°ÖĞ×î½üµÄÊı¾İ
+	//å¤šä¸ªå€¼ç›¸è¿
+	//æ—‹è½¬å½“å‰ä¸­æœ€è¿‘çš„æ•°æ®
 	int k = 4;
 	int time = length / 4;
 	int count = 0;
 
 
-	// ·­×ªºóµÄ Í·  Î² ºÍºóÒ»¸öÔªËØ
+	// ç¿»è½¬åçš„ å¤´  å°¾ å’Œåä¸€ä¸ªå…ƒç´ 
 	auto reverse_list = [](ListNode* start, int need) {
 		ListNode* head = nullptr;
 		ListNode* cur = nullptr;
@@ -160,7 +161,7 @@ void LeetCode::reverseKGroup()
 			bool isLastTime = repeat_time == need;
 			if (isLastTime)
 			{
-				//½«µ±Ç°×îºóÒ»¸öµÄÔªËØ±£ÁôÏÂÀ´
+				//å°†å½“å‰æœ€åä¸€ä¸ªçš„å…ƒç´ ä¿ç•™ä¸‹æ¥
 				std::get<0>(result) = head;
 				std::get<2>(result) = cur;
 			}
@@ -176,7 +177,7 @@ void LeetCode::reverseKGroup()
 		while (time != start) {
 			auto result_tuple = reverse_list(lastStart, k);
 			if (start == 0) {
-				result = std::get<0>(result_tuple); //½«½á¹û±£´æ
+				result = std::get<0>(result_tuple); //å°†ç»“æœä¿å­˜
 			}
 			else {
 				if (lastTail)lastTail->next = std::get<0>(result_tuple);
@@ -192,7 +193,7 @@ void LeetCode::reverseKGroup()
 }
 
 void LeetCode::findPeakElement()
-{ //ÅÀÆÂ ²»¶ÏÏòÅÔ±ß×î¸ßÇ°½ø
+{ //çˆ¬å¡ ä¸æ–­å‘æ—è¾¹æœ€é«˜å‰è¿›
 	vector<int> data{ 1,2,1,3,5,6,4 };
 	int left = 0; int right = data.size() - 1;
 	while (left < right) {
@@ -206,7 +207,7 @@ void LeetCode::findPeakElement()
 			left = mid + 1;
 		}
 		else {
-			right = mid; // ±£Áôµ±Ç°Î»ÖÃµÄµã
+			right = mid; // ä¿ç•™å½“å‰ä½ç½®çš„ç‚¹
 		}
 	}
 	dbg(left);
@@ -216,10 +217,10 @@ void LeetCode::findPeakElement()
 void LeetCode::findMin()
 {
 	std::vector<int> data = { 3,4,5,1,2 };
-	//ÕÒµ½Ğı×ªÊı×éµÄ×îĞ¡Öµ
-	// ÕÒµ½µ±Ç°Ã¿´ÎÖĞµ½´ïµÄÊı¾İµã ÕÒµ½Ò»¸öÊıµ±Ç°µÄ ×ó±ßµÄÊı´óÓÚËû ÓÒ±ßµÄÊıĞ¡ÓÚËû
+	//æ‰¾åˆ°æ—‹è½¬æ•°ç»„çš„æœ€å°å€¼
+	// æ‰¾åˆ°å½“å‰æ¯æ¬¡ä¸­åˆ°è¾¾çš„æ•°æ®ç‚¹ æ‰¾åˆ°ä¸€ä¸ªæ•°å½“å‰çš„ å·¦è¾¹çš„æ•°å¤§äºä»– å³è¾¹çš„æ•°å°äºä»–
 	auto ans = [](vector<int>& nums) {
-		// Ò»±ßÓĞĞòµÄÊı×é
+		// ä¸€è¾¹æœ‰åºçš„æ•°ç»„
 		int left = 0;
 		int right = static_cast<int>(nums.size() - 1);
 
@@ -243,7 +244,7 @@ void LeetCode::findMin()
 
 void LeetCode::deleteDuplicatesFromList()
 {
-	//¸ø¶¨Ò»¸öÒÑÅÅĞòµÄÁ´±íµÄÍ· head £¬ É¾³ıÔ­Ê¼Á´±íÖĞËùÓĞÖØ¸´Êı×ÖµÄ½Úµã£¬Ö»ÁôÏÂ²»Í¬µÄÊı×Ö ¡£·µ»Ø ÒÑÅÅĞòµÄÁ´±í ¡£
+	//ç»™å®šä¸€ä¸ªå·²æ’åºçš„é“¾è¡¨çš„å¤´ head ï¼Œ åˆ é™¤åŸå§‹é“¾è¡¨ä¸­æ‰€æœ‰é‡å¤æ•°å­—çš„èŠ‚ç‚¹ï¼Œåªç•™ä¸‹ä¸åŒçš„æ•°å­— ã€‚è¿”å› å·²æ’åºçš„é“¾è¡¨ ã€‚
 	std::vector<int> data = { 1,1,2,2 };
 	std::unique_ptr<ListNode> ptr = ListNode::new_list(data);
 	auto head = ptr.get();
@@ -311,12 +312,12 @@ void LeetCode::deleteDuplicatesFromList()
 
 void LeetCode::three_num()
 {
-	// ÕÒµ½ËùÓĞºÍÎª 0µÄ²»ÖØ¸´µÄÈıÔª×é
+	// æ‰¾åˆ°æ‰€æœ‰å’Œä¸º 0çš„ä¸é‡å¤çš„ä¸‰å…ƒç»„
 	std::vector nums = { -2,0,0,2,2 };
 
 	auto answer = [&](const std::vector<int>& data)->std::vector<std::vector<int>> {
 		if (nums.size() < 3)return {};
-		// ¶şÔª×éÎÊÌâ
+		// äºŒå…ƒç»„é—®é¢˜
 		std::unordered_map<int, int> map;
 		for (auto i : data) {
 			if (map.find(i) == map.end())
@@ -331,7 +332,7 @@ void LeetCode::three_num()
 		std::vector<std::vector<int>> result;
 		for (auto first : data) {
 			if (map[first] > 0) {
-				//ÕÒµ½µ±Ç°µÄÔªËØÎªµÚÒ»¸öÔªËØ
+				//æ‰¾åˆ°å½“å‰çš„å…ƒç´ ä¸ºç¬¬ä¸€ä¸ªå…ƒç´ 
 
 				int take_time = -1;
 				int value = -first;
@@ -340,7 +341,7 @@ void LeetCode::three_num()
 				for (auto second : data)
 				{
 					if (map[second] > 0) {
-						//ÕÒµ½¶Ô³ÆµÄÊı¾İ
+						//æ‰¾åˆ°å¯¹ç§°çš„æ•°æ®
 						map[second] -= 1;
 						int third = value - second;
 						if (map.find(third) != map.end() and map[third] > 0) {
@@ -390,8 +391,8 @@ void LeetCode::three_num()
 			if (start > 0 and data[start] == data[static_cast<size_t>(start) - 1]) {
 				start++;
 				continue;
-			} // ÏàÍ¬Ö±½ÓÌø´ğ°¸´¦
-			//data ÒÑ¾­ÅÅĞòÍê³ÉÁË Èç¹û´óÓÚÁãÔòÃ»±ØÒªÔÙ¼ÌĞøÏÂÈ¥ÁË
+			} // ç›¸åŒç›´æ¥è·³ç­”æ¡ˆå¤„
+			//data å·²ç»æ’åºå®Œæˆäº† å¦‚æœå¤§äºé›¶åˆ™æ²¡å¿…è¦å†ç»§ç»­ä¸‹å»äº†
 			int left = start + 1;
 			int right = static_cast<int>(size - 1);
 			while (left < right)
@@ -402,11 +403,11 @@ void LeetCode::three_num()
 				if (cur == 0) {
 					//dbg(data[start], data[left], data[right]);
 					result.emplace_back(std::vector<int>{data[start], data[left], data[right]});
-					// Ìø¹ıÏàÍ¬µÄleft µ½´ïÁË×îºóÒ»¸öÏàÍ¬µÄÎ»ÖÃ
+					// è·³è¿‡ç›¸åŒçš„left åˆ°è¾¾äº†æœ€åä¸€ä¸ªç›¸åŒçš„ä½ç½®
 					while (left < right and data[left] == data[static_cast<size_t>(left) + 1])left++;
 					while (left < right and data[right] == data[static_cast<size_t>(right) - 1])right--;
 					left++;
-					right--; //µ½´ïÁ½Õß¶¼²»ÖØ¸´ÉÏÉÏÒ»½âµÄµØ·½
+					right--; //åˆ°è¾¾ä¸¤è€…éƒ½ä¸é‡å¤ä¸Šä¸Šä¸€è§£çš„åœ°æ–¹
 				}
 				else if (cur > 0) {
 					right -= 1;
@@ -441,7 +442,7 @@ void LeetCode::fib()
 
 void LeetCode::tribonacci()
 {
-	//T0 = 0, T1 = 1, T2 = 1, ÇÒÔÚ n >= 0 µÄÌõ¼şÏÂ Tn+3 = Tn + Tn+1 + Tn+2
+	//T0 = 0, T1 = 1, T2 = 1, ä¸”åœ¨ n >= 0 çš„æ¡ä»¶ä¸‹ Tn+3 = Tn + Tn+1 + Tn+2
 	constexpr auto fib_impl = [] {
 		std::array<int, 37> fib{ 0, 1,1 };
 		for (int i = 3; i != 31; ++i) {
@@ -494,19 +495,19 @@ void LeetCode::minCostClimbingStairs()
 	};
 	const auto dpAnswer = [](vector<int>& cost) {
 
-		// ½«²»Í¬µÄÔªËØµÄ¶ÔÓ¦ÆğÀ´
+		// å°†ä¸åŒçš„å…ƒç´ çš„å¯¹åº”èµ·æ¥
 		// dp[i]=min(dp[i-1]+cost[i-1],dp[i-2]+cost[i-2])
 
 
-		// dp[i] Îªµ½´ïµÚi¼¶½×ÌİµÄËùĞèÒªµÄ×îĞ¡´ú¼Û ½Ó×ÅÏòÉÏ×ßÔòĞèÒª»¨·Ñµ±Ç°µÄcost[i]
-		// Í¬Ê± ÓĞÁ½ÖÖ·½·¨µ½´ï Ïà¹ØµÄ ´Ói-1 »òÕßi-2Î»ÖÃÏòÉÏ×ß
+		// dp[i] ä¸ºåˆ°è¾¾ç¬¬içº§é˜¶æ¢¯çš„æ‰€éœ€è¦çš„æœ€å°ä»£ä»· æ¥ç€å‘ä¸Šèµ°åˆ™éœ€è¦èŠ±è´¹å½“å‰çš„cost[i]
+		// åŒæ—¶ æœ‰ä¸¤ç§æ–¹æ³•åˆ°è¾¾ ç›¸å…³çš„ ä»i-1 æˆ–è€…i-2ä½ç½®å‘ä¸Šèµ°
 		// dp[i] = min(dp[i-1]+cost[i-1] ,dp[i-2]+cost[i-2])
 
 		int first = 0;
 		int second = 0; //dp[0]  dp[1]
-		for (int i = 2; i <= cost.size(); i++) //×îºóµ½´ï size()´¦ ĞèÒª¶àÉÙ 
+		for (int i = 2; i <= cost.size(); i++) //æœ€ååˆ°è¾¾ size()å¤„ éœ€è¦å¤šå°‘ 
 		{
-			//µ½´ï i Î»ÖÃÔò
+			//åˆ°è¾¾ i ä½ç½®åˆ™
 			int tmp = std::min(first + cost[i - 2], second + cost[i - 1]);
 			first = second;
 			second = tmp;
@@ -518,20 +519,20 @@ void LeetCode::minCostClimbingStairs()
 void LeetCode::houseRobber()
 {
 	/*
-	* ÄãÊÇÒ»¸ö×¨ÒµµÄĞ¡Íµ£¬¼Æ»®ÍµÇÔÑØ½ÖµÄ·¿Îİ¡£Ã¿¼ä·¿ÄÚ¶¼²ØÓĞÒ»¶¨µÄÏÖ½ğ£¬Ó°ÏìÄãÍµÇÔµÄÎ¨Ò»ÖÆÔ¼ÒòËØ¾ÍÊÇÏàÁÚµÄ·¿Îİ×°ÓĞÏà»¥Á¬Í¨µÄ·ÀµÁÏµÍ³£¬Èç¹ûÁ½¼äÏàÁÚµÄ·¿ÎİÔÚÍ¬Ò»ÍíÉÏ±»Ğ¡Íµ´³Èë£¬ÏµÍ³»á×Ô¶¯±¨¾¯¡£
+	* ä½ æ˜¯ä¸€ä¸ªä¸“ä¸šçš„å°å·ï¼Œè®¡åˆ’å·çªƒæ²¿è¡—çš„æˆ¿å±‹ã€‚æ¯é—´æˆ¿å†…éƒ½è—æœ‰ä¸€å®šçš„ç°é‡‘ï¼Œå½±å“ä½ å·çªƒçš„å”¯ä¸€åˆ¶çº¦å› ç´ å°±æ˜¯ç›¸é‚»çš„æˆ¿å±‹è£…æœ‰ç›¸äº’è¿é€šçš„é˜²ç›—ç³»ç»Ÿï¼Œå¦‚æœä¸¤é—´ç›¸é‚»çš„æˆ¿å±‹åœ¨åŒä¸€æ™šä¸Šè¢«å°å·é—¯å…¥ï¼Œç³»ç»Ÿä¼šè‡ªåŠ¨æŠ¥è­¦ã€‚
 
-	¸ø¶¨Ò»¸ö´ú±íÃ¿¸ö·¿Îİ´æ·Å½ğ¶îµÄ·Ç¸ºÕûÊıÊı×é£¬¼ÆËãÄã ²»´¥¶¯¾¯±¨×°ÖÃµÄÇé¿öÏÂ £¬Ò»Ò¹Ö®ÄÚÄÜ¹»ÍµÇÔµ½µÄ×î¸ß½ğ¶î¡£
+	ç»™å®šä¸€ä¸ªä»£è¡¨æ¯ä¸ªæˆ¿å±‹å­˜æ”¾é‡‘é¢çš„éè´Ÿæ•´æ•°æ•°ç»„ï¼Œè®¡ç®—ä½  ä¸è§¦åŠ¨è­¦æŠ¥è£…ç½®çš„æƒ…å†µä¸‹ ï¼Œä¸€å¤œä¹‹å†…èƒ½å¤Ÿå·çªƒåˆ°çš„æœ€é«˜é‡‘é¢ã€‚
 	*/
 	vector<int> data{ 2,7,9,3,1 };
 	const auto answerEnum = [](std::vector<int>& nums) {
 
-		const auto answerImpl = [](int  cur, int money, std::vector<int>& nums, auto&& self)->int {
+		const auto answerImpl = [](int  cur, int money, std::vector<int>& nums, auto&& answerImpl)->int {
 			if (cur >= nums.size())return money;
 			int result = money + nums[cur];
 
-			std::max({ self(cur + 1, money, self),
+			std::max({ answerImpl(cur + 1, money, answerImpl),
 						result,
-						self(cur + 2, money, self) });
+						answerImpl(cur + 2, money, answerImpl) });
 			return result;
 		};
 
@@ -539,4 +540,208 @@ void LeetCode::houseRobber()
 	const auto answerDp = [](std::vector<int>& nums) {
 
 	};
+}
+
+void LeetCode::backspaceCompare()
+{
+	const auto answerImpl = []() {
+		string s = "ab#c", t = "ad#c";
+		string first;
+		string second;
+		int i = 0;
+		int j = 0;
+		string::size_type s_szie = s.size();
+		string::size_type t_size = t.size();
+		while (j < t_size)
+		{
+
+			if (t[j] != '#') {
+				second.push_back(t[j]);
+			}
+			else {
+				if (not second.empty())second.pop_back();
+			}
+			j++;
+		}
+		while (i < s_szie)
+		{
+			if (s[i] != '#') {
+				first.push_back(s[i]);
+			}
+			else {
+				if (not first.empty())first.pop_back();
+			}
+			i++;
+		}
+		return first == second;
+	};
+
+	//answerImpl();
+	const auto answerOther = []() {
+		string s = "ab##", t = "c#d#";
+		int s_pos = 0;
+		int t_pos = 0;
+		//char s_cur = 0, t_cur = 0/*;*/
+		string::size_type s_size = s.size();
+		string::size_type t_size = t.size();
+		while (s_pos < s_size and t_pos < t_size) {
+			// forward å‘å‰åˆ°è¯¥å»çš„ä½ç½®
+			char s_cur = 0, t_cur = 0;
+			int s_should = s[s_pos] == '#' ? s_pos + 2 : s_pos + 1;
+			while (s_should < s_size and s[s_should] == '#')
+			{
+				s_should++;
+			}
+			if (s_should == s_pos + 1) {
+				s_cur = s[s_pos];
+				s_pos++;
+			}
+			else {
+				//int compare_pos = s_pos - (s_should - s_pos);
+				int compare_pos = 2 * s_pos - s_should;
+				if (compare_pos >= 0) {
+					s_cur = s[compare_pos];
+				}
+				s_pos = s_should;
+			}
+
+			int t_should = t[t_pos] == '#' ? t_pos + 2 : t_pos + 1;
+			while (t_should < t_size and t[t_should] == '#')
+			{
+				t_should++;
+			}
+			if (t_should == t_pos + 1) {
+				t_cur = t[t_pos];
+				t_pos++;
+			}
+			else {
+				//int compare_pos = s_pos - (s_should - s_pos);
+				int compare_pos = 2 * t_pos - t_should;
+				if (compare_pos >= 0) {
+					t_cur = t[compare_pos];
+				}
+				t_pos = t_should;
+			}
+			dbg(s_cur, t_cur);
+			if (s_cur != t_cur)return false;
+		}
+		return s_pos == s_size and t_pos == t_size;
+	};
+	//answerOther();
+
+
+	//æ–¹å‘æœç´¢å½“å‰çš„æ•°æ®
+	const auto answerBack = [](string s, string t) {
+		//string s = "ab##", t = "c#d#";
+
+		const auto answerBackImpl = [](const string& s, int& first) {
+			if (s[first] != '#') {
+				first -= 1;
+				return s[first + 1];
+			}
+			else {
+				int count = 1;
+				while (first != -1 and s[first] != '#') {
+					while (--first != -1 and count > 0) {
+						if (s[first] == '#') count++;
+						else count--;
+					}
+					if (first != -1 and s[first] == '#')
+					{
+						count = 1;
+					}
+				}
+				// è¿™æ—¶å½“å‰çš„pos åº”è¯¥åˆ°è¾¾çš„ä½ç½®
+				if (first >= 0) {
+					first -= 1;
+					return s[first + 1];
+				}
+				else {
+					return static_cast<char>(0);
+				}
+			}
+		};
+
+		int first = s.size() - 1;
+		int second = t.size() - 1;
+
+		while (first != -1 and second != -1) {
+			char first_cur = 0, second_cur = 0;
+			if (s[first] != '#') {
+				first -= 1;
+				first_cur = s[first + 1];
+			}
+			else {
+				int count = 1;
+				while (first != -1 and s[first] == '#') {
+					while (--first != -1 and count > 0) {
+						if (s[first] == '#') count++;
+						else count--;
+					}
+					if (first != -1 and s[first] == '#')
+					{
+						count = 1;
+					}
+				}
+				// è¿™æ—¶å½“å‰çš„pos åº”è¯¥åˆ°è¾¾çš„ä½ç½®
+				if (first >= 0) {
+					first -= 1;
+					first_cur = s[first + 1];
+				}
+			}
+			if (t[second] != '#') {
+				second -= 1;
+				second_cur = t[second + 1];
+			}
+			else {
+				int count = 1;
+				while (second != -1 and t[second] == '#') {
+					while (--second != -1 and count > 0) {
+						if (t[second] == '#') count++;
+						else count--;
+					}
+					if (second != -1 and t[second] == '#')
+					{
+						count = 1;
+					}
+				}
+				// è¿™æ—¶å½“å‰çš„pos åº”è¯¥åˆ°è¾¾çš„ä½ç½®
+				if (second >= 0) {
+					second -= 1;
+					second_cur = t[second + 1];
+				}
+
+			}
+			dbg(first_cur, second_cur);
+			if (first_cur != second_cur)return false;
+
+		}
+
+		// æœ€åå†åˆ¤æ–­å½“å‰å‡ºç°çš„æ•°æ® æ˜¯å¦èƒ½å˜æˆç©º
+		int count = 0;
+		for (int i = first; i >= 0; i--) {
+			if (s[first] == '#')count++;
+			else count--;
+		}
+		if (count < 0)return false;
+
+		int count = 0;
+		for (int i = second; i >= 0; i--) {
+			if (t[second] == '#')count++;
+			else count--;
+		}
+		if (count < 0)return false;
+		return true;
+	};
+	string s = "ab##";
+	string t = "c#d#";
+	answerBack(s, t);
+}
+
+void LeetCode::intervalIntersection()
+{
+	//ç»™å®šä¸¤ä¸ªç”±ä¸€äº› é—­åŒºé—´ ç»„æˆçš„åˆ—è¡¨ï¼Œ
+	//firstList å’Œ secondList ï¼Œå…¶ä¸­ firstList[i] = [starti, endi] è€ŒÂ secondList[j] = [startj, endj] ã€‚
+	//æ¯ä¸ªåŒºé—´åˆ—è¡¨éƒ½æ˜¯æˆå¯¹ ä¸ç›¸äº¤ çš„ï¼Œå¹¶ä¸” å·²ç»æ’åº ã€‚
+
 }
