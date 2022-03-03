@@ -30,6 +30,18 @@ public:
 
 	//509 斐波那契 数
 	static void fib();
+
+	//1137 1137. 第 N 个泰波那契数
+	static void tribonacci();
+	
+	//70. 爬楼梯
+	static void climbStairs();
+
+	//746. 使用最小花费爬楼梯
+	static void minCostClimbingStairs();
+
+	//198. 打家劫舍
+	static void houseRobber();
 private:
 
 	struct ListNode

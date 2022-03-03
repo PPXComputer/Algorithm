@@ -438,3 +438,105 @@ void LeetCode::fib()
 		return fib_impl[n];
 	};
 }
+
+void LeetCode::tribonacci()
+{
+	//T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+	constexpr auto fib_impl = [] {
+		std::array<int, 37> fib{ 0, 1,1 };
+		for (int i = 3; i != 31; ++i) {
+			fib[i] = fib[i - 1] + fib[i - 2] + fib[i - 3];
+		}
+		return fib;
+	}();
+	auto answer = [&](int n) {
+		return fib_impl[n];
+	};
+}
+
+void LeetCode::climbStairs()
+{
+	auto answer = [](int n)->int {
+
+		constexpr auto fib_impl = [] {
+			std::array<int, 31> fib{ 0, 1 };
+			for (int i = 2; i != 31; ++i) {
+				fib[i] = fib[i - 1] + fib[i - 2];
+			}
+			return fib;
+		}();
+		return fib_impl[n];
+	};
+}
+
+void LeetCode::minCostClimbingStairs()
+{
+	std::vector<int> data = { 1,100,1,1,1,100,1,1,100,1 };
+
+	const auto minCostClimbingStairsImpl = [](vector<int>& cost) {
+		std::unordered_map<int, int> cache;
+		const auto impl = [&](int cur, int spend, auto&& self)->int {
+			if (cur == cost.size()) {
+				return spend;
+			}
+			if (cur > cost.size()) {
+				return INT_MAX;
+			}
+			int msg = cur * 1000 + spend;
+			if (cache.find(msg) != cache.end())
+			{
+				return cache[msg];
+			}
+			cache[msg] = std::min(self(cur + 2, spend + cost[cur], self),
+				self(cur + 1, spend + cost[cur], self));
+			return cache[str];
+		};
+	};
+	const auto dpAnswer = [](vector<int>& cost) {
+
+		// 将不同的元素的对应起来
+		// dp[i]=min(dp[i-1]+cost[i-1],dp[i-2]+cost[i-2])
+
+
+		// dp[i] 为到达第i级阶梯的所需要的最小代价 接着向上走则需要花费当前的cost[i]
+		// 同时 有两种方法到达 相关的 从i-1 或者i-2位置向上走
+		// dp[i] = min(dp[i-1]+cost[i-1] ,dp[i-2]+cost[i-2])
+
+		int first = 0;
+		int second = 0; //dp[0]  dp[1]
+		for (int i = 2; i <= cost.size(); i++) //最后到达 size()处 需要多少 
+		{
+			//到达 i 位置则
+			int tmp = std::min(first + cost[i - 2], second + cost[i - 1]);
+			first = second;
+			second = tmp;
+		}
+		return second;
+	};
+}
+
+void LeetCode::houseRobber()
+{
+	/*
+	* 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+
+	给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
+	*/
+	vector<int> data{ 2,7,9,3,1 };
+	const auto answerEnum = [](std::vector<int>& nums) {
+
+		const auto answerImpl = [](int  cur, int money, std::vector<int>& nums, auto&& self)->int {
+			if (cur >= nums.size())return money;
+			int result = money + nums[cur];
+
+			std::max({ self(cur + 1, money, self),
+						result,
+						self(cur + 2, money, self) });
+			return result;
+		};
+
+	};
+	const auto answerDp = [](std::vector<int>& nums) {
+
+	};
+}
