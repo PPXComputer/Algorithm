@@ -65,7 +65,8 @@ int main() {
     //LeetCode::findMin();
     //LeetCode::deleteDuplicatesFromList();
     //LeetCode::three_num();
-    LeetCode::backspaceCompare();
+    //LeetCode::backspaceCompare/*(*/);
+    LeetCode::findAnagrams();
 }
 
 //#include <iostream>

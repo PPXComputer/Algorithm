@@ -48,6 +48,16 @@ public:
 
 	//986. 区间列表的交集 
 	static void intervalIntersection();
+
+	//11. 盛最多水的容器
+	static void maxArea();
+
+
+	// 438. 找到字符串中所有字母异位词
+	static void findAnagrams();
+
+	//713. 乘积小于K的子数组
+	static void numSubarrayProductLessThanK();
 private:
 
 	struct ListNode
