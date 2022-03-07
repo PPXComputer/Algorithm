@@ -66,7 +66,10 @@ int main() {
     //LeetCode::deleteDuplicatesFromList();
     //LeetCode::three_num();
     //LeetCode::backspaceCompare/*(*/);
-    LeetCode::findAnagrams();
+//    LeetCode::findAnagrams();
+
+    LeetCode::numSubarrayProductLessThanK();
+    std::cin.get();
 }
 
 //#include <iostream>

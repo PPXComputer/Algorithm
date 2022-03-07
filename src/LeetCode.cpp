@@ -5,6 +5,7 @@
 #include <optional>
 #include <fmt/format.h>
 #include <folly/Range.h>
+#include<folly/Traits.h>
 #include <unordered_map>
 
 using std::string;
@@ -453,7 +454,7 @@ void LeetCode::minCostClimbingStairs() {
             }
             cache[msg] = std::min(self(cur + 2, spend + cost[cur], self),
                                   self(cur + 1, spend + cost[cur], self));
-            return cache[str];
+            return cache[msg];
         };
     };
     const auto dpAnswer = [](vector<int> &cost) {
@@ -692,15 +693,25 @@ void LeetCode::numSubarrayProductLessThanK() {
         vector<int>::size_type numSize = nums.size();
         for (int right = 0; right < numSize; right++) {
             cur = cur * nums[right];
+            if (cur < k) {
+                if (right > left + 1) { //包含了多个元素的成绩证明可以添加多个进入
+                    result += right - left + 1;
+                    const auto &range = folly::Range(
+                            nums.begin() + left, nums.begin() + right + 1);
+                    dbg(range, left, right);
+                } else {
+                    result++;
+                }
+            }
             while (cur > k) {
+                // 左侧指针前进到
                 cur /= nums[left];
                 left++;
             }
-            if (cur < k and right - left > 1) {
-                result++;
-            }
+
         }
         return result;
-
     };
+    std::vector<int> data = {10, 5, 2, 6};
+    answerDp(data, 100);
 }

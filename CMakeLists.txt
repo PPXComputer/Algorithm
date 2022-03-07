@@ -3,7 +3,6 @@ project(Algorithm CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 # SET(CMAKE_CXX_FLAGS "-fsanitize=address") folly ��ֹʹ��....
-
 SET(folly_DIR "D:\\Code\\tools\\vcpkg\\installed\\x64-windows\\share\\folly")
 SET(fmt_DIR "D:\\Code\\tools\\vcpkg\\installed\\x64-windows\\share\\fmt")
 SET(glog_DIR "D:\\Code\\tools\\vcpkg\\installed\\x64-windows\\share\\glog")
