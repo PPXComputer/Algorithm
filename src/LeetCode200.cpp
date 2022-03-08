@@ -140,7 +140,6 @@ inline void LeetCode200::medium_74() {
 
 inline void LeetCode200::reverseKGroup() {
 	constexpr int length = 10;
-	std::unique_ptr<ListNode> root_ptr = LeetCode200::new_list(length);
 	ListNode* root = root_ptr.get();
 	//多个值相连
 	//旋转当前中最近的数据
@@ -315,7 +314,6 @@ inline void LeetCode200::maxArea() {
 inline void LeetCode200::deleteDuplicatesFromList() {
 	//给定一个已排序的链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字 。返回 已排序的链表 。
 	std::vector<int> data = { 1, 1, 2, 2 };
-	std::unique_ptr<ListNode> ptr = LeetCode200::new_list(data);
 	auto head = ptr.get();
 	auto answer_forward = [&]() {
 		auto root = head;
