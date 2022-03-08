@@ -12,7 +12,7 @@
 #include <memory>
 #include <set>
 
-using std::cout;
+using std::cout;    
 using std::make_unique;
 using std::unique_ptr;
 using std::array;
