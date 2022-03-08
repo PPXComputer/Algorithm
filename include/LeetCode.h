@@ -8,40 +8,9 @@ using std::vector;
 class LeetCode
 {
 public:
-	static void medium_33();
-	static void medium_34();
-
-	//. 搜索二维矩阵
-	static void medium_74();
-
-	// 25  k 个一组翻转链表
-	static void reverseKGroup();
-	//162 寻找峰值
-	static void findPeakElement();
-
-	// 153 找到旋转数组的的最小值
-	static void findMin();
-
-	//82. 删除排序链表中的重复元素 II
-	static void		deleteDuplicatesFromList();
-
-	//15. 三数之和
-	static void three_num();
-
-	//509 斐波那契 数
-	static void fib();
-
-	//1137 1137. 第 N 个泰波那契数
-	static void tribonacci();
 	
-	//70. 爬楼梯
-	static void climbStairs();
-
 	//746. 使用最小花费爬楼梯
 	static void minCostClimbingStairs();
-
-	//198. 打家劫舍
-	static void houseRobber();
 
 	//844. 比较含退格的字符串
 	static void backspaceCompare();
@@ -49,15 +18,17 @@ public:
 	//986. 区间列表的交集 
 	static void intervalIntersection();
 
-	//11. 盛最多水的容器
-	static void maxArea();
-
 
 	// 438. 找到字符串中所有字母异位词
 	static void findAnagrams();
 
 	//713. 乘积小于K的子数组
 	static void numSubarrayProductLessThanK();
+	//509 斐波那契 数
+	static void fib();
+
+	//1137 1137. 第 N 个泰波那契数
+	static void tribonacci();
 private:
 
 	struct ListNode
