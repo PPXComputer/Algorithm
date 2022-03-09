@@ -5,71 +5,73 @@
 #include "../include/StringAglo.h"
 #include"../include/TreeAlgo.h"
 #include"../include/LeetCode.h"
+#include"../include/LeetCode200.h"
 #include "dbg.h"
 using std::string;
 using folly::fbvector;
 using std::string;
 
 struct Factorial {
-    static string factorial(const size_t n) {
-        auto start = std::to_string(n);
-        string &result = factorialImpl(start, 2, n); 
-        std::reverse(result.begin(), result.end());
-        std::cout << result;
-        return result;
-    }
+	static string factorial(const size_t n) {
+		auto start = std::to_string(n);
+		string& result = factorialImpl(start, 2, n);
+		std::reverse(result.begin(), result.end());
+		std::cout << result;
+		return result;
+	}
 
-    //大数乘法 将得到两者相乘的数据实现
-    static string big_number_multiply(const string &first, const size_t second) {
-        assert(not first.empty());
-        size_t t = 0;
-        const size_t first_len = first.size();
-        string result;
-        result.reserve(first_len + 10);
-        for (int i = 0; i < first_len || t; i++) {
-            if (i < first.size()) {
-                t += (static_cast<size_t>(first.at(i) - '0')) * second;
-            }
-            char getChar = t % 10 + '0';
-            result.push_back(getChar);
-            t /= 10;
-        }
-        return result;
-    }
+	//大数乘法 将得到两者相乘的数据实现
+	static string big_number_multiply(const string& first, const size_t second) {
+		assert(not first.empty());
+		size_t t = 0;
+		const size_t first_len = first.size();
+		string result;
+		result.reserve(first_len + 10);
+		for (int i = 0; i < first_len || t; i++) {
+			if (i < first.size()) {
+				t += (static_cast<size_t>(first.at(i) - '0')) * second;
+			}
+			char getChar = t % 10 + '0';
+			result.push_back(getChar);
+			t /= 10;
+		}
+		return result;
+	}
 
-    static string &factorialImpl(string &first, size_t second, size_t target) {
-        if (second >= target) return first;
-        first = big_number_multiply(first, second);
-        return factorialImpl(first, second + 1, target);
-    }
+	static string& factorialImpl(string& first, size_t second, size_t target) {
+		if (second >= target) return first;
+		first = big_number_multiply(first, second);
+		return factorialImpl(first, second + 1, target);
+	}
 };
 
 
 int main() {
-//	Dynamic::package();
-//    TreeAlgo::run();
-//    Dynamic::winner();
-//    Dynamic::minimum_manipulate();
-    //ArrayAlgo::not_exists_num();
-    //StringAglo::find_longest_not_repeat_sub();
-    //StringAglo::string_replace();
-    //StringAglo::boolean_expression();
-    //ArrayAlgo::change_array_data();
-    //ArrayAlgo::JosephProblem();
-    /*ArrayAlgo::longestTotalArray();*/
-    //ArrayAlgo::longestTotalArray();
-    //LeetCode::medium_34();
-    //LeetCode::medium_33();
-    //LeetCode::findPeakElement();
-    //LeetCode::medium_74();
-    //LeetCode::findMin();
-    //LeetCode::deleteDuplicatesFromList();
-    //LeetCode::three_num();
-    //LeetCode::backspaceCompare/*(*/);
-//    LeetCode::findAnagrams();
+	//	Dynamic::package();
+	//    TreeAlgo::run();
+	//    Dynamic::winner();
+	//    Dynamic::minimum_manipulate();
+		//ArrayAlgo::not_exists_num();
+		//StringAglo::find_longest_not_repeat_sub();
+		//StringAglo::string_replace();
+		//StringAglo::boolean_expression();
+		//ArrayAlgo::change_array_data();
+		//ArrayAlgo::JosephProblem();
+		/*ArrayAlgo::longestTotalArray();*/
+		//ArrayAlgo::longestTotalArray();
+		//LeetCode::medium_34();
+		//LeetCode::medium_33();
+		//LeetCode::findPeakElement();
+		//LeetCode::medium_74();
+		//LeetCode::findMin();
+		//LeetCode::deleteDuplicatesFromList();
+		//LeetCode::three_num();
+		//LeetCode::backspaceCompare/*(*/);
+	//    LeetCode::findAnagrams();
 
-    LeetCode::numSubarrayProductLessThanK();
-    std::cin.get();
+		//LeetCode::numSubarrayProductLessThanK();
+	LeetCode200::shortestPathBinaryMatrix();
+	//std::cin.get();
 }
 
 //#include <iostream>

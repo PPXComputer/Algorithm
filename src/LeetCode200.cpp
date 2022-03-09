@@ -1,6 +1,6 @@
 #include "../include/LeetCode200.h"
 #include <array>
-#include <vector>
+
 #include <string>
 #include <map>
 #include <fmt/format.h>
@@ -140,7 +140,9 @@ inline void LeetCode200::medium_74() {
 
 inline void LeetCode200::reverseKGroup() {
 	constexpr int length = 10;
-	ListNode* root = root_ptr.get();
+	std::unique_ptr<ListNode> ptr = ListNode::new_list(length);
+
+	ListNode* root = ptr.get();
 	//多个值相连
 	//旋转当前中最近的数据
 	int k = 4;
@@ -314,12 +316,13 @@ inline void LeetCode200::maxArea() {
 inline void LeetCode200::deleteDuplicatesFromList() {
 	//给定一个已排序的链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字 。返回 已排序的链表 。
 	std::vector<int> data = { 1, 1, 2, 2 };
-	auto head = ptr.get();
+	std::unique_ptr<ListNode> ptr = ListNode::new_list(data);
+	ListNode* head = ptr.get();
 	auto answer_forward = [&]() {
 		auto root = head;
 		if (root == nullptr)return head;
 		int val;
-		auto cur = root->next;
+		ListNode* cur = root->next;
 		ListNode* prev = root;
 		bool isFirstTime = true;
 		while (cur != nullptr) {
@@ -533,5 +536,53 @@ void LeetCode200::connectRight()
 	//	}
 	//}
 	//return root;
+
+}
+
+void LeetCode200::shortestPathBinaryMatrix()
+{
+	//vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,0} };
+	// 8个方向前进会有回退的情况出现 需要进行标记已经走过的区域
+	auto  dfsDp = [&](const vector<vector<int>>& grid, int x, int y, int count, auto dfs)->int {
+		if (x == grid.size() - 1 and y == grid[0].size() - 1)return count + 1;
+
+		if (x >= grid.size() or x < 0 or y < 0 or y >= grid[0].size())return INT_MAX;
+		dbg(x, y);  if (grid[x][y] == 1)return INT_MAX;
+		count += 1;
+		return std::min({ dfs(grid,x + 1,y,count,dfs),
+						dfs(grid,x ,y + 1,count,dfs),
+						dfs(grid,x - 1,y,count,dfs),
+						dfs(grid,x ,y - 1,count,dfs),
+						dfs(grid,x + 1,y + 1,count,dfs),
+						dfs(grid,x - 1,y - 1,count,dfs),
+						dfs(grid,x - 1,y + 1,count,dfs),
+						dfs(grid,x + 1,y - 1,count,dfs) });
+	};
+
+
+	vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,1} };
+	const auto answerDfsWithVisited = [&](int x, int y, int count, int n, auto&& dfs)->int {
+		if (x == n - 1 and y == n - 1)return count + 1;
+		if (x >= n or x < 0 or y < 0 or y >= n)return INT_MAX;
+		if (grid[x][y] == 1)return INT_MAX;
+
+		count += 1;
+		int result = INT_MAX;	
+		grid[x][y] = 1;
+		for (int i = -1; i < 2; i++)
+		{
+			for (int j = -1; j < 2; j++)
+			{
+				if (i == 0 and j == 0) continue;
+				if (x + i >= n or x + i < 0 or y + j < 0 or y + j >= n) continue;
+				result = std::min(result, dfs(x + i, y + j, count, n, dfs));
+				dbg(x + i, y + j, result);
+			}
+		}
+		grid[x][y] = 0;
+		return result;
+	};
+
+	dbg(answerDfsWithVisited(0, 0, 0, 2, answerDfsWithVisited));
 
 }
