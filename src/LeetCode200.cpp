@@ -562,19 +562,27 @@ void LeetCode200::shortestPathBinaryMatrix()
 	};
 
 
+<<<<<<< HEAD
 	/*vector<vector<int>> grid = { {0, 1, 0, 0, 1, 1, 0},
 		{1, 0, 0, 0, 0, 0, 0},{1, 0, 0, 1, 1, 1, 1},
 		{0, 1, 0, 0, 0, 0, 0},{1, 0, 0, 0, 0, 0, 1},
 		{1, 0, 0, 1, 0, 0, 0},{1, 0, 1, 0, 0, 1, 0} };*/
 	vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,0} };
 
+=======
+	vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,1} };
+>>>>>>> a80c16b4e8d8575673d0360aad8c8f84bc3bc1a4
 	const auto answerDfsWithVisited = [&](int x, int y, int count, int n, auto&& dfs)->int {
 		if (x == n - 1 and y == n - 1)return count + 1;
 		if (x >= n or x < 0 or y < 0 or y >= n)return INT_MAX;
 		if (grid[x][y] == 1)return INT_MAX;
 
 		count += 1;
+<<<<<<< HEAD
 		int result = INT_MAX;
+=======
+		int result = INT_MAX;	
+>>>>>>> a80c16b4e8d8575673d0360aad8c8f84bc3bc1a4
 		grid[x][y] = 1;
 		for (int i = -1; i < 2; i++)
 		{
@@ -590,6 +598,7 @@ void LeetCode200::shortestPathBinaryMatrix()
 		return result;
 	};
 
+<<<<<<< HEAD
 	//dbg(answerDfsWithVisited(0, 0, 0, grid.size(), answerDfsWithVisited));
 	const auto answerQueue = [](vector<vector<int>>& grid) {
 		if (grid[0][0] == 1)return -1;
@@ -707,3 +716,8 @@ void LeetCode200::solveRound()
 
 	answerDfs(board);
 }
+=======
+	dbg(answerDfsWithVisited(0, 0, 0, 2, answerDfsWithVisited));
+
+}
+>>>>>>> a80c16b4e8d8575673d0360aad8c8f84bc3bc1a4
