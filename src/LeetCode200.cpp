@@ -1,7 +1,8 @@
 #include "../include/LeetCode200.h"
 #include <array>
-#include <vector>
+
 #include <string>
+#include <queue>
 #include <map>
 #include <fmt/format.h>
 #include <dbg.h>
@@ -9,6 +10,7 @@
 
 using std::array;
 using std::vector;
+using std::queue;
 using std::string;
 inline void LeetCode200::medium_33() {
 	//旋转后的数组
@@ -140,7 +142,9 @@ inline void LeetCode200::medium_74() {
 
 inline void LeetCode200::reverseKGroup() {
 	constexpr int length = 10;
-	ListNode* root = root_ptr.get();
+	std::unique_ptr<ListNode> ptr = ListNode::new_list(length);
+
+	ListNode* root = ptr.get();
 	//多个值相连
 	//旋转当前中最近的数据
 	int k = 4;
@@ -314,12 +318,13 @@ inline void LeetCode200::maxArea() {
 inline void LeetCode200::deleteDuplicatesFromList() {
 	//给定一个已排序的链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字 。返回 已排序的链表 。
 	std::vector<int> data = { 1, 1, 2, 2 };
-	auto head = ptr.get();
+	std::unique_ptr<ListNode> ptr = ListNode::new_list(data);
+	ListNode* head = ptr.get();
 	auto answer_forward = [&]() {
 		auto root = head;
 		if (root == nullptr)return head;
 		int val;
-		auto cur = root->next;
+		ListNode* cur = root->next;
 		ListNode* prev = root;
 		bool isFirstTime = true;
 		while (cur != nullptr) {
@@ -534,4 +539,171 @@ void LeetCode200::connectRight()
 	//}
 	//return root;
 
+}
+
+void LeetCode200::shortestPathBinaryMatrix()
+{
+	//vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,0} };
+	// 8个方向前进会有回退的情况出现 需要进行标记已经走过的区域
+	auto  dfsDp = [&](const vector<vector<int>>& grid, int x, int y, int count, auto dfs)->int {
+		if (x == grid.size() - 1 and y == grid[0].size() - 1)return count + 1;
+
+		if (x >= grid.size() or x < 0 or y < 0 or y >= grid[0].size())return INT_MAX;
+		dbg(x, y);  if (grid[x][y] == 1)return INT_MAX;
+		count += 1;
+		return std::min({ dfs(grid,x + 1,y,count,dfs),
+						dfs(grid,x ,y + 1,count,dfs),
+						dfs(grid,x - 1,y,count,dfs),
+						dfs(grid,x ,y - 1,count,dfs),
+						dfs(grid,x + 1,y + 1,count,dfs),
+						dfs(grid,x - 1,y - 1,count,dfs),
+						dfs(grid,x - 1,y + 1,count,dfs),
+						dfs(grid,x + 1,y - 1,count,dfs) });
+	};
+
+
+	/*vector<vector<int>> grid = { {0, 1, 0, 0, 1, 1, 0},
+		{1, 0, 0, 0, 0, 0, 0},{1, 0, 0, 1, 1, 1, 1},
+		{0, 1, 0, 0, 0, 0, 0},{1, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 1, 0, 0, 0},{1, 0, 1, 0, 0, 1, 0} };*/
+	vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,0} };
+
+	const auto answerDfsWithVisited = [&](int x, int y, int count, int n, auto&& dfs)->int {
+		if (x == n - 1 and y == n - 1)return count + 1;
+		if (x >= n or x < 0 or y < 0 or y >= n)return INT_MAX;
+		if (grid[x][y] == 1)return INT_MAX;
+
+		count += 1;
+		int result = INT_MAX;
+		grid[x][y] = 1;
+		for (int i = -1; i < 2; i++)
+		{
+			for (int j = -1; j < 2; j++)
+			{
+				if (i == 0 and j == 0) continue;
+				if (x + i >= n or x + i < 0 or y + j < 0 or y + j >= n) continue;
+				result = std::min(result, dfs(x + i, y + j, count, n, dfs));
+				dbg(x + i, y + j, result);
+			}
+		}
+		grid[x][y] = 0;
+		return result;
+	};
+
+	//dbg(answerDfsWithVisited(0, 0, 0, grid.size(), answerDfsWithVisited));
+	const auto answerQueue = [](vector<vector<int>>& grid) {
+		if (grid[0][0] == 1)return -1;
+		int n = grid.size(), ans = 1;
+		const int dire[8][2] = { {1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,-1},{-1,1} };
+		queue<std::pair<int, int> > q;
+		q.emplace(0, 0);         //从0,0开始
+		grid[0][0] = 1;           //标记为1代表走过
+		while (!q.empty()) {      //bfs
+			int m = q.size(); //当前在队列中的个数
+			while (m--) {
+				auto [x, y] = q.front();
+				q.pop();
+				if (x == n - 1 && y == n - 1)return ans;
+				for (int i = 0; i < 8; i++) {                       //遍历八个方向的
+					int nx = x + dire[i][0];
+					int ny = y + dire[i][1];
+					if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //判断是否越界
+					if (grid[nx][ny] == 0) {        //判断是否能走
+						q.emplace(nx, ny);
+						grid[nx][ny] = 1;         //标记
+						dbg(grid);
+					}
+				}
+			}
+			ans++;          //记录循环次数
+		}
+		return -1;
+	};
+	//dbg(answerQueue(grid));
+
+
+	const auto answerQueueWidth = [](vector<vector<int>>& grid) {
+		if (grid[0][0] == 1)return -1;
+		int n = grid.size(), ans = 1;
+		const int dire[8][2] = { {1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,-1},{-1,1} };
+		queue<std::pair<int, int> > q;
+		q.emplace(0, 0);         //从0,0开始
+		grid[0][0] = 1;           //标记为1代表走过
+		while (!q.empty()) {      //bfs
+			int m = q.size(); //当前在队列中的个数 走过队
+			while (m--) {
+				auto [x, y] = q.front();
+				q.pop();
+				if (x == n - 1 && y == n - 1)return ans;
+				for (int i = 0; i < 8; i++) {                       //遍历八个方向的
+					int nx = x + dire[i][0];
+					int ny = y + dire[i][1];
+					if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //判断是否越界
+					if (grid[nx][ny] == 0) {        //判断是否能走
+						q.emplace(nx, ny);
+						grid[nx][ny] = 1;         //标记
+						dbg(grid);
+					}
+				}
+			}
+			ans++;          //记录循环次数
+		}
+		return -1;
+	};
+
+}
+
+void LeetCode200::solveRound()
+{
+
+	const auto answerDfs = [](vector<vector<char>>& board) {
+		int n = board.size();
+		int m = board[0].size();
+		vector<int> visited = {};
+		visited.reserve(n * m);
+
+
+		auto dfsAllBoard = [&](int x, int y, auto&& dfsAllBoard) {
+			if (x < 0 or y < 0 or x >= n or y >= m)return;
+			if (visited[x * m + y] == 0 and board[x][y] == 'O') {
+				visited[x * m + y] = 1;
+				dfsAllBoard(x + 1, y, dfsAllBoard);
+				dfsAllBoard(x, y + 1, dfsAllBoard);
+				dfsAllBoard(x, y - 1, dfsAllBoard);
+				dfsAllBoard(x - 1, y, dfsAllBoard);
+			}
+		};
+
+		// 从边缘出发 将当前未被标记的元素全部填写完成
+		for (int i = 0; i < m; i++)
+		{
+			for (int j : {0, n - 1}) {
+				dfsAllBoard(j, i, dfsAllBoard);
+			}
+		}
+		for (int i = 0; i < n; i++)
+		{
+			for (int j : {0, m - 1}) {
+				dfsAllBoard(i, j, dfsAllBoard);
+
+			}
+		}
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				if (board[i][j] == 'O' and visited[i * m + j] != 1) {
+					board[i][j] = 'X';
+					dbg(board);
+				}
+			}
+		}
+	};
+	vector<vector<char>> board = {
+		{ 'X','O','X','O','X','O' },
+		{ 'O','X','O','X','O','X' },
+		{ 'X','O','X','O','X','O' },
+		{ 'O','X','O','X','O','X' } };
+
+	answerDfs(board);
 }
