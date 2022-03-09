@@ -568,14 +568,21 @@ void LeetCode200::shortestPathBinaryMatrix()
 		{1, 0, 0, 1, 0, 0, 0},{1, 0, 1, 0, 0, 1, 0} };*/
 	vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,0} };
 
+
+	vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,1} };
+
 	const auto answerDfsWithVisited = [&](int x, int y, int count, int n, auto&& dfs)->int {
 		if (x == n - 1 and y == n - 1)return count + 1;
 		if (x >= n or x < 0 or y < 0 or y >= n)return INT_MAX;
 		if (grid[x][y] == 1)return INT_MAX;
 
 		count += 1;
-		int result = INT_MAX;
-		grid[x][y] = 1;
+		<<<<<< < HEAD
+			int result = INT_MAX;
+		====== =
+			int result = INT_MAX;
+		>>>>>> > a80c16b4e8d8575673d0360aad8c8f84bc3bc1a4
+			grid[x][y] = 1;
 		for (int i = -1; i < 2; i++)
 		{
 			for (int j = -1; j < 2; j++)
@@ -706,4 +713,10 @@ void LeetCode200::solveRound()
 		{ 'O','X','O','X','O','X' } };
 
 	answerDfs(board);
+	//dbg(answerDfsWithVisited(0, 0, 0, 2, answerDfsWithVisited));
+
 }
+
+
+
+

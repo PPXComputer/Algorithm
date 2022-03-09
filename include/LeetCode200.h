@@ -44,6 +44,7 @@ public:
 
 	//130. ±»Î§ÈÆµÄÇøÓò
 	static void solveRound();
+
 private:
 
 	struct ListNode
