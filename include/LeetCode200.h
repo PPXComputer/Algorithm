@@ -51,6 +51,10 @@ public:
 
     //90. 子集 II
     static void otherSubSets();
+
+    //39. 组合总和
+    static void combinationSum();
+
 	//797. 所有可能的路径
 	static  void allPathsSourceTarget();
 private:

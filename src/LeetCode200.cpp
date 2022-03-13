@@ -774,19 +774,8 @@ void LeetCode200::otherSubSets() {
         for (int i = 0; i < last; ++i) {
             temp.clear();
             int cur = i;
-            if ((cur & 1) == 1) { //需要选择当前的元素
-                int curNum = nums[static_cast<size_t>(std::sqrt(cur))];
-                if (uniqueSet.insert(curNum).second) {
-                    int start = 0;// 只有start 元素时 将当前存在的
-                    do {
-                        if ((cur & 1) == 1) {
-                            temp.push_back(nums[start]);
-                        }
-                        start++;
-                        cur = cur >> 1;
-                    } while (cur != 0);
-                    result.push_back(temp);
-                }
+            if ((cur & 1) == 1 and not uniqueSet.insert(nums[static_cast<size_t>(std::sqrt(cur))]).second) { //需要选择当前的元素
+                continue;
             } else {
                 int start = 0;// 只有start 元素时 将当前存在的
                 do {
@@ -798,11 +787,59 @@ void LeetCode200::otherSubSets() {
                 } while (cur != 0);
                 result.push_back(temp);
             }
-
-
         }
         return result;
     };
+
+    vector<vector<int>> (*subsetsWithDupSet)(vector<int> &) = [](vector<int> &nums) -> vector<vector<int>> {
+        std::vector<int> temp;
+        vector<vector<int>> result;
+        auto numSize = nums.size();
+        auto last = 1 << numSize;
+        std::set<std::vector<int>> uniqueSet;
+        std::sort(nums.begin(), nums.end()); //要不然 122  和 221 就不一样了
+        for (int i = 0; i < last; ++i) {
+            temp.clear();
+            int cur = i;
+            int start = 0;// 只有start 元素时 将当前存在的
+            do {
+                if ((cur & 1) == 1) {
+                    temp.push_back(nums[start]);
+                }
+                start++;
+                cur = cur >> 1;
+            } while (cur != 0);
+            if (uniqueSet.insert(temp).second)
+                result.push_back(temp);
+        }
+        return result;
+    };
+
+}
+
+void LeetCode200::combinationSum() {
+    /*
+     * 给你一个 无重复元素 的整数数组candidates 和一个目标整数target，找出candidates中可以使数字和为目标数target
+     * 的 所有不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
+     */
+
+    vector<vector<int>> (*answer)(vector<int> &, int) = [](vector<int> &candidates, int target) -> vector<vector<int>> {
+        unsigned __int64 size = candidates.size();
+        vector<vector<int>> result;
+        auto dfs = [&candidates,&result, target, size](int curPos, int curNum, std::vector<int> &cur, auto &&dfs) -> void {
+            if (curPos == size) {
+                if (curNum == target) {
+                    result.push_back(cur);
+                }
+                return;
+            }
+            for
+
+
+
+        };
+    };
+
 }
 
 
