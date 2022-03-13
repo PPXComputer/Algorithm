@@ -29,6 +29,9 @@ public:
 
 	//1137 1137. 第 N 个泰波那契数
 	static void tribonacci();
+
+    //797. 所有可能的路径
+    static void allPathsSourceTarget();
 private:
 
 	struct ListNode

@@ -45,6 +45,14 @@ public:
 	//130. 被围绕的区域
 	static void solveRound();
 
+    // 78子集
+    static void subsets();
+
+
+    //90. 子集 II
+    static void otherSubSets();
+	//797. 所有可能的路径
+	static  void allPathsSourceTarget();
 private:
 
 	struct ListNode

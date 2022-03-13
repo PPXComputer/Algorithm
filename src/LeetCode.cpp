@@ -258,3 +258,24 @@ void LeetCode::numSubarrayProductLessThanK() {
     std::vector<int> data = {10, 5, 2, 6};
     answerDp(data, 100);
 }
+
+void LeetCode::allPathsSourceTarget() {
+    auto answer = [](vector<vector<int>> &graph) -> vector<vector<int>> {
+        size_t graphSize = graph.size();
+        std::vector<std::vector<int>> result;
+        std::vector<int> curResult;
+        auto dfs = [&](int curPos, auto &&dfs) -> void {
+            curResult.push_back(curPos);
+            if (curPos == graphSize - 1) {
+                result.push_back(curResult);
+            } else {
+                for (int nextPos: graph[curPos]) {
+                    dfs(nextPos, dfs);
+                    result.pop_back();
+                }
+            }
+        };
+        dfs(0, dfs);
+        return result;
+    };
+}

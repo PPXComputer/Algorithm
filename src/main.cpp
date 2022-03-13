@@ -76,7 +76,7 @@ int main() {
 
 	LeetCode200::shortestPathBinaryMatrix();
 
-	//std::cin.get();
+	std::cin.get();
 }
 
 //#include <iostream>

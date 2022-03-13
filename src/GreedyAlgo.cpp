@@ -172,7 +172,7 @@ inline void GreedyAlgo::max_deep() {
     fbstring data = "{{}{}{}}"; //最大深度
     int counter = 0;
     int max_deep = 0;
-    for (const auto &cur : data) {
+    for (const auto &cur: data) {
         if (cur == '{')
             counter++;
         else
@@ -508,7 +508,7 @@ void GreedyAlgo::CompareResult() {
         int second_result = enum_rope_way2(random_array, 10);
         if (first_result != second_result) {
             cout << "error happened" << first_result << " " << second_result << '\n';
-            for (auto &sd : random_array) {
+            for (auto &sd: random_array) {
                 cout << sd << " ";
             }
             break;
