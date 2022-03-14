@@ -8,6 +8,8 @@
 #include <dbg.h>
 #include <unordered_map>
 #include <set>
+#include <algorithm>
+#include<numeric>
 
 using std::array;
 using std::vector;
@@ -142,7 +144,6 @@ inline void LeetCode200::reverseKGroup() {
     //?????????????????
     int k = 4;
     int time = length / 4;
-    int count = 0;
 
 
     // ?????? ?  β ?????????
@@ -171,7 +172,7 @@ inline void LeetCode200::reverseKGroup() {
     ListNode *result = nullptr;
     ListNode *lastTail = nullptr;
     ListNode *lastStart = root;
-    if (time > 0 and length != 1) {
+    if (time > 0) {
         int start = 0;
         while (time != start) {
             auto result_tuple = reverse_list(lastStart, k);
@@ -194,10 +195,10 @@ inline void LeetCode200::reverseKGroup() {
 
 inline void LeetCode200::findPeakElement() { //???? ???????????????
     vector<int> data{1, 2, 1, 3, 5, 6, 4};
-    int left = 0;
-    int right = data.size() - 1;
+    size_t left = 0;
+    size_t right = data.size() - 1;
     while (left < right) {
-        int mid = ((right - left) >> 1) + left;
+        size_t mid = ((right - left) >> 1) + left;
 
         dbg(fmt::format("{} {} {} ", left, right, mid));
         dbg(fmt::format("{} {} {} ", data[left], data[right], data[mid]));
@@ -581,7 +582,8 @@ void LeetCode200::shortestPathBinaryMatrix() {
     //dbg(answerDfsWithVisited(0, 0, 0, grid.size(), answerDfsWithVisited));
     const auto answerQueue = [](vector<vector<int>> &grid) {
         if (grid[0][0] == 1)return -1;
-        int n = grid.size(), ans = 1;
+        size_t n = grid.size();
+        int ans = 1;
         const int dire[8][2] = {{1,  0},
                                 {-1, 0},
                                 {0,  1},
@@ -594,14 +596,14 @@ void LeetCode200::shortestPathBinaryMatrix() {
         q.emplace(0, 0);         //??0,0???
         grid[0][0] = 1;           //????1???????
         while (!q.empty()) {      // bfs
-            int m = q.size(); //?????????е????
+            size_t m = q.size(); //?????????е????
             while (m--) {
                 auto[x, y] = q.front();
                 q.pop();
                 if (x == n - 1 && y == n - 1)return ans;
-                for (int i = 0; i < 8; i++) {                       //????????????
-                    int nx = x + dire[i][0];
-                    int ny = y + dire[i][1];
+                for (auto i: dire) {                       //????????????
+                    int nx = x + i[0];
+                    int ny = y + i[1];
                     if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //?ж???????
                     if (grid[nx][ny] == 0) {        //?ж????????
                         q.emplace(nx, ny);
@@ -619,7 +621,8 @@ void LeetCode200::shortestPathBinaryMatrix() {
 
     const auto answerQueueWidth = [](vector<vector<int>> &grid) {
         if (grid[0][0] == 1)return -1;
-        int n = grid.size(), ans = 1;
+        size_t n = grid.size();
+        int ans = 1;
         const int dire[8][2] = {{1,  0},
                                 {-1, 0},
                                 {0,  1},
@@ -632,14 +635,14 @@ void LeetCode200::shortestPathBinaryMatrix() {
         q.emplace(0, 0);         //??0,0???
         grid[0][0] = 1;           //????1???????
         while (!q.empty()) {      //bfs
-            int m = q.size(); //?????????е???? ?????
+            size_t m = q.size(); //?????????е???? ?????
             while (m--) {
                 auto[x, y] = q.front();
                 q.pop();
                 if (x == n - 1 && y == n - 1)return ans;
-                for (int i = 0; i < 8; i++) {                       //????????????
-                    int nx = x + dire[i][0];
-                    int ny = y + dire[i][1];
+                for (auto i: dire) {                       //????????????
+                    int nx = x + i[0];
+                    int ny = y + i[1];
                     if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //?ж???????
                     if (grid[nx][ny] == 0) {        //?ж????????
                         q.emplace(nx, ny);
@@ -658,8 +661,8 @@ void LeetCode200::shortestPathBinaryMatrix() {
 void LeetCode200::solveRound() {
 
     const auto answerDfs = [](vector<vector<char>> &board) {
-        int n = board.size();
-        int m = board[0].size();
+        size_t n = board.size();
+        size_t m = board[0].size();
         vector<int> visited(n * m);
 
 
@@ -676,13 +679,13 @@ void LeetCode200::solveRound() {
 
         // ???????? ?????δ??????????????д???
         for (int i = 0; i < m; i++) {
-            for (int j: {0, n - 1}) {
-                dfsAllBoard(j, i, dfsAllBoard);
+            for (auto j: std::initializer_list<size_t>{0, n - 1}) {
+                dfsAllBoard(static_cast<int>(j), i, dfsAllBoard);
             }
         }
         for (int i = 0; i < n; i++) {
-            for (int j: {0, m - 1}) {
-                dfsAllBoard(i, j, dfsAllBoard);
+            for (auto j: std::initializer_list<size_t>{0, m - 1}) {
+                dfsAllBoard(i, static_cast<int>(j), dfsAllBoard);
 
             }
         }
@@ -823,23 +826,143 @@ void LeetCode200::combinationSum() {
      * 的 所有不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
      */
 
+    //warn 错误方法 将多余的数字重复进行了计算
     vector<vector<int>> (*answer)(vector<int> &, int) = [](vector<int> &candidates, int target) -> vector<vector<int>> {
-        unsigned __int64 size = candidates.size();
+        size_t size = candidates.size();
         vector<vector<int>> result;
-        auto dfs = [&candidates,&result, target, size](int curPos, int curNum, std::vector<int> &cur, auto &&dfs) -> void {
-            if (curPos == size) {
-                if (curNum == target) {
-                    result.push_back(cur);
-                }
+        auto dfs = [&, target, size](int curPos, int curNum, std::vector<int> &cur,
+                                     auto &&dfs) -> void {
+            dbg(curNum);
+            if (curNum == target) {
+                dbg(cur);
+                result.push_back(cur);
+            }
+            if (curNum > target or curPos >= size) return;
+
+            dfs(curPos + 1, curNum, cur, dfs);
+            size_t curContainer = cur.size();
+            for (int i = 1; i <= (target - curNum) / candidates[curPos]; ++i) {
+                cur.push_back(candidates[curPos]);
+                dfs(curPos + 1, curNum + i * candidates[curPos], cur, dfs);
+            }
+            cur.erase(cur.begin() + static_cast<long long>(curContainer), cur.end());
+        };
+        std::vector<int> cur;
+        dfs(0, 0, cur, dfs);
+        return result;
+    };
+//    std::vector<int> data{2, 3, 6, 7};
+//    dbg(answer(data, 7));
+
+    vector<vector<int>>
+    (*answerOther)(vector<int> &, int) =
+    [](vector<int> &candidates, int target) -> vector<vector<int>> {
+        size_t size = candidates.size();
+        vector<vector<int>> result;
+        auto dfs = [&, target, size]
+                (int curPos, int curSum, std::vector<int> &cur,
+                 auto &&dfs) -> void {
+
+            if (curSum == target) {
+                result.push_back(cur);
                 return;
             }
-            for
+            if (curSum > target or curPos >= size) return;
 
-
-
+            dfs(curPos + 1, curSum, cur, dfs);
+            size_t curContainer = cur.size();
+            for (int i = 1; i <= (target - curSum) / candidates[curPos]; ++i) {
+                cur.push_back(candidates[curPos]);
+                dbg(curPos + 1, curSum + i * candidates[curPos], cur);
+                //不应该当前的进入下一步 应该重复当前 将当前的数字 从零到满的情况全部拿全
+                dfs(curPos + 1, curSum + i * candidates[curPos], cur, dfs);
+            }
+            cur.erase(cur.begin() + static_cast<long long>(curContainer), cur.end());
         };
+        std::vector<int> cur;
+        dfs(0, 0, cur, dfs);
+        return result;
     };
+//    std::vector<int> data{2, 3, 6, 7};
+//    dbg(answerOther(data, 7));
+    vector<vector<int>>
+    (*answerWithOutDup)(vector<int> &, int) =
+    [](vector<int> &candidates, int target) -> vector<vector<int>> {
+        vector<vector<int>> ans;
+        vector<int> nums;
+        sort(candidates.begin(), candidates.end());
+        auto backtrace = [](vector<vector<int>> &ans,
+                            vector<int> &candidates,
+                            vector<int> &nums,
+                            int cur, int target,
+                            auto &&backtrace) {
+            if (0 == target) {
+                ans.push_back(nums);
+                return;
+            }
+            // 当前for 循环中的数据 将要到达于 next+1 的数据也是当前的层数为 next层
+            // 同一层数中不能多次取到同一个数字
+            //                1
+            //             1    2
+            //          1        1(错误)
+            for (int next = cur; next < candidates.size() && target - candidates[next] >= 0; next++) {
+                bool isNotFirstOne = next > cur; //不是第一个 并且元素还相同 则直接跳过
+                if (isNotFirstOne && candidates[next - 1] == candidates[next]) { //
+                    dbg(next, cur, candidates[next - 1], candidates[next]);
+                    continue;
+                }
+                nums.push_back(candidates[next]);
+                dbg(nums);
+                backtrace(ans, candidates, nums, next + 1, target - candidates[next], backtrace);
+                nums.pop_back();
+            }
+        };
 
+        backtrace(ans, candidates, nums, 0, target, backtrace);
+        return ans;
+    };
+    std::vector<int> data{6, 1, 1, 2, 5};
+    dbg(answerWithOutDup(data, 8));
+}
+
+void LeetCode200::letterCombinations() {
+    //
+
+
+    auto answer = [&](const std::string_view digit) {
+        std::vector<std::vector<char>> data = {{'a', 'b', 'c'},
+                                               {'d', 'e', 'f'},
+                                               {'g', 'h', 'i'},
+                                               {'j', 'k', 'l'},
+                                               {'m', 'n', 'o'},
+                                               {'p', 'q', 'r', 's'},
+                                               {'t', 'u', 'v'},
+                                               {'w', 'x', 'y', 'z'}};
+        // dfs
+        vector<string> result;
+        size_t capacity = 1;
+        for (char ch: digit) {
+            capacity *= data[static_cast<size_t>(ch - '0'-2)].size();
+        }
+        result.reserve(capacity);
+        auto dfs = [&](std::string &last, std::string_view curDigit, auto &&dfs) -> void {
+            if (curDigit.empty()) {
+                result.emplace_back(last);
+                return;
+            }
+            size_t num = curDigit[0] - '0' - 2;
+            for (char curChar: data[num]) {
+                last += curChar;
+                dbg(last + "  " + curChar);
+                dfs(last, curDigit.substr(1), dfs);
+                last.pop_back();
+            }
+        };
+        string cur;
+        dfs(cur, digit, dfs);
+        return result;
+    };
+    dbg(answer("8"));
 }
 
 
