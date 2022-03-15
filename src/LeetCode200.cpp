@@ -10,6 +10,7 @@
 #include <set>
 #include <algorithm>
 #include<numeric>
+#include <folly/String.h>
 
 using std::array;
 using std::vector;
@@ -942,7 +943,7 @@ void LeetCode200::letterCombinations() {
         vector<string> result;
         size_t capacity = 1;
         for (char ch: digit) {
-            capacity *= data[static_cast<size_t>(ch - '0'-2)].size();
+            capacity *= data[static_cast<size_t>(ch - '0' - 2)].size();
         }
         result.reserve(capacity);
         auto dfs = [&](std::string &last, std::string_view curDigit, auto &&dfs) -> void {
@@ -963,6 +964,71 @@ void LeetCode200::letterCombinations() {
         return result;
     };
     dbg(answer("8"));
+}
+
+void LeetCode200::generateParenthesisByBrackets() {
+    auto answer = [](int n) {
+        std::vector<string> result;
+        std::vector<int> tmp;
+        tmp.resize(n * 2);
+        std::fill_n(tmp.begin() + n, n, 1);
+        string curResult;
+        curResult.reserve(n * 2);
+        do {
+            int count = 0;
+            bool isSuccess = true;
+            for (int i: tmp) {
+                if (i == 0) { count++; }
+                else {
+                    if (count == 0) {
+                        isSuccess = false;
+                        break;
+                    }
+                    count--;
+                }
+            }
+            if (isSuccess) {
+                curResult.clear();
+                for (int i: tmp) {
+                    if (i == 0) {
+                        curResult.push_back('(');
+                    } else {
+                        curResult.push_back(')');
+                    }
+                }
+                result.emplace_back(curResult);
+            }
+        } while (std::next_permutation(tmp.begin(), tmp.end()));
+        return result;
+    };
+//    dbg(folly::join(",", answer(3)));
+    auto answerDp = [](int n) {
+        std::vector<string> result;
+        result.reserve(n * 2);
+        auto dfs = [&](string &cur, int left, int right, auto &&dfs) -> void {
+            if (left == 0 and right == 0) {
+                result.emplace_back(cur);
+            }
+            if (left > right) {
+                return;
+            }
+            if (left > 0) {
+                cur.push_back('(');
+                dfs(cur, left - 1, right, dfs);
+                cur.pop_back();
+            }
+            if (right > 0) {
+                cur.push_back(')');
+                dfs(cur, left, right - 1, dfs);
+                cur.pop_back();
+            }
+        };
+        string cur;
+        cur.reserve(n * 2);
+        dfs(cur, n, n, dfs);
+        dbg(folly::join(",", result));
+    };
+    answerDp(3);
 }
 
 

@@ -59,6 +59,10 @@ public:
 
 	//797. 所有可能的路径
 	static  void allPathsSourceTarget();
+
+
+    //22. 括号生成
+    static void generateParenthesisByBrackets();
 private:
 
 	struct ListNode

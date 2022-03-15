@@ -75,8 +75,10 @@ int main() {
 //	LeetCode200::solveRound();
 
 //	LeetCode200::shortestPathBinaryMatrix();
-    LeetCode200::letterCombinations();
+//    LeetCode200::letterCombinations();
+    LeetCode200::generateParenthesisByBrackets();
 //	std::cin.get();
+
 }
 
 //#include <iostream>
