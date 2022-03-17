@@ -1031,5 +1031,55 @@ void LeetCode200::generateParenthesisByBrackets() {
     answerDp(3);
 }
 
+void LeetCode200::existInMesh() {
+    auto exist = []() -> bool { //vector<vector<char>> &board, string const &word
+        // [0-row][0-column]
+//        auto cache = std::vector<int>((board.size() + 1) * (board[0].size() + 1) * (word.size() + 1));
+
+        std::vector<std::vector<char>> board = {{'A', 'B', 'C', 'E'},
+                                                {'S', 'F', 'C', 'S'},
+                                                {'A', 'D', 'E', 'E'}};
+        string word = "SEE";
+        std::unique_ptr<int[]> visited(new int[board.size() * board[0].size()]);
+        std::memset()
+        auto dfs = [&](int row, int column, int wordPos, auto &&dfs) -> bool {
+
+            if (wordPos == word.size()) {
+                dbg(row, column, wordPos);
+                return true;
+            }
+            if (row == board.size() or row < 0 or column < 0 or column == board[0].size())return false;
+            if (board[row][column] == word[wordPos] and visited[row * board[0].size() + column] == 0) {
+                ++wordPos;
+                visited[row * board[0].size() + column] = 1;
+                if (dfs(row + 1, column, wordPos, dfs)) return true;
+                if (dfs(row, column + 1, wordPos, dfs)) return true;
+                if (dfs(row - 1, column, wordPos, dfs)) return true;
+                if (dfs(row, column - 1, wordPos, dfs)) return true;
+                visited[row * board[0].size() + column] = 0;
+
+            }
+            return false;
+        };
+        bool result = false;
+//        for (int row = 0; row < board.size(); row++) {
+//            for (int column = 0; column < board[0].size(); column++) {
+//                if (result)break;
+//                if (board[row][column] == word[0]) {
+//
+//
+//                }
+//            }
+//        }
+        result = dfs(1, 3, 0, dfs);
+        dbg(result);
+        return result;
+
+    };
+
+    exist();
+
+}
+
 
 
