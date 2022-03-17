@@ -78,8 +78,11 @@ int main() {
 //	LeetCode200::shortestPathBinaryMatrix();
 //    LeetCode200::letterCombinations();
 //    LeetCode200::generateParenthesisByBrackets();
-    LeetCode200::existInMesh();
+//    LeetCode200::existInMesh();
+//    LeetCode200::robOnStreet();
+LeetCode200::jumpGame();
 //	std::cin.get();
+
 
 }
 

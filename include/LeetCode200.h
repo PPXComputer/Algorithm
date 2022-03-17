@@ -52,7 +52,6 @@ public:
     // 78子集
     static void subsets();
 
-
     //90. 子集 II
     static void otherSubSets();
 
@@ -62,9 +61,13 @@ public:
 	//797. 所有可能的路径
 	static  void allPathsSourceTarget();
 
-
     //22. 括号生成
     static void generateParenthesisByBrackets();
+
+    // 打家劫舍2
+    static void robOnStreet();
+
+    static void jumpGame();
 private:
 
 	struct ListNode

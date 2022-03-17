@@ -1041,7 +1041,6 @@ void LeetCode200::existInMesh() {
                                                 {'A', 'D', 'E', 'E'}};
         string word = "SEE";
         std::unique_ptr<int[]> visited(new int[board.size() * board[0].size()]);
-        std::memset()
         auto dfs = [&](int row, int column, int wordPos, auto &&dfs) -> bool {
 
             if (wordPos == word.size()) {
@@ -1080,6 +1079,89 @@ void LeetCode200::existInMesh() {
     exist();
 
 }
+
+void LeetCode200::robOnStreet() {
+    vector<int> nums{1, 3, 1, 3, 100};
+    auto rob = [&]() {// 每次只需要知道当前 需要计算的式子就是了
+        std::vector<int> dp(nums.size() + 1);
+        dp[0] = 0;
+        dp[1] = nums[0];
+        for (int i = 2; i < nums.size(); ++i) {
+            dbg(dp);
+            dp[i] = std::max(dp[i - 2] + nums[i], dp[i - 1]);
+        }
+        dbg(dp);
+        return dp.back();
+    };
+//    rob();
+    auto rob2 = [&]() {
+        if (nums.size() <= 3)return *std::max_element(nums.begin(), nums.end());
+        auto robImpl = [](vector<int> &nums, int start, int end) {
+            int pre = nums[start];
+            //next 为当前的下一个位置 所以应该为 f(2) 而不是直接变成 nums[start+1]
+            int next = std::max(nums[start + 1], pre);
+            int result = next;
+            for (int i = start + 2; i < end; i++) {
+                result = std::max(pre + nums[i], next);
+                pre = next;
+                next = result;
+            }
+            return result;
+        };
+//        return robImpl(nums, 0, nums.size() - 1);
+        return robImpl(nums, 1, nums.size());
+//        return std::max(robImpl(nums, 0, nums.size() - 1), robImpl(nums, 1, nums.size()));
+    };
+    dbg(rob2());
+}
+
+void LeetCode200::jumpGame() {
+    //
+    std::vector<int> data{2, 3, 1, 1, 4};
+
+    auto dfs = [&](int pos, int length, auto &&dfs) -> bool {
+        if (pos == length)return true;
+        else if (pos > length)return false;
+        else {
+            for (int i = 1; i <= data[pos]; ++i) {
+                if (dfs(pos + i, length, dfs)) return true;
+            }
+            return false;
+        }
+
+    };
+
+    auto dp = [](vector<int> &data) {
+        std::vector<int> dp(data.size() + 1);
+        dp[data.size()] = 1;
+        for (int cur = static_cast<int>(data.size() - 1); cur >= 0; cur++) {
+            for (int interval = 1; interval <= data[cur]; ++interval) {
+                if (cur + interval == data.size()) {
+                    dp[cur] = 1;
+                    break;
+                } else if (cur + interval < data.size()) {
+                    dp[cur] = dp[cur + interval];
+                } else {
+                    dp[cur] = 0;
+                }
+            }
+
+        }
+        return dp[0] == 1;
+    };
+//    dbg(greedy(data));
+    auto greedy = [](vector<int> &data) {
+        int n = data.size();
+        int last = n - 1;
+        for (int i = last - 1; i >= 0; i--) {
+            if (data[i] + i >= last) {
+                last = i;
+            }
+        }
+        return last==0;
+    };
+}
+
 
 
 
