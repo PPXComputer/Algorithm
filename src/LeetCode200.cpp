@@ -1117,7 +1117,7 @@ void LeetCode200::robOnStreet() {
 
 void LeetCode200::jumpGame() {
     //
-    std::vector<int> data{2, 3, 1, 1, 4};
+    std::vector<int> data{1, 1, 1, 4};
 
     auto dfs = [&](int pos, int length, auto &&dfs) -> bool {
         if (pos == length)return true;
@@ -1158,8 +1158,101 @@ void LeetCode200::jumpGame() {
                 last = i;
             }
         }
-        return last==0;
+        return last == 0;
     };
+
+
+    auto dp2 = [](vector<int> &data) {
+        int n = static_cast<int>(data.size());
+        if (n == 1)return 0;
+        std::vector<int> dp(n);
+        dp[n - 1] = 1;
+
+        for (int cur = n - 2; cur >= 0; --cur) {
+            int interval = std::min(data[cur], n - cur);
+            for (int step = 1; step <= interval; ++step) {
+                if (dp[cur + step]) {
+                    dp[cur] = 1;
+                    break;
+                }
+            }
+        }
+        dbg(dp);
+        dbg(data);
+        int result = 0;
+        for (int i = 0; i < n - 1;) {
+            // 当前的 i能到达的最远距离
+            // 将当前 最近的中的
+            for (int last = std::min(data[i], n - i - 1); last >= 1; --last) {
+                if (dp[i + last]) {
+                    i += last;
+                    ++result;
+                    break;
+                }
+            }
+        }
+        return result;
+    };
+
+//    dbg(dp2(data));
+    auto greedy2 = [](std::vector<int> &data) {
+
+        // 贪心 算法当前的 当前跳跃的范围找到然后找到下一次可以到达的次数
+        int start = 0;
+        int end = 1; //到达位置的下一个位置
+        int n = data.size();
+        int result = 0;
+        while (end < n) { // 当 end=n 表示当前的 end 可以到达 n-1  end >n 则 end可以到达 n
+            int maxPos = 0;
+            for (int i = start; i < end; ++i) {
+                // 可以到达的最大位置
+                maxPos = std::max(maxPos, i + data[i]);
+            }
+            start = end;
+            end = maxPos + 1;
+            ++result;
+        }
+
+        return result;
+    };
+//    dbg(greedy2(data));
+    int result = 0;
+    result = [](int m, int n) {
+//        int data[m][n];
+        std::vector<int> dp(m * n);
+        dp[m * n - 1] = 1;
+        for (int row = m - 1; row >= 0; row--) {
+            for (int column = n - 1; column >= 0; column--) {
+                int cur = column + row * n;
+                if (column + 1 < n) {
+                    dp[cur] += dp[cur + 1];
+                }
+                if (row + 1 < m) {
+                    dp[cur] += dp[cur + n];
+                }
+            }
+        }
+        dbg(dp);
+        return dp[0];
+    }(3, 2);
+    int vlaResult = [](int m, int n) {
+        int dp[m][n];
+        dp[m - 1][n - 1] = 1;
+        for (int row = m - 1; row >= 0; --row) {
+            for (int column = n - 1; column >= 0; --column) {
+
+                if (column + 1 < n) {
+                    dp[row][column] += dp[row][column + 1];
+                }
+                if (row + 1 < m) {
+                    dp[row][column] += dp[row + 1][column];
+                }
+            }
+        }
+        return dp[0][0];
+
+    }(3, 2);
+    dbg(result == vlaResult);
 }
 
 
