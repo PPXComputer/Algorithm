@@ -1219,6 +1219,7 @@ void LeetCode200::jumpGame() {
     int result = 0;
     result = [](int m, int n) {
 //        int data[m][n];
+
         std::vector<int> dp(m * n);
         dp[m * n - 1] = 1;
         for (int row = m - 1; row >= 0; row--) {
@@ -1235,24 +1236,70 @@ void LeetCode200::jumpGame() {
         dbg(dp);
         return dp[0];
     }(3, 2);
-    int vlaResult = [](int m, int n) {
-        int dp[m][n];
-        dp[m - 1][n - 1] = 1;
-        for (int row = m - 1; row >= 0; --row) {
-            for (int column = n - 1; column >= 0; --column) {
 
-                if (column + 1 < n) {
-                    dp[row][column] += dp[row][column + 1];
-                }
-                if (row + 1 < m) {
-                    dp[row][column] += dp[row + 1][column];
+    // c++ 不支持变长数组
+//    int vlaResult = [](int m, int n) {
+//        int dp[m][n];
+//        dp[m - 1][n - 1] = 1;
+//        for (int row = m - 1; row >= 0; --row) {
+//            for (int column = n - 1; column >= 0; --column) {
+//
+//                if (column + 1 < n) {
+//                    dp[row][column] += dp[row][column + 1];
+//                }
+//                if (row + 1 < m) {
+//                    dp[row][column] += dp[row + 1][column];
+//                }
+//            }
+//        }
+//        return dp[0][0];
+//
+//    }(3, 2);
+//    dbg(result == vlaResult);
+
+
+
+}
+
+void LeetCode200::longestPalindrome() {
+    string s = "abb";
+//    if (s.size() == 1)return std::tostring(s[0]);
+    auto reverseBegin = s.rbegin();
+    auto reverseEnd = s.rend();
+    auto forwardBegin = s.begin();
+    auto forwardEnd = s.end();
+    int left = 0;
+    int right = 1;
+    while (forwardBegin != forwardEnd) {
+        if (*forwardBegin++ == *reverseBegin++) {
+            int count = 1;
+            dbg(forwardBegin - s.begin());
+            while (forwardBegin != forwardEnd) {
+                if (*forwardBegin == *reverseBegin) {
+                    count++;
+                    ++forwardBegin;
+                    ++reverseBegin;
+                } else {
+                    break;
                 }
             }
+            dbg(forwardBegin - s.begin(), count);
+            // 将当前的答案转换为当前的存在的 left right 两个边界
+            // 当前left 应该为
+            if (count > right - left) {
+                left = forwardBegin - s.begin() - count;
+                right = left + count;
+                dbg(left);
+            }
+            forwardBegin = forwardBegin - count + 1;
+            dbg(*forwardBegin, forwardBegin - s.begin());
+            reverseBegin = reverseBegin - count + 1;
         }
-        return dp[0][0];
+    }
 
-    }(3, 2);
-    dbg(result == vlaResult);
+
+    dbg(string(s.begin() + left, s.begin() + right));
+
 }
 
 

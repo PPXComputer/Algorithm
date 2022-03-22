@@ -3,6 +3,7 @@
 #include "../include/Dynamic.h"
 #include"../include/GreedyAlgo.h"
 #include "../include/StringAglo.h"
+#include "../include/Offer.h"
 #include"../include/TreeAlgo.h"
 #include"../include/LeetCode.h"
 #include"../include/LeetCode200.h"
@@ -80,7 +81,9 @@ int main() {
 //    LeetCode200::generateParenthesisByBrackets();
 //    LeetCode200::existInMesh();
 //    LeetCode200::robOnStreet();
-LeetCode200::jumpGame();
+//LeetCode200::jumpGame();
+//LeetCode200::longestPalindrome();
+    Offer::addBinary();
 //	std::cin.get();
 
 
