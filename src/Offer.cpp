@@ -3,13 +3,18 @@
 
 #include <cmath>
 #include <string>
+#include<random>
+#include <set>
 #include <vector>
 #include <dbg.h>
 #include <fmt/core.h>
 #include <fmt/format.h>
+#include<unordered_map>
 
 using std::vector;
+using std::set;
 using std::string;
+using std::unordered_map;
 
 #include "../include/Offer.h"
 
@@ -104,5 +109,308 @@ int Offer::addBinary() {
         }
     }
 
+
     return 0;
 }
+
+void Offer::singleNum() {
+    std::vector<int> nums{0, 1, 0, 1, 0, 1, 99};
+    std::sort(nums.begin(), nums.end());
+    int count = 1;
+    int last = nums[0];
+    for (auto start = nums.begin() + 1; start != nums.end(); ++start) {
+        if (*start == last) {
+            count++;
+        } else {
+            if (count == 1) {
+                dbg(last);
+                break;
+            }
+            count = 1;
+            last = *start;
+        }
+    }
+    //    dbg(nums.back());
+    std::vector<std::string> words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
+    int n = words.size();
+    int *masks = new int[n]{};
+    for (int i = 0; i < n; ++i) {
+        dbg(masks[i]);
+    }
+    int res = 0;
+    for (int i = 0; i < n; i++) {
+        int bitMask = 0;
+        for (char c: words[i]) {
+            bitMask |= (1 << (c - 'a'));
+        }
+        masks[i] = bitMask;
+        dbg(masks[i]);
+    }
+    delete[] masks;
+}
+
+void Offer::threeSum() {
+    //    std::unordered_map<int, int> mMap;
+    //    for (int i: data) {
+    //        mMap[i]++;
+    //    }
+    //    size_t size = data.size();
+    //    vector<vector<int>> result;
+    //    for (int i = 0; i + 2 < size; ++i) {
+    //        int first = data[i];
+    //        if (mMap[first] > 0) {
+    //            --mMap[first];
+    //            bool isSuccess = false;
+    //            for (int j = i + 1; j + 1 < size; ++j) {
+    //
+    //                int second = data[j];
+    //                if (mMap[second] > 0) {
+    //                    --mMap[second];
+    //                    int third = -i - j;
+    //                    if (mMap[third] > 0) {
+    //                        --mMap[third];
+    //                        isSuccess = true;
+    //                        result.emplace_back(std::vector<int>{first, second, third});
+    //                    } else {
+    //                        ++mMap[second];
+    //                    }
+    //                }
+    //
+    //            }
+    //            if (not isSuccess) {
+    //                ++mMap[first];
+    //            }
+    //        }
+    //    }
+    //threeSumFirstAnswer(data);
+
+
+    std::vector<int> data{-2, 0, 1, 1, 2};
+    // threeSumSecondAnswer(data);
+    // 使用  sort 的方法找到的当前的 需要的
+    auto answer = [&data]() {
+        std::sort(data.begin(), data.end());
+        auto size = std::size(data);
+        dbg(data);
+        std::vector<std::vector<int>> results;
+        int left = 1;
+        int right = size - 1;
+        for (int i = 0; i < size;) {
+            int cur = data[i];
+
+            dbg(i, left, right);
+            bool isFind = false;
+            while (left < right) {
+
+                const string &basicString = fmt::format("{} {} {}", cur, data[left], data[right]);
+                dbg(basicString);
+                //找到当前符合的两个位置的
+                int curResult = data[left] + data[right] + cur;
+
+                if (curResult > 0) {
+                    --right;
+                } else if (curResult < 0) {
+                    ++left;
+                } else {
+                    results.emplace_back(std::vector<int>{cur, data[left], data[right]});
+                    isFind = true;
+                    break;
+                }
+            }
+            if (i + 1 < size and data[i + 1] == data[i]) {
+                while (i + 1 < size and data[i + 1] == data[i])
+                    ++i;
+            } else {
+                ++i;
+            }
+            if (isFind)
+                right = right - 1;
+            left = i + 1;
+        }
+        dbg(results);
+    };
+
+    auto otherAnswer = [&data] {
+        std::vector<std::vector<int>> result;
+        std::sort(data.begin(), data.end());
+        auto size = std::size(data);
+
+        // 有两种情况
+        //1. 数字重复了   比如 -1,-1,0,0,1,1   -1,0,1 成功后 left从0 要到一个不等于0的地方
+        //2. 当前数字匹配多次 -2,-1,0,2,3    -2 0 2   -2  -1  3 所以匹配成功后left 要转到下一个地方 不能直接打破循环
+
+        for (int i = 0; i < size; ++i) {
+            if (i > 0 and data[i - 1] == data[i]) continue;
+            int left = i + 1;
+            int right = size - 1;
+            while (left < right) {
+                int curResult = data[left] + data[i] + data[right];
+                if (curResult == 0) {
+                    result.emplace_back(std::vector<int>{data[i], data[left], data[right]});
+                    while (left < right and data[left] == data[1 + left])++left;
+                    ++left; //到达下一个 left 不相同的地方
+                    continue;
+                } else if (curResult < 0) {
+                    ++left;
+                } else {
+                    --right;
+                }
+            }
+        }
+        dbg(result);
+    };
+    otherAnswer();
+}
+
+void Offer::threeSumSecondAnswer(vector<int> &data) {
+    std::unordered_map<int, int> mMap;
+    for (int i: data) {
+        mMap[i]++;
+    }
+    std::vector<std::vector<int>> results;
+    auto size = data.size();
+    for (int i = 0; i < size; ++i) {
+        int cur = data[i];
+        if (mMap[cur] > 0) {
+            --mMap[cur];
+            bool isSuccess = false;
+            for (int j = i + 1; j < size; ++j) {
+                int first = data[j];
+                if (mMap[first] > 0) {
+                    --mMap[first];
+                    const auto &iterator = mMap.find(-cur - first);
+                    if (iterator != mMap.end() and ((*iterator).second > 0)) {
+                        dbg(*iterator);
+                        results.emplace_back(std::vector<int>{cur, first, (*iterator).first});
+                        isSuccess = true;
+                        continue;
+                    }
+                    ++mMap[first];
+                }
+            }
+
+            if (not isSuccess) {
+                ++mMap[cur];
+            }
+        }
+        // 跳过重复的数据
+
+
+    }
+    dbg(results);
+}
+
+void Offer::threeSumFirstAnswer(std::vector<int> &data) {
+    std::vector<std::vector<int>> result;
+    std::sort(data.begin(), data.end());
+    int size = data.size();
+    for (int i = 0; i < size; ++i) {
+
+        while (i + 1 < size and data[i] == data[i + 1]) {
+            ++i;
+        }
+        int left = i + 1;
+        int right = size - 1;
+        while (left < right) {
+            if (data[i] + data[left] + data[right] == 0) {
+                dbg(data[i], data[left], data[right]);
+                result.emplace_back(std::vector<int>{data[i], data[left], data[right]});
+                left++;
+                right--;
+                continue;
+            } else if (data[i] + data[left] + data[right] > 0) {
+                --right;
+            } else {
+                ++left;
+            }
+        }
+    }
+}
+
+void Offer::minSubArrayLen() {
+    // 滑动窗口
+    std::vector<int> data{2, 3, 1, 2, 4, 3};
+    int target = 7;
+    auto size = data.size();
+    int right = 0;
+    int curResult = data[0];
+    int result = INT_MAX;
+    int left = 0;
+    while (left <= right and right < size) {
+        if (curResult < target) {
+            ++right;
+            if (right < size)curResult += data[right];
+        } else if (curResult >= target) {
+            int curRange = right - left + 1;
+            if (result > curRange) {
+                result = curRange;
+            }
+            curResult -= data[left];
+            ++left;
+        }
+    }
+    dbg(result);
+
+}
+
+void Offer::numSubarrayProductLessThanK() {
+    //给定一个正整数数组 nums和整数 k ，请找出该数组内乘积小于 k 的连续的子数组的个数。
+    // 给定一个长度 1850 长度为4数组的个数相当于 1+2+3+4   不断进行[fast-slow+1]
+    auto answer = [] {
+        std::vector<int> data{10, 5, 2, 6};
+        int k = 100;
+        int fast = 0;
+        int slow = 0;
+        auto size = data.size();
+        int tmp = 1;
+        int result = 0;
+        //如果当前要加入的fast 节点越界 证明没啥需要加的了 直接退出
+        while (fast < size) {
+            // 结果为 result += fast  -slow+1  (fast 已经自增了)
+            if (data[fast] * tmp < k) {
+                tmp *= data[fast];
+                ++fast;
+                result += fast - slow;
+            } else {
+                // tmp 除去 slow的部分 slow移动到  slow+1
+                // 如果 当前的只有一个元素都不行的话 fast和 slow需要一起+1
+                tmp /= data[slow];
+                if (fast == slow) {
+                    ++fast;
+                }
+                ++slow;
+            }
+        }
+
+        return result;
+    };
+//    dbg(answer());
+    auto answerSumk = [] {
+        vector<int> data{1, 1,1};
+        int k = 2;
+        int size = data.size();
+        // 当数组元素存在负数的情况时  则滑动窗口可能存在失效的问题
+        // 当前的 大于当前元素的时候 无法前进 或者回溯
+        // 构建 辅助前缀和的数据
+        int preSum = 0;
+
+        // 问题就转化成 前缀和中相差 为k的数据对数有多个了
+        std::unordered_map<int, int> map;
+        map.reserve(size + 1);
+        map[0] = 1;
+        int result = 0;
+        for (int i = 0; i < size; ++i) {
+            preSum += data[i];
+            dbg(map,preSum);
+            const auto &findIterator = map.find(preSum-k);
+            if (findIterator != map.end()) {
+                result += findIterator->second;
+            }
+            ++map[preSum];
+        }
+        return result;
+    };
+    dbg(answerSumk());
+}
+
+

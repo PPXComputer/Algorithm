@@ -83,7 +83,9 @@ int main() {
 //    LeetCode200::robOnStreet();
 //LeetCode200::jumpGame();
 //LeetCode200::longestPalindrome();
-    Offer::addBinary();
+//    Offer::addBinary();
+//Offer::threeSum();
+Offer::numSubarrayProductLessThanK();
 //	std::cin.get();
 
 

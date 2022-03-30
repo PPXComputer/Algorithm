@@ -7,9 +7,22 @@
 
 
 struct Offer {
-    public:
+public:
     static int divide();
+
     static int addBinary();
+
+    static void singleNum();
+
+    static void threeSum();
+
+    static void threeSumFirstAnswer(std::vector<int> &data);
+
+    static void threeSumSecondAnswer(std::vector<int> &data);
+
+    static void minSubArrayLen();
+
+    static void numSubarrayProductLessThanK();
 };
 
 
