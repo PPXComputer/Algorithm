@@ -23,6 +23,9 @@ public:
     static void minSubArrayLen();
 
     static void numSubarrayProductLessThanK();
+
+    static void findMaxLengthWithSameCount();
+    static int pivotIndex();
 };
 
 

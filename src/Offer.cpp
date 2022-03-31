@@ -5,6 +5,7 @@
 #include <string>
 #include<random>
 #include <set>
+#include <numeric>
 #include <vector>
 #include <dbg.h>
 #include <fmt/core.h>
@@ -386,7 +387,7 @@ void Offer::numSubarrayProductLessThanK() {
     };
 //    dbg(answer());
     auto answerSumk = [] {
-        vector<int> data{1, 1,1};
+        vector<int> data{1, 1, 1};
         int k = 2;
         int size = data.size();
         // 当数组元素存在负数的情况时  则滑动窗口可能存在失效的问题
@@ -401,8 +402,8 @@ void Offer::numSubarrayProductLessThanK() {
         int result = 0;
         for (int i = 0; i < size; ++i) {
             preSum += data[i];
-            dbg(map,preSum);
-            const auto &findIterator = map.find(preSum-k);
+            dbg(map, preSum);
+            const auto &findIterator = map.find(preSum - k);
             if (findIterator != map.end()) {
                 result += findIterator->second;
             }
@@ -411,6 +412,97 @@ void Offer::numSubarrayProductLessThanK() {
         return result;
     };
     dbg(answerSumk());
+}
+
+void Offer::findMaxLengthWithSameCount() {
+    //给定一个二进制数组 nums , 找到含有相同数量的 0 和 1 的最长连续子数组，并返回该子数组的长度。
+    // 不能使用滑动窗口 因为你不知道当前的 前进会增加0 还是后退会增加零
+    // 0,1 相同数量 进行前缀的异或和
+    std::vector<int> data{0, 1};
+    auto size = data.size();
+    {
+
+        int countSum = data[0];
+        std::vector<int> countCache;
+        countCache.reserve(size + 1);
+        countCache.push_back(0);
+        int result = 0;
+        for (int i = 0; i < size; ++i) {
+            int cur = data[i] ? 1 : -1;
+            countCache.push_back(cur + countCache[i]);
+        }
+        dbg(countCache);
+    }
+
+    {
+        std::unordered_map<int, int> mMap;
+        mMap.reserve(size + 1);
+        mMap.insert({0, 0});
+        int count = 0;
+        int result = 0;
+        for (int i = 0; i < size; ++i) {
+            count += data[i] ? 1 : -1;
+
+            auto iterator = mMap.find(count);
+            if (iterator != mMap.end()) {
+                result = std::max(result, i - iterator->second + 1);
+            } else {
+                // 插入当前元素 第一次遇到则 赋值为 i
+                mMap[count] = i;
+            }
+
+        }
+        dbg(result);
+    }
+}
+
+int Offer::pivotIndex() {
+    /*
+     * 给你一个整数数组 nums ，请计算数组的 中心下标 。
+
+    数组 中心下标 是数组的一个下标，其左侧所有元素相加的和等于右侧所有元素相加的和。
+
+     */
+    auto a = [] {
+        std::vector<int> data{1, 7, 3, 6, 5, 6};
+        dbg(data);
+        auto size = data.size();
+
+        if (size == 1) return -1;
+
+        std::vector<int> sumCache;
+        sumCache.reserve(size);
+        int sum = 0;
+        for (int i = 0; i < size; ++i) {
+            sum += data[i];
+            sumCache.emplace_back(sum);
+        }
+        if (sum - data[0] == 0) {
+            return 0;
+        }
+        dbg(data);
+        // 将当前的 下标中索引求出
+        dbg(sumCache);
+        for (int i = 1; i < size; ++i) {
+            dbg(sum - sumCache[i], sumCache[i - 1]);
+            if (sum - sumCache[i] == sumCache[i - 1])return i;
+        }
+        return -1;
+    };
+    auto b = [] {
+        std::vector<int> data{1, 7, 3, 6, 5, 6};
+        auto size = data.size();
+        int total = std::accumulate(data.begin(), data.end(), 0);
+        int sum = 0;
+        for (int i = 0; i < size; ++i) {
+
+            sum += data[i];
+            if (total - sum == sum - data[i]) {
+                return i;
+            }
+        }
+        return -1;
+    };
 }
 
 

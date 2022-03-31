@@ -85,7 +85,9 @@ int main() {
 //LeetCode200::longestPalindrome();
 //    Offer::addBinary();
 //Offer::threeSum();
-Offer::numSubarrayProductLessThanK();
+//Offer::numSubarrayProductLessThanK();
+//Offer::findMaxLengthWithSameCount();
+Offer::pivotIndex();
 //	std::cin.get();
 
 
