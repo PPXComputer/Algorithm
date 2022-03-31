@@ -188,7 +188,7 @@ void Offer::threeSum() {
 
     std::vector<int> data{-2, 0, 1, 1, 2};
     // threeSumSecondAnswer(data);
-    // 使用  sort 的方法找到的当前的 需要的
+    // 使用  sort 的方法找到的当前的 需要的 
     auto answer = [&data]() {
         std::sort(data.begin(), data.end());
         auto size = std::size(data);
@@ -495,7 +495,6 @@ int Offer::pivotIndex() {
         int total = std::accumulate(data.begin(), data.end(), 0);
         int sum = 0;
         for (int i = 0; i < size; ++i) {
-
             sum += data[i];
             if (total - sum == sum - data[i]) {
                 return i;
@@ -503,6 +502,33 @@ int Offer::pivotIndex() {
         }
         return -1;
     };
+//    return a();
+
+    std::vector<std::vector<int>> sumCache{
+    };
+    sumCache.emplace_back(std::vector<int>{-4});
+    sumCache.emplace_back(std::vector<int>{-5});
+    int row = sumCache.size();
+    int col = sumCache[0].size();
+    for (int i = 0; i < row; ++i) {
+        for (int j = 1; j < col; ++j) {
+            sumCache[i][j] += sumCache[i][j - 1];
+        }
+    }
+    int result = 0;
+    int row1 = 0;
+    int col1 = 1;
+    int row2 = 0;
+    int col2 = 1;
+    for (int i = row1; i <= row2; ++i) {
+        if (col2 > col1 and col1 != 0) {
+            result += sumCache[i][col2] - sumCache[i][col1 - 1];
+        } else {
+            result += sumCache[i][col2];
+        }
+    }
+    dbg(result);
+    return 0;
 }
 
 
