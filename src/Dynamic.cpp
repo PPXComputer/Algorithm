@@ -1,5 +1,5 @@
-#include "../include/Dynamic.h"
-#include "../include/GreedyAlgo.h"
+#include "Dynamic.h"
+#include "GreedyAlgo.h"
 #include<ciso646>
 #include <initializer_list>
 #include <iostream>

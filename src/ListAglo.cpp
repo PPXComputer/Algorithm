@@ -2,7 +2,7 @@
 // Created by 破忆断回 on 2021/9/24.
 //
 
-#include "../include/ListAglo.h"
+#include "ListAglo.h"
 
 inline void ListAlgo::get_node_counter() {
 

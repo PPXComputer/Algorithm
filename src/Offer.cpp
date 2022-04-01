@@ -9,15 +9,15 @@
 #include <vector>
 #include <dbg.h>
 #include <fmt/core.h>
-#include <fmt/format.h>
+
 #include<unordered_map>
+#include "Offer.h"
 
 using std::vector;
 using std::set;
 using std::string;
 using std::unordered_map;
 
-#include "../include/Offer.h"
 
 int Offer::divide() {
     int a = 15, b = 2;
@@ -504,8 +504,7 @@ int Offer::pivotIndex() {
     };
 //    return a();
 
-    std::vector<std::vector<int>> sumCache{
-    };
+    std::vector<std::vector<int>> sumCache{};
     sumCache.emplace_back(std::vector<int>{-4});
     sumCache.emplace_back(std::vector<int>{-5});
     int row = sumCache.size();
@@ -517,11 +516,15 @@ int Offer::pivotIndex() {
     }
     int result = 0;
     int row1 = 0;
-    int col1 = 1;
+    std::random_device device; //输出机器级别的随机数
+    std::default_random_engine e{device()}; //固定好种子后
+    // 将当前的 随机数发生器传给 分布实现去
+    std::binomial_distribution<int> distribution(3, 2);
+    int col1 = distribution(e) % 2 ? 0 : 1;
     int row2 = 0;
     int col2 = 1;
     for (int i = row1; i <= row2; ++i) {
-        if (col2 > col1 and col1 != 0) {
+        if (col1 != 0) {
             result += sumCache[i][col2] - sumCache[i][col1 - 1];
         } else {
             result += sumCache[i][col2];
@@ -529,6 +532,119 @@ int Offer::pivotIndex() {
     }
     dbg(result);
     return 0;
+}
+
+int Offer::NumMatrix() {
+    vector<vector<int>> matrix{{-4, -5},
+                               {1,  2}};
+    int row = matrix.size();
+    int col = matrix[0].size();
+    auto answer = [&matrix, row, col] {
+
+        std::vector<std::vector<int>> preSum(row + 1, std::vector<int>(col + 1));
+        for (int i = 0; i < row; ++i) {
+            for (int j = 0; j < col; ++j) {
+                preSum[i + 1][j + 1] = preSum[i][j + 1] + preSum[i + 1][j] - preSum[i][j] + matrix[i][j];
+            }
+        }
+
+        auto sumRegion = [&](int row1, int col1, int row2, int col2) {
+            ++row1;
+            ++col1;
+            ++row2;
+            ++col2;
+            return preSum[row2][col2] + preSum[row1 - 1][col1 - 1] - preSum[row1 - 1][col2] - preSum[row2][col1 - 1];
+        };
+        dbg(preSum);
+
+        dbg(sumRegion(0, 0, 1, 1));
+        int row1 = 1;
+        int col1 = 1;
+        int row2 = 2;
+        int col2 = 2;
+        dbg(preSum[row2][col2], preSum[row1 - 1][col1 - 1], preSum[row1 - 1][col2], preSum[row2][col - 1]);
+    };
+
+
+    auto inPlaceAnswer = [&matrix, row, col] {
+
+        for (int i = 1; i < row; ++i) {
+            matrix[i][0] += matrix[i - 1][0];
+        }
+        for (int j = 1; j < col; ++j) {
+            matrix[0][j] += matrix[0][j - 1];
+        }
+        for (int i = 1; i < row; ++i) {
+            for (int j = 1; j < col; ++j) {
+                matrix[i][j] += matrix[i - 1][j] + matrix[i][j - 1] - matrix[i - 1][j - 1];
+            }
+        }
+        dbg(matrix);
+
+    };
+    inPlaceAnswer();
+    return 0;
+}
+
+void Offer::checkInclusion() {
+    //给定两个字符串 pattern 和 text，写一个函数来判断 text 是否包含 pattern 的某个变位词。
+    //换句话说，第一个字符串的排列之一是第二个字符串的 子串 。
+    //pattern = "ab" text = "eidbaooo" true
+
+    auto answer = [] {
+        string pattern = "ab";
+
+        string text = "eidboaoo";
+        const int patternLen = pattern.size();
+        const int textLen = text.size();
+
+        std::vector<int> data(26);
+        for (int i = 0; i < patternLen; ++i) {
+            ++data[pattern[i] - 'a'];
+        }
+        int left = 0;
+
+        int right = left;
+        while (right < textLen) {
+            dbg(data);
+            int curPos = text[right] - 'a';
+            --data[curPos];
+            while (data[curPos] < 0) {
+                int leftPos = text[left] - 'a';
+                ++data[leftPos];
+                ++left;
+            }
+
+            //到达匹配的位置处
+            // 如果是部分匹配则 可知当前的 right-left+1 < patternLen
+            if (patternLen == right - left + 1) {
+                return true;
+            }
+            ++right;
+        }
+        return false;
+    };
+    dbg(answer());
+}
+
+int Offer::lengthOfLongestSubstring(string &s) {
+    int cache[256]{};
+    const int length = s.length();
+    int left = 0;
+    int right = 0;
+    int result = 0;
+    while (right < length) {
+        const char cur = s[right];
+        ++cache[cur];
+        while (cache[cur] > 1) {
+            const char leftPos = s[left];
+            --cache[leftPos];
+            ++left;
+        }
+        result = std::max(right - left + 1, result);
+        ++right;
+    }
+    return result;
 }
 
 

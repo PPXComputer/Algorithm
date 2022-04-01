@@ -2,7 +2,7 @@
 // Created by 破忆断回 on 2021/9/26.
 //
 
-#include "../include/UnionFindSet.h"
+#include "UnionFindSet.h"
 
 int UnionFindSet::find_father(int val) {
     assert(val < father.size());

@@ -1,4 +1,4 @@
-#include "../include/ArrayAlgo.h"
+#include "ArrayAlgo.h"
 #include "folly/Random.h"
 
 #include<vector>

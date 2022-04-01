@@ -4,18 +4,18 @@
 #include <array>
 #include<fmt/core.h>
 
-#include "../include/TreeAlgo.h"
+#include "TreeAlgo.h"
 #include <optional>
 
 void TreeAlgo::cal_node_distance() {
-    // ½«µ±Ç°´æÔÚµÄ½Úµã
+    // ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ÚµÄ½Úµï¿½
     const std::unique_ptr<TreeNode> &tree = create_tree();
 
 
     auto impl = [](TreeNode *root, auto &&self) -> std::pair<int, int> {
-        // ½«µ±Ç°µÄ root ×ª»¯µÄÎª
+        // ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ root ×ªï¿½ï¿½ï¿½ï¿½Îª
         if (root == nullptr) {
-            return {0, 0};//Çó³öµ±Ç°½ÚµãµÄ
+            return {0, 0};//ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Úµï¿½ï¿½
         } else {
             std::pair<int, int> left = self(root->left.get(), self);
             std::pair<int, int> right = self(root->right.get(), self);
@@ -42,8 +42,8 @@ std::unique_ptr<TreeNode> TreeAlgo::create_tree() {
 
 
 void TreeAlgo::find_non_exist_num() {
-    // ½«µ±Ç°´æÔÚµÄ Êý¾Ý×ª»¯Îª 2^16 µÄÊý¾Ý 2^15
-    // ½«µ±Ç°Êý¾Ý×ª»¯Îª±àÐ´µÄµ±Ç°countµÄÖµ
+    // ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îª 2^16 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2^15
+    // ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½Ð´ï¿½Äµï¿½Ç°countï¿½ï¿½Öµ
 //        constexpr int length = 1 << 16;
 //        std::array<int, length> data{};
 
@@ -54,7 +54,7 @@ void TreeAlgo::run() {
 }
 
 void TreeAlgo::find_most_search_subtree()
-{  // ËÑË÷µ±Ç°µÄ×î´óµÄ ËÑË÷¶þ²æ×ÓÊ÷
+{  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     
     std::unique_ptr<TreeNode> root = TreeAlgo::create_tree();
     
@@ -100,11 +100,11 @@ void TreeAlgo::find_most_search_subtree()
     
 	struct BstNodeResult
 	{
-		int min; // ×ÓÊ÷ ÖÐ×îÐ¡µÄ Öµ
-		int max; // ×ÓÊ÷ ÖÐ×î´óµÄ Öµ
+		int min; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ Öµ
+		int max; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Öµ
 		Node* bstNodeHead;
 		int height;
-		bool isBst; //ÓÃÓÚ×ÔÉíÊÇ·ñÎª Æ½ºâ¶þ²æÊ÷µÄÅÐ¶Ï
+		bool isBst; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îª Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
         BstNodeResult(int mi ,int ma,Node* bst , int he ,int isb):min(mi),
 			max(ma), bstNodeHead(bst), height(he), isBst(isb) {}
 	};
@@ -135,7 +135,7 @@ void TreeAlgo::find_most_search_subtree()
 			if (left.isBst and right.isBst) {
                 if (left.max <= right.min and root->value >= left.max 
 					and root->value <= right.min) {
-					bstNodeResult.bstNodeHead = root; // µ±Ç°µÄÊ÷±¾Éí¾ÍÊÇÒ»¸öÆ½ºâ¶þ²æÊ÷
+					bstNodeResult.bstNodeHead = root; // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 }
             }
             else {

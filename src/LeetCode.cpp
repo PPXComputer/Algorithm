@@ -1,4 +1,4 @@
-﻿#include "../include/LeetCode.h"
+﻿#include "LeetCode.h"
 #include <dbg.h>
 #include <cassert>
 #include <array>

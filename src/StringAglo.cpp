@@ -2,7 +2,7 @@
 // Created by 破忆断回 on 2021/9/25.
 //
 
-#include "../include/StringAglo.h"
+#include "StringAglo.h"
 #include <dbg.h>
 
 inline fbstring StringAglo::sub_string_range() {

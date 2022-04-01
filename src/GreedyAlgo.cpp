@@ -1,4 +1,4 @@
-#include "../include/GreedyAlgo.h"
+#include "GreedyAlgo.h"
 #include <iso646.h>
 
 

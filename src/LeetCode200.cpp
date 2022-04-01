@@ -1,4 +1,4 @@
-#include "../include/LeetCode200.h"
+#include "LeetCode200.h"
 #include <array>
 
 #include <string>

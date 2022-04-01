@@ -1,12 +1,12 @@
-#include"../include/ListAglo.h"
-#include"../include/ArrayAlgo.h"
-#include "../include/Dynamic.h"
-#include"../include/GreedyAlgo.h"
-#include "../include/StringAglo.h"
-#include "../include/Offer.h"
-#include"../include/TreeAlgo.h"
-#include"../include/LeetCode.h"
-#include"../include/LeetCode200.h"
+#include"ListAglo.h"
+#include"ArrayAlgo.h"
+#include "Dynamic.h"
+#include"GreedyAlgo.h"
+#include "StringAglo.h"
+#include "Offer.h"
+#include"TreeAlgo.h"
+#include"LeetCode.h"
+#include"LeetCode200.h"
 #include "dbg.h"
 
 using std::string;
@@ -87,7 +87,9 @@ int main() {
 //Offer::threeSum();
 //Offer::numSubarrayProductLessThanK();
 //Offer::findMaxLengthWithSameCount();
-Offer::pivotIndex();
+//Offer::pivotIndex();
+Offer::NumMatrix();
+Offer::checkInclusion();
 //	std::cin.get();
 
 

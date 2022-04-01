@@ -27,32 +27,41 @@ using std::cout;
 
 class ArrayAlgo {
 public:
-	//Consistent Hashing
-	// 一致性函数
+    //Consistent Hashing
+    // 一致性函数
 
-	static void change_position();
+    static void change_position();
 
-	static void huffman_tree();
+    static void huffman_tree();
 
-	static void long_increase_sub_array();
+    static void long_increase_sub_array();
 
-	static void standard_str();
+    static void standard_str();
 
-	static void data_array();
+    static void data_array();
 
-	static void not_exists_num();
+    static void not_exists_num();
 
-	static void coin_change();
+    static void coin_change();
 
-	static void xor_max_range();
+    static void xor_max_range();
 
-	static void change_array_data();
+    static void change_array_data();
 
-	static void find_top_k();
+    static void find_top_k();
 
-	static void JosephProblem();
+    static void JosephProblem();
 
-	static void longestTotalArray();
+    static void longestTotalArray();
+
+    using result_type = unsigned int;
+
+
+    ///????????????????????????????????????????????
+    // 这是什么 jb写法?
+    static constexpr result_type (max)() {
+        return static_cast<result_type>(-1);
+    }
 };
 
 
