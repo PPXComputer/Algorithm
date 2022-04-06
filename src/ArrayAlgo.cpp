@@ -140,7 +140,7 @@ void ArrayAlgo::coin_change() {
     };
 
     auto dfImpl = [maxCoin, maxSpend](int coin, int end) {
-        fbvector <fbvector<int>> data(maxCoin, fbvector<int>(maxSpend));
+        fbvector<fbvector<int>> data(maxCoin, fbvector<int>(maxSpend));
         // result= f(coin,0)
         //  = std::min({f(coin-2,subtract_spend),
         //  f(coin+2,add_spend),f(coin*2,multiply_sepnd)} );
@@ -355,14 +355,16 @@ void ArrayAlgo::find_top_k() {
         int second_left = 0;
         int second_right = second.size() - 1;
         int cur_k = start +
-                    get_leq_pos(second, second_left, second_right, first[start]) +
-                    1;
+                    get_leq_pos(second,
+                                second_left,
+                                second_right,
+                                first[start]) + 1;
         bool search_on_second = true;
         while (cur_k != k) {
             if (cur_k < k) {
 
                 if (search_on_second) {
-                    first_left = (first_left + first_right) >> 2 + 1;
+                    first_left = ((first_left + first_right) >> 2) + 1;
                     // cur_k =
                 } else {
                 }
