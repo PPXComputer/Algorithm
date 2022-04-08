@@ -647,4 +647,25 @@ int Offer::lengthOfLongestSubstring(string &s) {
     return result;
 }
 
+int Offer::countSubstrings() {
+    // 回文子串的个数
+    string varString = "abababaadhqjqqq";
+    const int len = varString.length();
+    int result = 0;
+    // 中心点为 一时 有 len 个
+    // 中心点 为二时 有 len-1 个 故为  2*len-1
+    for (int cur = 0; cur < 2 * len - 1; ++cur) {
+        int left = cur / 2;
+        // right 可能为 中心点为两个元素
+        // right 应该字符串的 长度相关 可能为 偶数 或者奇数
+        int right = left + cur % 2;
+        while (right < len and left >= 0 and varString[left] == varString[right]) {
+            --left;
+            ++right;
+            ++result;
+        }
+    }
+    return result;
+}
+
 
