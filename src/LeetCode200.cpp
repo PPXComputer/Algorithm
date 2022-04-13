@@ -514,7 +514,7 @@ inline void LeetCode200::climbStairs() {
 
 void LeetCode200::connectRight() {
 	//std::list<ListNode*> container;
-	//std::unique_ptr<ListNode> first = LeetCode200::new_list(10);
+	//std::unique_ptr<ListNode> first = LeetCode200::decode(10);
 	//auto root = first.get();
 	//if (root == NULL)return NULL;
 	//vector<Node*> container;
@@ -529,7 +529,7 @@ void LeetCode200::connectRight() {
 	//		Node* back = container.back();
 	//		container.pop_back();
 	//		if (lastNode != nullptr) {
-	//			lastNode->next = back;
+	//			lastNode->left = back;
 	//		}
 	//		lastNode = back;
 	//		// ???????д???
@@ -923,7 +923,7 @@ void LeetCode200::combinationSum() {
 					ans.push_back(nums);
 					return;
 				}
-				// 当前for 循环中的数据 将要到达于 next+1 的数据也是当前的层数为 next层
+				// 当前for 循环中的数据 将要到达于 left+1 的数据也是当前的层数为 next层
 				// 同一层数中不能多次取到同一个数字
 				//                1
 				//             1    2
@@ -1121,7 +1121,7 @@ void LeetCode200::robOnStreet() {
 		if (nums.size() <= 3)return *std::max_element(nums.begin(), nums.end());
 		auto robImpl = [](vector<int>& nums, int start, int end) {
 			int pre = nums[start];
-			//next 为当前的下一个位置 所以应该为 f(2) 而不是直接变成 nums[start+1]
+			//left 为当前的下一个位置 所以应该为 f(2) 而不是直接变成 nums[start+1]
 			int next = std::max(nums[start + 1], pre);
 			int result = next;
 			for (int i = start + 2; i < end; i++) {

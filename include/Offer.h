@@ -37,28 +37,77 @@ public:
 
     static int countSubstrings();
 
-    static void removeNthFromEnd() {
-        const std::unique_ptr<ListNode> &ptr = Offer::ListNode::new_list(10);
-        auto root = ptr.get();
-        ListNode::printAll(root);
-        auto a = ListNode(0, root);
-        auto dummy = std::addressof(a);
-        int n = 2;
+    static void removeNthFromEnd();
 
-        auto first = dummy;
-        auto second = dummy;
-        while (n-- != 0) {
-            second = second->next;
-        }
-        while (second != nullptr) {
-            second = second->next;
-            first = first->next;
-        }
-        first->next = first->next->next;
-        dummy->next;
-    }
+    // 二叉树的最大路径和
+    static void maxPathSum();
 
 private:
+    struct TreeNode {
+        TreeNode() : val(0), left{nullptr}, right{nullptr} {}
+
+        explicit TreeNode(int x) : val(x), left{nullptr}, right{nullptr} {}
+
+
+        TreeNode(const TreeNode &) = delete;
+
+        TreeNode &operator=(const TreeNode &) = delete;
+
+        TreeNode *left;
+        TreeNode *right;
+        int val;
+
+
+        // decode tree node
+        static std::unique_ptr<TreeNode> new_list(int length) {
+            assert(length != 0);
+            std::vector<int> data;
+            data.reserve(length);
+            for (int i = 0; i < length; ++i) {
+                data.push_back(i + 1);
+            }
+            auto tree = TreeNode();
+            std::vector<TreeNode *> container;
+            decode(data, std::addressof(tree), 0, length - 1, true, container);
+            std::unique_ptr<TreeNode> result{tree.left};
+            tree.left->setNode(std::move(container));
+            return result;
+        }
+
+
+
+        ~TreeNode() {
+
+            for (auto data: node) {
+                delete data;
+            }
+        }
+
+
+        void setNode(std::vector<TreeNode *> &&container) {
+            node = std::forward<decltype(container)>(container);
+        }
+
+    private:
+         static void decode(const std::vector<int> &data, TreeNode *parent, int left, int right, bool isLeft,
+                            std::vector<TreeNode *> &container) {
+            if (left > right)return;
+            int mid = (right + left) >> 1;
+            if (isLeft) {
+                parent->left = new TreeNode(data[mid]);
+                container.emplace_back(parent->left);
+                decode(data, parent->left, left, mid - 1, true, container);
+                decode(data, parent->left, mid + 1, right, false, container);
+            } else {
+                parent->right = new TreeNode(data[mid]);
+                container.emplace_back(parent->right);
+                decode(data, parent->right, left, mid - 1, true, container);
+                decode(data, parent->right, mid + 1, right, false, container);
+            }
+        }
+        std::vector<TreeNode *> node = {};
+    };
+
     struct ListNode {
         ListNode() : val(0), next{nullptr} {}
 

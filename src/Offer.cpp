@@ -3,7 +3,7 @@
 
 #include <cmath>
 #include <string>
-#include<random>
+#include <random>
 #include <set>
 #include <numeric>
 #include <vector>
@@ -666,6 +666,37 @@ int Offer::countSubstrings() {
         }
     }
     return result;
+}
+
+void Offer::removeNthFromEnd() {
+    const std::unique_ptr<ListNode> &ptr = Offer::ListNode::new_list(10);
+    auto root = ptr.get();
+    ListNode::printAll(root);
+    auto a = ListNode(0, root);
+    auto dummy = std::addressof(a);
+    int n = 2;
+
+    auto first = dummy;
+    auto second = dummy;
+    while (n-- != 0) {
+        second = second->next;
+    }
+    while (second != nullptr) {
+        second = second->next;
+        first = first->next;
+    }
+    first->next = first->next->next;
+    // dummy->left;
+}
+
+void Offer::maxPathSum() {
+    // 二叉树的最大路径和
+    int maximum = INT_MIN;
+    auto answer = [](TreeNode *root, int &result, int count) {
+        if (root == nullptr) return;
+
+        return;
+    };
 }
 
 
