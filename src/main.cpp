@@ -88,8 +88,11 @@ int main() {
 //Offer::numSubarrayProductLessThanK();
 //Offer::findMaxLengthWithSameCount();
 //Offer::pivotIndex();
-Offer::NumMatrix();
-Offer::checkInclusion();
+//Offer::NumMatrix();
+//Offer::checkInclusion();
+//    Offer::maxPathSum();
+
+    Offer::setZero();
 //	std::cin.get();
 
 
@@ -117,6 +120,6 @@ Offer::checkInclusion();
 //	v2.erase(std::remove(
 //		begin(v2), end(v2),
 //		decay_copy(*std::max_element(begin(v2), end(v2)))),
-//		v2.end());
+//1		v2.end());
 //	std::cout << "v1.size()=" << v1.size()<< "v2.size()=" << v2.size();
 //}

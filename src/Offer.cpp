@@ -691,12 +691,138 @@ void Offer::removeNthFromEnd() {
 
 void Offer::maxPathSum() {
     // 二叉树的最大路径和
-    int maximum = INT_MIN;
-    auto answer = [](TreeNode *root, int &result, int count) {
-        if (root == nullptr) return;
+    // 分为当前的两种情况 将通过根节点的 和 不同通过根节点的
 
-        return;
+    int maximum = INT_MIN;
+
+
+    fbstring str{"[1,-2,-3,1,3,-2,#,-1]"};
+    auto a = TreeNode::newTree(str);
+    int result = INT_MIN;
+    auto answer = [&result](TreeNode *root, auto &&answer) {
+
+
+        if (root == nullptr)return 0;
+
+        int maxLeft = std::max(0, answer(root->left, answer));
+        int maxRight = std::max(0, answer(root->right, answer));
+        int curResult = std::max({root->val, root->val + maxLeft, root->val + maxRight});
+
+        // 因为是选择 一条路径 所以 子答案中的  root+left+right不能直接作为结果返回
+        result = std::max({maxLeft + maxRight + root->val, curResult, result});
+        return curResult;
     };
+    dbg(answer(a.get(), answer));
+}
+
+void Offer::setZero() {
+    //给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用 原地 算法。
+    vector<vector<int>> matrix{{0, 1, 2, 0},
+                               {3, 4, 5, 2},
+                               {1, 3, 1, 5}};
+
+
+    auto answer = [&matrix]() mutable {
+        auto row = matrix.size();
+        auto col = matrix[0].size();
+        for (int i = 0; i < row; ++i) {
+            for (int j = 0; j < col; ++j) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][j] = INT_MIN;
+                    // search in different row and col
+                    for (int next = 0; next < col; ++next) {
+                        if (next == j) continue;
+                        if (matrix[i][next] != 0)
+                            matrix[i][next] = 0;
+                        else
+                            matrix[i][next] = INT_MIN;
+                    }
+                    break;
+                }
+            }
+        }
+        dbg(matrix);
+        for (int i = 0; i < row; ++i) {
+            for (int j = 0; j < col; ++j) {
+                if (matrix[i][j] == INT_MIN) {
+                    for (int k = 0; k < row; ++k) {
+                        matrix[k][j] = 0;
+                    }
+                }
+
+            }
+        }
+
+    };
+
+
+//    answer();
+//    dbg(matrix);
+
+    auto answer_without_space = [&]() {
+        auto row = matrix.size();
+        auto col = matrix[0].size();
+        // 使用数组的 第一行 第一列 作为存储
+        auto iterator = std::find(matrix.front().begin(), matrix.front().end(), 0);
+        bool findZeroInFirstRow = iterator != matrix.front().end();
+
+        bool findZeroInFirstCol = false;
+        for (int i = 0; i < row; ++i) {
+            if (matrix[i][0] == 0) {
+                findZeroInFirstCol = true;
+                break;
+            }
+        }
+
+        // 从第二行进行 搜索出来   找到了  0则 从 0的对应的  第一行 第一列 做标记
+        for (int i = 1; i < row; ++i) {
+            for (int j = 1; j < col; ++j) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
+                }
+            }
+        }
+        // 填充对应的零元素
+        for (int i = 0; i < row; ++i) {
+            if (matrix[i][0] == 0) {
+                for (int j = 1; j < col; ++j) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        for (int j = 0; j < col; ++j) {
+            if (matrix[0][j] == 0) {
+                for (int i = 1; i < row; ++i) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        if (findZeroInFirstRow) {
+            for (int j = 0; j < col; ++j) {
+                if (matrix[0][j] == 0) {
+                    for (int i = 1; i < row; ++i) {
+                        matrix[i][j] = 0;
+                    }
+                }
+            }
+        }
+        if (findZeroInFirstCol) {
+            for (int i = 0; i < row; ++i) {
+                if (matrix[i][0] == 0) {
+                    for (int j = 1; j < col; ++j) {
+                        matrix[i][j] = 0;
+                    }
+                }
+
+
+            }
+        }
+        dbg(matrix);
+
+    };
+    answer_without_space();
+    dbg(matrix);
 }
 
 

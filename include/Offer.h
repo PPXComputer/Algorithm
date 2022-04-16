@@ -6,6 +6,14 @@
 #define SSH_OFFER_H
 
 #include <cassert>
+#include <folly/FBString.h>
+#include <folly/String.h>
+#include <folly/FBVector.h>
+#include <folly/Conv.h>
+
+
+using folly::fbstring;
+using folly::fbvector;
 
 struct Offer {
 public:
@@ -39,15 +47,15 @@ public:
 
     static void removeNthFromEnd();
 
-    // 二叉树的最大路径和
+    // 二叉树的最大径和
     static void maxPathSum();
 
+    static void setZero();
 private:
     struct TreeNode {
         TreeNode() : val(0), left{nullptr}, right{nullptr} {}
 
         explicit TreeNode(int x) : val(x), left{nullptr}, right{nullptr} {}
-
 
         TreeNode(const TreeNode &) = delete;
 
@@ -57,9 +65,52 @@ private:
         TreeNode *right;
         int val;
 
+        // [1,2,-1,32,#]
+        static std::unique_ptr<TreeNode> newTree(fbstring &data) {
+            folly::fbvector<folly::StringPiece> cur_list;
+            folly::StringPiece view(data.begin() + 1, data.end() - 1);
+            folly::split(",", view, cur_list);
+            fmt::print("three: {} \n", fmt::join(cur_list, ","), cur_list.size());
+            if (cur_list.empty())return {};
+
+            std::vector<TreeNode *> container;
+            auto result = std::make_unique<TreeNode>(folly::to<int>(cur_list[0]));\
+            decode(cur_list, 1, true, result.get(), container);
+            decode(cur_list, 2, true, result.get(), container);
+            return result;
+        }
+
+        ~TreeNode() {
+            for (auto data: node) {
+                delete data;
+            }
+        }
+
+
+        void setNode(std::vector<TreeNode *> &&container) {
+            node = std::forward<decltype(container)>(container);
+        }
+
+    private:
+        static void decode(const folly::fbvector<folly::StringPiece> &data,
+                           int pos, bool isLeft, TreeNode *preNode,
+                           std::vector<TreeNode *> &container) {
+
+            if (preNode == nullptr or pos >= data.size() or data[pos].front() == '#') return;
+            auto curNode = new TreeNode(folly::to<int>(data[pos]));
+            if (isLeft) {
+                preNode->left = curNode;
+            } else {
+                preNode->right = curNode;
+            }
+            decode(data, pos * 2 + 1, true, curNode, container);
+            decode(data, (pos + 1) * 2, false, curNode, container);
+            container.emplace_back(curNode);
+
+        }
 
         // decode tree node
-        static std::unique_ptr<TreeNode> new_list(int length) {
+        static std::unique_ptr<TreeNode> newTree(int length) {
             assert(length != 0);
             std::vector<int> data;
             data.reserve(length);
@@ -74,23 +125,8 @@ private:
             return result;
         }
 
-
-
-        ~TreeNode() {
-
-            for (auto data: node) {
-                delete data;
-            }
-        }
-
-
-        void setNode(std::vector<TreeNode *> &&container) {
-            node = std::forward<decltype(container)>(container);
-        }
-
-    private:
-         static void decode(const std::vector<int> &data, TreeNode *parent, int left, int right, bool isLeft,
-                            std::vector<TreeNode *> &container) {
+        static void decode(const std::vector<int> &data, TreeNode *parent, int left, int right, bool isLeft,
+                           std::vector<TreeNode *> &container) {
             if (left > right)return;
             int mid = (right + left) >> 1;
             if (isLeft) {
@@ -105,6 +141,7 @@ private:
                 decode(data, parent->right, mid + 1, right, false, container);
             }
         }
+
         std::vector<TreeNode *> node = {};
     };
 
