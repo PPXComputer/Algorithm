@@ -25,7 +25,7 @@ public:
 
     static void threeSum();
 
-    static void threeSumFirstAnswer(std::vector<int> &data);
+    static void threeSumFirstAnswer(const std::vector<int> &data) ;
 
     static void threeSumSecondAnswer(std::vector<int> &data);
 
@@ -51,6 +51,12 @@ public:
     static void maxPathSum();
 
     static void setZero();
+
+    static void groupAnagrams();
+
+    static void toGoatLatin();
+
+    static void wordBreak();
 private:
     struct TreeNode {
         TreeNode() : val(0), left{nullptr}, right{nullptr} {}

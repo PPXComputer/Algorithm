@@ -92,7 +92,9 @@ int main() {
 //Offer::checkInclusion();
 //    Offer::maxPathSum();
 
-    Offer::setZero();
+//    Offer::setZero();
+//    Offer::groupAnagrams();
+    Offer::wordBreak();
 //	std::cin.get();
 
 

@@ -20,7 +20,8 @@ using std::unordered_map;
 
 
 int Offer::divide() {
-    int a = 15, b = 2;
+    int a = 15;
+    int b = 2;
     bool negative = true;
     if (a < 0 and b < 0) negative = false;
     a = std::abs(a);
@@ -134,7 +135,7 @@ void Offer::singleNum() {
     //    dbg(nums.back());
     std::vector<std::string> words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
     int n = words.size();
-    int *masks = new int[n]{};
+    auto masks = std::vector<int>(n);
     for (int i = 0; i < n; ++i) {
         dbg(masks[i]);
     }
@@ -147,7 +148,7 @@ void Offer::singleNum() {
         masks[i] = bitMask;
         dbg(masks[i]);
     }
-    delete[] masks;
+
 }
 
 void Offer::threeSum() {
@@ -301,7 +302,7 @@ void Offer::threeSumSecondAnswer(vector<int> &data) {
     dbg(results);
 }
 
-void Offer::threeSumFirstAnswer(std::vector<int> &data) {
+void Offer::threeSumFirstAnswer(const std::vector<int> &data) {
     std::vector<std::vector<int>> result;
     std::sort(data.begin(), data.end());
     int size = data.size();
@@ -356,7 +357,7 @@ void Offer::minSubArrayLen() {
 
 void Offer::numSubarrayProductLessThanK() {
     //给定一个正整数数组 nums和整数 k ，请找出该数组内乘积小于 k 的连续的子数组的个数。
-    // 给定一个长度 1850 长度为4数组的个数相当于 1+2+3+4   不断进行[fast-slow+1]
+    // 给定一个长度 1850 长度为4 数组的个数相当于 1+2+3+4   不断进行[fast-slow+1]
     auto answer = [] {
         std::vector<int> data{10, 5, 2, 6};
         int k = 100;
@@ -628,7 +629,7 @@ void Offer::checkInclusion() {
 }
 
 int Offer::lengthOfLongestSubstring(string &s) {
-    int cache[256]{};
+    std::array<int, 256> cache{};
     const int length = s.length();
     int left = 0;
     int right = 0;
@@ -758,7 +759,7 @@ void Offer::setZero() {
 
 //    answer();
 //    dbg(matrix);
-
+    dbg(matrix);
     auto answer_without_space = [&]() {
         auto row = matrix.size();
         auto col = matrix[0].size();
@@ -766,13 +767,10 @@ void Offer::setZero() {
         auto iterator = std::find(matrix.front().begin(), matrix.front().end(), 0);
         bool findZeroInFirstRow = iterator != matrix.front().end();
 
-        bool findZeroInFirstCol = false;
-        for (int i = 0; i < row; ++i) {
-            if (matrix[i][0] == 0) {
-                findZeroInFirstCol = true;
-                break;
-            }
-        }
+        bool findZeroInFirstCol = std::find_if(matrix.begin(),
+                                               matrix.end(),
+                                               [](const std::vector<int> &data) { return data[0] == 0; }) !=
+                                  matrix.end();
 
         // 从第二行进行 搜索出来   找到了  0则 从 0的对应的  第一行 第一列 做标记
         for (int i = 1; i < row; ++i) {
@@ -783,46 +781,184 @@ void Offer::setZero() {
                 }
             }
         }
-        // 填充对应的零元素
-        for (int i = 0; i < row; ++i) {
-            if (matrix[i][0] == 0) {
-                for (int j = 1; j < col; ++j) {
-                    matrix[i][j] = 0;
-                }
-            }
-        }
-        for (int j = 0; j < col; ++j) {
+        dbg(matrix);
+        // 填列
+        for (int j = 1; j < col; ++j) {
             if (matrix[0][j] == 0) {
                 for (int i = 1; i < row; ++i) {
                     matrix[i][j] = 0;
                 }
             }
         }
-        if (findZeroInFirstRow) {
-            for (int j = 0; j < col; ++j) {
-                if (matrix[0][j] == 0) {
-                    for (int i = 1; i < row; ++i) {
-                        matrix[i][j] = 0;
-                    }
+        // 填充对应的零元素  填行
+        for (int i = 1; i < row; ++i) {
+            if (matrix[i][0] == 0) {
+                for (int j = 1; j < col; ++j) {
+                    matrix[i][j] = 0;
                 }
             }
+        }
+
+
+        if (findZeroInFirstRow) {
+            for (int j = 0; j < col; ++j) matrix[0][j] = 0;
         }
         if (findZeroInFirstCol) {
-            for (int i = 0; i < row; ++i) {
-                if (matrix[i][0] == 0) {
-                    for (int j = 1; j < col; ++j) {
-                        matrix[i][j] = 0;
-                    }
-                }
-
-
-            }
+            for (int i = 0; i < row; ++i) matrix[i][0] = 0;
         }
+
         dbg(matrix);
 
     };
+
     answer_without_space();
+
     dbg(matrix);
+}
+
+void Offer::groupAnagrams() {
+    // ["eat", "tea", "tan", "ate", "nat", "bat"]
+    //vector<string> data = {"eat", "tea", "tan", "ate", "nat", "bat"};
+    auto answer_ = [](std::vector<string> &data) -> std::vector<std::vector<string>> {
+        if (data.empty()) return {};
+        auto size = data.size();
+        std::unordered_map<int, std::vector<int>> map;
+        for (int i = 0; i < size; ++i) {
+            int count = 0;
+            for (char ch: data[i]) {
+                count = count | (1 << (ch - 'a'));
+            }
+            if (map.find(count) == map.end()) {
+                map[count] = std::vector<int>{i};
+            } else {
+                map[count].emplace_back(i);
+            }
+        }
+        dbg(map);
+        std::vector<std::vector<std::string >> result;
+        result.resize(map.size());
+        int curIndex = 0;
+        for (const auto &cur: map) {
+            const auto &ele = cur.second;
+            for (const int index: ele) {
+                result[curIndex].emplace_back(std::move(data[index]));
+            }
+            ++curIndex;
+        }
+        dbg(result);
+        return result;
+
+    };
+//    answer_(data);
+    auto answer_other = [](std::vector<string> &data) -> std::vector<std::vector<string>> {
+        if (data.empty()) return {};
+        auto size = data.size();
+
+        std::unordered_map<string, std::vector<std::string>> map;
+        for (int i = 0; i < size; ++i) {
+            string basicString{};
+            basicString.resize(26);
+            for (char ch: data[i]) {
+                ++basicString[ch - 'a'];
+            }
+            if (map.find(basicString) != map.end()) {
+                map[basicString].emplace_back(std::move(data[i]));
+            } else {
+                map[basicString] = std::vector<string>{std::move(data[i])};
+            }
+        }
+        std::vector<std::vector<std::string >> result;
+        result.reserve(map.size());
+        for (auto &&sd: map) {
+            result.emplace_back(std::move(sd.second));
+        }
+        return result;
+    };
+//    std::hash<int> fn{};
+//    dbg(fn(10));
+//    //
+    auto answer_hashmap = [](std::vector<string> &data) -> std::vector<std::vector<string>> {
+        std::unordered_map<std::string, std::vector<std::string >> container;
+        for (auto &&cur: data) {
+            auto copy = cur;
+            std::sort(cur.begin(), cur.end());
+            container[cur].emplace_back(std::move(copy));
+        }
+        std::vector<std::vector<string>> result;
+        result.reserve(container.size());
+        for (auto &&item: container) {
+            result.emplace_back(std::move(item));
+        }
+        return result;
+    };
+    // 使用质数实现  设计 hash 值使得 拥有相同各个数据的数量 字符串 是一致的
+    auto answer_order = [](std::vector<std::string> &data1) {
+        std::vector<int> result;
+        result.reserve(data1.size());
+        std::array<int, 26> order = {2, 3, 5, 7, 11, 13,
+                                     17, 19, 23, 29, 31, 37,
+                                     41, 43, 47, 53, 59, 61,
+                                     67, 71, 73, 79, 83, 89,
+                                     97, 101};
+        for (const auto &item: data1) {
+            int t = 1;
+            for (const char ch: item) {
+                t *= order[ch - 'a'];
+            }
+            result.emplace_back(t);
+        }
+    };
+
+}
+
+void Offer::toGoatLatin() {
+    //824 拉丁山羊文
+    auto answer_latin = [](std::string &data) {
+
+        std::stringstream stream(data);
+        std::string word;
+        int idx = 1;
+        std::string result;
+        while (stream >> word) {
+            if (word[0] == 'a' || word[0] == 'e' || word[0] == 'i' || word[0] == 'o' || word[0] == 'u') {
+
+            }
+        }
+
+    };
+}
+
+void Offer::wordBreak() {
+
+    /*
+     * 给你一个字符串 s 和一个字符串列表 wordDict 作为字典(包含的字符串各不相同)。请你判断是否可以利用字典中出现的单词拼接出 s 。
+        注意：不要求字典中出现的单词全部都使用，并且字典中的单词可以重复使用。
+        输入: s = "leetcode", wordDict = ["leet", "code"]
+        输出: true
+        解释: 返回 true 因为 "leetcode" 可以由 "leet" 和 "code" 拼接成。
+     */
+
+
+    auto data = [](const string &s, vector<string> &wordDict, int strIndex, int dictIndex, auto &&data) {
+        // 预处理的题目 将当前的字符串 转化为  对应数组的组合
+        auto strSize = s.size();
+        if (strIndex == strSize)return true;
+        auto dictSize = wordDict.size();
+        if (dictIndex == dictSize or strIndex > strSize)return false;
+
+        auto curWordSize = wordDict[dictIndex].size();
+        if (strSize - strIndex <= curWordSize) {
+            if (s.compare(strIndex, curWordSize, wordDict[dictIndex]) == 0) {
+                if (data(s, wordDict, strIndex + curWordSize, dictIndex + 1, data)) return true;
+                if (data(s, wordDict, strIndex + curWordSize, dictIndex, data))return true;
+            }
+
+        }
+        return data(s, wordDict, strIndex, dictIndex + 1, data);
+    };
+    vector<string> wordDict1 = {std::string{"leet"}, std::string{"code"}};
+    std::string cur1 = "leetcode";
+    dbg(data(cur1, wordDict1, 0, 0, data));
 }
 
 
