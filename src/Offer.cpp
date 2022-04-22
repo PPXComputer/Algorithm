@@ -190,7 +190,7 @@ void Offer::threeSum() {
     std::vector<int> data{-2, 0, 1, 1, 2};
     // threeSumSecondAnswer(data);
     // 使用  sort 的方法找到的当前的 需要的 
-    auto answer = [&data]() {
+    auto answer = [&data]()mutable {
         std::sort(data.begin(), data.end());
         auto size = std::size(data);
         dbg(data);
@@ -232,7 +232,7 @@ void Offer::threeSum() {
         dbg(results);
     };
 
-    auto otherAnswer = [&data] {
+    auto otherAnswer = [&data]()mutable {
         std::vector<std::vector<int>> result;
         std::sort(data.begin(), data.end());
         auto size = std::size(data);
@@ -302,7 +302,7 @@ void Offer::threeSumSecondAnswer(vector<int> &data) {
     dbg(results);
 }
 
-void Offer::threeSumFirstAnswer(const std::vector<int> &data) {
+void Offer::threeSumFirstAnswer( std::vector<int> &data) {
     std::vector<std::vector<int>> result;
     std::sort(data.begin(), data.end());
     int size = data.size();
@@ -877,9 +877,9 @@ void Offer::groupAnagrams() {
 //    std::hash<int> fn{};
 //    dbg(fn(10));
 //    //
-    auto answer_hashmap = [](std::vector<string> &data) -> std::vector<std::vector<string>> {
+    auto answer_hashmap = [](std::vector<string> data) -> std::vector<std::vector<string>> {
         std::unordered_map<std::string, std::vector<std::string >> container;
-        for (auto &&cur: data) {
+        for (std::string &cur: data) {
             auto copy = cur;
             std::sort(cur.begin(), cur.end());
             container[cur].emplace_back(std::move(copy));
@@ -887,7 +887,7 @@ void Offer::groupAnagrams() {
         std::vector<std::vector<string>> result;
         result.reserve(container.size());
         for (auto &&item: container) {
-            result.emplace_back(std::move(item));
+            result.emplace_back(std::move(item.second));
         }
         return result;
     };
