@@ -134,7 +134,7 @@ void Offer::singleNum() {
     }
     //    dbg(nums.back());
     std::vector<std::string> words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
-    int n = words.size();
+    size_t n = words.size();
     auto masks = std::vector<int>(n);
     for (int i = 0; i < n; ++i) {
         dbg(masks[i]);
@@ -302,7 +302,7 @@ void Offer::threeSumSecondAnswer(vector<int> &data) {
     dbg(results);
 }
 
-void Offer::threeSumFirstAnswer( std::vector<int> &data) {
+void Offer::threeSumFirstAnswer(std::vector<int> &data) {
     std::vector<std::vector<int>> result;
     std::sort(data.begin(), data.end());
     int size = data.size();

@@ -76,6 +76,8 @@ public:
 
     //5. 最长回文子串
     static void longestPalindrome();
+    // 178 最大数
+    static void maxNum();
 private:
 
     struct ListNode {
