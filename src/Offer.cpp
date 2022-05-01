@@ -938,27 +938,27 @@ void Offer::wordBreak() {
         解释: 返回 true 因为 "leetcode" 可以由 "leet" 和 "code" 拼接成。
      */
 
-
-    auto data = [](const string &s, vector<string> &wordDict, int strIndex, int dictIndex, auto &&data) {
-        // 预处理的题目 将当前的字符串 转化为  对应数组的组合
-        auto strSize = s.size();
-        if (strIndex == strSize)return true;
-        auto dictSize = wordDict.size();
-        if (dictIndex == dictSize or strIndex > strSize)return false;
-
-        auto curWordSize = wordDict[dictIndex].size();
-        if (strSize - strIndex <= curWordSize) {
-            if (s.compare(strIndex, curWordSize, wordDict[dictIndex]) == 0) {
-                if (data(s, wordDict, strIndex + curWordSize, dictIndex + 1, data)) return true;
-                if (data(s, wordDict, strIndex + curWordSize, dictIndex, data))return true;
-            }
-
-        }
-        return data(s, wordDict, strIndex, dictIndex + 1, data);
-    };
-    vector<string> wordDict1 = {std::string{"leet"}, std::string{"code"}};
+    vector<string> wordDict1 = {"leet", "code"};
     std::string cur1 = "leetcode";
-    dbg(data(cur1, wordDict1, 0, 0, data));
+    auto answer_word = [](const std::vector<string> &data, std::string &word) {
+        auto answer_impl = [&](int dataIndex, int wordIndex, auto answer_impl) {
+            int wordSize = word.size();
+            if (wordIndex == wordSize)return true;
+            if (dataIndex >= data.size())return false;
+            // 还有单词的长度并未匹配到
+            int howManyLeft = wordSize - wordIndex;
+            int curWordSize = data[dataIndex].size();
+            int matchTime = howManyLeft / curWordSize;
+            if ( word.compare(wordIndex, curWordSize, data[dataIndex]) == 0) {
+                return false;
+            }
+            for (int i = 0; i < matchTime; ++i) {
+                if (answer_impl(dataIndex + 1, wordIndex + curWordSize * (i + 1), answer_impl))return true;
+            }
+            return false;
+        };
+    };
+
 }
 
 

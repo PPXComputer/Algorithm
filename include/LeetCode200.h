@@ -78,6 +78,9 @@ public:
     static void longestPalindrome();
     // 178 最大数
     static void maxNum();
+
+    //48 旋转图像
+    static void rotateImage();
 private:
 
     struct ListNode {
