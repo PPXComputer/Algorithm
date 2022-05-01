@@ -940,6 +940,7 @@ void Offer::wordBreak() {
 
     vector<string> wordDict1 = {"leet", "code"};
     std::string cur1 = "leetcode";
+    // 使用暴力递归
     auto answer_word = [](const std::vector<string> &data, std::string &word) {
         auto answer_impl = [&](int dataIndex, int wordIndex, auto answer_impl) {
             int wordSize = word.size();
@@ -949,7 +950,7 @@ void Offer::wordBreak() {
             int howManyLeft = wordSize - wordIndex;
             int curWordSize = data[dataIndex].size();
             int matchTime = howManyLeft / curWordSize;
-            if ( word.compare(wordIndex, curWordSize, data[dataIndex]) == 0) {
+            if (word.compare(wordIndex, curWordSize, data[dataIndex]) == 0) {
                 return false;
             }
             for (int i = 0; i < matchTime; ++i) {
@@ -957,6 +958,45 @@ void Offer::wordBreak() {
             }
             return false;
         };
+    };
+    // 使用字典数
+
+    struct TrieNode {
+        std::unique_ptr<TrieNode> next[26]{};
+        bool isEnd = false;
+    };
+
+    // 建树
+    TrieNode root;
+    {
+        for (const string &word: wordDict1) {
+            TrieNode *p = std::addressof(root);
+            for (char ch: word) {
+                int curPos = ch - 'a';
+                if (p->next[curPos] == nullptr) {
+                    p->next[curPos] = std::make_unique<TrieNode>();
+                }
+                p = p->next[curPos].get();
+
+            }
+            p->isEnd = true;
+        }
+    }
+    bool failMemo[301]{false}; //// 记录dfs中失败时对应的s中的index
+    auto answer_dfs = [&](std::string &word, int startPos, const TrieNode &root, auto answer_dfs) {
+        if (failMemo[startPos])return false;
+        int wordSize = word.size();
+        if (startPos == wordSize)return true;
+        const TrieNode *p = std::addressof(root);
+        for (int i = startPos; i < wordSize; ++i) {
+            int curWordIndex = word[i] - 'a';
+            if (p->next[curWordIndex] != nullptr) {
+                p = p->next[curWordIndex].get();
+                if (p->isEnd and answer_dfs(word, i + 1, root, answer_dfs))return true;
+            } else break;
+        }
+        failMemo[startPos] = true; // 记录当前的失败的前缀
+        return false;
     };
 
 }

@@ -1410,6 +1410,7 @@ void LeetCode200::maxNum() {
 
             /*
              *  long sx = 10, sy = 10;
+             * long sx = 10, sy = 10;
                 while(sx <= x) sx *= 10;
                 while(sy <= y) sy *= 10;
                 return sy * x + y > sx * y + x;
@@ -1441,7 +1442,7 @@ void LeetCode200::rotateImage() {
 
     // 原地旋转矩阵 则保证当前的矩阵形状大概 最初的形式上移动
     // 先对角交换 然后再列交换
-    for
+
 }
 
 

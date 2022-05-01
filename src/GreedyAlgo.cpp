@@ -3,8 +3,9 @@
 
 
 void GreedyAlgo::concat_strings() {
-    fbvector<fbstring> data = {"123", "581", "135", "234"};
-    fbstring result;
+    std::vector<std::string> data = {"123", "581", "135",
+                                     "234"};
+    std::string result;
     size_t all_size = 0;
     for (const auto &cost: data) {
         all_size += cost.size();
