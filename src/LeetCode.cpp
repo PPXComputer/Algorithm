@@ -281,7 +281,11 @@ void LeetCode::allPathsSourceTarget() {
 }
 
 void LeetCode::findTargetSumWays() {
-    auto answer_ = [](vector<int> &nums, int target) {
+
+    //  dfs
+
+    auto
+    answer_ = [](vector<int> &nums, int target) {
         // 将重复的数字记录下来
         std::unordered_map<int, int> map;
         for (int i: nums) {
@@ -295,12 +299,80 @@ void LeetCode::findTargetSumWays() {
             int maxElem = iter->first * iter->second;
             ++iter;
             int result = 0;
-            for (int i = -maxElem; i <= maxElem; i += iter->first) {
-                result += dfs(iter, cur + i, tar, dfs);
+            if (iter->first != 0) {
+                for (int i = -maxElem; i <= maxElem; i += iter->first) {
+                    result += dfs(iter, cur + i, tar, dfs);
+                }
+            } else {
+                result += dfs(iter, cur, tar, dfs);
             }
             return result;
         };
+        // dynamic
+        auto size = map.size();
+        std::vector<std::vector<int>> cache(size + 1, std::vector<int>(target + 1));
+        auto answer_dyn = [&]() {
+            // 将进入函数的内容改成 填充二维矩阵的值
+            vector<int> &back = cache.back();
+            std::fill(back.begin(), back.end(), 1);
+            for (int row = target - 1; row > 0; --row) {
+                auto iter = map.begin();
+                auto mapEnd = map.end();
+                for (int col = 0; col < size; ++col, ++iter) {
+                    while (iter != mapEnd) {
+                        if (iter->first != 0) {
+                            int maxElem = iter->first * iter->second;
+                            // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
+                            for (int i = -maxElem;
+                                 i <= maxElem and col - i >= 0 and col - i < target;
+                                 i += iter->first) {
+                                cache[row][col] += cache[row + 1][col - i];
+                            }
+                        } else {
+                            cache[row][col] = cache[row + 1][col];
+                        }
+                    }
+                }
+            }
+            // 第0 行不需要全部填满 填第一个就行了
 
-    };
+            auto iter = map.begin();
+            auto mapEnd = map.end();
+            int result = cache[1][0];
+            if (iter != mapEnd and iter->first != 0) {
+                int maxElem = iter->first * iter->second;
+                // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
+                for (int i = -maxElem; i <= 0; i += iter->first) {
+                    result += cache[1][-i];
+                }
+            }
+            return result;
 
-}
+        };
+
+
+        // 压缩空间
+        auto
+        answer_depression = [&]() {
+            //  [0 ,target-1 ] 代表map中的值
+            int mapSize = map.size();
+            std::vector<int> val(mapSize, 1); //只使用一行作为当前的存储
+            for (int row = 0; row < target; ++row) {
+                auto iter = map.begin();
+                auto mapEnd = map.end();
+                for (int col = 0; col < size; ++col, ++iter) {
+                    while (iter != mapEnd and iter->first != 0) {
+                        int maxElem = iter->first * iter->second;
+                        // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
+                        for (int i = -maxElem; i <= maxElem and col - i >= 0 and col - i < mapSize; i += iter->first) {
+                            val[col] += val[col - i];
+                        }
+                    }
+                }
+            }
+            return val[0];
+        }
+
+
+
+
