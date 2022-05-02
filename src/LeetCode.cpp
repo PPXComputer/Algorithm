@@ -283,7 +283,6 @@ void LeetCode::allPathsSourceTarget() {
 void LeetCode::findTargetSumWays() {
 
 
-
     auto answer_ = [](vector<int> &nums, int target) {
         // 将重复的数字记录下来
         std::unordered_map<int, int> map;
@@ -304,7 +303,7 @@ void LeetCode::findTargetSumWays() {
                     result += dfs(iter, cur + i, tar, dfs);
                 }
             } else {
-                result += dfs(iter, cur, tar, dfs);
+                result += dfs(iter, cur, tar, dfs) * iter->second;
             }
             return result;
         };
@@ -329,7 +328,7 @@ void LeetCode::findTargetSumWays() {
                                 cache[row][col] += cache[row + 1][col - i];
                             }
                         } else {
-                            cache[row][col] = cache[row + 1][col];
+                            cache[row][col] = cache[row + 1][col] * iter->second;
                         }
                     }
                 }
@@ -339,9 +338,12 @@ void LeetCode::findTargetSumWays() {
             auto iter = map.begin();
             auto mapEnd = map.end();
             int result = cache[1][0];
-            if (iter != mapEnd and iter->first != 0) {
+            if (iter != mapEnd) {
                 int maxElem = iter->first * iter->second;
                 // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
+                if (maxElem == 0) {
+                    return result * iter->second;
+                }
                 for (int i = -maxElem; i <= 0; i += iter->first) {
                     result += cache[1][-i];
                 }
@@ -360,9 +362,13 @@ void LeetCode::findTargetSumWays() {
                 auto iter = map.begin();
                 auto mapEnd = map.end();
                 for (int col = 0; col < size; ++col, ++iter) {
-                    while (iter != mapEnd and iter->first != 0) {
+                    while (iter != mapEnd) {
                         int maxElem = iter->first * iter->second;
                         // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
+                        if (maxElem == 0) {
+                            val[col] = val[col] * iter->second;
+                            continue;
+                        }
                         for (int i = -maxElem; i <= maxElem and col - i >= 0 and col - i < mapSize; i += iter->first) {
                             val[col] += val[col - i];
                         }
