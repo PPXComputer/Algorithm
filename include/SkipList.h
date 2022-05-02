@@ -124,5 +124,56 @@ public:
 
 };
 
+class Trie {
+    struct TrieNode{
+        TrieNode * next [26] {};
+        bool isEnd=false;
+    };
+    TrieNode root{} ;
+public:
+    Trie()=default;
+
+   inline void insert(const std::string& word) {
+        // 将当前的数据转换到线上
+        auto p =&root;
+        int size =word.size();
+        for(int i =0;i<size ;++i){
+            int index =word[i]-'a';
+            if(p->next[index]==nullptr){
+                p->next [index]= new TrieNode{};
+            }
+            p= p->next [index];
+        }
+        p->isEnd=true;
+    }
+
+   inline bool search(const std::string& word) {
+        int size =word.size();
+        auto p =&root;
+        for(int i =0;i<size ;++i){
+             int index =word[i]-'a';
+            if(p->next[index]==nullptr){
+                return false;
+            }
+             p= p->next [index];
+        }
+        if(p!=nullptr and p->isEnd)return true;
+        return false;
+    }
+
+   inline bool startsWith(const std::string& word) {
+        int size =word.size();
+        auto p =&root;
+        for(int i =0;i<size ;++i){
+             int index =word[i]-'a';
+            if(p->next[index]==nullptr){
+                return false;
+            }
+             p= p->next [index];
+        }
+        return true;
+    }
+};
+
 
 #endif //SSH_SKIPLIST_H

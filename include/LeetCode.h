@@ -32,6 +32,9 @@ public:
 
     //797. 所有可能的路径
     static void allPathsSourceTarget();
+
+    //494. 目标和
+    static void findTargetSumWays();
 private:
 
 	struct ListNode

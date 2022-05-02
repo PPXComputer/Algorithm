@@ -279,3 +279,28 @@ void LeetCode::allPathsSourceTarget() {
         return result;
     };
 }
+
+void LeetCode::findTargetSumWays() {
+    auto answer_ = [](vector<int> &nums, int target) {
+        // 将重复的数字记录下来
+        std::unordered_map<int, int> map;
+        for (int i: nums) {
+            ++map[i];
+        }
+        int result = 0;
+        auto answer_dfs = [&map](decltype(map.begin()) &iter, int cur, int tar, auto dfs) {
+            if (tar == cur) return 1;
+            if (iter == map.end())return 0;
+
+            int maxElem = iter->first * iter->second;
+            ++iter;
+            int result = 0;
+            for (int i = -maxElem; i <= maxElem; i += iter->first) {
+                result += dfs(iter, cur + i, tar, dfs);
+            }
+            return result;
+        };
+
+    };
+
+}
