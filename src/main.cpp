@@ -95,7 +95,8 @@ int main() {
 //    Offer::setZero();
 //    Offer::groupAnagrams();
 //    Offer::wordBreak();
-    LeetCode200::maxNum();
+//    LeetCode200::maxNum();
+LeetCode::findTargetSumWays();
 //	std::cin.get();
 
 

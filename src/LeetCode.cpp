@@ -2,10 +2,8 @@
 #include <dbg.h>
 #include <cassert>
 #include <array>
-#include <optional>
 #include <fmt/format.h>
 #include <folly/Range.h>
-#include<folly/Traits.h>
 #include <unordered_map>
 
 using std::string;
@@ -296,13 +294,15 @@ void LeetCode::findTargetSumWays() {
             if (iter == map.end())return 0;
 
             int maxElem = iter->first * iter->second;
-            ++iter;
+
             int result = 0;
             if (iter->first != 0) {
+                ++iter;
                 for (int i = -maxElem; i <= maxElem; i += iter->first) {
                     result += dfs(iter, cur + i, tar, dfs);
                 }
             } else {
+                ++iter;
                 result += dfs(iter, cur, tar, dfs) * iter->second;
             }
             return result;
@@ -357,28 +357,36 @@ void LeetCode::findTargetSumWays() {
         auto answer_depression = [&]() {
             //  [0 ,mapSize ] 代表map中的值
             int mapSize = map.size();
+            dbg(mapSize);
             std::vector<int> val(mapSize, 1); //只使用一行作为当前的存储
             for (int row = 0; row < target; ++row) {
                 auto iter = map.begin();
                 auto mapEnd = map.end();
-                for (int col = 0; col < size; ++col, ++iter) {
-                    while (iter != mapEnd) {
-                        int maxElem = iter->first * iter->second;
-                        // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
-                        if (maxElem == 0) {
-                            val[col] = val[col] * iter->second;
-                            continue;
-                        }
-                        for (int i = -maxElem; i <= maxElem and col - i >= 0 and col - i < mapSize; i += iter->first) {
+                for (int col = 0; col < mapSize; ++col, ++iter) {
+                    int maxElem = iter->first * iter->second;
+                    // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
+                    dbg(maxElem);
+                    if (maxElem == 0) {
+                        val[col] = val[col] * iter->second;
+                        continue;
+                    }
+                    for (int i = -maxElem; i <= maxElem; i += iter->first * 2) {
+                        dbg(i,col);
+                        if (col - i >= 0 and col - i < mapSize) {
+                            dbg(col - i);
                             val[col] += val[col - i];
                         }
+
                     }
+
                 }
             }
             return val[0];
         };
 
-
+        dbg(answer_depression());
     };
+    std::vector<int> data{1, 1, 1, 1, 1};
+    answer_(data, 3);
 }
 
