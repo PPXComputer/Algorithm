@@ -5,6 +5,7 @@
 #include <fmt/format.h>
 #include <folly/Range.h>
 #include <unordered_map>
+#include <numeric>
 
 using std::string;
 
@@ -282,111 +283,38 @@ void LeetCode::findTargetSumWays() {
 
 
     auto answer_ = [](vector<int> &nums, int target) {
-        // 将重复的数字记录下来
-        std::unordered_map<int, int> map;
-        for (int i: nums) {
-            ++map[i];
-        }
+
+
         int result = 0;
         //  dfs
-        auto answer_dfs = [&map](decltype(map.begin()) &iter, int cur, int tar, auto dfs) {
-            if (tar == cur) return 1;
-            if (iter == map.end())return 0;
 
-            int maxElem = iter->first * iter->second;
-
-            int result = 0;
-            if (iter->first != 0) {
-                ++iter;
-                for (int i = -maxElem; i <= maxElem; i += iter->first) {
-                    result += dfs(iter, cur + i, tar, dfs);
+        std::vector<int> data{1, 1, 1, 1, 1};
+        // 递归lambda表达式
+        auto dfs = [&](int index, int cur, auto dfs) {
+            if (index == data.size()) {
+                if (cur == target) {
+                    result++;
                 }
-            } else {
-                ++iter;
-                result += dfs(iter, cur, tar, dfs) * iter->second;
+                return;
             }
-            return result;
+            dfs(index + 1, cur + data[index], dfs);
+            dfs(index + 1, cur - data[index], dfs);
         };
-        // dynamic
-        auto size = map.size();
-        std::vector<std::vector<int>> cache(size + 1, std::vector<int>(target + 1));
-        auto answer_dyn = [&]() {
-            // 将进入函数的内容改成 填充二维矩阵的值
-            vector<int> &back = cache.back();
-            std::fill(back.begin(), back.end(), 1);
-            for (int row = target - 1; row > 0; --row) {
-                auto iter = map.begin();
-                auto mapEnd = map.end();
-                for (int col = 0; col < size; ++col, ++iter) {
-                    while (iter != mapEnd) {
-                        if (iter->first != 0) {
-                            int maxElem = iter->first * iter->second;
-                            // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
-                            for (int i = -maxElem;
-                                 i <= maxElem and col - i >= 0 and col - i < target;
-                                 i += iter->first) {
-                                cache[row][col] += cache[row + 1][col - i];
-                            }
-                        } else {
-                            cache[row][col] = cache[row + 1][col] * iter->second;
-                        }
-                    }
+        // 动态规划
+        auto dynamic = [&]() {
+            int sum = 0;
+            for (int num: nums) sum += num;
+            if (pow(sum, 2) < pow(target, 2) || (sum + target) % 2 == 1) return 0;
+            target = (sum + target) / 2;
+            vector<int> dp(target + 1);
+            dp[0] = 1;
+            for (int num: nums) {
+                for (int i = target; i >= num; i--) {
+                    dp[i] = dp[i] + dp[i - num];
                 }
             }
-            // 第0 行不需要全部填满 填第一个就行了
-
-            auto iter = map.begin();
-            auto mapEnd = map.end();
-            int result = cache[1][0];
-            if (iter != mapEnd) {
-                int maxElem = iter->first * iter->second;
-                // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
-                if (maxElem == 0) {
-                    return result * iter->second;
-                }
-                for (int i = -maxElem; i <= 0; i += iter->first) {
-                    result += cache[1][-i];
-                }
-            }
-            return result;
-
+            return dp[target];
         };
-
-
-        // 压缩空间
-        auto answer_depression = [&]() {
-            //  [0 ,mapSize ] 代表map中的值
-            int mapSize = map.size();
-            dbg(mapSize);
-            std::vector<int> val(mapSize, 1); //只使用一行作为当前的存储
-            for (int row = 0; row < target; ++row) {
-                auto iter = map.begin();
-                auto mapEnd = map.end();
-                for (int col = 0; col < mapSize; ++col, ++iter) {
-                    int maxElem = iter->first * iter->second;
-                    // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
-                    dbg(maxElem);
-                    if (maxElem == 0) {
-                        val[col] = val[col] * iter->second;
-                        continue;
-                    }
-                    for (int i = -maxElem; i <= maxElem; i += iter->first * 2) {
-                        dbg(i,col);
-                        if (col - i >= 0 and col - i < mapSize) {
-                            dbg(col - i);
-                            val[col] += val[col - i];
-                        }
-
-                    }
-
-                }
-            }
-            return val[0];
-        };
-
-        dbg(answer_depression());
     };
-    std::vector<int> data{1, 1, 1, 1, 1};
-    answer_(data, 3);
 }
 
