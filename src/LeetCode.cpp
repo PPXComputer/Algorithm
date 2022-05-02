@@ -285,7 +285,7 @@ void LeetCode::findTargetSumWays() {
     //  dfs
 
     auto
-    answer_ = [](vector<int> &nums, int target) {
+            answer_ = [](vector<int> &nums, int target) {
         // 将重复的数字记录下来
         std::unordered_map<int, int> map;
         for (int i: nums) {
@@ -352,8 +352,7 @@ void LeetCode::findTargetSumWays() {
 
 
         // 压缩空间
-        auto
-        answer_depression = [&]() {
+        auto answer_depression = [&]() {
             //  [0 ,target-1 ] 代表map中的值
             int mapSize = map.size();
             std::vector<int> val(mapSize, 1); //只使用一行作为当前的存储
@@ -371,8 +370,9 @@ void LeetCode::findTargetSumWays() {
                 }
             }
             return val[0];
-        }
+        };
 
 
-
+    }
+}
 
