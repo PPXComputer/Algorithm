@@ -318,3 +318,106 @@ void LeetCode::findTargetSumWays() {
     };
 }
 
+void LeetCode::remove_all_words() {
+    vector<string> words = {"owuxnmzhus", "umhowszxun"};
+    // 删除对应字母的 异位词
+    vector<long> con;
+    con.reserve(words.size());
+    constexpr int cur[26] = {
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53,
+            59,
+            61,
+            67,
+            71,
+            73,
+            89,
+            97,
+            101,
+            103,
+            107,
+    };
+    for (auto begin = words.begin(); begin != words.end(); ++begin) {
+        double count = 1;
+        for (char i: *begin) {
+            count *= cur[i - 'a'];
+        }
+        con.emplace_back(count);
+    }
+    for (int i = 1; i < words.size(); ++i) {
+        while (i - 1 >= 0 and i < con.size() and con[i] == con[i - 1]) {
+            //触发删除操作
+            con.erase(con.begin() + i);
+            words.erase(words.begin() + i);
+            dbg(i, words, con);
+        }
+    }
+}
+
+int LeetCode::maxConsecutive(int bottom, int top, vector<int> &special) {
+    std::sort(special.begin(), special.end());
+    int count = 0;
+    int cur = 0;
+    auto size = special.size();
+    int max = 0;
+    for (int i = bottom; i <= top; ++i) {
+
+        if (cur < size and i == special[cur]) {
+            ++cur;
+            if (count > max) {
+                max = count;
+            }
+            count = 0;
+        } else {
+            // 前进n 步  首先当前就不等于
+            if (cur < size) {
+                count = special[cur] - i;
+                i = special[cur] - 1;
+            } else {
+                count = top - i + 1;
+                i = top;
+            }
+        }
+
+        if (count > max) {
+            max = count;
+        }
+    }
+    return max;
+}
+
+int LeetCode::largestCombination() {
+    vector<int> candidates{16, 17};
+    auto size = candidates.size();
+    if (size == 1)return candidates[0];
+    int maxElem = *std::max_element(candidates.begin(), candidates.end());
+    double forwardBits = std::log2(maxElem) + 1;
+    int max = 1;
+    for (int i = 0; i < forwardBits; ++i) {
+        int cur = 1 << i;
+        int count = 0;
+
+        for (int a: candidates) {
+            if ((a & cur) !=0 ) ++count;
+        }
+
+        if (count > max) { max = count; }
+    }
+    dbg(max);
+    return max;
+}
+

@@ -96,7 +96,17 @@ int main() {
 //    Offer::groupAnagrams();
 //    Offer::wordBreak();
 //    LeetCode200::maxNum();
-LeetCode::findTargetSumWays();
+
+//    for (int i = 3; i < 200; i++) {
+//        bool suc=true;
+//        for (int j = 2; j < i; ++j) {
+//            if (i % j == 0) {suc=false; break; }
+//        }
+//        if(suc)cout<<i<<" \n";
+//    }
+//    LeetCode::remove_all_words();
+LeetCode::largestCombination();
+//LeetCode::findTargetSumWays();
 //	std::cin.get();
 
 
