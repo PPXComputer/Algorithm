@@ -35,6 +35,9 @@ public:
 
     //494. 目标和
     static void findTargetSumWays();
+
+    //430. 扁平化多级双向链表
+    static void flattenList();
 private:
 
 	struct ListNode

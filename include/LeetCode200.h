@@ -76,11 +76,15 @@ public:
 
     //5. 最长回文子串
     static void longestPalindrome();
+
     // 178 最大数
     static void maxNum();
 
     //48 旋转图像
     static void rotateImage();
+
+    //49. 字母异位词分组
+    static void groupAnagrams();
 private:
 
     struct ListNode {

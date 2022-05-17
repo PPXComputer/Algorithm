@@ -1445,6 +1445,25 @@ void LeetCode200::rotateImage() {
 
 }
 
+void LeetCode200::groupAnagrams() {
+    vector<string> strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+
+    if (strs.size() == 1) {
+        vector<vector<string>> result = {std::vector<string>{std::move(strs[0])}};
+        return;
+    }
+    vector<vector<string>> result;
+    std::vector<int> target(strs.size());
+    std::map<string, int> con;
+    for (string str: strs) {
+        std::sort(str.begin(), str.end());
+        if (con.count(str)) {
+            con[str];
+        }
+    }
+
+}
+
 
 
 

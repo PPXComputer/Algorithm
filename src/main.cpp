@@ -96,7 +96,9 @@ int main() {
 //    Offer::groupAnagrams();
 //    Offer::wordBreak();
 //    LeetCode200::maxNum();
-LeetCode::findTargetSumWays();
+//    int ad = 10;
+//    int &asd = ad;
+//    dbg(ad, asd, std::move(asd), std::forward<decltype(asd)>(asd)); //move 是强转 forward是看情况转
 //	std::cin.get();
 
 

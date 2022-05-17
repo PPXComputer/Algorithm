@@ -2,6 +2,7 @@
 #include <dbg.h>
 #include <cassert>
 #include <array>
+#include <stack>
 #include <fmt/format.h>
 #include <folly/Range.h>
 #include <unordered_map>
@@ -371,7 +372,7 @@ void LeetCode::findTargetSumWays() {
                         continue;
                     }
                     for (int i = -maxElem; i <= maxElem; i += iter->first * 2) {
-                        dbg(i,col);
+                        dbg(i, col);
                         if (col - i >= 0 and col - i < mapSize) {
                             dbg(col - i);
                             val[col] += val[col - i];
@@ -388,5 +389,50 @@ void LeetCode::findTargetSumWays() {
     };
     std::vector<int> data{1, 1, 1, 1, 1};
     answer_(data, 3);
+}
+
+void LeetCode::flattenList() {
+    class Node {
+    public:
+        int val;
+        Node *prev;
+        Node *next;
+        Node *child;
+    };
+    auto root = Node{};
+    auto head = std::addressof(root);
+    if (head == nullptr)return;
+    std::stack<Node *, std::vector<Node *>> mStack;
+    while (head->next != nullptr or not mStack.empty()) {
+
+        // 到达了当前的层的最后一个节点
+        if (head->next == nullptr) {
+            if (head->child != nullptr) {
+                //  直接将当前节点转向一个下一个节点
+                head->next = head->child;
+                head = head->next;
+            } else {
+                // 寻找当前的栈中的所存在的元素
+                while (not mStack.empty()) {
+                    Node *i = mStack.top();
+                    mStack.pop();
+                    // 连线当前节点的数据
+                    head->next = i->next;
+                    while (head->next != nullptr) {
+                        head = head->next;
+                    }
+                }
+            }
+        } else {
+            // 当前的数据 需要考虑是否为一个 直接悬挂的链表节点
+            if (head->child != nullptr) {
+                mStack.push(head);
+                head = head->child;
+            } else {
+                head = head->next;
+            }
+        }
+    }
+
 }
 
