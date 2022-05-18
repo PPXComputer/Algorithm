@@ -6,6 +6,7 @@
 #include <fmt/format.h>
 #include <folly/Range.h>
 #include <unordered_map>
+#include <TreeAlgo.h>
 
 using std::string;
 
@@ -433,6 +434,51 @@ void LeetCode::flattenList() {
             }
         }
     }
+
+}
+
+void LeetCode::largestGoodInteger() {
+    string const &num = "6777133339";
+    int result = INT_MIN;
+    int size = num.size();
+    for (int i = 0; i < size - 3; i += 3) {
+        if (num[i] == num[i + 1] && num[i + 1] == num[i + 2]) {
+            int cur = std::stoi(num.substr(i, 3));
+            if (cur > result) {
+                result = cur;
+            }
+        }
+    }
+//    return result == INT_MIN ? "" : result == 0 ? "000" : std::to_string(result);
+}
+
+void LeetCode::averageOfSubtree() {
+    struct CountResult {
+        int value = 0;
+        int node_num = 0;
+
+        void add(const CountResult &rhs) {
+            this->value += rhs.value;
+            this->node_num += rhs.node_num;
+        }
+    };
+    int answer = 0;
+    auto count = [&answer](TreeNode *root, auto count) { // 返回值和节点总数
+        if (root == nullptr)return CountResult{};
+        CountResult result{root->value, 1};
+        result.add(count(root->left, count));
+        result.add(count(root->right, count));
+        if (result.value / result.node_num == root->value) {
+            ++answer;
+        }
+        return result;
+    };
+//    const std::unique_ptr<TreeNode> &ptr = TreeAlgo::create_tree();
+
+}
+
+void LeetCode::countTexts() {
+
 
 }
 

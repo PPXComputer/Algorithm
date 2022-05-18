@@ -41,6 +41,14 @@ public:
     //430. 扁平化多级双向链表
     static void flattenList();
 
+    //2264. 字符串中最大的 3 位相同数字
+    static void largestGoodInteger();
+
+    // 2265. 统计值等于子树平均值的节点数
+    static void averageOfSubtree();
+
+    //2266. 统计打字方案数
+    static void countTexts();
 private:
 
     struct ListNode {
