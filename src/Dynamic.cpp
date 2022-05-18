@@ -1,6 +1,6 @@
 #include "Dynamic.h"
 #include "GreedyAlgo.h"
-#include<ciso646>
+#include <ciso646>
 #include <initializer_list>
 #include <iostream>
 #include <optional>
@@ -8,7 +8,7 @@
 #include <random>
 #include <array>
 #include <memory>
-#include<cassert>
+
 
 using std::cout;
 using std::initializer_list;
