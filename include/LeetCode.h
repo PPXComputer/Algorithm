@@ -10,44 +10,44 @@ using std::vector;
 class LeetCode {
 public:
 
-    //746. Ê¹ÓÃ×îĞ¡»¨·ÑÅÀÂ¥Ìİ
+    //746. ä½¿ç”¨æœ€å°èŠ±è´¹çˆ¬æ¥¼æ¢¯
     static void minCostClimbingStairs();
 
-    //844. ±È½Ïº¬ÍË¸ñµÄ×Ö·û´®
+    //844. æ¯”è¾ƒå«é€€æ ¼çš„å­—ç¬¦ä¸²
     static void backspaceCompare();
 
-    //986. Çø¼äÁĞ±íµÄ½»¼¯
+    //986. åŒºé—´åˆ—è¡¨çš„äº¤é›†
     static void intervalIntersection();
 
 
-    // 438. ÕÒµ½×Ö·û´®ÖĞËùÓĞ×ÖÄ¸ÒìÎ»´Ê
+    // 438. æ‰¾åˆ°å­—ç¬¦ä¸²ä¸­æ‰€æœ‰å­—æ¯å¼‚ä½è¯
     static void findAnagrams();
 
-    //713. ³Ë»ıĞ¡ÓÚKµÄ×ÓÊı×é
+    //713. ä¹˜ç§¯å°äºKçš„å­æ•°ç»„
     static void numSubarrayProductLessThanK();
 
-    //509 ì³²¨ÄÇÆõ Êı
+    //509 æ–æ³¢é‚£å¥‘ æ•°
     static void fib();
 
-    //1137 1137. µÚ N ¸öÌ©²¨ÄÇÆõÊı
+    //1137 1137. ç¬¬ N ä¸ªæ³°æ³¢é‚£å¥‘æ•°
     static void tribonacci();
 
-    //797. ËùÓĞ¿ÉÄÜµÄÂ·¾¶
+    //797. æ‰€æœ‰å¯èƒ½çš„è·¯å¾„
     static void allPathsSourceTarget();
 
-    //494. Ä¿±êºÍ
+    //494. ç›®æ ‡å’Œ
     static void findTargetSumWays();
 
-    //430. ±âÆ½»¯¶à¼¶Ë«ÏòÁ´±í
+    //430. æ‰å¹³åŒ–å¤šçº§åŒå‘é“¾è¡¨
     static void flattenList();
 
-    //2264. ×Ö·û´®ÖĞ×î´óµÄ 3 Î»ÏàÍ¬Êı×Ö
+    //2264. å­—ç¬¦ä¸²ä¸­æœ€å¤§çš„ 3 ä½ç›¸åŒæ•°å­—
     static void largestGoodInteger();
 
-    // 2265. Í³¼ÆÖµµÈÓÚ×ÓÊ÷Æ½¾ùÖµµÄ½ÚµãÊı
+    // 2265. ç»Ÿè®¡å€¼ç­‰äºå­æ ‘å¹³å‡å€¼çš„èŠ‚ç‚¹æ•°
     static void averageOfSubtree();
 
-    //2266. Í³¼Æ´ò×Ö·½°¸Êı
+    //2266. ç»Ÿè®¡æ‰“å­—æ–¹æ¡ˆæ•°
     static void countTexts();
 private:
 

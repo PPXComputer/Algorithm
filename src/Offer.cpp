@@ -1004,6 +1004,58 @@ void Offer::wordBreak() {
 
 }
 
+void Offer::containsNearbyAlmostDuplicate() {
+    auto answer_ = [](vector<int> &nums, int k, int t) {
+        if (nums.size() <= 1)return false;
+        int left = 0;
+        int right = 1;
+        while (left != right and right < nums.size()) {
+            if (abs(nums[left] - nums[right]) <= t) {
+                return true;
+            }
+            if (right - left != k) { ++right; }
+            else { ++left; }
+        }
+        return false;
+    };
+    vector<int> data{1, 2, 1, 1, 1};
+    dbg(answer_(data, 3, 1));
+}
+
+void Offer::mergeKLists() {
+    // 合并升序排序
+
+    auto answer_ = [](vector<ListNode *> lists) {
+
+        ListNode *result = nullptr;
+        if (lists.empty()) { return result; }
+        // for_each
+        ListNode *cur = nullptr;
+        do {
+            cur = nullptr;
+            int index = -1;
+            int curIndex = 0;
+            std::for_each(lists.begin(), lists.end(), [&](ListNode *item) {
+                if (item != nullptr) {
+                    if (cur == nullptr or cur->val > item->val) {
+                        cur = item;
+                        index = curIndex;
+                    }
+                    ++curIndex;
+
+                }
+            });
+            if (result == nullptr) { result = cur; }
+            else {
+                result->next = cur;
+                result = result->next;
+            }
+            if (curIndex != -1) { cur = cur->next; }
+        } while (cur != nullptr);
+        return result;
+    };
+}
+
 
 
 

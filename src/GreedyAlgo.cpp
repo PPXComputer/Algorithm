@@ -1,8 +1,9 @@
 #include "GreedyAlgo.h"
 #include <iso646.h>
+#include<array>
 
-
-void GreedyAlgo::concat_strings() {
+void
+GreedyAlgo::concat_strings() {
     std::vector<std::string> data = {"123", "581", "135",
                                      "234"};
     std::string result;
@@ -18,7 +19,8 @@ void GreedyAlgo::concat_strings() {
     cout << result;
 }
 
-void GreedyAlgo::split_metal() {
+void
+GreedyAlgo::split_metal() {
     folly::fbvector<int> data = {10, 20, 30};
     // 哈夫曼编码问题
     //get top 2
@@ -32,34 +34,39 @@ void GreedyAlgo::split_metal() {
     cout << data[0];
 }
 
-inline void GreedyAlgo::walk() {
+inline void
+GreedyAlgo::walk() {
     fbvector<fbvector<int>> matrix;
     int result = INT_MAX;
     walkImpl(0, 0, 0, matrix, result);
     cout << result;
 }
 
-inline void GreedyAlgo::aim_plus() {
+inline void
+GreedyAlgo::aim_plus() {
     // 目标数组中是否能累加出目标数据
     fbvector<int> datas;
     aimPlusImpl(datas, 0, 0, 10);
 }
 
-inline void GreedyAlgo::chees() {
+inline void
+GreedyAlgo::chees() {
     //棋盘走路
     int result = 0;
 
     cout << cheesImpl(0, 0, std::make_pair<int, int>(6, 6), 0);
 }
 
-inline void GreedyAlgo::get_money() {
+inline void
+GreedyAlgo::get_money() {
     fbvector<int> data = {3, 5, 10, 14};
     constexpr int money = 1000;
     cout << money_way1(money, 0, data);//75631
     //动态规划打表中
 }
 
-inline void GreedyAlgo::get_maximum_matrix() {
+inline void
+GreedyAlgo::get_maximum_matrix() {
     array<array<int, 6>, 4> matrix = {
             array<int, 6>
                     {1, 0, 1, 1, 1, 1},
@@ -120,7 +127,6 @@ inline void GreedyAlgo::get_maximum_matrix() {
             }
         }
 
-
     };
     const auto &dp = [&right, &down, row, col] {
         int result = -1;
@@ -144,20 +150,23 @@ inline void GreedyAlgo::get_maximum_matrix() {
 
 }
 
-void GreedyAlgo::buy_apples() {
+void
+GreedyAlgo::buy_apples() {
     //  6 和 8的苹果
     for (int i = 0; i < 200; i++)
         cout << fmt::format("I: {} result: {} \n", i, appleImpl(i));
 }
 
-void GreedyAlgo::winner() {
+void
+GreedyAlgo::winner() {
     for (int i = 0; i < 100; i++) {
         auto result = isFirstOne(i) ? 1 : 2;
         cout << fmt::format("num: {}  result: {} \n", i, result);
     }
 }
 
-void GreedyAlgo::k_step_pair() {
+void
+GreedyAlgo::k_step_pair() {
     std::set<int> m_set = {3, 1, 2, 5, 7, 0, 0};
     int result = 0;
     for (auto start = m_set.begin(); start != m_set.end(); start++) {
@@ -169,7 +178,8 @@ void GreedyAlgo::k_step_pair() {
     cout << result;
 }
 
-inline void GreedyAlgo::max_deep() {
+inline void
+GreedyAlgo::max_deep() {
     fbstring data = "{{}{}{}}"; //最大深度
     int counter = 0;
     int max_deep = 0;
@@ -183,7 +193,8 @@ inline void GreedyAlgo::max_deep() {
     }
 }
 
-inline void GreedyAlgo::long_bracket() {
+inline void
+GreedyAlgo::long_bracket() {
     fbstring data = "{{}{}{}{{}{";
     fbstring::size_type len = data.size();
     const auto &check = [&data](int start, int end) {
@@ -210,7 +221,8 @@ inline void GreedyAlgo::long_bracket() {
     }
 }
 
-void GreedyAlgo::matrix_multiplication() {
+void
+GreedyAlgo::matrix_multiplication() {
     using Matrix = fbvector<std::pair<int, int>>;
     //Matrix data = { std::pair<int,int>{2,3},{3,10},{10,1} };
     Matrix data = {std::pair<int, int>{2, 3}, {3, 10}, {10, 5}, {5, 6}};
@@ -227,7 +239,8 @@ void GreedyAlgo::matrix_multiplication() {
         }
         int result = INT_MAX;
         auto not_combine = impl(data, step + 1, impl);
-        if (not_combine < result)result = not_combine;
+        if (not_combine < result)
+            result = not_combine;
         if (int nextStep = step + 1; nextStep < data.size()) {
             const auto &curElement = data[step];
             const auto &nextElement = data[nextStep];
@@ -238,7 +251,8 @@ void GreedyAlgo::matrix_multiplication() {
             data.insert(data.begin() + step, new_matrix);
             size_t size = data.size();
             int combine_result = combine + impl(std::move(data), step, impl);
-            if (combine_result < result) result = combine_result;
+            if (combine_result < result)
+                result = combine_result;
             cout << fmt::format("combine {} size:{}\n", combine_result, size);
         }
         return result;
@@ -254,12 +268,14 @@ void GreedyAlgo::matrix_multiplication() {
     };
 }
 
-void GreedyAlgo::light_lame() {
+void
+GreedyAlgo::light_lame() {
     fbstring data = "12211211212222";
     fbstring::size_type len = data.size();
     const auto &impl = [&len](fbstring &str, int cur, int lame_counter, auto &&impl) -> int {
         cout << fmt::format("str : {} curr: {} \n", str, cur);
-        if (cur == len)return lame_counter;
+        if (cur == len)
+            return lame_counter;
 
         // 贪心 将数据直接传递到相关的数据实现上
         if (str.at(cur) == '2') {
@@ -282,14 +298,16 @@ void GreedyAlgo::light_lame() {
     cout << fmt::format("result {} {}", data, impl(data, 0, 0, impl));
 }
 
-bool GreedyAlgo::isFirstOne(const size_t rest) {
+bool
+GreedyAlgo::isFirstOne(const size_t rest) {
     if (rest < 5) {
         // 1 - 2+ 3 - 4 -
         return not(rest == 0 || rest == 2);
     }
     size_t subtract = 1;//避免溢出
     while (subtract <= rest) {
-        if (not isFirstOne(rest - subtract)) return true;
+        if (not isFirstOne(rest - subtract))
+            return true;
         subtract *= 4;
     }
     return false;
@@ -297,9 +315,12 @@ bool GreedyAlgo::isFirstOne(const size_t rest) {
 
 //使用滑动窗口解法
 
-inline int GreedyAlgo::appleImpl(int money) {
-    if (money % 2 == 1 || money < 6) return -1;
-    if (money % 8 == 0) return money / 8;
+inline int
+GreedyAlgo::appleImpl(int money) {
+    if (money % 2 == 1 || money < 6)
+        return -1;
+    if (money % 8 == 0)
+        return money / 8;
     int max8 = money / 8;
     int rest_apples = money - 8 * max8;
     int max6 = -1;
@@ -314,7 +335,8 @@ inline int GreedyAlgo::appleImpl(int money) {
     return max6 != -1 ? max6 + max8 : -1;
 }
 
-inline int GreedyAlgo::enum_rope_way2(const fbvector<int> &data, const int rope_len) {
+inline int
+GreedyAlgo::enum_rope_way2(const fbvector<int> &data, const int rope_len) {
     assert(not data.empty());
     int result = 1;//最少一个点
     size_t last_end = 1;
@@ -334,7 +356,8 @@ inline int GreedyAlgo::enum_rope_way2(const fbvector<int> &data, const int rope_
     return result;
 }
 
-inline int GreedyAlgo::enum_rope(const fbvector<int> &data, const int rope_len) {
+inline int
+GreedyAlgo::enum_rope(const fbvector<int> &data, const int rope_len) {
     int result = 1;//最少一个点
     fbvector<int>::size_type len = data.size();
     for (size_t start = 0; start < len; start++) {
@@ -348,8 +371,10 @@ inline int GreedyAlgo::enum_rope(const fbvector<int> &data, const int rope_len) 
     return result;
 }
 
-inline int GreedyAlgo::money_way3(const fbvector<int> &cost, int aim) {
-    if (cost.empty())return 0;
+inline int
+GreedyAlgo::money_way3(const fbvector<int> &cost, int aim) {
+    if (cost.empty())
+        return 0;
     size_t len = cost.size();
     FlexMatrix dp{len + 1, fbvector<int>{aim + 1}};
     dp[len][0] = 1;
@@ -366,8 +391,10 @@ inline int GreedyAlgo::money_way3(const fbvector<int> &cost, int aim) {
     return dp[0][aim];
 }
 
-inline int GreedyAlgo::money_way2(const fbvector<int> &cost, int aim) {
-    if (cost.empty())return 0;
+inline int
+GreedyAlgo::money_way2(const fbvector<int> &cost, int aim) {
+    if (cost.empty())
+        return 0;
     size_t len = cost.size();
     FlexMatrix dp{len + 1, fbvector<int>{aim + 1}};
 
@@ -385,7 +412,8 @@ inline int GreedyAlgo::money_way2(const fbvector<int> &cost, int aim) {
     return dp[0][aim];
 }
 
-inline int GreedyAlgo::money_way1(int cur, int index, const fbvector<int> &cost) {
+inline int
+GreedyAlgo::money_way1(int cur, int index, const fbvector<int> &cost) {
     if (index == cost.size()) {
         return cur == 0 ? 1 : 0;
     }
@@ -397,7 +425,8 @@ inline int GreedyAlgo::money_way1(int cur, int index, const fbvector<int> &cost)
     return counter;
 }
 
-void GreedyAlgo::walkImpl(int x, int y, int cur, const fbvector<fbvector<int>> &matrix, int &result) {
+void
+GreedyAlgo::walkImpl(int x, int y, int cur, const fbvector<fbvector<int>> &matrix, int &result) {
     cur += matrix[x][y];
     if (x == matrix.size() - 1 && y == matrix.back().size() - 1) {
         result = std::min(cur, result);
@@ -413,7 +442,8 @@ void GreedyAlgo::walkImpl(int x, int y, int cur, const fbvector<fbvector<int>> &
     }
 }
 
-inline int GreedyAlgo::walkImplWithNotVal(int x, int y, const fbvector<fbvector<int>> &matrix) {
+inline int
+GreedyAlgo::walkImplWithNotVal(int x, int y, const fbvector<fbvector<int>> &matrix) {
     if (x == matrix.size() - 1 && y == matrix.back().size() - 1) {
         return matrix[x][y];
 
@@ -433,7 +463,8 @@ inline int GreedyAlgo::walkImplWithNotVal(int x, int y, const fbvector<fbvector<
 
 // 备忘录递归
 
-inline int GreedyAlgo::walkMemo(int x, int y, const fbvector<fbvector<int>> &matrix, fbvector<fbvector<int>> &memo) {
+inline int
+GreedyAlgo::walkMemo(int x, int y, const fbvector<fbvector<int>> &matrix, fbvector<fbvector<int>> &memo) {
     if (memo[x][y] != -1) {
         return memo[x][y];
     }
@@ -457,18 +488,22 @@ inline int GreedyAlgo::walkMemo(int x, int y, const fbvector<fbvector<int>> &mat
     return memo[x][y];
 }
 
-bool GreedyAlgo::aimPlusImpl(const fbvector<int> &datas, int index, int cur_sum, int aim) {
+bool
+GreedyAlgo::aimPlusImpl(const fbvector<int> &datas, int index, int cur_sum, int aim) {
     // 这里将只有两个变量 index ,cur_sum
 //f(index,cur_sum) =f(index+1,cur_sum+data[index]) || f(index+1,cur_sum);
     if (index == datas.size()) {
-        if (cur_sum == aim)return true;
+        if (cur_sum == aim)
+            return true;
     }
     return aimPlusImpl(datas, index + 1, cur_sum + datas[index], aim) ||
            aimPlusImpl(datas, index + 1, cur_sum, aim);
 }
 
-int GreedyAlgo::cheesImpl(int x, int y, const std::pair<int, int> &target, int step) {
-    if (x < 0 || y < 0 || x > 8 || y > 9)return -1; // 越界
+int
+GreedyAlgo::cheesImpl(int x, int y, const std::pair<int, int> &target, int step) {
+    if (x < 0 || y < 0 || x > 8 || y > 9)
+        return -1; // 越界
     if (step == 7) {
         if (x == target.first && y == target.second) {
             return 1;
@@ -486,7 +521,8 @@ int GreedyAlgo::cheesImpl(int x, int y, const std::pair<int, int> &target, int s
            cheesImpl(x + 1, y - 2, target, step + 1);
 }
 
-fbvector<int> GreedyAlgo::geRandomArray(int len, int min, int max, bool unique) {
+fbvector<int>
+GreedyAlgo::geRandomArray(int len, int min, int max, bool unique) {
     std::random_device device;
     fbvector<int> result{len};
     std::uniform_int_distribution<int> dist(min, max);
@@ -500,7 +536,8 @@ fbvector<int> GreedyAlgo::geRandomArray(int len, int min, int max, bool unique) 
     return result;
 }
 
-void GreedyAlgo::CompareResult() {
+void
+GreedyAlgo::CompareResult() {
     for (int i = 0; i < 100; i++) {
         fbvector<int> random_array = GreedyAlgo::geRandomArray(20, 0, 30, true);
         std::sort(random_array.begin(), random_array.end());
@@ -519,7 +556,8 @@ void GreedyAlgo::CompareResult() {
 }
 
 template<typename T>
-void GreedyAlgo::get_last_two(folly::fbvector<int> &data, const T &min_heap) {
+void
+GreedyAlgo::get_last_two(folly::fbvector<int> &data, const T &min_heap) {
     std::pop_heap(data.begin(), data.end(), min_heap);
     int append_val = data.back();
     data.pop_back();
@@ -527,5 +565,29 @@ void GreedyAlgo::get_last_two(folly::fbvector<int> &data, const T &min_heap) {
     append_val += data.back();
     data.pop_back();
     data.emplace_back(append_val);
+}
+
+void GreedyAlgo::jumpGame() {
+
+    std::vector data = {2, 3, 1, 1, 4};
+
+    // 找到当前的能跳跃的最大长度
+    int curPos = 0;
+    auto curIter = data.begin() + curPos;
+    bool result = false;
+    auto maxElement = std::max_element(curIter, curIter + *curIter);
+    while (curIter != data.end() - 1 and *maxElement != 0) {
+        //全进
+        if (*maxElement >= data.end() - curIter) {
+            result = true;
+            return;
+        }
+        curIter += *maxElement;
+    }
+    result = maxElement == data.end() - 1;
+    for (int i = data[curPos]; i > 0; --i) {
+
+    }
+
 }
 

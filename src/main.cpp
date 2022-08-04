@@ -1,8 +1,5 @@
 #include"ListAglo.h"
-#include"ArrayAlgo.h"
-#include "Dynamic.h"
 #include"GreedyAlgo.h"
-#include "StringAglo.h"
 #include "Offer.h"
 #include"TreeAlgo.h"
 #include"LeetCode.h"
@@ -22,7 +19,7 @@ struct Factorial {
         return result;
     }
 
-    //´óÊı³Ë·¨ ½«µÃµ½Á½ÕßÏà³ËµÄÊı¾İÊµÏÖ
+    //æ¾¶Ñ„æšŸæ¶”æ¨»ç¡¶ çå——ç·±é’é¢è¢±é‘°å‘¯æµ‰æ¶”æ¨¼æ®‘éç‰ˆåµç€¹ç‚µå¹‡
     static string big_number_multiply(const string &first, const size_t second) {
         assert(not first.empty());
         size_t t = 0;
@@ -98,7 +95,7 @@ int main() {
 //    LeetCode200::maxNum();
 //    int ad = 10;
 //    int &asd = ad;
-//    dbg(ad, asd, std::move(asd), std::forward<decltype(asd)>(asd)); //move ÊÇÇ¿×ª forwardÊÇ¿´Çé¿ö×ª
+//    dbg(ad, asd, std::move(asd), std::forward<decltype(asd)>(asd)); //move æ˜¯å¼ºè½¬ forwardæ˜¯çœ‹æƒ…å†µè½¬
 //	std::cin.get();
 
 
