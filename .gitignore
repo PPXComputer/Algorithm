@@ -17,7 +17,7 @@ cmake-build-debug-visual-studio-2022-x64/
 
 # Mono auto generated files
 mono_crash.*
-cmake-build-debug-visual-studio-2022-x64/
+cmake-*/
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
