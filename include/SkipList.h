@@ -35,7 +35,7 @@ public:
     };
 
 
-    folly::fbvector<SkipNode::SharedPtr> create_normal() {
+    static folly::fbvector<SkipNode::SharedPtr> create_normal() {
         constexpr std::array<int, 6> raw_data = {1, 3, 5, 6, 13, 14};
         auto headPtr = std::make_shared<SkipNode>(raw_data.front(), 0);
         constexpr unsigned __int64 size = raw_data.size();

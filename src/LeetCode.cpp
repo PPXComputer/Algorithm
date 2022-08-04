@@ -2,12 +2,11 @@
 #include <dbg.h>
 #include <cassert>
 #include <array>
+#include <stack>
 #include <fmt/format.h>
 #include <folly/Range.h>
 #include <unordered_map>
-#include <numeric>
-#include <unordered_set>
-#include <set>
+#include <TreeAlgo.h>
 
 using std::string;
 
@@ -431,13 +430,29 @@ LeetCode::largestCombination() {
                 ++count;
         }
 
-        if (count > max) {
-            max = count;
-        }
-    }
-    dbg(max);
-    return max;
-}
+        // 压缩空间
+        auto answer_depression = [&]() {
+            //  [0 ,mapSize ] 代表map中的值
+            int mapSize = map.size();
+            dbg(mapSize);
+            std::vector<int> val(mapSize, 1); //只使用一行作为当前的存储
+            for (int row = 0; row < target; ++row) {
+                auto iter = map.begin();
+                auto mapEnd = map.end();
+                for (int col = 0; col < mapSize; ++col, ++iter) {
+                    int maxElem = iter->first * iter->second;
+                    // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
+                    dbg(maxElem);
+                    if (maxElem == 0) {
+                        val[col] = val[col] * iter->second;
+                        continue;
+                    }
+                    for (int i = -maxElem; i <= maxElem; i += iter->first * 2) {
+                        dbg(i, col);
+                        if (col - i >= 0 and col - i < mapSize) {
+                            dbg(col - i);
+                            val[col] += val[col - i];
+                        }
 
 void
 LeetCode::digitSum() {
@@ -588,6 +603,96 @@ LeetCode::countLatticePoints() {
                                                             0,
                                                             [](int c, int a) { return c + (a > 0 ? 1 : 0); });
                              });
+
+}
+
+void LeetCode::flattenList() {
+    class Node {
+    public:
+        int val;
+        Node *prev;
+        Node *next;
+        Node *child;
+    };
+    auto root = Node{};
+    auto head = std::addressof(root);
+    if (head == nullptr)return;
+    std::stack<Node *, std::vector<Node *>> mStack;
+    while (head->next != nullptr or not mStack.empty()) {
+
+        // 到达了当前的层的最后一个节点
+        if (head->next == nullptr) {
+            if (head->child != nullptr) {
+                //  直接将当前节点转向一个下一个节点
+                head->next = head->child;
+                head = head->next;
+            } else {
+                // 寻找当前的栈中的所存在的元素
+                while (not mStack.empty()) {
+                    Node *i = mStack.top();
+                    mStack.pop();
+                    // 连线当前节点的数据
+                    head->next = i->next;
+                    while (head->next != nullptr) {
+                        head = head->next;
+                    }
+                }
+            }
+        } else {
+            // 当前的数据 需要考虑是否为一个 直接悬挂的链表节点
+            if (head->child != nullptr) {
+                mStack.push(head);
+                head = head->child;
+            } else {
+                head = head->next;
+            }
+        }
+    }
+
+}
+
+void LeetCode::largestGoodInteger() {
+    string const &num = "6777133339";
+    int result = INT_MIN;
+    int size = num.size();
+    for (int i = 0; i < size - 3; i += 3) {
+        if (num[i] == num[i + 1] && num[i + 1] == num[i + 2]) {
+            int cur = std::stoi(num.substr(i, 3));
+            if (cur > result) {
+                result = cur;
+            }
+        }
+    }
+//    return result == INT_MIN ? "" : result == 0 ? "000" : std::to_string(result);
+}
+
+void LeetCode::averageOfSubtree() {
+    struct CountResult {
+        int value = 0;
+        int node_num = 0;
+
+        void add(const CountResult &rhs) {
+            this->value += rhs.value;
+            this->node_num += rhs.node_num;
+        }
+    };
+    int answer = 0;
+    auto count = [&answer](TreeNode *root, auto count) { // 返回值和节点总数
+        if (root == nullptr)return CountResult{};
+        CountResult result{root->value, 1};
+        result.add(count(root->left, count));
+        result.add(count(root->right, count));
+        if (result.value / result.node_num == root->value) {
+            ++answer;
+        }
+        return result;
+    };
+//    const std::unique_ptr<TreeNode> &ptr = TreeAlgo::create_tree();
+
+}
+
+void LeetCode::countTexts() {
+
 
 }
 

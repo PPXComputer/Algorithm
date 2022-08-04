@@ -19,7 +19,7 @@ struct Factorial {
         return result;
     }
 
-    //大数乘法 将得到两者相乘的数据实现
+    //澶ф暟涔樻硶 灏嗗緱鍒颁袱鑰呯浉涔樼殑鏁版嵁瀹炵幇
     static string big_number_multiply(const string &first, const size_t second) {
         assert(not first.empty());
         size_t t = 0;
@@ -93,18 +93,9 @@ int main() {
 //    Offer::groupAnagrams();
 //    Offer::wordBreak();
 //    LeetCode200::maxNum();
-    Offer::containsNearbyAlmostDuplicate();
-//    for (int i = 3; i < 200; i++) {
-//        bool suc=true;
-//        for (int j = 2; j < i; ++j) {
-//            if (i % j == 0) {suc=false; break; }
-//        }
-//        if(suc)cout<<i<<" \n";
-//    }
-//    LeetCode::remove_all_words();
-//LeetCode::largestCombination();
-//LeetCode::findTargetSumWays();
-//LeetCode::countLatticePoints();
+//    int ad = 10;
+//    int &asd = ad;
+//    dbg(ad, asd, std::move(asd), std::forward<decltype(asd)>(asd)); //move 是强转 forward是看情况转
 //	std::cin.get();
 
 
