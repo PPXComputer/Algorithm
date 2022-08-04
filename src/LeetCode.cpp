@@ -6,10 +6,13 @@
 #include <folly/Range.h>
 #include <unordered_map>
 #include <numeric>
+#include <unordered_set>
+#include <set>
 
 using std::string;
 
-void LeetCode::fib() {
+void
+LeetCode::fib() {
     constexpr auto answer = [] {
         constexpr int n = 3;
         constexpr auto fib_impl = [] {
@@ -24,7 +27,8 @@ void LeetCode::fib() {
     };
 }
 
-void LeetCode::tribonacci() {
+void
+LeetCode::tribonacci() {
     //T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
     constexpr auto fib_impl = [] {
         std::array<int, 37> fib{0, 1, 1};
@@ -38,7 +42,8 @@ void LeetCode::tribonacci() {
     };
 }
 
-void LeetCode::minCostClimbingStairs() {
+void
+LeetCode::minCostClimbingStairs() {
     std::vector<int> data = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
 
     const auto minCostClimbingStairsImpl = [](vector<int> &cost) {
@@ -82,7 +87,8 @@ void LeetCode::minCostClimbingStairs() {
     };
 }
 
-void LeetCode::findAnagrams() {
+void
+LeetCode::findAnagrams() {
     //给定两个字符串 s 和 p，找到 s 中所有 p 的 异位词 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。
 
     // 异位词 指由相同字母重排列形成的字符串（包括相同的字符串）。
@@ -155,7 +161,8 @@ void LeetCode::findAnagrams() {
     auto findAnagramsEnum = [](string s, string p) -> vector<int> {
         string::size_type sSize = s.size();
         string::size_type pSize = p.size();
-        if (sSize < pSize)return {};
+        if (sSize < pSize)
+            return {};
         std::array<int, 26> firstCount{};
         std::array<int, 26> secondCount{};
         for (int i = 0; i < pSize; i++) {
@@ -185,7 +192,8 @@ void LeetCode::findAnagrams() {
         // 将当前存在的 range 标识为 滑动窗口的 range
         string::size_type sSize = s.size();
         string::size_type pSize = p.size();
-        if (sSize < pSize)return {};
+        if (sSize < pSize)
+            return {};
         std::array<int, 26> firstCount{};
         std::array<int, 26> secondCount{};
         for (int i = 0; i < pSize; i++) {
@@ -225,7 +233,8 @@ void LeetCode::findAnagrams() {
     dbg(answerslidingWindow("cbaebabacd", "abc"));
 }
 
-void LeetCode::numSubarrayProductLessThanK() {
+void
+LeetCode::numSubarrayProductLessThanK() {
 
     // 双指针 将当前的窗口缩小到合适位置
     const auto answerDp = [](vector<int> &nums, int k) -> int {
@@ -258,7 +267,8 @@ void LeetCode::numSubarrayProductLessThanK() {
     answerDp(data, 100);
 }
 
-void LeetCode::allPathsSourceTarget() {
+void
+LeetCode::allPathsSourceTarget() {
     auto answer = [](vector<vector<int>> &graph) -> vector<vector<int>> {
         size_t graphSize = graph.size();
         std::vector<std::vector<int>> result;
@@ -279,11 +289,10 @@ void LeetCode::allPathsSourceTarget() {
     };
 }
 
-void LeetCode::findTargetSumWays() {
-
+void
+LeetCode::findTargetSumWays() {
 
     auto answer_ = [](vector<int> &nums, int target) {
-
 
         int result = 0;
         //  dfs
@@ -303,8 +312,10 @@ void LeetCode::findTargetSumWays() {
         // 动态规划
         auto dynamic = [&]() {
             int sum = 0;
-            for (int num: nums) sum += num;
-            if (pow(sum, 2) < pow(target, 2) || (sum + target) % 2 == 1) return 0;
+            for (int num: nums)
+                sum += num;
+            if (pow(sum, 2) < pow(target, 2) || (sum + target) % 2 == 1)
+                return 0;
             target = (sum + target) / 2;
             vector<int> dp(target + 1);
             dp[0] = 1;
@@ -318,7 +329,8 @@ void LeetCode::findTargetSumWays() {
     };
 }
 
-void LeetCode::remove_all_words() {
+void
+LeetCode::remove_all_words() {
     vector<string> words = {"owuxnmzhus", "umhowszxun"};
     // 删除对应字母的 异位词
     vector<long> con;
@@ -368,7 +380,8 @@ void LeetCode::remove_all_words() {
     }
 }
 
-int LeetCode::maxConsecutive(int bottom, int top, vector<int> &special) {
+int
+LeetCode::maxConsecutive(int bottom, int top, vector<int> &special) {
     std::sort(special.begin(), special.end());
     int count = 0;
     int cur = 0;
@@ -400,10 +413,12 @@ int LeetCode::maxConsecutive(int bottom, int top, vector<int> &special) {
     return max;
 }
 
-int LeetCode::largestCombination() {
+int
+LeetCode::largestCombination() {
     vector<int> candidates{16, 17};
     auto size = candidates.size();
-    if (size == 1)return candidates[0];
+    if (size == 1)
+        return candidates[0];
     int maxElem = *std::max_element(candidates.begin(), candidates.end());
     double forwardBits = std::log2(maxElem) + 1;
     int max = 1;
@@ -412,12 +427,167 @@ int LeetCode::largestCombination() {
         int count = 0;
 
         for (int a: candidates) {
-            if ((a & cur) !=0 ) ++count;
+            if ((a & cur) != 0)
+                ++count;
         }
 
-        if (count > max) { max = count; }
+        if (count > max) {
+            max = count;
+        }
     }
     dbg(max);
     return max;
+}
+
+void
+LeetCode::digitSum() {
+    string data = "11111222223";
+    int k = 3;
+
+    while (data.size() > k) {
+        for (int i = 0; i < data.size();) {
+            dbg(data);
+            int cur = 0;
+            for (int j = 0; j < k and i + j < data.size(); ++j) {
+                cur += data[i + j] - '0';
+            }
+            int count = std::min(static_cast<int>((data.size() - i)), k);
+            dbg(i, count);
+            const string &Right = std::to_string(cur);
+            data.replace(i, i + count, Right);
+
+            i += Right.size();
+            data.erase(i, count - k);// 将实验上的部分给结束
+            i += k;
+        }
+
+    }
+    dbg(data);
+
+}
+
+void
+LeetCode::intersection() {
+    // vector<vector<int>>& nums
+    vector<vector<int>> nums;
+    std::unordered_set<int> cur;
+    std::unordered_set<int> other;
+    for (int &i: nums[0]) {
+        cur.insert(i);
+    }
+    for (int i = 1; i < nums.size(); ++i) {
+        for (int v: nums[i]) {
+            if (cur.find(v) != cur.end()) {
+                other.insert(v);
+            }
+        }
+        cur = std::move(other);
+        other.clear();
+    }
+    vector<int> result(cur.begin(), cur.end());
+}
+
+void
+LeetCode::countLatticePoints() {
+    // 遍历所有节点
+    //vector<vector<int>>& circles
+    vector<vector<int>> circles = {{2, 2, 2},
+                                   {3, 4, 1}};
+    int result = 0;
+    if (circles.size() == 1) {
+        result = 5;
+        return;
+    }
+    // 一个 set fixme 错位枚举法
+    {
+        struct PairHash {
+            size_t
+            operator()(const std::pair<int, int> &p) const {
+                return std::hash<int>()(p.first) ^ std::hash<int>()(p.second);
+            }
+        };
+        std::unordered_set<std::pair<int, int>, PairHash> set;
+        // 1/4 的数量
+
+        const auto one_circle = [&set](const vector<int> &circle) {
+            std::pair<int, int> center{circle[0], circle[1]};
+            int radius = circle[2];
+            // 添加五个点进入数组中去
+//        set.reserve(set.size()+5);
+            set.insert(center);
+            set.insert({center.first - radius, center.second});
+            set.insert({center.first + radius, center.second});
+            set.insert({center.first, center.second - radius});
+            set.insert({center.first, center.second + radius});
+            // 判断最大的正方体的区域的点
+            std::pair<int, int> rightTop{center.first + radius - 1, center.second + radius - 1};
+            while (rightTop.first != center.first and rightTop.second != center.second) {
+                double distance = std::sqrt(
+                        std::pow(rightTop.first - center.first, 2) +
+                        std::pow(rightTop.second - center.second, 2));
+
+                if (distance < radius) {
+                    // 确定又上顶点 将顶点加入到set 中去
+                    int startX = rightTop.first - (rightTop.first - center.first) * 2;
+                    int endY = rightTop.second - (rightTop.second - center.second) * 2;
+//                dbg(startX, endY)
+                    for (int x = startX; x <= rightTop.first; ++x) {
+                        for (int y = rightTop.second; y >= endY; --y) {
+                            set.insert({x, y});
+                        }
+                    }
+                    break;
+                }
+                --rightTop.first;
+                --rightTop.second;
+            }
+
+        };
+        for (const vector<int> &circle: circles) {
+            one_circle(circle);
+        }
+
+        dbg(set);
+        string dbg_str;
+        for (auto i: set) {
+            dbg_str.append("[" + std::to_string(i.first) + "," + std::to_string(i.second) + "]");
+        }
+        dbg(dbg_str);
+    }
+//    return set.size();
+
+    // 差分方法
+    int mx = circles[0][0];
+    int my = circles[0][1];
+    for (const auto &v: circles) {
+        if (v[0] > mx)
+            mx = v[0];
+        if (v[1] > my)
+            my = v[1];
+    }
+    dbg(mx, my);
+    vector<vector<int>> diff(mx + 2, vector<int>(my + 1));
+    for (const vector<int> &data: circles) {
+        int curX = data[0];
+        int curY = data[1];
+        int radius = data[2];
+        for (int y = curY - radius; y <= curY + radius; ++y) {
+            int z = floor(sqrt(radius * radius - (y - curY) * (y - curY)));
+            dbg(z);
+            diff[curX - z][y] += 1;
+            diff[curX + z + 1][curY] -= 1;
+        }
+        dbg(diff);
+    }
+    result = std::accumulate(diff.begin(),
+                             diff.end(),
+                             0,
+                             [](int a, const vector<int> &val) {
+                                 return a + std::accumulate(val.begin(),
+                                                            val.end(),
+                                                            0,
+                                                            [](int c, int a) { return c + (a > 0 ? 1 : 0); });
+                             });
+
 }
 

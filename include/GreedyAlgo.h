@@ -60,6 +60,8 @@ public:
 
     static void light_lame();
 
+    static void jumpGame();
+
 private:
     static bool isFirstOne(size_t rest);
 

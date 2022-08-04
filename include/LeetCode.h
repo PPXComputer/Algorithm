@@ -7,80 +7,113 @@
 
 using std::vector;
 
-class LeetCode {
+class LeetCode
+{
 public:
 
-    //746. Ê¹ÓÃ×îĞ¡»¨·ÑÅÀÂ¥Ìİ
-    static void minCostClimbingStairs();
+    //746. ä½¿ç”¨æœ€å°èŠ±è´¹çˆ¬æ¥¼æ¢¯
+    static void
+    minCostClimbingStairs();
 
-    //844. ±È½Ïº¬ÍË¸ñµÄ×Ö·û´®
-    static void backspaceCompare();
+    //844. æ¯”è¾ƒå«é€€æ ¼çš„å­—ç¬¦ä¸²
+    static void
+    backspaceCompare();
 
-    //986. Çø¼äÁĞ±íµÄ½»¼¯
-    static void intervalIntersection();
+    //986. åŒºé—´åˆ—è¡¨çš„äº¤é›†
+    static void
+    intervalIntersection();
+
+    // 438. æ‰¾åˆ°å­—ç¬¦ä¸²ä¸­æ‰€æœ‰å­—æ¯å¼‚ä½è¯
+    static void
+    findAnagrams();
+
+    //713. ä¹˜ç§¯å°äºKçš„å­æ•°ç»„
+    static void
+    numSubarrayProductLessThanK();
+
+    //509 æ–æ³¢é‚£å¥‘ æ•°
+    static void
+    fib();
+
+    //1137 1137. ç¬¬ N ä¸ªæ³°æ³¢é‚£å¥‘æ•°
+    static void
+    tribonacci();
+
+    //797. æ‰€æœ‰å¯èƒ½çš„è·¯å¾„
+    static void
+    allPathsSourceTarget();
+
+    //494. ç›®æ ‡å’Œ
+    static void
+    findTargetSumWays();
+
+    static void
+    remove_all_words();
+
+    static int
+    maxConsecutive(int bottom, int top, vector<int> &special);
+
+    static int
+    largestCombination();
+
+    // 2243. è®¡ç®—å­—ç¬¦ä¸²çš„æ•°å­—å’Œ
+    static void
+    digitSum();
+    //2248. å¤šä¸ªæ•°ç»„æ±‚äº¤é›†
+    static void intersection();
 
 
-    // 438. ÕÒµ½×Ö·û´®ÖĞËùÓĞ×ÖÄ¸ÒìÎ»´Ê
-    static void findAnagrams();
-
-    //713. ³Ë»ıĞ¡ÓÚKµÄ×ÓÊı×é
-    static void numSubarrayProductLessThanK();
-
-    //509 ì³²¨ÄÇÆõ Êı
-    static void fib();
-
-    //1137 1137. µÚ N ¸öÌ©²¨ÄÇÆõÊı
-    static void tribonacci();
-
-    //797. ËùÓĞ¿ÉÄÜµÄÂ·¾¶
-    static void allPathsSourceTarget();
-
-    //494. Ä¿±êºÍ
-    static void findTargetSumWays();
-
-
-    static void remove_all_words();
-
-    static int maxConsecutive(int bottom, int top, vector<int> &special);
-
-    static int largestCombination();
-
-    class CountIntervals {
+    //countLatticePoints 2249. ç»Ÿè®¡åœ†å†…æ ¼ç‚¹æ•°ç›®
+    static void countLatticePoints();
+    class CountIntervals
+    {
         vector<std::pair<int, int>> m_con;
     public:
         CountIntervals() = default;
 
-        void add(int left, int right) {
+        void
+        add(int left, int right)
+        {
             this->insert(left, right);
             this->set();
         }
 
-        int count() {
+        int
+        count()
+        {
             int count = 0;
-            for (std::pair<int, int> &a: this->m_con) {
+            for (std::pair<int, int> &a : this->m_con)
+            {
                 count += a.second - a.first + 1;
             }
             return count;
         }
 
-        void insert(int left, int right) {
+        void
+        insert(int left, int right)
+        {
             auto size = this->m_con.size();
             int cur = 0;
-            for (int i = 0; i < size; ++i) {
-                if (this->m_con[i].first and this->m_con[i].second) {
+            for (int i = 0; i < size; ++i)
+            {
+                if (this->m_con[i].first and this->m_con[i].second)
+                {
 
                 }
             }
         }
 
-        void set() {
-            // ºÏ²¢µ±Ç°µÄ
+        void
+        set()
+        {
+            // åˆå¹¶å½“å‰çš„
         }
     };
 
 private:
 
-    struct ListNode {
+    struct ListNode
+    {
         ListNode() : val(0), next{nullptr} {}
 
         explicit ListNode(int x) : val(x), next(nullptr) {}
@@ -92,13 +125,15 @@ private:
         ListNode *next;
         int val;
 
-
-        static std::unique_ptr<ListNode> new_list(size_t length) {
+        static std::unique_ptr<ListNode>
+        new_list(size_t length)
+        {
             assert(length != 0);
             auto result = std::make_unique<ListNode>(0);
             result->node.reserve(length - 1);
             auto root = result.get();
-            for (size_t i = 1; i < length; i++) {
+            for (size_t i = 1; i < length; i++)
+            {
                 root->next = new ListNode(i);
                 root = root->next;
                 result->node.emplace_back(root);
@@ -106,13 +141,17 @@ private:
             return result;
         }
 
-        static std::unique_ptr<ListNode> new_list(const std::vector<int> &data) {
-            if (data.empty())return nullptr;
+        static std::unique_ptr<ListNode>
+        new_list(const std::vector<int> &data)
+        {
+            if (data.empty())
+                return nullptr;
             auto result = std::make_unique<ListNode>(data[0]);
             auto root = result.get();
             result->node.reserve(data.size() - 1);
             size_t size = data.size();
-            for (size_t i = 1; i < size; i++) {
+            for (size_t i = 1; i < size; i++)
+            {
                 root->next = new ListNode(data[i]);
                 root = root->next;
                 result->node.emplace_back(root);
@@ -120,9 +159,11 @@ private:
             return result;
         }
 
-        ~ListNode() {
+        ~ListNode()
+        {
 
-            for (auto data: node) {
+            for (auto data : node)
+            {
                 delete data;
             }
         }
@@ -131,6 +172,5 @@ private:
 
         std::vector<ListNode *> node = {};
     };
-
 
 };

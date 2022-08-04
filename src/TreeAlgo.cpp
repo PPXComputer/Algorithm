@@ -8,14 +8,14 @@
 #include <optional>
 
 void TreeAlgo::cal_node_distance() {
-    // ����ǰ���ڵĽڵ�
+    // ????????????
     const std::unique_ptr<TreeNode> &tree = create_tree();
 
 
     auto impl = [](TreeNode *root, auto &&self) -> std::pair<int, int> {
-        // ����ǰ�� root ת����Ϊ
+        // ??????? root ??????
         if (root == nullptr) {
-            return {0, 0};//�����ǰ�ڵ��
+            return {0, 0};//??????????
         } else {
             std::pair<int, int> left = self(root->left.get(), self);
             std::pair<int, int> right = self(root->right.get(), self);
@@ -42,8 +42,8 @@ std::unique_ptr<TreeNode> TreeAlgo::create_tree() {
 
 
 void TreeAlgo::find_non_exist_num() {
-    // ����ǰ���ڵ� ����ת��Ϊ 2^16 ������ 2^15
-    // ����ǰ����ת��Ϊ��д�ĵ�ǰcount��ֵ
+    // ?????????? ???????? 2^16 ?????? 2^15
+    // ???????????????��????count???
 //        constexpr int length = 1 << 16;
 //        std::array<int, length> data{};
 
@@ -54,7 +54,7 @@ void TreeAlgo::run() {
 }
 
 void TreeAlgo::find_most_search_subtree()
-{  // ������ǰ������ ������������
+{  // ????????????? ????????????
     
     std::unique_ptr<TreeNode> root = TreeAlgo::create_tree();
     
@@ -100,11 +100,11 @@ void TreeAlgo::find_most_search_subtree()
     
 	struct BstNodeResult
 	{
-		int min; // ���� ����С�� ֵ
-		int max; // ���� ������ ֵ
+		int min; // ???? ????��?? ?
+		int max; // ???? ?????? ?
 		Node* bstNodeHead;
 		int height;
-		bool isBst; //���������Ƿ�Ϊ ƽ����������ж�
+		bool isBst; //???????????? ???????????��?
         BstNodeResult(int mi ,int ma,Node* bst , int he ,int isb):min(mi),
 			max(ma), bstNodeHead(bst), height(he), isBst(isb) {}
 	};
@@ -119,12 +119,12 @@ void TreeAlgo::find_most_search_subtree()
         BstNodeResult bstNodeResult = BstNodeResult(INT_MAX, INT_MIN, nullptr, 1, false);
         
         if (leftValue) {
-            auto& left = leftValue.value()
+            auto& left = leftValue.value();
                 bstNodeResult.min = std::min(left.min, bstNodeResult.min);
                 bstNodeResult.max = std::max(left.max, bstNodeResult.max);
         }
         if (rightValue) {
-            auto& right = rightValue.value()
+            auto& right = rightValue.value();
             bstNodeResult.min = std::min(right.min, bstNodeResult.min);
 			bstNodeResult.max = std::max(right.max, bstNodeResult.max);
         }
@@ -135,7 +135,7 @@ void TreeAlgo::find_most_search_subtree()
 			if (left.isBst and right.isBst) {
                 if (left.max <= right.min and root->value >= left.max 
 					and root->value <= right.min) {
-					bstNodeResult.bstNodeHead = root; // ��ǰ�����������һ��ƽ�������
+					bstNodeResult.bstNodeHead = root; // ?????????????????????????
                 }
             }
             else {
@@ -146,7 +146,7 @@ void TreeAlgo::find_most_search_subtree()
 
 
 
-        return;
+       // return;
 	};
 
 

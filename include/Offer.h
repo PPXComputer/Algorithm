@@ -58,6 +58,10 @@ public:
 
     static void wordBreak();
 
+    static void containsNearbyAlmostDuplicate();
+
+    static void mergeKLists();
+
 private:
     struct TreeNode {
         TreeNode() : val(0), left{nullptr}, right{nullptr} {}

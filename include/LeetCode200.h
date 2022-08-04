@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <cassert>
 #include <memory>
@@ -10,76 +10,76 @@ public:
 
     static void medium_34();
 
-    //. ËÑË÷¶şÎ¬¾ØÕó
+    //. æœç´¢äºŒç»´çŸ©é˜µ
     static void medium_74();
 
-    // 25  k ¸öÒ»×é·­×ªÁ´±í
+    // 25  k ä¸ªä¸€ç»„ç¿»è½¬é“¾è¡¨
     static void reverseKGroup();
 
-    //162 Ñ°ÕÒ·åÖµ
+    //162 å¯»æ‰¾å³°å€¼
     static void findPeakElement();
 
-    // 153 ÕÒµ½Ğı×ªÊı×éµÄµÄ×îĞ¡Öµ
+    // 153 æ‰¾åˆ°æ—‹è½¬æ•°ç»„çš„çš„æœ€å°å€¼
     static void findMin();
 
-    //198. ´ò¼Ò½ÙÉá
+    //198. æ‰“å®¶åŠ«èˆ
     static void houseRobber();
 
-    //11. Ê¢×î¶àË®µÄÈİÆ÷
+    //11. ç››æœ€å¤šæ°´çš„å®¹å™¨
     static void maxArea();
 
-    //79. µ¥´ÊËÑË÷
+    //79. å•è¯æœç´¢
 
     static void existInMesh();
 
-    //82. É¾³ıÅÅĞòÁ´±íÖĞµÄÖØ¸´ÔªËØ II
+    //82. åˆ é™¤æ’åºé“¾è¡¨ä¸­çš„é‡å¤å…ƒç´  II
     static void deleteDuplicatesFromList();
 
-    //15. ÈıÊıÖ®ºÍ
+    //15. ä¸‰æ•°ä¹‹å’Œ
     static void three_num();
 
-    //17. µç»°ºÅÂëµÄ×ÖÄ¸×éºÏ
+    //17. ç”µè¯å·ç çš„å­—æ¯ç»„åˆ
     static void letterCombinations();
 
-    //70. ÅÀÂ¥Ìİ
+    //70. çˆ¬æ¥¼æ¢¯
     static void climbStairs();
 
-    //117. Ìî³äÃ¿¸ö½ÚµãµÄÏÂÒ»¸öÓÒ²à½ÚµãÖ¸Õë II
+    //117. å¡«å……æ¯ä¸ªèŠ‚ç‚¹çš„ä¸‹ä¸€ä¸ªå³ä¾§èŠ‚ç‚¹æŒ‡é’ˆ II
     static void connectRight();
 
-    //1091 ¶ş½øÖÆ¾ØÕóÖĞµÄ×î¶ÌÂ·¾¶
+    //1091 äºŒè¿›åˆ¶çŸ©é˜µä¸­çš„æœ€çŸ­è·¯å¾„
     static void shortestPathBinaryMatrix();
 
-    //130. ±»Î§ÈÆµÄÇøÓò
+    //130. è¢«å›´ç»•çš„åŒºåŸŸ
     static void solveRound();
 
-    // 78×Ó¼¯
+    // 78å­é›†
     static void subsets();
 
-    //90. ×Ó¼¯ II
+    //90. å­é›† II
     static void otherSubSets();
 
-    //39. ×éºÏ×ÜºÍ
+    //39. ç»„åˆæ€»å’Œ
     static void combinationSum();
 
-    //797. ËùÓĞ¿ÉÄÜµÄÂ·¾¶
+    //797. æ‰€æœ‰å¯èƒ½çš„è·¯å¾„
     static void allPathsSourceTarget();
 
-    //22. À¨ºÅÉú³É
+    //22. æ‹¬å·ç”Ÿæˆ
     static void generateParenthesisByBrackets();
 
-    // ´ò¼Ò½ÙÉá2
+    // æ‰“å®¶åŠ«èˆ2
     static void robOnStreet();
 
 
     static void jumpGame();
 
-    //5. ×î³¤»ØÎÄ×Ó´®
+    //5. æœ€é•¿å›æ–‡å­ä¸²
     static void longestPalindrome();
-    // 178 ×î´óÊı
+    // 178 æœ€å¤§æ•°
     static void maxNum();
 
-    //48 Ğı×ªÍ¼Ïñ
+    //48 æ—‹è½¬å›¾åƒ
     static void rotateImage();
 private:
 

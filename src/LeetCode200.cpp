@@ -19,7 +19,7 @@ using std::queue;
 using std::string;
 
 inline void LeetCode200::medium_33() {
-    //ÕÒµ½µ±Ç°Êı¾İµÄ×îĞ¡Öµ
+    //æ‰¾åˆ°å½“å‰æ•°æ®çš„æœ€å°å€¼
 
     auto impl = []() {
         std::array<int, 7> nums{4, 5, 6, 7, 0, 1, 2};
@@ -136,7 +136,7 @@ inline void LeetCode200::medium_74() {
 
 }
 
-// 25  k ????ú‹?????
+// 25  k ????é·­?????
 
 inline void LeetCode200::reverseKGroup() {
     constexpr int length = 10;
@@ -149,7 +149,7 @@ inline void LeetCode200::reverseKGroup() {
     int time = length / 4;
 
 
-    // ?????? ?  ¦Â ?????????
+    // ?????? ?  Î² ?????????
     auto reverse_list = [](ListNode *start, int need) {
         ListNode *head = nullptr;
         ListNode *cur = nullptr;
@@ -209,19 +209,19 @@ inline void LeetCode200::findPeakElement() { //???? ???????????????
         if (data[mid] < data[static_cast<size_t>(mid + 1)]) {
             left = mid + 1;
         } else {
-            right = mid; // ???????¦Ë????
+            right = mid; // ???????Î»????
         }
     }
     dbg(left);
 
 }
 
-// 153 ??????????????§³?
+// 153 ??????????????Ğ¡?
 
 inline void LeetCode200::findMin() {
     std::vector<int> data = {3, 4, 5, 1, 2};
-    //?????????????§³?
-    // ??????????§Ö????????? ????????????? ???????????? ??????§³????
+    //?????????????Ğ¡?
+    // ??????????Ğµ????????? ????????????? ???????????? ??????Ğ¡????
     auto ans = [](vector<int> &nums) {
         // ????????????
         int left = 0;
@@ -248,10 +248,10 @@ inline void LeetCode200::findMin() {
 
 inline void LeetCode200::houseRobber() {
     /*
-    * ???????????§³???????????????????????????????????
-    ?????????¦·????????????????????????????????????????????????????????????§³??????????????????
+    * ???????????Ğ¡???????????????????????????????????
+    ?????????Î¨????????????????????????????????????????????????????????????Ğ¡??????????????????
 
-    ????????????????????????????????ï…?????? ??????????????????? ????????????????????şŸ
+    ????????????????????????????????é£¬?????? ??????????????????? ????????????????????î¡£
     */
     vector<int> data{2, 7, 9, 3, 1};
     const auto answerEnum = [](std::vector<int> &nums) {
@@ -308,7 +308,7 @@ inline void LeetCode200::maxArea() {
     };
 }
 
-//82. ????????????§Ö??????? II
+//82. ????????????Ğµ??????? II
 
 inline void LeetCode200::deleteDuplicatesFromList() {
     //???????????????????? head ?? ?????????????????????????????????????? ?????? ??????????? ??
@@ -375,7 +375,7 @@ inline void LeetCode200::deleteDuplicatesFromList() {
 //15. ???????
 
 inline void LeetCode200::three_num() {
-    // ??????§Ü?? 0?????????????
+    // ??????Ğº?? 0?????????????
     std::vector nums = {-2, 0, 0, 2, 2};
 
     auto answer = [&](const std::vector<int> &data) -> std::vector<std::vector<int>> {
@@ -459,7 +459,7 @@ inline void LeetCode200::three_num() {
                 if (cur == 0) {
                     //dbg(data[start], data[left], data[right]);
                     result.emplace_back(std::vector<int>{data[start], data[left], data[right]});
-                    // ?????????left ?????????????????¦Ë??
+                    // ?????????left ?????????????????Î»??
                     while (left < right and data[left] == data[static_cast<size_t>(left) + 1])left++;
                     while (left < right and data[right] == data[static_cast<size_t>(right) - 1])right--;
                     left++;
@@ -514,7 +514,7 @@ void LeetCode200::connectRight() {
     //			lastNode->left = back;
     //		}
     //		lastNode = back;
-    //		// ???????§Õ???
+    //		// ???????Ğ´???
     //		if (back->left) {
     //			container.push_back(back->left);
     //		}
@@ -529,7 +529,7 @@ void LeetCode200::connectRight() {
 
 void LeetCode200::shortestPathBinaryMatrix() {
     //vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,0} };
-    // 8????????????§İ??????????? ??????§Ò??????????????
+    // 8????????????Ğ»??????????? ??????Ğ±??????????????
     auto dfsDp = [&](const vector<vector<int>> &grid, int x, int y, int count, auto dfs) -> int {
         if (x == grid.size() - 1 and y == grid[0].size() - 1)return count + 1;
 
@@ -599,7 +599,7 @@ void LeetCode200::shortestPathBinaryMatrix() {
         q.emplace(0, 0);         //??0,0???
         grid[0][0] = 1;           //????1???????
         while (!q.empty()) {      // bfs
-            size_t m = q.size(); //?????????§Ö????
+            size_t m = q.size(); //?????????Ğµ????
             while (m--) {
                 auto[x, y] = q.front();
                 q.pop();
@@ -607,8 +607,8 @@ void LeetCode200::shortestPathBinaryMatrix() {
                 for (auto i: dire) {                       //????????????
                     int nx = x + i[0];
                     int ny = y + i[1];
-                    if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //?§Ø???????
-                    if (grid[nx][ny] == 0) {        //?§Ø????????
+                    if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //?Ğ¶???????
+                    if (grid[nx][ny] == 0) {        //?Ğ¶????????
                         q.emplace(nx, ny);
                         grid[nx][ny] = 1;         //???
                         dbg(grid);
@@ -638,7 +638,7 @@ void LeetCode200::shortestPathBinaryMatrix() {
         q.emplace(0, 0);         //??0,0???
         grid[0][0] = 1;           //????1???????
         while (!q.empty()) {      //bfs
-            size_t m = q.size(); //?????????§Ö???? ?????
+            size_t m = q.size(); //?????????Ğµ???? ?????
             while (m--) {
                 auto[x, y] = q.front();
                 q.pop();
@@ -646,8 +646,8 @@ void LeetCode200::shortestPathBinaryMatrix() {
                 for (auto i: dire) {                       //????????????
                     int nx = x + i[0];
                     int ny = y + i[1];
-                    if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //?§Ø???????
-                    if (grid[nx][ny] == 0) {        //?§Ø????????
+                    if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //?Ğ¶???????
+                    if (grid[nx][ny] == 0) {        //?Ğ¶????????
                         q.emplace(nx, ny);
                         grid[nx][ny] = 1;         //???
                         dbg(grid);
@@ -680,7 +680,7 @@ void LeetCode200::solveRound() {
             }
         };
 
-        // ???????? ?????¦Ä??????????????§Õ???
+        // ???????? ?????Î´??????????????Ğ´???
         for (int i = 0; i < m; i++) {
             for (auto j: std::initializer_list<size_t>{0, n - 1}) {
                 dfsAllBoard(static_cast<int>(j), i, dfsAllBoard);
@@ -780,10 +780,10 @@ void LeetCode200::otherSubSets() {
         for (int i = 0; i < last; ++i) {
             temp.clear();
             int cur = i;
-            if ((cur & 1) == 1 and not uniqueSet.insert(nums[static_cast<size_t>(std::sqrt(cur))]).second) { //ĞèÒªÑ¡Ôñµ±Ç°µÄÔªËØ
+            if ((cur & 1) == 1 and not uniqueSet.insert(nums[static_cast<size_t>(std::sqrt(cur))]).second) { //éœ€è¦é€‰æ‹©å½“å‰çš„å…ƒç´ 
                 continue;
             } else {
-                int start = 0;// Ö»ÓĞstart ÔªËØÊ± ½«µ±Ç°´æÔÚµÄ
+                int start = 0;// åªæœ‰start å…ƒç´ æ—¶ å°†å½“å‰å­˜åœ¨çš„
                 do {
                     if ((cur & 1) == 1) {
                         temp.push_back(nums[start]);
@@ -803,11 +803,11 @@ void LeetCode200::otherSubSets() {
         auto numSize = nums.size();
         auto last = 1 << numSize;
         std::set<std::vector<int>> uniqueSet;
-        std::sort(nums.begin(), nums.end()); //Òª²»È» 122  ºÍ 221 ¾Í²»Ò»ÑùÁË
+        std::sort(nums.begin(), nums.end()); //è¦ä¸ç„¶ 122  å’Œ 221 å°±ä¸ä¸€æ ·äº†
         for (int i = 0; i < last; ++i) {
             temp.clear();
             int cur = i;
-            int start = 0;// Ö»ÓĞstart ÔªËØÊ± ½«µ±Ç°´æÔÚµÄ
+            int start = 0;// åªæœ‰start å…ƒç´ æ—¶ å°†å½“å‰å­˜åœ¨çš„
             do {
                 if ((cur & 1) == 1) {
                     temp.push_back(nums[start]);
@@ -825,11 +825,11 @@ void LeetCode200::otherSubSets() {
 
 void LeetCode200::combinationSum() {
     /*
-     * ¸øÄãÒ»¸ö ÎŞÖØ¸´ÔªËØ µÄÕûÊıÊı×écandidates ºÍÒ»¸öÄ¿±êÕûÊıtarget£¬ÕÒ³öcandidatesÖĞ¿ÉÒÔÊ¹Êı×ÖºÍÎªÄ¿±êÊıtarget
-     * µÄ ËùÓĞ²»Í¬×éºÏ £¬²¢ÒÔÁĞ±íĞÎÊ½·µ»Ø¡£Äã¿ÉÒÔ°´ ÈÎÒâË³Ğò ·µ»ØÕâĞ©×éºÏ¡£
+     * ç»™ä½ ä¸€ä¸ª æ— é‡å¤å…ƒç´  çš„æ•´æ•°æ•°ç»„candidates å’Œä¸€ä¸ªç›®æ ‡æ•´æ•°targetï¼Œæ‰¾å‡ºcandidatesä¸­å¯ä»¥ä½¿æ•°å­—å’Œä¸ºç›®æ ‡æ•°target
+     * çš„ æ‰€æœ‰ä¸åŒç»„åˆ ï¼Œå¹¶ä»¥åˆ—è¡¨å½¢å¼è¿”å›ã€‚ä½ å¯ä»¥æŒ‰ ä»»æ„é¡ºåº è¿”å›è¿™äº›ç»„åˆã€‚
      */
 
-    //warn ´íÎó·½·¨ ½«¶àÓàµÄÊı×ÖÖØ¸´½øĞĞÁË¼ÆËã
+    //warn é”™è¯¯æ–¹æ³• å°†å¤šä½™çš„æ•°å­—é‡å¤è¿›è¡Œäº†è®¡ç®—
     vector<vector<int>> (*answer)(vector<int> &, int) = [](vector<int> &candidates, int target) -> vector<vector<int>> {
         size_t size = candidates.size();
         vector<vector<int>> result;
@@ -877,7 +877,7 @@ void LeetCode200::combinationSum() {
             for (int i = 1; i <= (target - curSum) / candidates[curPos]; ++i) {
                 cur.push_back(candidates[curPos]);
                 dbg(curPos + 1, curSum + i * candidates[curPos], cur);
-                //²»Ó¦¸Ãµ±Ç°µÄ½øÈëÏÂÒ»²½ Ó¦¸ÃÖØ¸´µ±Ç° ½«µ±Ç°µÄÊı×Ö ´ÓÁãµ½ÂúµÄÇé¿öÈ«²¿ÄÃÈ«
+                //ä¸åº”è¯¥å½“å‰çš„è¿›å…¥ä¸‹ä¸€æ­¥ åº”è¯¥é‡å¤å½“å‰ å°†å½“å‰çš„æ•°å­— ä»é›¶åˆ°æ»¡çš„æƒ…å†µå…¨éƒ¨æ‹¿å…¨
                 dfs(curPos + 1, curSum + i * candidates[curPos], cur, dfs);
             }
             cur.erase(cur.begin() + static_cast<long long>(curContainer), cur.end());
@@ -903,13 +903,13 @@ void LeetCode200::combinationSum() {
                 ans.push_back(nums);
                 return;
             }
-            // µ±Ç°for Ñ­»·ÖĞµÄÊı¾İ ½«Òªµ½´ïÓÚ left+1 µÄÊı¾İÒ²ÊÇµ±Ç°µÄ²ãÊıÎª next²ã
-            // Í¬Ò»²ãÊıÖĞ²»ÄÜ¶à´ÎÈ¡µ½Í¬Ò»¸öÊı×Ö
+            // å½“å‰for å¾ªç¯ä¸­çš„æ•°æ® å°†è¦åˆ°è¾¾äº left+1 çš„æ•°æ®ä¹Ÿæ˜¯å½“å‰çš„å±‚æ•°ä¸º nextå±‚
+            // åŒä¸€å±‚æ•°ä¸­ä¸èƒ½å¤šæ¬¡å–åˆ°åŒä¸€ä¸ªæ•°å­—
             //                1
             //             1    2
-            //          1        1(´íÎó)
+            //          1        1(é”™è¯¯)
             for (int next = cur; next < candidates.size() && target - candidates[next] >= 0; next++) {
-                bool isNotFirstOne = next > cur; //²»ÊÇµÚÒ»¸ö ²¢ÇÒÔªËØ»¹ÏàÍ¬ ÔòÖ±½ÓÌø¹ı
+                bool isNotFirstOne = next > cur; //ä¸æ˜¯ç¬¬ä¸€ä¸ª å¹¶ä¸”å…ƒç´ è¿˜ç›¸åŒ åˆ™ç›´æ¥è·³è¿‡
                 if (isNotFirstOne && candidates[next - 1] == candidates[next]) { //
                     dbg(next, cur, candidates[next - 1], candidates[next]);
                     continue;
@@ -1084,7 +1084,7 @@ void LeetCode200::existInMesh() {
 
 void LeetCode200::robOnStreet() {
     vector<int> nums{1, 3, 1, 3, 100};
-    auto rob = [&]() {// Ã¿´ÎÖ»ĞèÒªÖªµÀµ±Ç° ĞèÒª¼ÆËãµÄÊ½×Ó¾ÍÊÇÁË
+    auto rob = [&]() {// æ¯æ¬¡åªéœ€è¦çŸ¥é“å½“å‰ éœ€è¦è®¡ç®—çš„å¼å­å°±æ˜¯äº†
         std::vector<int> dp(nums.size() + 1);
         dp[0] = 0;
         dp[1] = nums[0];
@@ -1100,7 +1100,7 @@ void LeetCode200::robOnStreet() {
         if (nums.size() <= 3)return *std::max_element(nums.begin(), nums.end());
         auto robImpl = [](vector<int> &nums, int start, int end) {
             int pre = nums[start];
-            //left Îªµ±Ç°µÄÏÂÒ»¸öÎ»ÖÃ ËùÒÔÓ¦¸ÃÎª f(2) ¶ø²»ÊÇÖ±½Ó±ä³É nums[start+1]
+            //left ä¸ºå½“å‰çš„ä¸‹ä¸€ä¸ªä½ç½® æ‰€ä»¥åº”è¯¥ä¸º f(2) è€Œä¸æ˜¯ç›´æ¥å˜æˆ nums[start+1]
             int next = std::max(nums[start + 1], pre);
             int result = next;
             for (int i = start + 2; i < end; i++) {
@@ -1183,8 +1183,8 @@ void LeetCode200::jumpGame() {
         dbg(data);
         int result = 0;
         for (int i = 0; i < n - 1;) {
-            // µ±Ç°µÄ iÄÜµ½´ïµÄ×îÔ¶¾àÀë
-            // ½«µ±Ç° ×î½üµÄÖĞµÄ
+            // å½“å‰çš„ ièƒ½åˆ°è¾¾çš„æœ€è¿œè·ç¦»
+            // å°†å½“å‰ æœ€è¿‘çš„ä¸­çš„
             for (int last = std::min(data[i], n - i - 1); last >= 1; --last) {
                 if (dp[i + last]) {
                     i += last;
@@ -1199,15 +1199,15 @@ void LeetCode200::jumpGame() {
     //    dbg(dp2(data));
     auto greedy2 = [](std::vector<int> &data) {
 
-        // Ì°ĞÄ Ëã·¨µ±Ç°µÄ µ±Ç°ÌøÔ¾µÄ·¶Î§ÕÒµ½È»ºóÕÒµ½ÏÂÒ»´Î¿ÉÒÔµ½´ïµÄ´ÎÊı
+        // è´ªå¿ƒ ç®—æ³•å½“å‰çš„ å½“å‰è·³è·ƒçš„èŒƒå›´æ‰¾åˆ°ç„¶åæ‰¾åˆ°ä¸‹ä¸€æ¬¡å¯ä»¥åˆ°è¾¾çš„æ¬¡æ•°
         int start = 0;
-        int end = 1; //µ½´ïÎ»ÖÃµÄÏÂÒ»¸öÎ»ÖÃ
+        int end = 1; //åˆ°è¾¾ä½ç½®çš„ä¸‹ä¸€ä¸ªä½ç½®
         int n = data.size();
         int result = 0;
-        while (end < n) { // µ± end=n ±íÊ¾µ±Ç°µÄ end ¿ÉÒÔµ½´ï n-1  end >n Ôò end¿ÉÒÔµ½´ï n
+        while (end < n) { // å½“ end=n è¡¨ç¤ºå½“å‰çš„ end å¯ä»¥åˆ°è¾¾ n-1  end >n åˆ™ endå¯ä»¥åˆ°è¾¾ n
             int maxPos = 0;
             for (int i = start; i < end; ++i) {
-                // ¿ÉÒÔµ½´ïµÄ×î´óÎ»ÖÃ
+                // å¯ä»¥åˆ°è¾¾çš„æœ€å¤§ä½ç½®
                 maxPos = std::max(maxPos, i + data[i]);
             }
             start = end;
@@ -1239,7 +1239,7 @@ void LeetCode200::jumpGame() {
         return dp[0];
     }(3, 2);
 
-    // c++ ²»Ö§³Ö±ä³¤Êı×é
+    // c++ ä¸æ”¯æŒå˜é•¿æ•°ç»„
 //    int vlaResult = [](int m, int n) {
 //        int dp[m][n];
 //        dp[m - 1][n - 1] = 1;
@@ -1286,8 +1286,8 @@ void LeetCode200::longestPalindrome() {
                 }
             }
             dbg(forwardBegin - s.begin(), count);
-            // ½«µ±Ç°µÄ´ğ°¸×ª»»Îªµ±Ç°µÄ´æÔÚµÄ left right Á½¸ö±ß½ç
-            // µ±Ç°left Ó¦¸ÃÎª
+            // å°†å½“å‰çš„ç­”æ¡ˆè½¬æ¢ä¸ºå½“å‰çš„å­˜åœ¨çš„ left right ä¸¤ä¸ªè¾¹ç•Œ
+            // å½“å‰left åº”è¯¥ä¸º
             if (count > right - left) {
                 left = forwardBegin - s.begin() - count;
                 right = left + count;
@@ -1305,13 +1305,13 @@ void LeetCode200::longestPalindrome() {
 }
 
 void LeetCode200::maxNum() {
-    //¸ø¶¨Ò»×é·Ç¸ºÕûÊı nums£¬ÖØĞÂÅÅÁĞÃ¿¸öÊıµÄË³Ğò£¨Ã¿¸öÊı²»¿É²ğ·Ö£©Ê¹Ö®×é³ÉÒ»¸ö×î´óµÄÕûÊı¡£
+    //ç»™å®šä¸€ç»„éè´Ÿæ•´æ•° numsï¼Œé‡æ–°æ’åˆ—æ¯ä¸ªæ•°çš„é¡ºåºï¼ˆæ¯ä¸ªæ•°ä¸å¯æ‹†åˆ†ï¼‰ä½¿ä¹‹ç»„æˆä¸€ä¸ªæœ€å¤§çš„æ•´æ•°ã€‚
     //
-    //×¢Òâ£ºÊä³ö½á¹û¿ÉÄÜ·Ç³£´ó£¬ËùÒÔÄãĞèÒª·µ»ØÒ»¸ö×Ö·û´®¶ø²»ÊÇÕûÊı¡£
+    //æ³¨æ„ï¼šè¾“å‡ºç»“æœå¯èƒ½éå¸¸å¤§ï¼Œæ‰€ä»¥ä½ éœ€è¦è¿”å›ä¸€ä¸ªå­—ç¬¦ä¸²è€Œä¸æ˜¯æ•´æ•°ã€‚
     std::vector<int> nums = {0, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     auto answer_first = [&]() mutable {
         std::sort(nums.begin(), nums.end(), [](int first, int second) {
-            // µÃµ½Ã¿¸öÊıµÄ×î¸ßÎ»
+            // å¾—åˆ°æ¯ä¸ªæ•°çš„æœ€é«˜ä½
             string firstStr = std::to_string(first);
             string secondStr = std::to_string(second);
             int firstIndex = 0;
@@ -1396,7 +1396,7 @@ void LeetCode200::maxNum() {
 
     auto answer_final = [&]() mutable {
         std::sort(nums.begin(), nums.end(), [](int first, int second) {
-            // µÃµ½Ã¿¸öÊıµÄ×î¸ßÎ»
+            // å¾—åˆ°æ¯ä¸ªæ•°çš„æœ€é«˜ä½
             auto numWei = [](int cur) {
                 int w = 0;
                 while (cur != 0) {
@@ -1435,13 +1435,13 @@ void LeetCode200::maxNum() {
 }
 
 void LeetCode200::rotateImage() {
-    //[[1,2,3],[4,5,6],[7,8,9] Ô­µØĞı×ª¾ØÕó
+    //[[1,2,3],[4,5,6],[7,8,9] åŸåœ°æ—‹è½¬çŸ©é˜µ
     std::vector<std::vector<int>> container{{1, 2, 3},
                                             {4, 5, 6},
                                             {7, 8, 9}};
 
-    // Ô­µØĞı×ª¾ØÕó Ôò±£Ö¤µ±Ç°µÄ¾ØÕóĞÎ×´´ó¸Å ×î³õµÄĞÎÊ½ÉÏÒÆ¶¯
-    // ÏÈ¶Ô½Ç½»»» È»ºóÔÙÁĞ½»»»
+    // åŸåœ°æ—‹è½¬çŸ©é˜µ åˆ™ä¿è¯å½“å‰çš„çŸ©é˜µå½¢çŠ¶å¤§æ¦‚ æœ€åˆçš„å½¢å¼ä¸Šç§»åŠ¨
+    // å…ˆå¯¹è§’äº¤æ¢ ç„¶åå†åˆ—äº¤æ¢
 
 }
 
