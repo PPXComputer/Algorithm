@@ -89,8 +89,9 @@ Boost_THREAD_LIBRARY_RELEASE:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/lib/b
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.32.31326/bin/Hostx86/x64/lib.exe
 
-//No help, variable specified on the command line.
-CMAKE_BUILD_TYPE:UNINITIALIZED=Debug
+//Choose the type of build, options are: None Debug Release RelWithDebInfo
+// MinSizeRel ...
+CMAKE_BUILD_TYPE:STRING=Debug
 
 //Id string of the compiler for the CodeBlocks IDE. Automatically
 // detected when left empty

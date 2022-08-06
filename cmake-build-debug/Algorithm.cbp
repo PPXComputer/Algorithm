@@ -38,7 +38,8 @@
 					<Add option="-DGLOG_NO_ABBREVIATED_SEVERITIES"/>
 					<Add option="-DGLOG_CUSTOM_PREFIX_SUPPORT"/>
 					<Add option="-DGFLAGS_IS_A_DLL=1"/>
-					<Add directory="C:/Code/Csgo/Algorithm/include"/>
+					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
+					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
 					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\ATLMFC\include"/>
 					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\include"/>
@@ -77,7 +78,8 @@
 					<Add option="-DGLOG_NO_ABBREVIATED_SEVERITIES"/>
 					<Add option="-DGLOG_CUSTOM_PREFIX_SUPPORT"/>
 					<Add option="-DGFLAGS_IS_A_DLL=1"/>
-					<Add directory="C:/Code/Csgo/Algorithm/include"/>
+					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
+					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
 					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\ATLMFC\include"/>
 					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\include"/>

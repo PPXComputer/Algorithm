@@ -43,7 +43,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../include"
+  ".././include"
+  ".././src"
   "C:/Tools/vcpkg/installed/x64-windows/include"
   )
 
