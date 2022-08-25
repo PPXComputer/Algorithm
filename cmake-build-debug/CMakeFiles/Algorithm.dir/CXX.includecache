@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+../include/Dynamic.h
+
 ../include/GreedyAlgo.h
 iostream
 -
@@ -72,7 +74,39 @@ folly/FBVector.h
 folly/Conv.h
 -
 
+../include/SkipList.h
+folly/FBVector.h
+-
+array
+-
+memory
+-
+random
+-
+
 ../include/TreeAlgo.h
+memory
+-
+
+C:/Code/Csgo/Algorithm/src/Dynamic.cpp
+Dynamic.h
+C:/Code/Csgo/Algorithm/src/Dynamic.h
+GreedyAlgo.h
+C:/Code/Csgo/Algorithm/src/GreedyAlgo.h
+ciso646
+-
+initializer_list
+-
+iostream
+-
+optional
+-
+cassert
+-
+random
+-
+array
+-
 memory
 -
 
@@ -90,12 +124,6 @@ fmt/format.h
 folly/Range.h
 -
 unordered_map
--
-numeric
--
-unordered_set
--
-set
 -
 
 C:/Code/Csgo/Algorithm/src/LeetCode200.cpp
@@ -123,6 +151,32 @@ folly/String.h
 -
 cmath
 -
+
+C:/Code/Csgo/Algorithm/src/Offer.cpp
+cmath
+-
+string
+-
+random
+-
+set
+-
+numeric
+-
+vector
+-
+dbg.h
+-
+fmt/core.h
+-
+unordered_map
+-
+Offer.h
+C:/Code/Csgo/Algorithm/src/Offer.h
+
+C:/Code/Csgo/Algorithm/src/SkipList.cpp
+SkipList.h
+C:/Code/Csgo/Algorithm/src/SkipList.h
 
 C:/Code/Csgo/Algorithm/src/main.cpp
 ListAglo.h
