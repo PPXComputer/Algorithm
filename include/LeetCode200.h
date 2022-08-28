@@ -81,6 +81,7 @@ public:
 
     //48 旋转图像
     static void rotateImage();
+    static void groupAnagrams();
 private:
 
     struct ListNode {

@@ -11,6 +11,7 @@
 #include <fmt/core.h>
 
 #include<unordered_map>
+#include <queue>
 #include "Offer.h"
 
 using std::vector;
@@ -1054,6 +1055,47 @@ void Offer::mergeKLists() {
         } while (cur != nullptr);
         return result;
     };
+}
+
+void Offer::eightnum() {
+    //  八数码
+
+    auto impl = []() {
+        string cur{"123x46758"};
+
+        std::queue<string> queue;
+        string end = "12345678x";
+        std::unordered_map<string, int> result_distance;
+        result_distance[cur] = 0;
+        queue.push(cur);
+        int x_four[4] = {-1, 0, 1, 0};
+        int y_four[4] = {0, 1, 0, -1};
+        while (not queue.empty()) {
+            auto cur_data = queue.front();
+            queue.pop();
+            int dist = result_distance[cur_data];
+            if (cur_data == end) return dist;
+            int k = static_cast<int>(cur_data.find('x'));
+            int x = k / 3;
+            int y = k % 3;
+            for (int i : x_four) {
+                for (int j : y_four) {
+                    int a = x + i;
+                    int b = y + j;
+                    if (x >= 0 && x <= 3 && y >= 0 && y <= 3) {
+                        std::swap(cur_data[k], cur_data[a * 3 + b]);
+                        if( not result_distance.count(cur_data)){
+                            result_distance[cur_data] = dist + 1;
+                            queue.push(cur_data);
+                        }
+                         std::swap(cur_data[k], cur_data[a * 3 + b]);
+                    }
+                }
+            }
+        }
+        return -1;
+    };
+
 }
 
 

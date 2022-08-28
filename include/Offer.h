@@ -62,6 +62,7 @@ public:
 
     static void mergeKLists();
 
+    static void eightnum();
 private:
     struct TreeNode {
         TreeNode() : val(0), left{nullptr}, right{nullptr} {}

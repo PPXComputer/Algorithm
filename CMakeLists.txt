@@ -10,6 +10,8 @@ include_directories(SYSTEM ./src)
 find_package(folly CONFIG REQUIRED)
 find_package(GTest CONFIG REQUIRED)
 find_path(DBG_MACRO_INCLUDE_DIRS "dbg.h")
+ find_package(EASTL CONFIG REQUIRED)
+
 add_executable(Algorithm src/main.cpp src/ListAglo.cpp include/ListAglo.h
         src/StringAglo.cpp include/StringAglo.h src/ArrayAlgo.cpp include/ArrayAlgo.h
         src/UnionFindSet.cpp include/UnionFindSet.h src/GreedyAlgo.cpp include/GreedyAlgo.h include/Dynamic.h
@@ -19,3 +21,4 @@ target_link_libraries(Algorithm PRIVATE GTest::gmock GTest::gtest GTest::gmock_m
 target_link_libraries(Algorithm PRIVATE Folly::folly Folly::folly_deps Folly::follybenchmark Folly::folly_test_util)
 target_include_directories(Algorithm PRIVATE ${DBG_MACRO_INCLUDE_DIRS})
 target_link_libraries(Algorithm PRIVATE gflags::gflags)
+ target_link_libraries(Algorithm PRIVATE EASTL)

@@ -41,14 +41,15 @@
 					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
 					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\ATLMFC\include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\ATLMFC\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Auxiliary\VS\include"/>
 					<Add directory="C:\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm"/>
@@ -81,14 +82,15 @@
 					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
 					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\ATLMFC\include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\ATLMFC\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Auxiliary\VS\include"/>
 					<Add directory="C:\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm/fast"/>

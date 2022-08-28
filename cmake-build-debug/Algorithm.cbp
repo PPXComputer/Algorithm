@@ -5,7 +5,7 @@
 		<Option title="Algorithm"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="msvc8"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Tools\;CMake Files\..\..\..\Tools\vcpkg\;CMake Files\..\..\..\Tools\vcpkg\scripts\;CMake Files\..\..\..\Tools\vcpkg\scripts\buildsystems\;CMake Files\..\..\..\Tools\vcpkg\installed\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\folly\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\glog\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gflags\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\zlib\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\fmt\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\boost\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gtest\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Tools\;CMake Files\..\..\..\Tools\vcpkg\;CMake Files\..\..\..\Tools\vcpkg\scripts\;CMake Files\..\..\..\Tools\vcpkg\scripts\buildsystems\;CMake Files\..\..\..\Tools\vcpkg\installed\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\folly\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\glog\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gflags\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\zlib\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\fmt\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\boost\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gtest\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-debug"/>
@@ -41,14 +41,15 @@
 					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
 					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\ATLMFC\include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\ATLMFC\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Auxiliary\VS\include"/>
 					<Add directory="C:\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 Algorithm"/>
@@ -81,14 +82,15 @@
 					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
 					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\ATLMFC\include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\ATLMFC\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Auxiliary\VS\include"/>
 					<Add directory="C:\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 Algorithm/fast"/>
@@ -270,6 +272,30 @@
 		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/gtest/GTestTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gtest\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eabase/EABaseConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eabase/EABaseConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eabase/EABaseTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

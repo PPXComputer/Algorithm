@@ -1,10 +1,7 @@
 #include"ListAglo.h"
 #include"GreedyAlgo.h"
 #include "Offer.h"
-#include"TreeAlgo.h"
 #include"LeetCode.h"
-#include"LeetCode200.h"
-#include "dbg.h"
 
 using std::string;
 using folly::fbvector;

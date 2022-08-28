@@ -1,4 +1,130 @@
-"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake -DBoost_NO_WARN_NEW_VERSIONS=1 -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - NMake Makefiles" C:\Code\Csgo\Algorithm
+"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - NMake Makefiles" C:\Code\Csgo\Algorithm
+CMake Warning at C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1354 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1476 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:2086 (_Boost_MISSING_DEPENDENCIES)
+  C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake:11 (_find_package)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:778 (include)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake:63 (find_dependency)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:824 (_find_package)
+  CMakeLists.txt:10 (find_package)
+
+
+CMake Warning at C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1354 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1476 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:2086 (_Boost_MISSING_DEPENDENCIES)
+  C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake:11 (_find_package)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:778 (include)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake:63 (find_dependency)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:824 (_find_package)
+  CMakeLists.txt:10 (find_package)
+
+
+CMake Warning at C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1354 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1476 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:2086 (_Boost_MISSING_DEPENDENCIES)
+  C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake:11 (_find_package)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:778 (include)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake:63 (find_dependency)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:824 (_find_package)
+  CMakeLists.txt:10 (find_package)
+
+
+CMake Warning at C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1354 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1476 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:2086 (_Boost_MISSING_DEPENDENCIES)
+  C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake:11 (_find_package)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:778 (include)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake:63 (find_dependency)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:824 (_find_package)
+  CMakeLists.txt:10 (find_package)
+
+
+CMake Warning at C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1354 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1476 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:2086 (_Boost_MISSING_DEPENDENCIES)
+  C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake:11 (_find_package)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:778 (include)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake:63 (find_dependency)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:824 (_find_package)
+  CMakeLists.txt:10 (find_package)
+
+
+CMake Warning at C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1354 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1476 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:2086 (_Boost_MISSING_DEPENDENCIES)
+  C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake:11 (_find_package)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:778 (include)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake:63 (find_dependency)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:824 (_find_package)
+  CMakeLists.txt:10 (find_package)
+
+
+CMake Warning at C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1354 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1476 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:2086 (_Boost_MISSING_DEPENDENCIES)
+  C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake:11 (_find_package)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:778 (include)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake:63 (find_dependency)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:824 (_find_package)
+  CMakeLists.txt:10 (find_package)
+
+
+CMake Warning at C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1354 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1476 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:2086 (_Boost_MISSING_DEPENDENCIES)
+  C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake:11 (_find_package)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:778 (include)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake:63 (find_dependency)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:824 (_find_package)
+  CMakeLists.txt:10 (find_package)
+
+
+CMake Warning at C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1354 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:1476 (_Boost_COMPONENT_DEPENDENCIES)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/FindBoost.cmake:2086 (_Boost_MISSING_DEPENDENCIES)
+  C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake:11 (_find_package)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:778 (include)
+  C:/Program Files/JetBrains/CLion 2021.2.1/bin/cmake/win/share/cmake-3.20/Modules/CMakeFindDependencyMacro.cmake:47 (find_package)
+  C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake:63 (find_dependency)
+  C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake:824 (_find_package)
+  CMakeLists.txt:10 (find_package)
+
+
 -- Found folly: C:/Tools/vcpkg/installed/x64-windows
 -- Configuring done
 -- Generating done
