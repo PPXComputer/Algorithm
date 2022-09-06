@@ -2,6 +2,7 @@
 #include"GreedyAlgo.h"
 #include "Offer.h"
 #include"LeetCode.h"
+#include "ArrayAlgo.h"
 
 using std::string;
 using folly::fbvector;
@@ -103,7 +104,7 @@ int main() {
 //LeetCode::findTargetSumWays();
 //LeetCode::countLatticePoints();
 //	std::cin.get();
-
+    ArrayAlgo::findKthBit();
 
 }
 

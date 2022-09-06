@@ -9,7 +9,6 @@
 #include <vector>
 #include <dbg.h>
 #include <fmt/core.h>
-
 #include<unordered_map>
 #include <queue>
 #include "Offer.h"

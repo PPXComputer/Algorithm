@@ -261,6 +261,12 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Path to a file.
 DBG_MACRO_INCLUDE_DIRS:PATH=C:/Tools/vcpkg/installed/x64-windows/include
 
+//The directory containing a CMake configuration file for EABase.
+EABase_DIR:PATH=C:/Tools/vcpkg/installed/x64-windows/share/eabase
+
+//The directory containing a CMake configuration file for EASTL.
+EASTL_DIR:PATH=C:/Tools/vcpkg/installed/x64-windows/share/eastl
+
 //The directory containing a CMake configuration file for GTest.
 GTest_DIR:PATH=C:/Tools/vcpkg/installed/x64-windows/share/gtest
 

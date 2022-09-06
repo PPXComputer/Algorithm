@@ -538,3 +538,26 @@ void ArrayAlgo::standard_str() {
         power_matrix >>= 1;
     }
 }
+
+void ArrayAlgo::findKthBit() {
+
+    auto data = [] {
+        fbstring data = "0";
+        folly::fbvector<folly::fbstring> result;
+        constexpr int count = 20;
+        result.reserve(count);
+        for (int i = 0; i < count; ++i) {
+            fbstring tmp;
+            tmp.reserve(data.size());
+            std::transform(data.rbegin(), data.rend(), tmp.begin(), [](char ch) {
+                return ch == '1' ? '0' : '1';
+            });
+            data.reserve(1 + data.size());
+            data += '1' + tmp;
+            result.emplace_back(folly::fbstring{data.data(), data.size()});
+        }
+        return result;
+    }();
+    dbg(data);
+}
+

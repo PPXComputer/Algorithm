@@ -1077,12 +1077,11 @@ CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.obj
  ../include/UnionFindSet.h
  C:/Code/Csgo/Algorithm/src/UnionFindSet.cpp
 CMakeFiles/Algorithm.dir/src/main.cpp.obj
+ ../include/ArrayAlgo.h
  ../include/GreedyAlgo.h
  ../include/LeetCode.h
- ../include/LeetCode200.h
  ../include/ListAglo.h
  ../include/Offer.h
- ../include/TreeAlgo.h
  C:/Code/Csgo/Algorithm/src/main.cpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/dec.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/inc.hpp
@@ -1158,7 +1157,6 @@ CMakeFiles/Algorithm.dir/src/main.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/variadic/limits/size_256.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/variadic/limits/size_64.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/variadic/size.hpp
- C:/Tools/vcpkg/installed/x64-windows/include/dbg.h
  C:/Tools/vcpkg/installed/x64-windows/include/double-conversion/double-conversion.h
  C:/Tools/vcpkg/installed/x64-windows/include/double-conversion/double-to-string.h
  C:/Tools/vcpkg/installed/x64-windows/include/double-conversion/string-to-double.h

@@ -1077,11 +1077,11 @@ CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.obj
  ../include/UnionFindSet.h
  C:/Code/Csgo/Algorithm/src/UnionFindSet.cpp
 CMakeFiles/Algorithm.dir/src/main.cpp.obj
+ ../include/ArrayAlgo.h
  ../include/GreedyAlgo.h
  ../include/LeetCode.h
  ../include/ListAglo.h
  ../include/Offer.h
- ../include/TreeAlgo.h
  C:/Code/Csgo/Algorithm/src/main.cpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/dec.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/inc.hpp
