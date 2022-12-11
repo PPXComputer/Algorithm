@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/CMakeLists.txt" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cmake-build-release-visual-studio/Testing/Temporary/LastTest.log" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/include/ArrayAlgo.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/include/ArrayAlgo.h" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/include/LeetCode.h" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/include/LeetCode200.h" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/ArrayAlgo.cpp" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/Dynamic.cpp" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/GreedyAlgo.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/ArrayAlgo.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Dynamic.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/GreedyAlgo.cpp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/LeetCode200.cpp" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/TreeAlgo.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/TreeAlgo.cpp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main.cpp" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

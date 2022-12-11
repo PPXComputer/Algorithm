@@ -1,10 +1,9 @@
 #include"ListAglo.h"
-#include"GreedyAlgo.h"
 #include "Offer.h"
-#include"TreeAlgo.h"
 #include"LeetCode.h"
-#include"LeetCode200.h"
-#include "dbg.h"
+#include "ArrayAlgo.h"
+#include "StringAglo.h"
+#include<EASTL/vector.h>
 
 using std::string;
 using folly::fbvector;
@@ -19,7 +18,7 @@ struct Factorial {
         return result;
     }
 
-    //澶ф暟涔樻硶 灏嗗緱鍒颁袱鑰呯浉涔樼殑鏁版嵁瀹炵幇
+    //大数乘法 将得到两者相乘的数据实现
     static string big_number_multiply(const string &first, const size_t second) {
         assert(not first.empty());
         size_t t = 0;
@@ -93,12 +92,23 @@ int main() {
 //    Offer::groupAnagrams();
 //    Offer::wordBreak();
 //    LeetCode200::maxNum();
-//    int ad = 10;
-//    int &asd = ad;
-//    dbg(ad, asd, std::move(asd), std::forward<decltype(asd)>(asd)); //move 是强转 forward是看情况转
+    Offer::containsNearbyAlmostDuplicate();
+//    for (int i = 3; i < 200; i++) {
+//        bool suc=true;
+//        for (int j = 2; j < i; ++j) {
+//            if (i % j == 0) {suc=false; break; }
+//        }
+//        if(suc)cout<<i<<" \n";
+//    }
+//    LeetCode::remove_all_words();
+//LeetCode::largestCombination();
+//LeetCode::findTargetSumWays();
+//LeetCode::countLatticePoints();
 //	std::cin.get();
-
-
+//    ArrayAlgo::findKthBit();
+//    StringAglo::wordBreak();
+//    ArrayAlgo::salesRange();
+    ArrayAlgo::containsNearbyDuplicate();
 }
 
 //#include <iostream>
@@ -126,3 +136,4 @@ int main() {
 //1		v2.end());
 //	std::cout << "v1.size()=" << v1.size()<< "v2.size()=" << v2.size();
 //}
+

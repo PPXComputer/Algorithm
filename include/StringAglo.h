@@ -38,6 +38,12 @@ public:
     static void  boolean_expression();
 
     static void expression();
+
+    static void wordBreak();
+
+    static void searchWord();
+
+    static void minWindows();
 private:
     static void printAll(const fbstring &cur, size_t index, const fbstring &data);
 };

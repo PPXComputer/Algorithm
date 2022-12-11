@@ -31,7 +31,7 @@ void Dynamic::binary_tree_counter() {
     const auto &impl = [&counter](Node *root, int cur, auto &&impl) -> void {
         if (root) {
             cur += root->value;
-            // Ö»ÓĞ¸ù½Úµã²ÅËãÂ·¾¶
+            // åªæœ‰æ ¹èŠ‚ç‚¹æ‰ç®—è·¯å¾„
             if (not root->left and not root->right and cur > counter)counter = cur;
             impl(root->left, cur, impl);
             impl(root->right, cur, impl);
@@ -68,7 +68,7 @@ void Dynamic::triangle() {
         int cur = 2;
         for (int i = 1; i < n; i++) {
             data.push_back({});
-            // ´¦ÀíÃ¿Ò»²ã
+            // å¤„ç†æ¯ä¸€å±‚
             fbvector<int> &curLayer = data.at(i);
             curLayer.emplace_back(1);
             fbvector<int> &proLayer = data.at(i - 1);
@@ -111,7 +111,7 @@ void Dynamic::binaryTree() {
     };
     const auto &dpImpl = [](size_t rest) -> size_t {
         if (rest == 0) return 0;
-        fbvector<size_t> dp = {1, 1, 2, 5};// rest ³¤¶ÈµÄ±í
+        fbvector<size_t> dp = {1, 1, 2, 5};// rest é•¿åº¦çš„è¡¨
         dp.reserve(rest + 1);
         for (int i = 4; i <= rest; i++) {
             size_t result = 0;
@@ -146,7 +146,7 @@ void Dynamic::three_num_counter() {
 }
 
 void Dynamic::maze_compression() {
-    // ÃÔ¹¬ÎÊÌâµÄÑ¹Ëõ
+    // è¿·å®«é—®é¢˜çš„å‹ç¼©
 
     const auto &dfs = [](int x, int y, auto &&dp) {
         if (x == 3 and y == 5) {
@@ -175,7 +175,7 @@ void Dynamic::maze_compression() {
 
     cout << fmt::format(" result :{} \n", dp());
     const auto &dpCompression = [] {
-        // Êı¾İÑ¹ËõÖ»·ÅÒ»²¿·ÖµÄÊı¾İ
+        // æ•°æ®å‹ç¼©åªæ”¾ä¸€éƒ¨åˆ†çš„æ•°æ®
         array<int, 5> data = {1, 1, 1, 1, 1};
 
         constexpr int layer = 3;
@@ -201,7 +201,7 @@ void Dynamic::container() {
     //    int pos_right = data.size() - 1;
     //    int result = 0;
     //    while (pos_right > pos_left) {
-    //        // ½áËãµ±Ç°µÄÊı¾İÊ¹ÓÃÇé¿ö
+    //        // ç»“ç®—å½“å‰çš„æ•°æ®ä½¿ç”¨æƒ…å†µ
     //
     //
     //    }
@@ -283,9 +283,9 @@ void Dynamic::achive() {
         data[0] = data[1];
         data[1] = result;
     }
-    // ¿ìËÙ ì³²¨ÄÇÆõÊıÁĞÊµÏÖ µ±Ç°ÒÀÀµÖ®Ç°ÏîµÄÇé¿öÏÂ½«»ñµÃÈ«²¿µÄÊµÏÖ
+    // å¿«é€Ÿ æ–æ³¢é‚£å¥‘æ•°åˆ—å®ç° å½“å‰ä¾èµ–ä¹‹å‰é¡¹çš„æƒ…å†µä¸‹å°†è·å¾—å…¨éƒ¨çš„å®ç°
     // f(n )=f(n-1) +f(n-2)
-    //µ±Ç°µÄì³²¨ÄÇÆõÊıÁĞ ½«»ñµÃÈ«²¿µÄ×ÓÏî
+    //å½“å‰çš„æ–æ³¢é‚£å¥‘æ•°åˆ— å°†è·å¾—å…¨éƒ¨çš„å­é¡¹
 }
 
 void Dynamic::quick_multiply() {
@@ -303,7 +303,7 @@ void Dynamic::quick_multiply() {
     }
     cout << result;
 
-    //¾ØÕóÏà³Ë
+    //çŸ©é˜µç›¸ä¹˜
 }
 
 inline void Dynamic::package() {
@@ -314,7 +314,7 @@ inline void Dynamic::package() {
         if (cur == data.size())return 1;
         auto get = dfsImpl(cur + 1, res - data[cur], dfsImpl);
         auto not_get = dfsImpl(cur + 1, res, dfsImpl);
-        return get + not_get; // Õâ²¿·Ö ÊÇµİ¹é³ÌĞò ½«µÄ ¶à´Î´¥·¢
+        return get + not_get; // è¿™éƒ¨åˆ† æ˜¯é€’å½’ç¨‹åº å°†çš„ å¤šæ¬¡è§¦å‘
     };
     auto result = dfsImpl(0, target, dfsImpl);
     for (auto sd: data) {
@@ -328,7 +328,7 @@ inline void Dynamic::package() {
         // f(cur,res) =f(cur+1,res-data[cur])+f(cur+1,res)
         fbvector<fbvector<int >>::reference
                 last_array = table.back();
-        std::fill(last_array.begin(), last_array.end(), 1);//Ä¬ÈÏÈ«²¿ÌîÁã ËùÒÔÌîÈë1
+        std::fill(last_array.begin(), last_array.end(), 1);//é»˜è®¤å…¨éƒ¨å¡«é›¶ æ‰€ä»¥å¡«å…¥1
         for (size_t row = data.size() - 1; row >= 1; row--) {
             for (size_t rest = 0; rest <= target; rest++) {
                 if (rest - data[row] >= 0)
@@ -347,7 +347,7 @@ inline void Dynamic::package() {
 
     cout << fmt::format("\n result:{}", dpImpl(target));
 
-    // Ñ¹Ëõ¿Õ¼ä´æ´¢
+    // å‹ç¼©ç©ºé—´å­˜å‚¨
     const auto &dpCompressImpl = [&data](int target) {
         fbvector<int> pre_layer(target + 1, 1);
         fbvector<int> cur_layer(target + 1);
@@ -370,7 +370,7 @@ inline void Dynamic::package() {
     };
     cout << fmt::format("\n result:{}", dpCompressImpl(target));
 
-    // ±¸ÍüÂ¼¼ÇÂ¼Â·¾¶
+    // å¤‡å¿˜å½•è®°å½•è·¯å¾„
     fbvector<fbvector<int>> cache(data.size() + 1, fbvector<int>(target + 1, -1));
     const auto &dfsCacheImpl = [&data, &cache](int cur, int res, auto &&dfsCacheImpl) {
         if (res < 0)return 0;
@@ -442,13 +442,13 @@ void Dynamic::sub_matrix() {
 }
 
 void Dynamic::bit_count() {
-    // bit ÎÄ¼şµÄÊ¹ÓÃ
+    // bit æ–‡ä»¶çš„ä½¿ç”¨
 
     constexpr auto is2pow = [](const int data) {
         return (data != 0) and (data & data - 1) == 0;
     };
     is2pow(1);
-    // ÅĞ¶ÏÊÇ·ñ
+    // åˆ¤æ–­æ˜¯å¦
     constexpr auto is4pow = [](const int data) {
         return data != 0 and (data & data - 1) == 0 and (data & 0x55555555) == 0;
     };
@@ -457,7 +457,7 @@ void Dynamic::bit_count() {
 }
 
 void Dynamic::different_way() {
-    // ×Ü¹² n ¸ö·½¸ñ ÆğÊ¼Î»ÖÃ µÚs¸ö·½¸ñ  Òª×ßk²½ ÓĞ¶àÉÙ·½°¸
+    // æ€»å…± n ä¸ªæ–¹æ ¼ èµ·å§‹ä½ç½® ç¬¬sä¸ªæ–¹æ ¼  è¦èµ°kæ­¥ æœ‰å¤šå°‘æ–¹æ¡ˆ
     constexpr int total = 5;
     constexpr int start = 2;
     constexpr int end = 4;
@@ -485,7 +485,7 @@ void Dynamic::different_way() {
         //f[total+1,k]=0
         data.at(end).at(0) = 1;
 
-        //ÆäËûÎ»ÖÃÌî³ä-1
+        //å…¶ä»–ä½ç½®å¡«å……-1
         size_t row = data.size();
         size_t column = data.front().size();
         for (size_t x = 1; x < row; x++)
@@ -496,11 +496,11 @@ void Dynamic::different_way() {
         std::function<int(int, int)> impl;
         impl = [&](int cur_pos, int cur_k) -> int {
             if (cur_pos < 0 or cur_pos > total + 1)return 0;
-            // ±ÜÃâÖØ¸´¼ÆËã
+            // é¿å…é‡å¤è®¡ç®—
             if (data.at(cur_pos).at(cur_k) != -1) {
                 return data.at(cur_pos).at(cur_k);
             } else {
-                // ½«µ±Ç°½á¹ûÌîÈëµ½Êı¾İÖĞÈ¥
+                // å°†å½“å‰ç»“æœå¡«å…¥åˆ°æ•°æ®ä¸­å»
                 data.at(cur_pos).at(cur_k) = impl(cur_pos - 1, cur_k - 1)
                                              + impl(cur_pos + 1, cur_k - 1);
                 return data.at(cur_pos).at(cur_k);
@@ -538,8 +538,8 @@ void Dynamic::rope_range() {
     {
         const auto binary_search = [&randomArray](int start, int end, const int target) -> int {
             while (start < end) {
-                // ÕÒµ½µ±Ç°µÄ µÚÒ»¸ö´óµÈÓÚ target
-                //µ±Ç°µÄÊı¾İÊµÏÖ
+                // æ‰¾åˆ°å½“å‰çš„ ç¬¬ä¸€ä¸ªå¤§ç­‰äº target
+                //å½“å‰çš„æ•°æ®å®ç°
                 int pos = (start + end) >> 1;
                 if (randomArray.at(pos) == target) { return pos; }
                 else if (randomArray.at(pos) < target) { start = pos + 1; }
@@ -547,9 +547,9 @@ void Dynamic::rope_range() {
             }
             return start;
         };
-        int result = 1; // ×îÉÙÒ²ÊÇÒ»¸ö
+        int result = 1; // æœ€å°‘ä¹Ÿæ˜¯ä¸€ä¸ª
         for (size_t i = 1; i < size; ++i) {
-            // ´Ó 0µ½ i µÄ·¶Î§ÖĞ¶ş·Ö²éÕÒµ±Ç°µÄ½Úµã
+            // ä» 0åˆ° i çš„èŒƒå›´ä¸­äºŒåˆ†æŸ¥æ‰¾å½“å‰çš„èŠ‚ç‚¹
             int search = binary_search(0, static_cast<int>(i), randomArray.at(i) - span);
             result = std::max(result, static_cast<int>(i) + 1 - search);
         }
@@ -558,7 +558,7 @@ void Dynamic::rope_range() {
     }
 
     {
-        //»¬¶¯´°¿Ú
+        //æ»‘åŠ¨çª—å£
         int start = 0;
         int end = start + 1;
         int result = 1;
@@ -583,7 +583,7 @@ void Dynamic::apple() {
     // 6,8
     for (int i = 2; i < 100; i += 2) {
         int result = INT_MAX;
-        if ((i & 1) == 0) { //ÊÇÅ¼Êı
+        if ((i & 1) == 0) { //æ˜¯å¶æ•°
             for (int j = 0; j <= i / 6; j++) {
                 for (int n = 0; n <= (i - j * 6) / 8; n++) {
                     if (j * 6 + n * 8 == i) {
@@ -619,7 +619,7 @@ void Dynamic::apple() {
 }
 
 void Dynamic::winner() {
-    // Å£
+    // ç‰›
     enum class Winner {
         first, second
     };
@@ -629,12 +629,12 @@ void Dynamic::winner() {
         }
         int base = 1;
         while (base <= n) {
-            // ÕâÀïÒ»Ö±³¢ÊÔµÚ¶ş¸öÈËÄÃµÄ²½Öè Èç¹û²»³É¹¦ÔòÊÇµÚÒ»¸öÈËÓ®
-            // ÅĞ¶ÏµÚÒ»¸öÈË³É²»³É¹¦ÊÇÕâ¸öwhile Ñ­»·¸ÉµÄÊÂ
+            // è¿™é‡Œä¸€ç›´å°è¯•ç¬¬äºŒä¸ªäººæ‹¿çš„æ­¥éª¤ å¦‚æœä¸æˆåŠŸåˆ™æ˜¯ç¬¬ä¸€ä¸ªäººèµ¢
+            // åˆ¤æ–­ç¬¬ä¸€ä¸ªäººæˆä¸æˆåŠŸæ˜¯è¿™ä¸ªwhile å¾ªç¯å¹²çš„äº‹
             if (self(n - base, self) == Winner::second) {
                 return Winner::first;
             }
-            if (base > n / 4)break; // ·ÀÖ¹Òç³ö
+            if (base > n / 4)break; // é˜²æ­¢æº¢å‡º
             base *= 4;
         }
         return Winner::second;
@@ -659,17 +659,17 @@ void Dynamic::color() {
     size_t result = INT_MAX;
     for (; left_range < size - 1; left_range++) {
         size_t cur = 0;
-        // ×ó²à´Ó·¶Î§¼õÒ»¿ªÊ¼
+        // å·¦ä¾§ä»èŒƒå›´å‡ä¸€å¼€å§‹
         if (left_range >= 2) {
             cur = std::count(str, str + left_range - 1, 'R');
         }
-        // ÓÒ²àÓĞ¶àÉÙ¸öG
+        // å³ä¾§æœ‰å¤šå°‘ä¸ªG
         cur += std::count(str + left_range + 1, str + size, 'G');
         result = std::min(result, cur);
     }
     std::vector<int> help(size);
 
-    // ÅĞ¶Ïµ±Ç°Î»ÖÃµÄÉÏ²»ºÏÀíµÄÊıÄ¿
+    // åˆ¤æ–­å½“å‰ä½ç½®çš„ä¸Šä¸åˆç†çš„æ•°ç›®
 
 }
 
@@ -683,7 +683,7 @@ void Dynamic::snake() {
             {0, -9, -2, 2, -7},
     };
 
-    // µİ¹é±©Á¦½â·¨
+    // é€’å½’æš´åŠ›è§£æ³•
     const auto &enumDfs = [&data](int x, int y, int cur, auto &&dfs, int minimum) -> int {
         if (cur < 0)return INT_MIN;
         if (x >= 5 or x < 0 or y >= 5 or y < 0)return cur;
@@ -717,28 +717,28 @@ void Dynamic::snake() {
 
 
     //MazeResult dp[5][5] = {};
-    // Ìí¼Óµ½µ±Ç°µÄ ×îĞ¡ÖµÅĞ¶ÏÖĞ½«µ±Ç° ¿ÉÄÜÓöµ½µÄÖµÖĞ±ä»¯Ò»´Î³£Êı
-    // µ±Ç°µÄÖµºÍ¹ı³ÌÖĞÓöµ½µÄ×îĞ¡µÄÊı
+    // æ·»åŠ åˆ°å½“å‰çš„ æœ€å°å€¼åˆ¤æ–­ä¸­å°†å½“å‰ å¯èƒ½é‡åˆ°çš„å€¼ä¸­å˜åŒ–ä¸€æ¬¡å¸¸æ•°
+    // å½“å‰çš„å€¼å’Œè¿‡ç¨‹ä¸­é‡åˆ°çš„æœ€å°çš„æ•°
     const auto &cacheMinimum = [&data](int x, int y, MazeResult cur, auto &&dfs) -> MazeResult {
 
 
-        //Ô½½ç·µ»Ø
+        //è¶Šç•Œè¿”å›
         if (x >= 5 or x < 0 or y >= 5 or y < 0)return cur;
 
-        // ¼ÇÂ¼Â·ÉÏÅöµ½µÄ×îĞ¡Öµ
+        // è®°å½•è·¯ä¸Šç¢°åˆ°çš„æœ€å°å€¼
         if (cur.find_minimum > data[x][y]) cur.find_minimum = data[x][y];
 
-        //×ßµ½µ±Ç°µÄ²½ÖèÊ±½øĞĞ¼ÇÂ¼
+        //èµ°åˆ°å½“å‰çš„æ­¥éª¤æ—¶è¿›è¡Œè®°å½•
         cur.cur_value += data[x][y];
 
-        //Èç¹û¼ÇÂ¼µ±Ç°ÖµºóÎª¸ºÊı Ôò¿ÉÄÜÖ±½Ó·µ»Ø
+        //å¦‚æœè®°å½•å½“å‰å€¼åä¸ºè´Ÿæ•° åˆ™å¯èƒ½ç›´æ¥è¿”å›
         if (cur.cur_value < 0) {
             if (!cur.used_flip and cur.cur_value - cur.find_minimum >= 0) {
-                //µ±Ç°Îª¸ºÊı ²¢Î´Ê¹ÓÃ¹ı·­×ªËùÒÔ ½«×îºóÒ»¸öÔªËØ×ª»»ÎªµÄÕıÊı
+                //å½“å‰ä¸ºè´Ÿæ•° å¹¶æœªä½¿ç”¨è¿‡ç¿»è½¬æ‰€ä»¥ å°†æœ€åä¸€ä¸ªå…ƒç´ è½¬æ¢ä¸ºçš„æ­£æ•°
                 cur.used_flip = true;
                 cur.cur_value -= cur.find_minimum;
             } else {
-                return cur; //Èç¹ûÎª¸ºÖµ ÇÒÂ·¾¶ÉÏÍ¨¹ı·­×ªÒ²²»¿ÉÄÜ±ä³ÉÕıÊı Ôò·µ»Ø
+                return cur; //å¦‚æœä¸ºè´Ÿå€¼ ä¸”è·¯å¾„ä¸Šé€šè¿‡ç¿»è½¬ä¹Ÿä¸å¯èƒ½å˜æˆæ­£æ•° åˆ™è¿”å›
             }
         }
         MazeResult left = dfs(x + 1, y, cur, dfs);
