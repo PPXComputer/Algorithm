@@ -1,5 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake -DBoost_NO_WARN_NEW_VERSIONS=1 -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - NMake Makefiles" C:\Code\Csgo\Algorithm
--- Found folly: C:/Tools/vcpkg/installed/x64-windows
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Code/Csgo/Algorithm/cmake-build-release

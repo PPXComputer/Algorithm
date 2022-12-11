@@ -1,3 +1,0 @@
-C:/Code/Csgo/Algorithm/cmake-build-release/CMakeFiles/Algorithm.dir
-C:/Code/Csgo/Algorithm/cmake-build-release/CMakeFiles/edit_cache.dir
-C:/Code/Csgo/Algorithm/cmake-build-release/CMakeFiles/rebuild_cache.dir
