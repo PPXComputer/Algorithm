@@ -1,4 +1,0 @@
-ToolSet: 17.0 (local)@C:\Software\VisualStuido\Community
-Options: msvc.arch=x86_amd64
-
-Options:-DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake

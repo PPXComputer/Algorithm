@@ -1,8 +1,9 @@
 #include"ListAglo.h"
-#include"GreedyAlgo.h"
 #include "Offer.h"
 #include"LeetCode.h"
 #include "ArrayAlgo.h"
+#include "StringAglo.h"
+#include<EASTL/vector.h>
 
 using std::string;
 using folly::fbvector;
@@ -104,8 +105,10 @@ int main() {
 //LeetCode::findTargetSumWays();
 //LeetCode::countLatticePoints();
 //	std::cin.get();
-    ArrayAlgo::findKthBit();
-
+//    ArrayAlgo::findKthBit();
+//    StringAglo::wordBreak();
+//    ArrayAlgo::salesRange();
+    ArrayAlgo::containsNearbyDuplicate();
 }
 
 //#include <iostream>

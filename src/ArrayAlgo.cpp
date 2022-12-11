@@ -1,6 +1,5 @@
 #include "ArrayAlgo.h"
 #include "folly/Random.h"
-
 #include<vector>
 #include <dbg.h>
 #include <memory>
@@ -81,7 +80,7 @@ void ArrayAlgo::data_array() {
 }
 
 void ArrayAlgo::not_exists_num() {
-    //Á¬ĞøĞòÁĞÖĞÎ´³öÏÖµÄÊı×Ö
+    //è¿ç»­åºåˆ—ä¸­æœªå‡ºç°çš„æ•°å­—
     std::array<int, 7> data = {3, 2, 1, 6, 2, 7, 5}; // 1-n
     //                          0 1 2 3 4 5 6
     size_t cur = 0;
@@ -94,7 +93,7 @@ void ArrayAlgo::not_exists_num() {
         } else {
             int swap_value = data[promise_pos];
             if (swap_value == cur_value) {
-                // µ±Ç°µÄÎ»ÖÃµÄÖµÎªÖØ¸´µÄ
+                // å½“å‰çš„ä½ç½®çš„å€¼ä¸ºé‡å¤çš„
                 fmt::print("result data :{}", promise_pos + 1);
                 break;
             } else {
@@ -116,7 +115,7 @@ void ArrayAlgo::coin_change() {
         if (coin == end) {
             return 0;
         }
-        // µİ¹éÖĞµÄÖØ¸´·¶Î§»á½«ÖØĞÂ³öÏÖ µ¼ÖÂÎŞÏŞµİ¹é
+        // é€’å½’ä¸­çš„é‡å¤èŒƒå›´ä¼šå°†é‡æ–°å‡ºç° å¯¼è‡´æ— é™é€’å½’
         auto subtract = self(coin - 2, end, self) + subtract_spend;
         auto add = self(coin + 2, end, self) + add_spend;
         auto multiply = self(coin * 2, end, self) + multiply_spend;
@@ -125,9 +124,9 @@ void ArrayAlgo::coin_change() {
 
     int maxCoin = target * 2;
     int maxSpend = ((target - cur) / 2) * add_spend;
-    // µ±Ç° ÓĞÒ»¶¨µÄ µİ¹éµÄ·¶Î§
-    // ¶øÇÒ ±ÜÃâ f(2) ->f(4) ->f(2) µÄÇé¿ö³öÏÖµÄÊ±ºò
-    // µ±Ç° µİ¹éµÄÉî¶ÈÒ²ÓĞÏŞÖÆ
+    // å½“å‰ æœ‰ä¸€å®šçš„ é€’å½’çš„èŒƒå›´
+    // è€Œä¸” é¿å… f(2) ->f(4) ->f(2) çš„æƒ…å†µå‡ºç°çš„æ—¶å€™
+    // å½“å‰ é€’å½’çš„æ·±åº¦ä¹Ÿæœ‰é™åˆ¶
     auto base_case = [=](int coin, int end, int spend, auto &&self) -> int {
         if (coin == end)
             return spend;
@@ -148,11 +147,11 @@ void ArrayAlgo::coin_change() {
 }
 
 void ArrayAlgo::xor_max_range() {
-    // xor  ×î¶àµÄÇø¼ä»®·ÖÎª
+    // xor  æœ€å¤šçš„åŒºé—´åˆ’åˆ†ä¸º
 
     constexpr
     std::array data = {1, 2, 0, 3, 2, 2, 1};
-    // µ±Ç°µÄ»®·ÖÇø¼äÎª
+    // å½“å‰çš„åˆ’åˆ†åŒºé—´ä¸º
     int result = 0;
     for (int cur: data) {
         if (cur == 0)
@@ -206,9 +205,9 @@ void ArrayAlgo::change_array_data() {
         constexpr
         size_t row_index = first.size() + 1;
         constexpr auto column_rest = data + 1;
-        // µ±Ç°Êı¾İµÄ¶àÊıĞĞÎª
+        // å½“å‰æ•°æ®çš„å¤šæ•°è¡Œä¸º
         auto dp = std::make_unique<int[]>(row_index * column_rest);
-        // Ç®Îª0µÄÇé¿öÏÂ ¸÷¸ö½ÚµãµÄÎª1   ÔÚ½Úµã0´¦ Ç®ÎªµÚÒ»¸öÔªËØµÄ±¶ÊıÈ«Îª1
+        // é’±ä¸º0çš„æƒ…å†µä¸‹ å„ä¸ªèŠ‚ç‚¹çš„ä¸º1   åœ¨èŠ‚ç‚¹0å¤„ é’±ä¸ºç¬¬ä¸€ä¸ªå…ƒç´ çš„å€æ•°å…¨ä¸º1
         std::memset(dp.get(), 0, row_index * column_rest);
         for (size_t i = 0; i < row_index; i++) {
             dp[i * column_rest] = 1;
@@ -217,14 +216,14 @@ void ArrayAlgo::change_array_data() {
             dp[j * first[0]] = 1;
         }
         const auto enum_all_element = [&]() {
-            // µ±Ç°½ÚµãµÄ ×ª»»ÉÏ½« ÓÉµ±Ç°ĞĞ µÄÈ¡Öµ ½«ÓÉÉÏÒ»ĞĞ Êı×Ö´æ´¢¹ı³Ì
-            // Ä¿±êdp[first.size()][data]
+            // å½“å‰èŠ‚ç‚¹çš„ è½¬æ¢ä¸Šå°† ç”±å½“å‰è¡Œ çš„å–å€¼ å°†ç”±ä¸Šä¸€è¡Œ æ•°å­—å­˜å‚¨è¿‡ç¨‹
+            // ç›®æ ‡dp[first.size()][data]
             for (size_t row = 1; row < row_index; row++) {
                 for (size_t column = 1; column < column_rest; column++) {
 
                     size_t cur = row * column_rest + column; // dp[row][column]
                     for (size_t take = 0; take * first[row] <= data; take++) {
-                        // ¼ÙÉèµ±Ç°µÄÔªËØÄÃÁË take Êı Ôò²éÑ¯ÉÏÒ»²ãÖĞµÄ
+                        // å‡è®¾å½“å‰çš„å…ƒç´ æ‹¿äº† take æ•° åˆ™æŸ¥è¯¢ä¸Šä¸€å±‚ä¸­çš„
                         // dp[row-1][data-take*first[row]]
                         size_t take_cur =
                                 (row - 1) * column_rest + data - take * first[row];
@@ -234,7 +233,7 @@ void ArrayAlgo::change_array_data() {
             }
             return dp[row_index * column_rest - 1]; // dp[first.size()][data]
         };
-        // Ğ±ÓÅ»¯
+        // æ–œä¼˜åŒ–
         const auto inclined_to_optimize = [&]() {
             for (size_t row = 1; row < row_index; row++) {
                 for (size_t column = 1; column < column_rest; column++) {
@@ -242,12 +241,12 @@ void ArrayAlgo::change_array_data() {
                     size_t cur = row * column_rest + column;
 
                     // dp[row][column]
-                    // ¼ÙÉèµ±Ç°µÄÔªËØÄÃÁË take Êı Ôò²éÑ¯Í¬²ãÖĞµÄ
-                    // dp[row][data-£¨take-1)*first[row]]
-                    // dp[row-1][data-take*first[row]]  ºÍµ±Ç°µÄÉÏÒ»¸öÔªËØ
+                    // å‡è®¾å½“å‰çš„å…ƒç´ æ‹¿äº† take æ•° åˆ™æŸ¥è¯¢åŒå±‚ä¸­çš„
+                    // dp[row][data-ï¼ˆtake-1)*first[row]]
+                    // dp[row-1][data-take*first[row]]  å’Œå½“å‰çš„ä¸Šä¸€ä¸ªå…ƒç´ 
                     // dp[row][column]=dp[cur-1][column-data[row]]
 
-                    // Í¬²ãÔªËØ´æÔÚ×Å
+                    // åŒå±‚å…ƒç´ å­˜åœ¨ç€
                     // dp[row][column] += dp[row][column - first[row]];
                     if (column - first[row] >= 0) {
 
@@ -260,15 +259,15 @@ void ArrayAlgo::change_array_data() {
             return dp[row_index * column_rest - 1]; // dp[first.size()][data]
         };
 
-        // Ñ¹Ëõ´æ´¢ Ö»ĞèÒªÁ½¸öÏòÁ¿¿Õ¼ä
+        // å‹ç¼©å­˜å‚¨ åªéœ€è¦ä¸¤ä¸ªå‘é‡ç©ºé—´
         const auto compression_storage = [&]() {
             std::array<int, 11> dp[2]{};
-            // Ö»ĞèÒªÁ½¸öÊı×é¼´¿É
-            // i Îªfirst µÄ±¶Êı
+            // åªéœ€è¦ä¸¤ä¸ªæ•°ç»„å³å¯
+            // i ä¸ºfirst çš„å€æ•°
             for (size_t i = 0; i * first[0] < column_rest; i++) {
                 dp[0][i] = 1;
             }
-            dp[1][0] = 1; //µ±Ç°µÄÇ®Îª0 Ôò·½·¨ÊıÎª1
+            dp[1][0] = 1; //å½“å‰çš„é’±ä¸º0 åˆ™æ–¹æ³•æ•°ä¸º1
             size_t cur_row = 0;
             for (int row = 1; row < row_index; row++) {
                 cur_row = (cur_row + 1) % 2;
@@ -305,14 +304,14 @@ void ArrayAlgo::change_array_data() {
 }
 
 void ArrayAlgo::find_top_k() {
-    // µ±Ç°µÄ ¼ÆËãÊı¾İÎª
-    // ´ÓÁ½¸öÓĞĞòµÄÁĞ±íÖĞÕÒµ½ µÚkĞ¡µÄÔªËØ
+    // å½“å‰çš„ è®¡ç®—æ•°æ®ä¸º
+    // ä»ä¸¤ä¸ªæœ‰åºçš„åˆ—è¡¨ä¸­æ‰¾åˆ° ç¬¬kå°çš„å…ƒç´ 
     std::array<int, 5> first = {1, 4, 7, 8, 9};
     std::array<int, 5> second = {2, 3, 5, 6, 10};
 
     constexpr int k = 6;
     const auto counter = [&]() {
-        // Ë«Ö¸Õë
+        // åŒæŒ‡é’ˆ
         size_t first_index = 0;
         size_t second_index = 0;
         int count = 0;
@@ -330,9 +329,9 @@ void ArrayAlgo::find_top_k() {
         return target;
     };
 
-    // ¶à´ÎÊ¹ÓÃ ¶ş·ÖËÑË÷
+    // å¤šæ¬¡ä½¿ç”¨ äºŒåˆ†æœç´¢
     const auto binary = [&]() {
-        // »ñµÃĞ¡ÓÚµÈÓÚµ±Ç°µÄÎ»ÖÃ
+        // è·å¾—å°äºç­‰äºå½“å‰çš„ä½ç½®
         const auto get_leq_pos = [](const std::array<int, 5> &data, int left,
                                     int right, int target) {
             assert(left <= right and left >= 0);
@@ -378,7 +377,7 @@ void ArrayAlgo::find_top_k() {
 
 void ArrayAlgo::JosephProblem() {
 
-    // Ô¼Éª·òÎÊÌâ
+    // çº¦ç‘Ÿå¤«é—®é¢˜
     constexpr int total = 20;
     constexpr int m = 3;
     fbvector<int> data;
@@ -394,23 +393,23 @@ void ArrayAlgo::JosephProblem() {
         start = (start + 1) % data.size();
     }
 
-    // Ô¼Éª·òÎÊÌâ µ±Ç°×ÓÎÊÌâºÜĞ¡µÄÊ±ºò ¿ÉÒÔºÜ¼òµ¥Çó½â
+    // çº¦ç‘Ÿå¤«é—®é¢˜ å½“å‰å­é—®é¢˜å¾ˆå°çš„æ—¶å€™ å¯ä»¥å¾ˆç®€å•æ±‚è§£
     //  ysf(1,3,10)=ysf(3,3,10)
 
     const auto ysf = [](int start, int interval, int total) {};
 }
 
 void ArrayAlgo::longestTotalArray() {
-    // ×ÓÊı×éÖĞ×ÜºÍ´ïµ½Ä¿±ê  ×î³¤µÄ×ÓÊı×éÎª
+    // å­æ•°ç»„ä¸­æ€»å’Œè¾¾åˆ°ç›®æ ‡  æœ€é•¿çš„å­æ•°ç»„ä¸º
     std::array arr = {1, 2, 5, 3, 2, 1};
     constexpr int k = 5;
-    // »¬¶¯´°¿Ú ½«µ±Ç°µÄ×î´ó¼ä¸ôµÄË«Ö¸Õë¼ÇÂ¼ÏÂÀ´
+    // æ»‘åŠ¨çª—å£ å°†å½“å‰çš„æœ€å¤§é—´éš”çš„åŒæŒ‡é’ˆè®°å½•ä¸‹æ¥
     int left = 0;
     int right = left + 1;
     int sum = arr[left] + arr[right];
     int result = INT_MAX;
     int size = arr.size();
-    while (right != size) { //µ±Ç°Êı¾İ
+    while (right != size) { //å½“å‰æ•°æ®
         if (sum > k) {
             sum -= arr[left];
             left += 1;
@@ -438,8 +437,8 @@ void ArrayAlgo::longestTotalArray() {
 }
 
 void ArrayAlgo::change_position() {
-    //Ê¹µÃÅÅÁĞµÄÊı¾İÒªÇó4µÄ±¶Êı×îÉÙµÄÇé¿öÏÂ
-    // ¸Ä±äµ±Ç°µÄÊı×éµÄÅÅÁĞ Ê¹ÏàÁÚÊı¾İÏà³ËÎª4µÄ±¶Êı
+    //ä½¿å¾—æ’åˆ—çš„æ•°æ®è¦æ±‚4çš„å€æ•°æœ€å°‘çš„æƒ…å†µä¸‹
+    // æ”¹å˜å½“å‰çš„æ•°ç»„çš„æ’åˆ— ä½¿ç›¸é‚»æ•°æ®ç›¸ä¹˜ä¸º4çš„å€æ•°
     {
         fbvector<int> data = GreedyAlgo::geRandomArray(10, 0, 30);
         std::sort(data.begin(), data.end());
@@ -462,14 +461,14 @@ void ArrayAlgo::change_position() {
             }
         } while (std::next_permutation(data.begin(), data.end()));
     }
-    //Ê¹µÃÅÅÁĞµÄÊı¾İÒªÇó4µÄ±¶Êı×îÉÙµÄÇé¿öÏÂ
-    // ½«µ±Ç°ÎÊÌâ×÷Îª·ÖÀà ÆæÊı Ò»Àà   2µÄ±¶ÊıÒ»Àà   4µÄ±¶ÊıÒ»Àà
+    //ä½¿å¾—æ’åˆ—çš„æ•°æ®è¦æ±‚4çš„å€æ•°æœ€å°‘çš„æƒ…å†µä¸‹
+    // å°†å½“å‰é—®é¢˜ä½œä¸ºåˆ†ç±» å¥‡æ•° ä¸€ç±»   2çš„å€æ•°ä¸€ç±»   4çš„å€æ•°ä¸€ç±»
     {
-        //  ÆæÊı(4µÄ±¶Êı)ÆæÊı(4µÄ±¶Êı)ÆæÊı  µ±(2µÄ±¶Êı)==0
-        //  (2µÄ±¶Êı)(4µÄ±¶Êı)ÆæÊı       µ±(2µÄ±¶Êı)!=0
-        //  (2µÄ±¶Êı)(2µÄ±¶Êı)(4µÄ±¶Êı)ÆæÊı(4µÄ±¶Êı)ÆæÊı  µ±(4µÄ±¶Êı)>=1
+        //  å¥‡æ•°(4çš„å€æ•°)å¥‡æ•°(4çš„å€æ•°)å¥‡æ•°  å½“(2çš„å€æ•°)==0
+        //  (2çš„å€æ•°)(4çš„å€æ•°)å¥‡æ•°       å½“(2çš„å€æ•°)!=0
+        //  (2çš„å€æ•°)(2çš„å€æ•°)(4çš„å€æ•°)å¥‡æ•°(4çš„å€æ•°)å¥‡æ•°  å½“(4çš„å€æ•°)>=1
 
-        //¿ÉÖª  Âú×ã(4µÄ±¶Êı)>=ÆæÊı Ìõ¼ş¾ÍĞĞÁË
+        //å¯çŸ¥  æ»¡è¶³(4çš„å€æ•°)>=å¥‡æ•° æ¡ä»¶å°±è¡Œäº†
     }
 }
 
@@ -488,16 +487,16 @@ void ArrayAlgo::standard_str() {
     };
     fmt::print("{} fn(, 1, fn) == 1 {}\n", fn("", 1, fn), fn("", 1, fn) == 1);
     fmt::print("{} fn(, 3, fn) == 3 {}\n", fn("", 3, fn), fn("", 3, fn) == 3);
-    // ¾ØÕóµÄ¿ìËÙÁª³Ë
+    // çŸ©é˜µçš„å¿«é€Ÿè”ä¹˜
     // f(n)= x*f(n-1) + y*f(n-2)
     // [f(n) ,f(n-1)] = [f(n-1) ,f(n-2)] *[a ,b]
     //                                    [c ,d]
-    // ¾ØÕóµÄ¿ìËÙÁª³Ë
+    // çŸ©é˜µçš„å¿«é€Ÿè”ä¹˜
     // f(n)= x*f(n-1) + y*f(n-2) +z *(fn-3) +w*f(n-4)
     // [f(n) ,f(n-1),f(n-2),f(n-3),f(n-4)] =[f(n-1),f(n-2),f(n-3),f(n-4),f(n-5)]
     // *[4x4]
 
-    // ¿ìËÙ¾ØÕó³Ë·¨ ºÍ Ïà¹ØµÄ ÊıÁĞµİÍÆÎÊÌâ
+    // å¿«é€ŸçŸ©é˜µä¹˜æ³• å’Œ ç›¸å…³çš„ æ•°åˆ—é€’æ¨é—®é¢˜
     int power = 35;
     size_t base = 10;
     size_t result = 1;
@@ -510,7 +509,7 @@ void ArrayAlgo::standard_str() {
         power >>= 1;
     }
 
-    // ¿ìËÙ¾ØÕóÏà³Ë
+    // å¿«é€ŸçŸ©é˜µç›¸ä¹˜
 
     struct MyMatrix {
         int a, b, c, d;
@@ -549,15 +548,120 @@ void ArrayAlgo::findKthBit() {
         for (int i = 0; i < count; ++i) {
             fbstring tmp;
             tmp.reserve(data.size());
-            std::transform(data.rbegin(), data.rend(), tmp.begin(), [](char ch) {
+            std::transform(data.rbegin(), data.rend(), std::back_inserter(tmp), [](char ch) {
                 return ch == '1' ? '0' : '1';
             });
-            data.reserve(1 + data.size());
+
             data += '1' + tmp;
             result.emplace_back(folly::fbstring{data.data(), data.size()});
         }
         return result;
-    }();
-    dbg(data);
+    };
+
+    constexpr int len = (2 << 5) - 1;
+    constexpr int k = 10;
+    constexpr auto impl = [](int n, int k, auto &&impl) -> char {
+        if (n == 1) {
+            return '0';
+        }
+        int midPos = (1 << (n - 1)) - 1;
+        dbg(midPos, k);
+        // å†å‰ä¸€åŠçš„ä½æ•°æ˜¯æ²¡æœ‰è¿›è¡Œç¿»è½¬çš„
+        if (k < midPos) {
+            dbg(n - 1, k);
+            return impl(n - 1, k, impl);
+        } else if (k > midPos) {
+            dbg(n - 1, midPos * 2 - k);
+            // æ˜ å°„åˆ°å‰åŠéƒ¨åˆ†
+            return impl(n - 1, midPos * 2 - k, impl) == '0' ? '1' : '0';
+        } else {
+            return '1';
+        }
+    };
+    dbg(impl(4, 11 - 1, impl));  //"0111001"
+
+}
+
+void ArrayAlgo::salesRange() {
+
+
+    auto impl = [] {
+
+        folly::fbvector<int> data{10, 2, 1, 4, 3, 9, 6, 9, 9};
+        int result = 0;
+        auto dfs = [&data, &result](int left, int right, int cur, auto dfs) -> void {
+            if (left > right)return;
+
+            result = std::max(result, cur);
+            dbg(folly::join(",", data.begin() + left, data.begin() + right), cur);
+            if (right == data.size() - 1) {
+                cur += data[right] > 8 ? 1 : -1;
+                if (left == right) {
+                    result = std::max(result, data.back() > 8 ? 1 : 0);
+                    return;
+                } else {
+                    dfs(left + 1, right, cur - (data[left] > 8 ? 1 : -1), dfs);
+                }
+            } else {
+                cur += data[right] > 8 ? 1 : -1;
+                result = std::max(result, cur);
+                dfs(left + 1, right, cur - (data[left] > 8 ? 1 : -1), dfs);
+                dfs(left, right + 1, cur + (data[right] > 8 ? 1 : -1), dfs);
+            }
+        };
+        dfs(0, 0, 0, dfs);
+        dbg(result);
+    };
+    impl();
+}
+
+void ArrayAlgo::minSubArrayLen(int target, std::vector<int> &nums) {
+    int left = 0;
+    int right = 0;
+    int resLen = INT_MAX;
+    int sum = 0;
+    while (right < nums.size()) {
+        int curRight = nums[right++];
+        if (sum < target)
+            sum += curRight;
+        // ç¼©å°å½“å‰å·¦ä¾§èŠ‚ç‚¹
+        while (sum >= target) {
+            if (sum >= target && right - left < resLen) {
+                resLen = right - left;
+            }
+            int curLeft = nums[left++];
+            sum -= curLeft;
+
+        }
+    }
+    dbg(resLen == INT_MAX ? 0 : resLen);
+}
+
+bool ArrayAlgo::containsNearbyDuplicate() {
+    std::vector<int> nums = {1, 2, 3, 1};
+    int k = 3;
+    if (k == 0)return false;
+    int left = 0;
+    int right = 0;
+    std::unordered_set<int> mSet;
+    while (right < nums.size()) {
+        int curRight = nums[right++];
+        // åˆ¤æ–­å½“å‰å…ƒç´ æ·»åŠ æ˜¯å¦åˆç†
+        // æ·»åŠ åå…ƒç´ ä¸ªæ•°
+        int eleCount = right - left;
+        dbg(curRight);
+        dbg(eleCount, folly::join(",", nums.begin() + left, nums.begin() + right), left, right);
+        if (eleCount <= k + 1 && !mSet.insert(curRight).second) {
+            return true;
+        }
+
+        if (eleCount > k + 1) {
+            mSet.erase(nums[left++]);
+            if (!mSet.insert(curRight).second)return true;
+        }
+
+
+    }
+    return false;
 }
 
