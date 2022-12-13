@@ -1,4 +1,8 @@
-"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake -DBoost_NO_WARN_NEW_VERSIONS=1 -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - NMake Makefiles" C:\Code\Csgo\Algorithm
+"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe -DCMAKE_C_COMPILER=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/cl.exe -DCMAKE_CXX_COMPILER=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/cl.exe -DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake -DBoost_NO_WARN_NEW_VERSIONS=1 -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - NMake Makefiles" C:\Code\Csgo\Algorithm
+-- Found libevent include directory: C:/Tools/vcpkg/installed/x64-windows/include
+-- Found libevent component: C:/Tools/vcpkg/installed/x64-windows/debug/bin/event_core.dll
+-- Found libevent component: C:/Tools/vcpkg/installed/x64-windows/debug/bin/event_extra.dll
+-- Found libevent 2.1.12 in C:/Tools/vcpkg/installed/x64-windows
 -- Found folly: C:/Tools/vcpkg/installed/x64-windows
 -- Configuring done
 -- Generating done

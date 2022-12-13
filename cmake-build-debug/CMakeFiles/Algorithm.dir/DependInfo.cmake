@@ -26,12 +26,9 @@ set(CMAKE_CXX_COMPILER_ID "MSVC")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE"
-  "FMT_LOCALE"
   "FMT_SHARED"
   "GFLAGS_IS_A_DLL=1"
-  "GLOG_CUSTOM_PREFIX_SUPPORT"
   "GLOG_NO_ABBREVIATED_SEVERITIES"
-  "GTEST_LINKED_AS_SHARED_LIBRARY=1"
   "NOMINMAX"
   "WIN32_LEAN_AND_MEAN"
   "_CRT_NONSTDC_NO_WARNINGS"
@@ -43,7 +40,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../include"
+  ".././include"
+  ".././src"
   "C:/Tools/vcpkg/installed/x64-windows/include"
   )
 

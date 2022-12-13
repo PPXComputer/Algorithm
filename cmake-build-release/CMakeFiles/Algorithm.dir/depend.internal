@@ -87,7 +87,6 @@ CMakeFiles/Algorithm.dir/src/ArrayAlgo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/ConstexprMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Conv.h
@@ -129,8 +128,10 @@ CMakeFiles/Algorithm.dir/src/ArrayAlgo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Align.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Assume.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Bits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CString.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CheckedMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CustomizationPoint.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint-inl.h
@@ -150,7 +151,6 @@ CMakeFiles/Algorithm.dir/src/ArrayAlgo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Math.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Windows.h
- C:/Tools/vcpkg/installed/x64-windows/include/jemalloc/jemalloc.h
 CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj
  ../include/Dynamic.h
  ../include/GreedyAlgo.h
@@ -236,7 +236,6 @@ CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/ConstexprMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Conv.h
@@ -276,8 +275,10 @@ CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Align.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Assume.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Bits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CString.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CheckedMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CustomizationPoint.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint-inl.h
@@ -297,7 +298,6 @@ CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Math.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Windows.h
- C:/Tools/vcpkg/installed/x64-windows/include/jemalloc/jemalloc.h
 CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.obj
  ../include/GreedyAlgo.h
  C:/Code/Csgo/Algorithm/src/GreedyAlgo.cpp
@@ -382,7 +382,6 @@ CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/ConstexprMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Conv.h
@@ -422,8 +421,10 @@ CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Align.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Assume.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Bits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CString.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CheckedMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CustomizationPoint.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint-inl.h
@@ -443,7 +444,6 @@ CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Math.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Windows.h
- C:/Tools/vcpkg/installed/x64-windows/include/jemalloc/jemalloc.h
 CMakeFiles/Algorithm.dir/src/LeetCode.cpp.obj
  ../include/LeetCode.h
  C:/Code/Csgo/Algorithm/src/LeetCode.cpp
@@ -451,12 +451,12 @@ CMakeFiles/Algorithm.dir/src/LeetCode.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CppAttributes.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CpuId.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Likely.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Portability.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/Preprocessor.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Range.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Traits.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Utility.h
@@ -464,8 +464,11 @@ CMakeFiles/Algorithm.dir/src/LeetCode.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/detail/RangeSse42.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/folly-config.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/hash/SpookyHashV2.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CString.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/SafeAssert.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/TypeInfo.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Config.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Constexpr.h
@@ -555,7 +558,6 @@ CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/ConstexprMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Conv.h
@@ -588,8 +590,10 @@ CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Align.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Assume.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Bits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CString.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CheckedMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CustomizationPoint.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint-inl.h
@@ -608,7 +612,6 @@ CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Malloc.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Math.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
- C:/Tools/vcpkg/installed/x64-windows/include/jemalloc/jemalloc.h
 CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj
  ../include/ListAglo.h
  C:/Code/Csgo/Algorithm/src/ListAglo.cpp
@@ -693,7 +696,6 @@ CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/ConstexprMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Conv.h
@@ -733,8 +735,10 @@ CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Align.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Assume.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Bits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CString.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CheckedMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CustomizationPoint.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint-inl.h
@@ -754,7 +758,6 @@ CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Math.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Windows.h
- C:/Tools/vcpkg/installed/x64-windows/include/jemalloc/jemalloc.h
 CMakeFiles/Algorithm.dir/src/Offer.cpp.obj
  ../include/Offer.h
  C:/Code/Csgo/Algorithm/src/Offer.cpp
@@ -840,7 +843,6 @@ CMakeFiles/Algorithm.dir/src/Offer.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/ConstexprMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Conv.h
@@ -875,8 +877,10 @@ CMakeFiles/Algorithm.dir/src/Offer.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Align.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Assume.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Bits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CString.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CheckedMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CustomizationPoint.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint-inl.h
@@ -895,11 +899,11 @@ CMakeFiles/Algorithm.dir/src/Offer.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Malloc.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Math.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
- C:/Tools/vcpkg/installed/x64-windows/include/jemalloc/jemalloc.h
 CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj
  ../include/SkipList.h
  C:/Code/Csgo/Algorithm/src/SkipList.cpp
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/ConstexprMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CppAttributes.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/FBVector.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/FormatTraits.h
@@ -910,15 +914,22 @@ CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Traits.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Utility.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/folly-config.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Assume.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Bits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint-inl.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/SafeAssert.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/TypeInfo.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/UncaughtExceptions.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/memory/Malloc.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/memory/detail/MallocImpl.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Builtins.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Config.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Malloc.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
- C:/Tools/vcpkg/installed/x64-windows/include/jemalloc/jemalloc.h
 CMakeFiles/Algorithm.dir/src/StringAglo.cpp.obj
  ../include/StringAglo.h
  C:/Code/Csgo/Algorithm/src/StringAglo.cpp
@@ -1004,7 +1015,7 @@ CMakeFiles/Algorithm.dir/src/StringAglo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/Bits.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/ConstexprMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Conv.h
@@ -1022,6 +1033,7 @@ CMakeFiles/Algorithm.dir/src/StringAglo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/FormatTraits.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Likely.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/MapUtil.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/Memory.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Optional.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Portability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Preprocessor.h
@@ -1032,6 +1044,18 @@ CMakeFiles/Algorithm.dir/src/StringAglo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Traits.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Unit.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Utility.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/F14Set-fwd.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/F14Set.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/HeterogeneousAccess-fwd.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/HeterogeneousAccess.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/View.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/detail/F14Defaults.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/detail/F14IntrinsicsAvailability.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/detail/F14Mask.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/detail/F14Policy.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/detail/F14SetFallback.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/detail/F14Table.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/container/detail/Util.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/detail/RangeCommon.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/detail/RangeSse42.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/experimental/coro/Coroutine.h
@@ -1044,19 +1068,24 @@ CMakeFiles/Algorithm.dir/src/StringAglo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Align.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Assume.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Bits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CString.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CheckedMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CustomizationPoint.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Launder.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Pretty.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/SafeAssert.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/StaticConst.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Thunk.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/ToAscii.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/TypeInfo.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/UncaughtExceptions.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/memory/Malloc.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/memory/MemoryResource.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/memory/detail/MallocImpl.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Builtins.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Config.h
@@ -1065,25 +1094,66 @@ CMakeFiles/Algorithm.dir/src/StringAglo.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Math.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Windows.h
- C:/Tools/vcpkg/installed/x64-windows/include/jemalloc/jemalloc.h
 CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.obj
  ../include/TreeAlgo.h
  C:/Code/Csgo/Algorithm/src/TreeAlgo.cpp
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
 CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.obj
  ../include/UnionFindSet.h
  C:/Code/Csgo/Algorithm/src/UnionFindSet.cpp
 CMakeFiles/Algorithm.dir/src/main.cpp.obj
+ ../include/ArrayAlgo.h
  ../include/GreedyAlgo.h
  ../include/LeetCode.h
- ../include/LeetCode200.h
  ../include/ListAglo.h
  ../include/Offer.h
- ../include/TreeAlgo.h
+ ../include/StringAglo.h
  C:/Code/Csgo/Algorithm/src/main.cpp
+ C:/Tools/vcpkg/installed/x64-windows/include/EABase/config/eacompiler.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EABase/config/eacompilertraits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EABase/config/eaplatform.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EABase/eabase.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EABase/eahave.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EABase/eaunits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EABase/int128.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EABase/nullptr.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EABase/version.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/algorithm.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/allocator.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/bonus/call_traits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/bonus/compressed_pair.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/functional.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/initializer_list.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/config.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/copy_help.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/fill_help.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/function.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/function_detail.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/function_help.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/functional_base.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/generic_iterator.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/in_place_t.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/integer_sequence.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/mem_fn.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/memory_base.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/move_help.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/pair_fwd_decls.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/piecewise_construct_t.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/tuple_fwd_decls.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_compound.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_fundamental.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_pod.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_properties.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_transformations.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/iterator.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/memory.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/numeric_limits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/random.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/type_traits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/utility.h
+ C:/Tools/vcpkg/installed/x64-windows/include/EASTL/vector.h
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/dec.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/inc.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/limits/dec_1024.hpp
@@ -1158,7 +1228,6 @@ CMakeFiles/Algorithm.dir/src/main.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/variadic/limits/size_256.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/variadic/limits/size_64.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/variadic/size.hpp
- C:/Tools/vcpkg/installed/x64-windows/include/dbg.h
  C:/Tools/vcpkg/installed/x64-windows/include/double-conversion/double-conversion.h
  C:/Tools/vcpkg/installed/x64-windows/include/double-conversion/double-to-string.h
  C:/Tools/vcpkg/installed/x64-windows/include/double-conversion/string-to-double.h
@@ -1166,7 +1235,6 @@ CMakeFiles/Algorithm.dir/src/main.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/core.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format-inl.h
  C:/Tools/vcpkg/installed/x64-windows/include/fmt/format.h
- C:/Tools/vcpkg/installed/x64-windows/include/fmt/xchar.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/CPortability.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/ConstexprMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/Conv.h
@@ -1206,8 +1274,10 @@ CMakeFiles/Algorithm.dir/src/main.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Align.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Assume.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Bits.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Builtin.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CArray.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CString.h
+ C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CheckedMath.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/CustomizationPoint.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Exception.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/lang/Hint-inl.h
@@ -1227,4 +1297,3 @@ CMakeFiles/Algorithm.dir/src/main.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Math.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Windows.h
- C:/Tools/vcpkg/installed/x64-windows/include/jemalloc/jemalloc.h

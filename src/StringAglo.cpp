@@ -428,3 +428,96 @@ void StringAglo::minWindows() {
     auto res = resLen != INT_MAX ? str.substr(resStart, resLen) : fbstring{};
 
 }
+
+void StringAglo::findRepeatedDnaSequences() {
+    fbstring s{"AAAAAAAAAAAAA"};
+    int sSize = s.size();
+
+    std::unordered_set<int> mSet;
+    mSet.reserve(sSize);
+    int cur = 0;
+    const auto curCharNumber = [](char a) {
+        switch (a) {
+            case 'A':
+                return 3;
+            case 'C':
+                return 1;
+            case 'G':
+                return 2;
+            default:
+                return 0;
+        }
+    };
+    for (int i = 0; i < 10; ++i) {
+        cur = cur * 4 + curCharNumber(s[i]);
+
+    }
+
+    mSet.insert(cur);
+    int pow1 = std::pow(4, 9);
+    std::vector<std::string> res; //这个结构需要去重吗?
+    for (int i = 1; i + 10 <= sSize; ++i) {
+        // 向前一步 则高位去掉一个位 低位添加一位
+
+        cur = cur - (curCharNumber(s[i - 1]) * pow1);
+        dbg(cur);
+        cur = cur * 4 + curCharNumber(s[i + 9]);
+        dbg(cur);
+        dbg(mSet);
+        if (not mSet.insert(cur).second) {
+            res.emplace_back(s.substr(i, 10));
+        }
+    }
+    dbg(res);
+
+}
+
+void StringAglo::Rabin_Karp() {
+
+    fbstring txt;
+    fbstring pattern;
+    int patternSize = pattern.size();
+    if (txt.size() < patternSize)return;
+    // 取一个比较大的素数作为求模的除数
+    int Q = 1658598167;  //设计的余数   %Q 作为hash 函数 用于处理可能溢出的结果
+    int base = 256;// 进制数
+    long RL = 1;
+    for (int i = 1; i <= patternSize - 1; i++) {  // note 这里是 patterSize -1  因为三位数则 需要减掉 二位^base
+        // 计算过程中不断求模，避免溢出
+        RL = (RL * 256) % Q;
+    }
+    int windowsHash = 0;
+    int left = 0;
+    int right = 0;
+
+
+    int patterHash = 0;  // 获得模式串的hash值
+    for (int i = 0; i < patternSize; ++i) {
+        patterHash = ((patterHash * base) % Q + pattern[i]) % Q;
+    }
+    std::unordered_set<int> res;
+    while (right < txt.size()) {
+        windowsHash = ((windowsHash * base) % Q + txt[right]) % Q;  //cur*base 后进行加的操作可能会出现溢出的操作所以先处理溢出数
+        right++;
+        if (right - left == patternSize) {
+            if (windowsHash == patterHash) {
+                // 出现重复的hash 值
+
+                //需要进一步判断当前是否发生了 一个hash 值对应多个的情况
+                if (not std::equal(pattern.begin(), pattern.end(), txt.begin() + left, txt.begin() + right)) {
+                    // 没有重复记录当前位置
+                    res.insert(left);
+                }
+
+            }
+            // X % Q == (X + Q) % Q 是一个模运算法则
+            // 因为 windowHash - (txt[left] * RL) % Q 可能是负数
+            // 所以额外再加一个 Q，保证 windowHash 不会是负数
+            windowsHash = ((windowsHash - txt[left] * RL) % Q + Q) % Q;
+        }
+        left++;
+
+    }
+    res;
+
+}

@@ -21,7 +21,7 @@ add_executable(Algorithm src/main.cpp src/ListAglo.cpp include/ListAglo.h
         src/Dynamic.cpp src/SkipList.cpp include/SkipList.h src/TreeAlgo.cpp include/LeetCode.h src/LeetCode.cpp
         include/LeetCode200.h src/LeetCode200.cpp src/Offer.cpp include/Offer.h)
 #target_link_libraries(Algorithm PRIVATE GTest::gmock GTest::gtest GTest::gmock_main GTest::gtest_main)
-target_link_libraries(Algorithm PRIVATE Folly::folly Folly::folly_deps)
+target_link_libraries(Algorithm PRIVATE Folly::folly )
 target_include_directories(Algorithm PRIVATE ${DBG_MACRO_INCLUDE_DIRS})
 # target_link_libraries(Algorithm PRIVATE gflags::gflags)
 target_link_libraries(Algorithm PRIVATE EASTL)

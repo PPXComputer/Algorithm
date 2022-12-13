@@ -5,16 +5,16 @@
 		<Option title="Algorithm"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="msvc8"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Tools\;CMake Files\..\..\..\Tools\vcpkg\;CMake Files\..\..\..\Tools\vcpkg\scripts\;CMake Files\..\..\..\Tools\vcpkg\scripts\buildsystems\;CMake Files\..\..\..\Tools\vcpkg\installed\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\folly\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\glog\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gflags\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\zlib\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\fmt\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\boost\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gtest\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Tools\;CMake Files\..\..\..\Tools\vcpkg\;CMake Files\..\..\..\Tools\vcpkg\scripts\;CMake Files\..\..\..\Tools\vcpkg\scripts\buildsystems\;CMake Files\..\..\..\Tools\vcpkg\installed\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\folly\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\double-conversion\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\glog\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gflags\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\libevent\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\zlib\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\openssl\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\fmt\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\boost\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 all"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 all"/>
+					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Algorithm">
@@ -24,7 +24,6 @@
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add option="-DGTEST_LINKED_AS_SHARED_LIBRARY=1"/>
 					<Add option="-DNOMINMAX"/>
 					<Add option="-D_CRT_NONSTDC_NO_WARNINGS"/>
 					<Add option="-D_CRT_SECURE_NO_WARNINGS"/>
@@ -33,27 +32,27 @@
 					<Add option="-D_STL_EXTRA_DISABLED_WARNINGS=4774 4987"/>
 					<Add option="-DWIN32_LEAN_AND_MEAN"/>
 					<Add option="-DBOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE"/>
-					<Add option="-DFMT_LOCALE"/>
 					<Add option="-DFMT_SHARED"/>
 					<Add option="-DGLOG_NO_ABBREVIATED_SEVERITIES"/>
-					<Add option="-DGLOG_CUSTOM_PREFIX_SUPPORT"/>
 					<Add option="-DGFLAGS_IS_A_DLL=1"/>
-					<Add directory="C:/Code/Csgo/Algorithm/include"/>
+					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
+					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\ATLMFC\include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\ATLMFC\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Auxiliary\VS\include"/>
 					<Add directory="C:\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm"/>
+					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Algorithm/fast">
@@ -63,7 +62,6 @@
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add option="-DGTEST_LINKED_AS_SHARED_LIBRARY=1"/>
 					<Add option="-DNOMINMAX"/>
 					<Add option="-D_CRT_NONSTDC_NO_WARNINGS"/>
 					<Add option="-D_CRT_SECURE_NO_WARNINGS"/>
@@ -72,47 +70,47 @@
 					<Add option="-D_STL_EXTRA_DISABLED_WARNINGS=4774 4987"/>
 					<Add option="-DWIN32_LEAN_AND_MEAN"/>
 					<Add option="-DBOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE"/>
-					<Add option="-DFMT_LOCALE"/>
 					<Add option="-DFMT_SHARED"/>
 					<Add option="-DGLOG_NO_ABBREVIATED_SEVERITIES"/>
-					<Add option="-DGLOG_CUSTOM_PREFIX_SUPPORT"/>
 					<Add option="-DGFLAGS_IS_A_DLL=1"/>
-					<Add directory="C:/Code/Csgo/Algorithm/include"/>
+					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
+					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\ATLMFC\include"/>
-					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.32.31326\include"/>
-					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\ATLMFC\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Auxiliary\VS\include"/>
 					<Add directory="C:\Windows Kits\10\include\10.0.19041.0\ucrt"/>
-					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
 					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm/fast"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm/fast"/>
+					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -200,6 +198,24 @@
 		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/folly/folly-targets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\folly\"/>
 		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/folly/vcpkg-cmake-wrapper.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\folly\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\double-conversion\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\double-conversion\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\double-conversion\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\double-conversion\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\double-conversion\"/>
+		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/glog/glog-config-version.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\glog\"/>
 		</Unit>
@@ -233,8 +249,26 @@
 		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/gflags/vcpkg-cmake-wrapper.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gflags\"/>
 		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/libevent/LibeventConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\libevent\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/libevent/LibeventConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\libevent\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/libevent/LibeventTargets-shared-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\libevent\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/libevent/LibeventTargets-shared-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\libevent\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/libevent/LibeventTargets-shared.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\libevent\"/>
+		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/zlib/vcpkg-cmake-wrapper.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\zlib\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/openssl/vcpkg-cmake-wrapper.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\openssl\"/>
 		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/fmt/fmt-config-version.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\fmt\"/>
@@ -254,20 +288,29 @@
 		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\boost\"/>
 		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/gtest/GTestConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gtest\"/>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
 		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/gtest/GTestConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gtest\"/>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
 		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/gtest/GTestTargets-debug.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gtest\"/>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
 		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/gtest/GTestTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gtest\"/>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
 		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/gtest/GTestTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gtest\"/>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eabase/EABaseConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eabase/EABaseConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eabase/EABaseTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

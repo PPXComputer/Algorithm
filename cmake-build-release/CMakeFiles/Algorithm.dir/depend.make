@@ -86,7 +86,6 @@ CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-win
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\ConstexprMath.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Conv.h
@@ -128,8 +127,10 @@ CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-win
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Align.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Assume.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Bits.h
+CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CString.h
+CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CheckedMath.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CustomizationPoint.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint-inl.h
@@ -149,7 +150,6 @@ CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-win
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Math.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\SysTypes.h
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Windows.h
-CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\jemalloc\jemalloc.h
 
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: ..\include\Dynamic.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: ..\include\GreedyAlgo.h
@@ -235,7 +235,6 @@ CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windo
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\ConstexprMath.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Conv.h
@@ -275,8 +274,10 @@ CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windo
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Align.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Assume.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Bits.h
+CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CString.h
+CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CheckedMath.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CustomizationPoint.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint-inl.h
@@ -296,7 +297,6 @@ CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windo
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Math.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\SysTypes.h
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Windows.h
-CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\jemalloc\jemalloc.h
 
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: ..\include\GreedyAlgo.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: ..\src\GreedyAlgo.cpp
@@ -381,7 +381,6 @@ CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-wi
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\ConstexprMath.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Conv.h
@@ -421,8 +420,10 @@ CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-wi
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Align.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Assume.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Bits.h
+CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CString.h
+CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CheckedMath.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CustomizationPoint.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint-inl.h
@@ -442,7 +443,6 @@ CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-wi
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Math.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\SysTypes.h
 CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Windows.h
-CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\jemalloc\jemalloc.h
 
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: ..\include\LeetCode.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: ..\src\LeetCode.cpp
@@ -450,12 +450,12 @@ CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-wind
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CppAttributes.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CpuId.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Likely.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Portability.h
+CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Preprocessor.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Range.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Traits.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Utility.h
@@ -463,8 +463,11 @@ CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-wind
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\detail\RangeSse42.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\folly-config.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\hash\SpookyHashV2.h
+CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
+CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CString.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
+CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\SafeAssert.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\TypeInfo.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Config.h
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Constexpr.h
@@ -554,7 +557,6 @@ CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-w
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\ConstexprMath.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Conv.h
@@ -587,8 +589,10 @@ CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-w
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Align.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Assume.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Bits.h
+CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CString.h
+CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CheckedMath.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CustomizationPoint.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint-inl.h
@@ -607,7 +611,6 @@ CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-w
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Malloc.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Math.h
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\SysTypes.h
-CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\jemalloc\jemalloc.h
 
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: ..\include\ListAglo.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: ..\src\ListAglo.cpp
@@ -692,7 +695,6 @@ CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-wind
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\ConstexprMath.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Conv.h
@@ -732,8 +734,10 @@ CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-wind
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Align.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Assume.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Bits.h
+CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CString.h
+CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CheckedMath.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CustomizationPoint.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint-inl.h
@@ -753,7 +757,6 @@ CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-wind
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Math.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\SysTypes.h
 CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Windows.h
-CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\jemalloc\jemalloc.h
 
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: ..\include\Offer.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: ..\src\Offer.cpp
@@ -839,7 +842,6 @@ CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\ConstexprMath.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Conv.h
@@ -874,8 +876,10 @@ CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Align.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Assume.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Bits.h
+CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CString.h
+CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CheckedMath.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CustomizationPoint.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint-inl.h
@@ -894,11 +898,11 @@ CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Malloc.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Math.h
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\SysTypes.h
-CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\jemalloc\jemalloc.h
 
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: ..\include\SkipList.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: ..\src\SkipList.cpp
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\ConstexprMath.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CppAttributes.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\FBVector.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\FormatTraits.h
@@ -909,15 +913,22 @@ CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-wind
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Traits.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Utility.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\folly-config.h
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Assume.h
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Bits.h
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint-inl.h
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint.h
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\SafeAssert.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\TypeInfo.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\UncaughtExceptions.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\memory\Malloc.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\memory\detail\MallocImpl.h
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Builtins.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Config.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Malloc.h
 CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\SysTypes.h
-CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\jemalloc\jemalloc.h
 
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: ..\include\StringAglo.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: ..\src\StringAglo.cpp
@@ -1003,7 +1014,7 @@ CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-wi
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Bits.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\ConstexprMath.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Conv.h
@@ -1021,6 +1032,7 @@ CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-wi
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\FormatTraits.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Likely.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\MapUtil.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Memory.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Optional.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Portability.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Preprocessor.h
@@ -1031,6 +1043,18 @@ CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-wi
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Traits.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Unit.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Utility.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\F14Set-fwd.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\F14Set.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\HeterogeneousAccess-fwd.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\HeterogeneousAccess.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\View.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\detail\F14Defaults.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\detail\F14IntrinsicsAvailability.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\detail\F14Mask.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\detail\F14Policy.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\detail\F14SetFallback.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\detail\F14Table.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\container\detail\Util.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\detail\RangeCommon.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\detail\RangeSse42.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\experimental\coro\Coroutine.h
@@ -1043,19 +1067,24 @@ CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-wi
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Align.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Assume.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Bits.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CString.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CheckedMath.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CustomizationPoint.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint-inl.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Launder.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Pretty.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\SafeAssert.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\StaticConst.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Thunk.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\ToAscii.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\TypeInfo.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\UncaughtExceptions.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\memory\Malloc.h
+CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\memory\MemoryResource.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\memory\detail\MallocImpl.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Builtins.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Config.h
@@ -1064,25 +1093,66 @@ CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-wi
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Math.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\SysTypes.h
 CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Windows.h
-CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\jemalloc\jemalloc.h
 
 CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: ..\include\TreeAlgo.h
 CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: ..\src\TreeAlgo.cpp
 CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
 
 CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj: ..\include\UnionFindSet.h
 CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj: ..\src\UnionFindSet.cpp
 
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\include\ArrayAlgo.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\include\GreedyAlgo.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\include\LeetCode.h
-CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\include\LeetCode200.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\include\ListAglo.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\include\Offer.h
-CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\include\TreeAlgo.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\include\StringAglo.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\src\main.cpp
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EABase\config\eacompiler.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EABase\config\eacompilertraits.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EABase\config\eaplatform.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EABase\eabase.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EABase\eahave.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EABase\eaunits.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EABase\int128.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EABase\nullptr.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EABase\version.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\algorithm.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\allocator.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\bonus\call_traits.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\bonus\compressed_pair.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\functional.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\initializer_list.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\config.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\copy_help.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\fill_help.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\function.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\function_detail.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\function_help.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\functional_base.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\generic_iterator.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\in_place_t.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\integer_sequence.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\mem_fn.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\memory_base.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\move_help.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\pair_fwd_decls.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\piecewise_construct_t.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\tuple_fwd_decls.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\type_compound.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\type_fundamental.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\type_pod.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\type_properties.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\internal\type_transformations.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\iterator.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\memory.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\numeric_limits.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\random.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\type_traits.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\utility.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\EASTL\vector.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\boost\preprocessor\arithmetic\dec.hpp
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\boost\preprocessor\arithmetic\inc.hpp
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\boost\preprocessor\arithmetic\limits\dec_1024.hpp
@@ -1157,7 +1227,6 @@ CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\boost\preprocessor\variadic\limits\size_256.hpp
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\boost\preprocessor\variadic\limits\size_64.hpp
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\boost\preprocessor\variadic\size.hpp
-CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\dbg.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\double-conversion\double-conversion.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\double-conversion\double-to-string.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\double-conversion\string-to-double.h
@@ -1165,7 +1234,6 @@ CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\core.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format-inl.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\format.h
-CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\fmt\xchar.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\CPortability.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\ConstexprMath.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\Conv.h
@@ -1205,8 +1273,10 @@ CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Align.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Assume.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Bits.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Builtin.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CArray.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CString.h
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CheckedMath.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\CustomizationPoint.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Exception.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\lang\Hint-inl.h
@@ -1226,5 +1296,4 @@ CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Math.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\SysTypes.h
 CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\folly\portability\Windows.h
-CMakeFiles\Algorithm.dir\src\main.cpp.obj: C:\Tools\vcpkg\installed\x64-windows\include\jemalloc\jemalloc.h
 

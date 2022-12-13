@@ -35,7 +35,7 @@ public:
 
     static void string_replace();
 
-    static void  boolean_expression();
+    static void boolean_expression();
 
     static void expression();
 
@@ -44,6 +44,12 @@ public:
     static void searchWord();
 
     static void minWindows();
+
+    // leetcode 187
+    static void findRepeatedDnaSequences();
+
+    static void Rabin_Karp(); // 从数组找到匹配的模式串的方法
+
 private:
     static void printAll(const fbstring &cur, size_t index, const fbstring &data);
 };

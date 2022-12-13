@@ -108,8 +108,10 @@ int main() {
 //    ArrayAlgo::findKthBit();
 //    StringAglo::wordBreak();
 //    ArrayAlgo::salesRange();
-    ArrayAlgo::containsNearbyDuplicate();
+//    ArrayAlgo::containsNearbyDuplicate();
+    StringAglo::findRepeatedDnaSequences();
 }
+
 
 //#include <iostream>
 //#include<type_traits>
