@@ -138,7 +138,7 @@
 		<Unit filename="C:/Code/Csgo/Algorithm/include/SkipList.h">
 			<Option target="Algorithm"/>
 		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/include/StringAglo.h">
+		<Unit filename="C:/Code/Csgo/Algorithm/include/StringAlgo.h">
 			<Option target="Algorithm"/>
 		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/include/UnionFindSet.h">
@@ -168,7 +168,7 @@
 		<Unit filename="C:/Code/Csgo/Algorithm/src/SkipList.cpp">
 			<Option target="Algorithm"/>
 		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/src/StringAglo.cpp">
+		<Unit filename="C:/Code/Csgo/Algorithm/src/StringAlgo.cpp">
 			<Option target="Algorithm"/>
 		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/src/TreeAlgo.cpp">

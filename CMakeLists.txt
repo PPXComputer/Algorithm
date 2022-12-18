@@ -16,7 +16,7 @@ find_package(EASTL CONFIG REQUIRED)
 
 
 add_executable(Algorithm src/main.cpp src/ListAglo.cpp include/ListAglo.h
-        src/StringAglo.cpp include/StringAglo.h src/ArrayAlgo.cpp include/ArrayAlgo.h
+        src/StringAlgo.cpp include/StringAlgo.h src/ArrayAlgo.cpp include/ArrayAlgo.h
         src/UnionFindSet.cpp include/UnionFindSet.h src/GreedyAlgo.cpp include/GreedyAlgo.h include/Dynamic.h
         src/Dynamic.cpp src/SkipList.cpp include/SkipList.h src/TreeAlgo.cpp include/LeetCode.h src/LeetCode.cpp
         include/LeetCode200.h src/LeetCode200.cpp src/Offer.cpp include/Offer.h)

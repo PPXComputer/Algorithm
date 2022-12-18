@@ -310,29 +310,29 @@ src\SkipList.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\SkipList.cpp.s
 .PHONY : src\SkipList.cpp.s
 
-src\StringAglo.obj: src\StringAglo.cpp.obj
-.PHONY : src\StringAglo.obj
+src\StringAlgo.obj: src\StringAlgo.cpp.obj
+.PHONY : src\StringAlgo.obj
 
 # target to build an object file
-src\StringAglo.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj
-.PHONY : src\StringAglo.cpp.obj
+src\StringAlgo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj
+.PHONY : src\StringAlgo.cpp.obj
 
-src\StringAglo.i: src\StringAglo.cpp.i
-.PHONY : src\StringAglo.i
+src\StringAlgo.i: src\StringAlgo.cpp.i
+.PHONY : src\StringAlgo.i
 
 # target to preprocess a source file
-src\StringAglo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\StringAglo.cpp.i
-.PHONY : src\StringAglo.cpp.i
+src\StringAlgo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.i
+.PHONY : src\StringAlgo.cpp.i
 
-src\StringAglo.s: src\StringAglo.cpp.s
-.PHONY : src\StringAglo.s
+src\StringAlgo.s: src\StringAlgo.cpp.s
+.PHONY : src\StringAlgo.s
 
 # target to generate assembly for a file
-src\StringAglo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\StringAglo.cpp.s
-.PHONY : src\StringAglo.cpp.s
+src\StringAlgo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.s
+.PHONY : src\StringAlgo.cpp.s
 
 src\TreeAlgo.obj: src\TreeAlgo.cpp.obj
 .PHONY : src\TreeAlgo.obj
@@ -439,9 +439,9 @@ help:
 	@echo ... src/SkipList.obj
 	@echo ... src/SkipList.i
 	@echo ... src/SkipList.s
-	@echo ... src/StringAglo.obj
-	@echo ... src/StringAglo.i
-	@echo ... src/StringAglo.s
+	@echo ... src/StringAlgo.obj
+	@echo ... src/StringAlgo.i
+	@echo ... src/StringAlgo.s
 	@echo ... src/TreeAlgo.obj
 	@echo ... src/TreeAlgo.i
 	@echo ... src/TreeAlgo.s

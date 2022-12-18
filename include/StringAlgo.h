@@ -1,7 +1,7 @@
 
 
-#ifndef SSH_STRINGAGLO_H
-#define SSH_STRINGAGLO_H
+#ifndef SSH_STRINGALGO_H
+#define SSH_STRINGALGO_H
 
 #include <iostream>
 #include <string_view>
@@ -19,7 +19,7 @@ using std::addressof;
 using std::cout;
 using std::pair;
 
-class StringAglo {
+class StringAlgo {
 public:
     static fbstring sub_string_range();
 
@@ -55,4 +55,4 @@ private:
 };
 
 
-#endif //SSH_STRINGAGLO_H
+#endif //SSH_STRINGALGO_H

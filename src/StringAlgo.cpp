@@ -2,7 +2,7 @@
 // Created by 破忆断回 on 2021/9/25.
 //
 
-#include "StringAglo.h"
+#include "StringAlgo.h"
 #include <dbg.h>
 #include <folly/container/F14Set.h>
 #include <unordered_map>
@@ -11,7 +11,7 @@
 using folly::StringPiece;
 using folly::F14FastSet;
 
-inline fbstring StringAglo::sub_string_range() {
+inline fbstring StringAlgo::sub_string_range() {
     fbstring str = "364210432182613";
     fbstring target = "321";
     int need_match_num = static_cast<int>(target.length());// 需要匹配的数目
@@ -59,14 +59,14 @@ inline fbstring StringAglo::sub_string_range() {
     return {str.begin() + result.first, str.begin() + result.second + 1};
 }
 
-inline void StringAglo::all_sub() {
+inline void StringAlgo::all_sub() {
     // 打印所有的子序列
     fbstring data = "12345";
     printAll("", 0, data);
 
 }
 
-inline size_t StringAglo::exp_n(int n) {
+inline size_t StringAlgo::exp_n(int n) {
     const auto &imp = [](int cur, auto &&self) -> size_t {
         if (cur == 1)return 1l;
         return cur * self(cur - 1, self);
@@ -74,7 +74,7 @@ inline size_t StringAglo::exp_n(int n) {
     return imp(n, imp);
 }
 
-void StringAglo::string_compress() {
+void StringAlgo::string_compress() {
     fbstring data = "12001";
     fbstring::size_type len = data.size();
     std::array num = {'w', 'q', 'b', 's'};
@@ -107,7 +107,7 @@ void StringAglo::string_compress() {
     cout << fmt::format("result {}", result);
 }
 
-void StringAglo::string_expression() {
+void StringAlgo::string_expression() {
     std::array data = {1, 2, 2, 5, 8};
     const auto &impl = [&data](const int index, auto &&impl) -> int {
         size_t len = data.size();
@@ -135,7 +135,7 @@ void StringAglo::string_expression() {
     };
 }
 
-void StringAglo::find_longest_not_repeat_sub() {
+void StringAlgo::find_longest_not_repeat_sub() {
     // 找到最长未出现的连续子串
     std::array<int, 256> data{};
     std::fill(data.begin(), data.end(), -1);
@@ -161,7 +161,7 @@ void StringAglo::find_longest_not_repeat_sub() {
 
 }
 
-void StringAglo::string_replace() {
+void StringAlgo::string_replace() {
     // 从字符串str1 到 str2 提供 插入 删除 修改的代价为 ic dc rc 
     // 得到最小的代价
     fbstring first = "asd";
@@ -195,7 +195,7 @@ void StringAglo::string_replace() {
     }
 }
 
-void StringAglo::boolean_expression() {
+void StringAlgo::boolean_expression() {
     // 有关当前的 布尔表达式的运算过程
 
     fbstring expression = "1^0|0|1";
@@ -278,7 +278,7 @@ void StringAglo::boolean_expression() {
 
 }
 
-void StringAglo::expression() {
+void StringAlgo::expression() {
     fbstring str1 = "48*((70-65)-43)+8*1";
     fbstring str2 = "3+1*4";
     struct StrResult {
@@ -302,7 +302,7 @@ void StringAglo::expression() {
 
 }
 
-inline void StringAglo::printAll(const fbstring &cur,
+inline void StringAlgo::printAll(const fbstring &cur,
                                  size_t index, const fbstring &data) {
     if (index == data.size()) {
         cout << cur << '\n';
@@ -312,7 +312,7 @@ inline void StringAglo::printAll(const fbstring &cur,
     printAll(cur, index + 1, data);
 }
 
-void StringAglo::wordBreak() {
+void StringAlgo::wordBreak() {
 
     fbstring cur = "pineapplepenapple";
     folly::F14FastSet<std::string> wordDict{"apple", "pen", "applepen", "pine", "pineapple"};
@@ -338,7 +338,7 @@ void StringAglo::wordBreak() {
     dbg(folly::join("---", rst));
 }
 
-void StringAglo::searchWord() {
+void StringAlgo::searchWord() {
     std::array<std::array<char, 4>, 4> board = {std::array<char, 4>
                                                         {'o', 'a', 'a', 'n'},
                                                 {'e', 't', 'a', 'e'},
@@ -375,7 +375,7 @@ void StringAglo::searchWord() {
 
 }
 
-void StringAglo::minWindows() {
+void StringAlgo::minWindows() {
     // 76最小覆盖子串
 
     fbstring str{"aa"};
@@ -429,7 +429,7 @@ void StringAglo::minWindows() {
 
 }
 
-void StringAglo::findRepeatedDnaSequences() {
+void StringAlgo::findRepeatedDnaSequences() {
     fbstring s{"AAAAAAAAAAAAA"};
     int sSize = s.size();
 
@@ -472,11 +472,11 @@ void StringAglo::findRepeatedDnaSequences() {
 
 }
 
-void StringAglo::Rabin_Karp() {
+void StringAlgo::Rabin_Karp() {
 
     fbstring txt;
     fbstring pattern;
-    int patternSize = pattern.size();
+    auto patternSize = pattern.size();
     if (txt.size() < patternSize)return;
     // 取一个比较大的素数作为求模的除数
     int Q = 1658598167;  //设计的余数   %Q 作为hash 函数 用于处理可能溢出的结果

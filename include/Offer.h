@@ -63,6 +63,7 @@ public:
     static void mergeKLists();
 
     static void eightnum();
+
 private:
     struct TreeNode {
         TreeNode() : val(0), left{nullptr}, right{nullptr} {}
@@ -86,7 +87,7 @@ private:
             if (cur_list.empty())return {};
 
             std::vector<TreeNode *> container;
-            auto result = std::make_unique<TreeNode>(folly::to<int>(cur_list[0]));\
+            auto result = std::make_unique<TreeNode>(folly::to<int>(cur_list[0]));
             decode(cur_list, 1, true, result.get(), container);
             decode(cur_list, 2, true, result.get(), container);
             return result;

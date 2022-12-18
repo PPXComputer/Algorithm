@@ -93,23 +93,23 @@ CMakeFiles\Algorithm.dir\src\ListAglo.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\ListAglo.cpp.s /c C:\Code\Csgo\Algorithm\src\ListAglo.cpp
 <<
 
-CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
-CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj: ..\src\StringAglo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Algorithm.dir/src/StringAglo.cpp.obj"
+CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
+CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj: ..\src\StringAlgo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.obj"
 	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\StringAglo.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\StringAlgo.cpp
 <<
 
-CMakeFiles\Algorithm.dir\src\StringAglo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/StringAglo.cpp.i"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\StringAglo.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\StringAglo.cpp
+CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.i"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\StringAlgo.cpp
 <<
 
-CMakeFiles\Algorithm.dir\src\StringAglo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/StringAglo.cpp.s"
+CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.s"
 	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\StringAglo.cpp.s /c C:\Code\Csgo\Algorithm\src\StringAglo.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\StringAlgo.cpp.s /c C:\Code\Csgo\Algorithm\src\StringAlgo.cpp
 <<
 
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
@@ -287,7 +287,7 @@ CMakeFiles\Algorithm.dir\src\Offer.cpp.s: cmake_force
 Algorithm_OBJECTS = \
 "CMakeFiles\Algorithm.dir\src\main.cpp.obj" \
 "CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj" \
-"CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj" \
+"CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj" \
 "CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj" \
 "CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj" \
 "CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj" \
@@ -303,7 +303,7 @@ Algorithm_EXTERNAL_OBJECTS =
 
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\main.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj
-Algorithm.exe: CMakeFiles\Algorithm.dir\src\StringAglo.cpp.obj
+Algorithm.exe: CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj

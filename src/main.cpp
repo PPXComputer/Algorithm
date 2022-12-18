@@ -2,7 +2,7 @@
 #include "Offer.h"
 #include"LeetCode.h"
 #include "ArrayAlgo.h"
-#include "StringAglo.h"
+#include "StringAlgo.h"
 #include<EASTL/vector.h>
 
 using std::string;
@@ -50,9 +50,9 @@ int main() {
     //    Dynamic::winner();
     //    Dynamic::minimum_manipulate();
     //ArrayAlgo::not_exists_num();
-    //StringAglo::find_longest_not_repeat_sub();
-    //StringAglo::string_replace();
-    //StringAglo::boolean_expression();
+    //StringAlgo::find_longest_not_repeat_sub();
+    //StringAlgo::string_replace();
+    //StringAlgo::boolean_expression();
     //ArrayAlgo::change_array_data();
     //ArrayAlgo::JosephProblem();
     /*ArrayAlgo::longestTotalArray();*/
@@ -106,10 +106,10 @@ int main() {
 //LeetCode::countLatticePoints();
 //	std::cin.get();
 //    ArrayAlgo::findKthBit();
-//    StringAglo::wordBreak();
+//    StringAlgo::wordBreak();
 //    ArrayAlgo::salesRange();
 //    ArrayAlgo::containsNearbyDuplicate();
-    StringAglo::findRepeatedDnaSequences();
+    StringAlgo::findRepeatedDnaSequences();
 }
 
 

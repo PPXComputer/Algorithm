@@ -11,7 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/Offer.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj"
-  "CMakeFiles/Algorithm.dir/src/StringAglo.cpp.obj"
+  "CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/main.cpp.obj"
