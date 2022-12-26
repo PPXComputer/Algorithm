@@ -5,7 +5,7 @@
 		<Option title="Algorithm"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="msvc8"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Tools\;CMake Files\..\..\..\Tools\vcpkg\;CMake Files\..\..\..\Tools\vcpkg\scripts\;CMake Files\..\..\..\Tools\vcpkg\scripts\buildsystems\;CMake Files\..\..\..\Tools\vcpkg\installed\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\folly\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\double-conversion\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\glog\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gflags\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\libevent\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\zlib\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\openssl\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\fmt\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\boost\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Tools\;CMake Files\..\..\..\Tools\vcpkg\;CMake Files\..\..\..\Tools\vcpkg\scripts\;CMake Files\..\..\..\Tools\vcpkg\scripts\buildsystems\;CMake Files\..\..\..\Tools\vcpkg\installed\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\folly\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\double-conversion\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\glog\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gflags\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\libevent\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\zlib\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\openssl\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\fmt\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\boost\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-debug"/>
@@ -135,10 +135,16 @@
 		<Unit filename="C:/Code/Csgo/Algorithm/include/Offer.h">
 			<Option target="Algorithm"/>
 		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/include/Package.h">
+			<Option target="Algorithm"/>
+		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/include/SkipList.h">
 			<Option target="Algorithm"/>
 		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/include/StringAlgo.h">
+			<Option target="Algorithm"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/include/TreeAlgo.h">
 			<Option target="Algorithm"/>
 		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/include/UnionFindSet.h">
@@ -163,6 +169,9 @@
 			<Option target="Algorithm"/>
 		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/src/Offer.cpp">
+			<Option target="Algorithm"/>
+		</Unit>
+		<Unit filename="C:/Code/Csgo/Algorithm/src/Package.cpp">
 			<Option target="Algorithm"/>
 		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/src/SkipList.cpp">
@@ -287,30 +296,6 @@
 		</Unit>
 		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\boost\"/>
-		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
-		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
-		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLTargets-debug.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
-		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLTargets-release.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
-		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eastl/EASTLTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eastl\"/>
-		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eabase/EABaseConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\"/>
-		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eabase/EABaseConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\"/>
-		</Unit>
-		<Unit filename="C:/Code/Csgo/Algorithm/../../../Tools/vcpkg/installed/x64-windows/share/eabase/EABaseTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\eabase\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

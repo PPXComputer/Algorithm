@@ -1,9 +1,17 @@
-//
+﻿//
 // Created by 破忆断回 on 2021/9/24.
 //
 
 #include "ListAglo.h"
-
+#include<iostream>
+#include<fmt/format.h>
+#include<cassert>
+#include<utility>
+#include<array>
+#include<algorithm>
+using std::cout;
+using std::array;
+using std::addressof;
 inline void ListAlgo::get_node_counter() {
 
     using ptr = BinaryTreeNode::UniquePtr;

@@ -1,9 +1,9 @@
-//
+﻿//
 // Created by Administrator on 2022/5/8.
 //
 
-#ifndef SSH_PACKAGE_H
-#define SSH_PACKAGE_H
+#ifndef PACKAGE_H
+#define PACKAGE_H
 
 
 class Package {
@@ -13,4 +13,4 @@ class Package {
 };
 
 
-#endif //SSH_PACKAGE_H
+#endif // PACKAGE_H

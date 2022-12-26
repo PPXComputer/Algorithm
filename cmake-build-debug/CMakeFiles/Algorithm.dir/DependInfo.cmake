@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Code/Csgo/Algorithm/src/LeetCode200.cpp" "C:/Code/Csgo/Algorithm/cmake-build-debug/CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj"
   "C:/Code/Csgo/Algorithm/src/ListAglo.cpp" "C:/Code/Csgo/Algorithm/cmake-build-debug/CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj"
   "C:/Code/Csgo/Algorithm/src/Offer.cpp" "C:/Code/Csgo/Algorithm/cmake-build-debug/CMakeFiles/Algorithm.dir/src/Offer.cpp.obj"
+  "C:/Code/Csgo/Algorithm/src/Package.cpp" "C:/Code/Csgo/Algorithm/cmake-build-debug/CMakeFiles/Algorithm.dir/src/Package.cpp.obj"
   "C:/Code/Csgo/Algorithm/src/SkipList.cpp" "C:/Code/Csgo/Algorithm/cmake-build-debug/CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj"
   "C:/Code/Csgo/Algorithm/src/StringAlgo.cpp" "C:/Code/Csgo/Algorithm/cmake-build-debug/CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.obj"
   "C:/Code/Csgo/Algorithm/src/TreeAlgo.cpp" "C:/Code/Csgo/Algorithm/cmake-build-debug/CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.obj"

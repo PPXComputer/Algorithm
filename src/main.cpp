@@ -1,9 +1,10 @@
+﻿#include <dbg.h>
 #include"ListAglo.h"
 #include "Offer.h"
 #include"LeetCode.h"
 #include "ArrayAlgo.h"
 #include "StringAlgo.h"
-#include<EASTL/vector.h>
+#include <bitset>
 
 using std::string;
 using folly::fbvector;
@@ -43,6 +44,8 @@ struct Factorial {
     }
 };
 
+
+void bit_flip();
 
 int main() {
     //	Dynamic::package();
@@ -92,7 +95,7 @@ int main() {
 //    Offer::groupAnagrams();
 //    Offer::wordBreak();
 //    LeetCode200::maxNum();
-    Offer::containsNearbyAlmostDuplicate();
+//    Offer::containsNearbyAlmostDuplicate();
 //    for (int i = 3; i < 200; i++) {
 //        bool suc=true;
 //        for (int j = 2; j < i; ++j) {
@@ -109,7 +112,47 @@ int main() {
 //    StringAlgo::wordBreak();
 //    ArrayAlgo::salesRange();
 //    ArrayAlgo::containsNearbyDuplicate();
-    StringAlgo::findRepeatedDnaSequences();
+//    StringAlgo::findRepeatedDnaSequences();
+
+//    bit_flip();
+
+    // 32 224  {"224",0000000011100000}
+    //14       {"98", 0000000001100010}
+    //12       {"84", 0000000001010100}
+    // 1110110 166
+    //12       {"84", 0000000001110110}
+
+    //
+    // 1110110 166
+    //78       {"546",0000001001110110}         1 166
+
+
+    // 0000001001110110
+    // 0000001000110000
+    // 0000000100010001
+    ArrayAlgo::pickIndex();
+}
+
+void bit_flip() {
+    const auto hash = [](int16_t a) {
+
+        int16_t val = (a * 7);
+        auto &&basicString = std::to_string(val);
+        return std::make_pair(basicString, std::bitset<16>(val));
+    };
+    for (int i = 10; i < 100; i++) {
+        dbg(i, hash(i));
+    }
+    int16_t a = 0b1110110;
+
+    int16_t c =0b1110110;
+    int16_t b=0b1001110110;
+    dbg(a, c, b);
+
+    dbg(98 | 84, (98 | 84) | 546);
+
+
+
 }
 
 

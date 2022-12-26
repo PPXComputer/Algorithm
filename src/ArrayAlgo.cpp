@@ -1,9 +1,23 @@
-#include "ArrayAlgo.h"
-#include "folly/Random.h"
+﻿#include "ArrayAlgo.h"
+#include "GreedyAlgo.h"
 #include<vector>
 #include <dbg.h>
 #include <memory>
 #include <optional>
+#include <folly/FBString.h>
+#include <folly/FBVector.h>
+#include <folly/Optional.h>
+#include<array>
+#include< random>
+#include<fmt/format.h>
+#include<folly/String.h>
+using folly::fbstring;
+using folly::fbvector;
+using folly::Optional;
+using fmt::format;
+
+using std::addressof;
+using std::cout;
 
 void ArrayAlgo::huffman_tree() {
     const auto &getFibonacci = [](int end) {
@@ -92,12 +106,13 @@ void ArrayAlgo::not_exists_num() {
             cur += 1;
         } else {
             int swap_value = data[promise_pos];
-            if (swap_value == cur_value) {
+            if (swap_value != cur_value) {
+                std::swap(data[cur], data[promise_pos]);
+
+            } else {
                 // 当前的位置的值为重复的
                 fmt::print("result data :{}", promise_pos + 1);
                 break;
-            } else {
-                std::swap(data[cur], data[promise_pos]);
             }
         }
         fmt::print("cur array {} pos:{}\n", fmt::join(data, ","), cur);
@@ -202,8 +217,7 @@ void ArrayAlgo::change_array_data() {
         // container.size(); index < ) {
 
         //}
-        constexpr
-        size_t row_index = first.size() + 1;
+        constexpr size_t row_index = first.size() + 1;
         constexpr auto column_rest = data + 1;
         // 当前数据的多数行为
         auto dp = std::make_unique<int[]>(row_index * column_rest);
@@ -282,6 +296,7 @@ void ArrayAlgo::change_array_data() {
             }
             return dp[cur_row].back();
         };
+        return -1;
     };
 
     constexpr auto get_second = [&](int index, int rest,
@@ -615,6 +630,47 @@ void ArrayAlgo::salesRange() {
     impl();
 }
 
+void ArrayAlgo::binarySearch()
+{
+    // 搜索左侧边界 小左进一 右等中
+
+    const auto leftBound = [ ](std::vector<int> & array  ,int target){
+        int left =0;
+        int right = array.size ();
+
+        while(left <right){
+            int mid =  left  + (( right -left )>>1);
+             if ( array[mid] <target ){
+                left = mid+1;
+            }else{
+                right  =mid; // 相等则继续缩短右边界
+            }
+        }
+        return  left;
+
+    };
+
+     // 搜索右侧边届  大右等中 左进一
+    const auto rightBound = [ ](std::vector<int> & array  ,int target){
+        int left =0;
+        int right = array.size ();
+
+        while(left <right){
+            int mid =  left  + (( right -left )>>1);
+            if ( array[ mid ] > target){
+                right = mid;
+            }else {
+                left = mid+1;
+            }
+        }
+        return  left;
+
+    };
+
+
+
+}
+
 void ArrayAlgo::minSubArrayLen(int target, std::vector<int> &nums) {
     int left = 0;
     int right = 0;
@@ -663,5 +719,34 @@ bool ArrayAlgo::containsNearbyDuplicate() {
 
     }
     return false;
+}
+
+void ArrayAlgo::pickIndex() {
+    std::vector<int> data{1, 3};
+    std::vector<int> preSum;
+    preSum.reserve(data.size());
+    int sum = 0;
+    std::transform(data.begin(), data.end(), std::back_inserter(preSum), [&sum](int i) {
+        sum += i;
+        return sum;
+    });
+    dbg(preSum);
+    std::random_device device;
+
+    std::uniform_int_distribution dis(1, sum);// 这边是 [1,sum]
+    int randomNum = dis(device);
+    int left = 0;
+    int right = preSum.size();
+    // 找到第一个大于等于的数
+    while (left < right) {
+        int mid = left + ((right - left) >> 1);
+        if (preSum[mid] < randomNum) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    dbg(left);
+
 }
 

@@ -1,4 +1,4 @@
-#include "Dynamic.h"
+﻿#include "Dynamic.h"
 #include "GreedyAlgo.h"
 #include <ciso646>
 #include <initializer_list>
@@ -8,8 +8,8 @@
 #include <random>
 #include <array>
 #include <memory>
-
-
+#include<folly/FBString.h>
+#include<folly/FBVector.h>
 using std::cout;
 using std::initializer_list;
 using std::make_unique;

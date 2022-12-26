@@ -1,27 +1,16 @@
+﻿
+#ifndef GREEDYALGO_H
+#define GREEDYALGO_H
 
-#ifndef SSH_GREEDYALGO_H
-#define SSH_GREEDYALGO_H
-
-#include <iostream>
-#include <cassert>
-#include <folly/FBString.h>
-#include <random>
-#include <array>
-#include <folly/Format.h>
 #include <folly/FBVector.h>
-#include <memory>
-#include <set>
 
-using std::cout;    
-using std::make_unique;
-using std::unique_ptr;
-using std::array;
-using std::addressof;
-using folly::fbstring;
-using folly::fbvector;
-using FlexMatrix = folly::fbvector<folly::fbvector<int>>;
+
 
 class GreedyAlgo {
+    template<typename T>
+    using fbvector= folly::fbvector<T>;
+    using FlexMatrix = folly::fbvector<folly::fbvector<int>>;
+
 public:
     static fbvector<int> geRandomArray
             (int len = 10, int min = 0, int max = 10, bool unique = false);
@@ -92,4 +81,4 @@ private:
 };
 
 
-#endif //SSH_GREEDYALGO_H
+#endif // GREEDYALGO_H

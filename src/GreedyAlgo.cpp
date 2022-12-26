@@ -1,7 +1,19 @@
-#include "GreedyAlgo.h"
+﻿#include "GreedyAlgo.h"
 #include <iso646.h>
 #include<array>
-
+#include<iostream>
+#include<memory>
+#include<folly/FBString.h>
+#include<folly/FBVector.h>
+#include <random>
+#include <set>
+using std::cout;
+using std::make_unique;
+using std::unique_ptr;
+using std::array;
+using std::addressof;
+using folly::fbstring;
+using folly::fbvector;
 void
 GreedyAlgo::concat_strings() {
     std::vector<std::string> data = {"123", "581", "135",

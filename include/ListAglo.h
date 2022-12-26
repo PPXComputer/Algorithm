@@ -1,25 +1,11 @@
-//
+﻿//
 // Created by 破忆断回 on 2021/9/24.
 //
 
-#ifndef SSH_LISTAGLO_H
-#define SSH_LISTAGLO_H
+#ifndef LISTAGLO_H
+#define LISTAGLO_H
 
-#include "folly/FBString.h"
-#include "folly/FBVector.h"
-#include "folly/String.h"
-#include <iostream>
-#include <array>
-#include <fmt/format.h>
-#include <folly/Format.h>
-
-using folly::fbstring;
-using folly::fbvector;
-using folly::Optional;
-using std::addressof;
-using std::array;
-using std::cout;
-using std::string_view;
+#include<memory>
 
 class ListAlgo {
 public:
@@ -34,7 +20,7 @@ public:
         UniquePtr right = nullptr;
         int value = 0;
 
-        BinaryTreeNode(int v) : value{v}, left{nullptr}, right{nullptr} {}
+       explicit BinaryTreeNode(int v) : value{v}, left{nullptr}, right{nullptr} {}
 
         static UniquePtr New(int value) {
             return std::make_unique<BinaryTreeNode>(value);
@@ -59,4 +45,4 @@ private:
     static Node *get_tail_node(Node *pNode); // note 安装值来划分链表
 };
 
-#endif // SSH_LISTAGLO_H
+#endif // LISTAGLO_H

@@ -1,16 +1,21 @@
-//
+﻿//
 // Created by 破忆断回 on 2021/9/25.
 //
 
 #include "StringAlgo.h"
 #include <dbg.h>
+#include <folly/FBString.h>
+#include <folly/FBVector.h>
+#include<folly/String.h>
 #include <folly/container/F14Set.h>
-#include <unordered_map>
-#include <utility>
-
+#include<iostream>
+#include<unordered_map>
+#include<utility>
+using std::cout;
 using folly::StringPiece;
 using folly::F14FastSet;
-
+using folly::fbstring;
+using folly::fbvector;
 inline fbstring StringAlgo::sub_string_range() {
     fbstring str = "364210432182613";
     fbstring target = "321";
@@ -131,8 +136,9 @@ void StringAlgo::string_expression() {
         size_t len = data.size();
         fbvector<int> dp(len + 1);
         dp[len] = 1;
-
+        return dp[data.size()];
     };
+
 }
 
 void StringAlgo::find_longest_not_repeat_sub() {
@@ -302,8 +308,8 @@ void StringAlgo::expression() {
 
 }
 
-inline void StringAlgo::printAll(const fbstring &cur,
-                                 size_t index, const fbstring &data) {
+inline void StringAlgo::printAll(const folly::fbstring &cur,
+                                 size_t index, const folly::fbstring &data) {
     if (index == data.size()) {
         cout << cur << '\n';
         return;
@@ -518,6 +524,6 @@ void StringAlgo::Rabin_Karp() {
         left++;
 
     }
-    res;
+    //res;
 
 }

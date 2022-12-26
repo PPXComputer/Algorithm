@@ -899,6 +899,9 @@ CMakeFiles/Algorithm.dir/src/Offer.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Malloc.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Math.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
+CMakeFiles/Algorithm.dir/src/Package.cpp.obj
+ ../include/Package.h
+ C:/Code/Csgo/Algorithm/src/Package.cpp
 CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj
  ../include/SkipList.h
  C:/Code/Csgo/Algorithm/src/SkipList.cpp
@@ -930,9 +933,9 @@ CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Config.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/Malloc.h
  C:/Tools/vcpkg/installed/x64-windows/include/folly/portability/SysTypes.h
-CMakeFiles/Algorithm.dir/src/StringAglo.cpp.obj
- ../include/StringAglo.h
- C:/Code/Csgo/Algorithm/src/StringAglo.cpp
+CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.obj
+ ../include/StringAlgo.h
+ C:/Code/Csgo/Algorithm/src/StringAlgo.cpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/dec.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/inc.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/limits/dec_1024.hpp
@@ -1109,51 +1112,8 @@ CMakeFiles/Algorithm.dir/src/main.cpp.obj
  ../include/LeetCode.h
  ../include/ListAglo.h
  ../include/Offer.h
- ../include/StringAglo.h
+ ../include/StringAlgo.h
  C:/Code/Csgo/Algorithm/src/main.cpp
- C:/Tools/vcpkg/installed/x64-windows/include/EABase/config/eacompiler.h
- C:/Tools/vcpkg/installed/x64-windows/include/EABase/config/eacompilertraits.h
- C:/Tools/vcpkg/installed/x64-windows/include/EABase/config/eaplatform.h
- C:/Tools/vcpkg/installed/x64-windows/include/EABase/eabase.h
- C:/Tools/vcpkg/installed/x64-windows/include/EABase/eahave.h
- C:/Tools/vcpkg/installed/x64-windows/include/EABase/eaunits.h
- C:/Tools/vcpkg/installed/x64-windows/include/EABase/int128.h
- C:/Tools/vcpkg/installed/x64-windows/include/EABase/nullptr.h
- C:/Tools/vcpkg/installed/x64-windows/include/EABase/version.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/algorithm.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/allocator.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/bonus/call_traits.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/bonus/compressed_pair.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/functional.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/initializer_list.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/config.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/copy_help.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/fill_help.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/function.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/function_detail.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/function_help.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/functional_base.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/generic_iterator.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/in_place_t.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/integer_sequence.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/mem_fn.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/memory_base.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/move_help.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/pair_fwd_decls.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/piecewise_construct_t.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/tuple_fwd_decls.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_compound.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_fundamental.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_pod.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_properties.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/internal/type_transformations.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/iterator.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/memory.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/numeric_limits.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/random.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/type_traits.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/utility.h
- C:/Tools/vcpkg/installed/x64-windows/include/EASTL/vector.h
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/dec.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/inc.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/arithmetic/limits/dec_1024.hpp
@@ -1228,6 +1188,7 @@ CMakeFiles/Algorithm.dir/src/main.cpp.obj
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/variadic/limits/size_256.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/variadic/limits/size_64.hpp
  C:/Tools/vcpkg/installed/x64-windows/include/boost/preprocessor/variadic/size.hpp
+ C:/Tools/vcpkg/installed/x64-windows/include/dbg.h
  C:/Tools/vcpkg/installed/x64-windows/include/double-conversion/double-conversion.h
  C:/Tools/vcpkg/installed/x64-windows/include/double-conversion/double-to-string.h
  C:/Tools/vcpkg/installed/x64-windows/include/double-conversion/string-to-double.h

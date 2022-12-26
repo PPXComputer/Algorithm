@@ -55,66 +55,9 @@ include CMakeFiles\Algorithm.dir\progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles\Algorithm.dir\flags.make
 
-CMakeFiles\Algorithm.dir\src\main.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
-CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\src\main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Algorithm.dir/src/main.cpp.obj"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\main.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\main.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/main.cpp.i"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\main.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\main.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/main.cpp.s"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\main.cpp.s /c C:\Code\Csgo\Algorithm\src\main.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
-CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: ..\src\ListAglo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\ListAglo.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\ListAglo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/ListAglo.cpp.i"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\ListAglo.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\ListAglo.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\ListAglo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/ListAglo.cpp.s"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\ListAglo.cpp.s /c C:\Code\Csgo\Algorithm\src\ListAglo.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
-CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj: ..\src\StringAlgo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.obj"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\StringAlgo.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.i"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\StringAlgo.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.s"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\StringAlgo.cpp.s /c C:\Code\Csgo\Algorithm\src\StringAlgo.cpp
-<<
-
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
 CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj: ..\src\ArrayAlgo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Algorithm.dir/src/ArrayAlgo.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Algorithm.dir/src/ArrayAlgo.cpp.obj"
 	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\ArrayAlgo.cpp
 <<
@@ -131,47 +74,9 @@ CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.s /c C:\Code\Csgo\Algorithm\src\ArrayAlgo.cpp
 <<
 
-CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
-CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj: ..\src\UnionFindSet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.obj"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\UnionFindSet.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.i"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\UnionFindSet.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.s"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.s /c C:\Code\Csgo\Algorithm\src\UnionFindSet.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
-CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: ..\src\GreedyAlgo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.obj"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\GreedyAlgo.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.i"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\GreedyAlgo.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.s"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.s /c C:\Code\Csgo\Algorithm\src\GreedyAlgo.cpp
-<<
-
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
 CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj: ..\src\Dynamic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj"
 	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\Dynamic.cpp
 <<
@@ -188,47 +93,28 @@ CMakeFiles\Algorithm.dir\src\Dynamic.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\Dynamic.cpp.s /c C:\Code\Csgo\Algorithm\src\Dynamic.cpp
 <<
 
-CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
-CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: ..\src\SkipList.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj"
+CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
+CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj: ..\src\GreedyAlgo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.obj"
 	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\SkipList.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\SkipList.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\GreedyAlgo.cpp
 <<
 
-CMakeFiles\Algorithm.dir\src\SkipList.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/SkipList.cpp.i"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\SkipList.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\SkipList.cpp
+CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.i"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\GreedyAlgo.cpp
 <<
 
-CMakeFiles\Algorithm.dir\src\SkipList.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/SkipList.cpp.s"
+CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.s"
 	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\SkipList.cpp.s /c C:\Code\Csgo\Algorithm\src\SkipList.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
-CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: ..\src\TreeAlgo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.obj"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\TreeAlgo.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.i"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\TreeAlgo.cpp
-<<
-
-CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.s"
-	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.s /c C:\Code\Csgo\Algorithm\src\TreeAlgo.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.s /c C:\Code\Csgo\Algorithm\src\GreedyAlgo.cpp
 <<
 
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
 CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj: ..\src\LeetCode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Algorithm.dir/src/LeetCode.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Algorithm.dir/src/LeetCode.cpp.obj"
 	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\LeetCode.cpp
 <<
@@ -247,7 +133,7 @@ CMakeFiles\Algorithm.dir\src\LeetCode.cpp.s: cmake_force
 
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
 CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj: ..\src\LeetCode200.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj"
 	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\LeetCode200.cpp
 <<
@@ -264,9 +150,28 @@ CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\LeetCode200.cpp.s /c C:\Code\Csgo\Algorithm\src\LeetCode200.cpp
 <<
 
+CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
+CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj: ..\src\ListAglo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\ListAglo.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\ListAglo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/ListAglo.cpp.i"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\ListAglo.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\ListAglo.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\ListAglo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/ListAglo.cpp.s"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\ListAglo.cpp.s /c C:\Code\Csgo\Algorithm\src\ListAglo.cpp
+<<
+
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
 CMakeFiles\Algorithm.dir\src\Offer.cpp.obj: ..\src\Offer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Algorithm.dir/src/Offer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Algorithm.dir/src/Offer.cpp.obj"
 	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\Offer.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\Offer.cpp
 <<
@@ -283,39 +188,154 @@ CMakeFiles\Algorithm.dir\src\Offer.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\Offer.cpp.s /c C:\Code\Csgo\Algorithm\src\Offer.cpp
 <<
 
+CMakeFiles\Algorithm.dir\src\Package.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
+CMakeFiles\Algorithm.dir\src\Package.cpp.obj: ..\src\Package.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Algorithm.dir/src/Package.cpp.obj"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\Package.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\Package.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\Package.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/Package.cpp.i"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\Package.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\Package.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\Package.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/Package.cpp.s"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\Package.cpp.s /c C:\Code\Csgo\Algorithm\src\Package.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj: ..\src\SkipList.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\SkipList.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\SkipList.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/SkipList.cpp.i"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\SkipList.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\SkipList.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\SkipList.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/SkipList.cpp.s"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\SkipList.cpp.s /c C:\Code\Csgo\Algorithm\src\SkipList.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
+CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj: ..\src\StringAlgo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.obj"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\StringAlgo.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.i"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\StringAlgo.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.s"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\StringAlgo.cpp.s /c C:\Code\Csgo\Algorithm\src\StringAlgo.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
+CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj: ..\src\TreeAlgo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.obj"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\TreeAlgo.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.i"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\TreeAlgo.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.s"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.s /c C:\Code\Csgo\Algorithm\src\TreeAlgo.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
+CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj: ..\src\UnionFindSet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.obj"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\UnionFindSet.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.i"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\UnionFindSet.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.s"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.s /c C:\Code\Csgo\Algorithm\src\UnionFindSet.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: CMakeFiles\Algorithm.dir\flags.make
+CMakeFiles\Algorithm.dir\src\main.cpp.obj: ..\src\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Algorithm.dir/src/main.cpp.obj"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Algorithm.dir\src\main.cpp.obj /FdCMakeFiles\Algorithm.dir\ /FS -c C:\Code\Csgo\Algorithm\src\main.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithm.dir/src/main.cpp.i"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe > CMakeFiles\Algorithm.dir\src\main.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Code\Csgo\Algorithm\src\main.cpp
+<<
+
+CMakeFiles\Algorithm.dir\src\main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithm.dir/src/main.cpp.s"
+	C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\HostX86\x64\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Algorithm.dir\src\main.cpp.s /c C:\Code\Csgo\Algorithm\src\main.cpp
+<<
+
 # Object files for target Algorithm
 Algorithm_OBJECTS = \
-"CMakeFiles\Algorithm.dir\src\main.cpp.obj" \
-"CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj" \
-"CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj" \
 "CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj" \
-"CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj" \
-"CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj" \
 "CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj" \
-"CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj" \
-"CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj" \
+"CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj" \
 "CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj" \
 "CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj" \
-"CMakeFiles\Algorithm.dir\src\Offer.cpp.obj"
+"CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj" \
+"CMakeFiles\Algorithm.dir\src\Offer.cpp.obj" \
+"CMakeFiles\Algorithm.dir\src\Package.cpp.obj" \
+"CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj" \
+"CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj" \
+"CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj" \
+"CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj" \
+"CMakeFiles\Algorithm.dir\src\main.cpp.obj"
 
 # External object files for target Algorithm
 Algorithm_EXTERNAL_OBJECTS =
 
-Algorithm.exe: CMakeFiles\Algorithm.dir\src\main.cpp.obj
-Algorithm.exe: CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj
-Algorithm.exe: CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\ArrayAlgo.cpp.obj
-Algorithm.exe: CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj
-Algorithm.exe: CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\Dynamic.cpp.obj
-Algorithm.exe: CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj
-Algorithm.exe: CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj
+Algorithm.exe: CMakeFiles\Algorithm.dir\src\GreedyAlgo.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\LeetCode.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\LeetCode200.cpp.obj
+Algorithm.exe: CMakeFiles\Algorithm.dir\src\ListAglo.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\src\Offer.cpp.obj
+Algorithm.exe: CMakeFiles\Algorithm.dir\src\Package.cpp.obj
+Algorithm.exe: CMakeFiles\Algorithm.dir\src\SkipList.cpp.obj
+Algorithm.exe: CMakeFiles\Algorithm.dir\src\StringAlgo.cpp.obj
+Algorithm.exe: CMakeFiles\Algorithm.dir\src\TreeAlgo.cpp.obj
+Algorithm.exe: CMakeFiles\Algorithm.dir\src\UnionFindSet.cpp.obj
+Algorithm.exe: CMakeFiles\Algorithm.dir\src\main.cpp.obj
 Algorithm.exe: CMakeFiles\Algorithm.dir\build.make
 Algorithm.exe: C:\Tools\vcpkg\installed\x64-windows\lib\folly.lib
-Algorithm.exe: C:\Tools\vcpkg\installed\x64-windows\lib\EASTL.lib
 Algorithm.exe: C:\Tools\vcpkg\installed\x64-windows\lib\fmt.lib
 Algorithm.exe: C:\Tools\vcpkg\installed\x64-windows\lib\boost_context-vc140-mt.lib
 Algorithm.exe: C:\Tools\vcpkg\installed\x64-windows\lib\boost_filesystem-vc140-mt.lib
@@ -335,9 +355,9 @@ Algorithm.exe: C:\Tools\vcpkg\installed\x64-windows\lib\zlib.lib
 Algorithm.exe: C:\Tools\vcpkg\installed\x64-windows\lib\libssl.lib
 Algorithm.exe: C:\Tools\vcpkg\installed\x64-windows\lib\libcrypto.lib
 Algorithm.exe: CMakeFiles\Algorithm.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Algorithm.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Code\Csgo\Algorithm\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable Algorithm.exe"
 	"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\Algorithm.dir --rc=C:\WINDOW~1\10\bin\100190~1.0\x86\rc.exe --mt=C:\WINDOW~1\10\bin\100190~1.0\x86\mt.exe --manifests -- C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\bin\Hostx86\x64\link.exe /nologo @CMakeFiles\Algorithm.dir\objects1.rsp @<<
- /out:Algorithm.exe /implib:Algorithm.lib /pdb:C:\Code\Csgo\Algorithm\cmake-build-release\Algorithm.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO /subsystem:console  C:\Tools\vcpkg\installed\x64-windows\lib\folly.lib C:\Tools\vcpkg\installed\x64-windows\lib\EASTL.lib C:\Tools\vcpkg\installed\x64-windows\lib\fmt.lib Iphlpapi.lib Ws2_32.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_context-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_filesystem-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_program_options-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_regex-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_system-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_thread-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_chrono-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_date_time-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_atomic-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\double-conversion.lib C:\Tools\vcpkg\installed\x64-windows\lib\glog.lib C:\Tools\vcpkg\installed\x64-windows\lib\gflags.lib shlwapi.lib C:\Tools\vcpkg\installed\x64-windows\lib\event_extra.lib C:\Tools\vcpkg\installed\x64-windows\lib\event_core.lib iphlpapi.lib ws2_32.lib shell32.lib advapi32.lib C:\Tools\vcpkg\installed\x64-windows\lib\zlib.lib C:\Tools\vcpkg\installed\x64-windows\lib\libssl.lib C:\Tools\vcpkg\installed\x64-windows\lib\libcrypto.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
+ /out:Algorithm.exe /implib:Algorithm.lib /pdb:C:\Code\Csgo\Algorithm\cmake-build-release\Algorithm.pdb /version:0.0 /machine:x64 /INCREMENTAL:NO /subsystem:console  C:\Tools\vcpkg\installed\x64-windows\lib\folly.lib C:\Tools\vcpkg\installed\x64-windows\lib\fmt.lib Iphlpapi.lib Ws2_32.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_context-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_filesystem-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_program_options-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_regex-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_system-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_thread-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_chrono-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_date_time-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\boost_atomic-vc140-mt.lib C:\Tools\vcpkg\installed\x64-windows\lib\double-conversion.lib C:\Tools\vcpkg\installed\x64-windows\lib\glog.lib C:\Tools\vcpkg\installed\x64-windows\lib\gflags.lib shlwapi.lib C:\Tools\vcpkg\installed\x64-windows\lib\event_extra.lib C:\Tools\vcpkg\installed\x64-windows\lib\event_core.lib iphlpapi.lib ws2_32.lib shell32.lib advapi32.lib C:\Tools\vcpkg\installed\x64-windows\lib\zlib.lib C:\Tools\vcpkg\installed\x64-windows\lib\libssl.lib C:\Tools\vcpkg\installed\x64-windows\lib\libcrypto.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
 	C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Tools/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Code/Csgo/Algorithm/cmake-build-release/Algorithm.exe -installedDir C:/Tools/vcpkg/installed/x64-windows/bin -OutVariable out
 

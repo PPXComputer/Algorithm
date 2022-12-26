@@ -1,4 +1,4 @@
-// Created by Administrator on 2022/3/21.
+﻿// Created by Administrator on 2022/3/21.
 //
 
 #include <cmath>
@@ -11,13 +11,14 @@
 #include <fmt/core.h>
 #include<unordered_map>
 #include <queue>
+#include<folly/FBString.h>
 #include "Offer.h"
 
 using std::vector;
 using std::set;
 using std::string;
 using std::unordered_map;
-
+using folly::fbstring;
 
 int Offer::divide() {
     int a = 15;

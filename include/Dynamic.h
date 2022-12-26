@@ -1,4 +1,8 @@
-#pragma once
+﻿#ifndef DYNAMIC_H
+#define DYNAMIC_H
+
+
+
 
 class Dynamic {
 public:
@@ -47,3 +51,4 @@ private:
 };
 
 
+#endif

@@ -1,27 +1,15 @@
+﻿
+
+#ifndef STRINGALGO_H
+#define STRINGALGO_H
+
+#include <folly/FBString.h>
 
 
-#ifndef SSH_STRINGALGO_H
-#define SSH_STRINGALGO_H
-
-#include <iostream>
-#include <string_view>
-#include <utility>
-#include "folly/FBString.h"
-#include "folly/FBVector.h"
-#include "folly/String.h"
-#include <folly/Format.h>
-
-using folly::fbstring;
-using folly::fbvector;
-using folly::Optional;
-using std::string_view;
-using std::addressof;
-using std::cout;
-using std::pair;
 
 class StringAlgo {
 public:
-    static fbstring sub_string_range();
+    static folly::fbstring sub_string_range();
 
     static void all_sub();
 
@@ -51,8 +39,8 @@ public:
     static void Rabin_Karp(); // 从数组找到匹配的模式串的方法
 
 private:
-    static void printAll(const fbstring &cur, size_t index, const fbstring &data);
+    static void printAll(const folly::fbstring &cur, size_t index, const folly::fbstring &data);
 };
 
 
-#endif //SSH_STRINGALGO_H
+#endif // STRINGALGO_H

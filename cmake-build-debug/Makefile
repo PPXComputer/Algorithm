@@ -286,6 +286,30 @@ src\Offer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\Offer.cpp.s
 .PHONY : src\Offer.cpp.s
 
+src\Package.obj: src\Package.cpp.obj
+.PHONY : src\Package.obj
+
+# target to build an object file
+src\Package.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\Package.cpp.obj
+.PHONY : src\Package.cpp.obj
+
+src\Package.i: src\Package.cpp.i
+.PHONY : src\Package.i
+
+# target to preprocess a source file
+src\Package.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\Package.cpp.i
+.PHONY : src\Package.cpp.i
+
+src\Package.s: src\Package.cpp.s
+.PHONY : src\Package.s
+
+# target to generate assembly for a file
+src\Package.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Algorithm.dir\src\Package.cpp.s
+.PHONY : src\Package.cpp.s
+
 src\SkipList.obj: src\SkipList.cpp.obj
 .PHONY : src\SkipList.obj
 
@@ -436,6 +460,9 @@ help:
 	@echo ... src/Offer.obj
 	@echo ... src/Offer.i
 	@echo ... src/Offer.s
+	@echo ... src/Package.obj
+	@echo ... src/Package.i
+	@echo ... src/Package.s
 	@echo ... src/SkipList.obj
 	@echo ... src/SkipList.i
 	@echo ... src/SkipList.s

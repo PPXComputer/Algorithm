@@ -99,7 +99,7 @@ private:
 
         ~ListNode() {
 
-            for (auto data: node) {
+            for (auto* data: node) {
                 delete data;
             }
         }
@@ -108,7 +108,7 @@ private:
             assert(length != 0);
             auto result = std::make_unique<ListNode>(0);
             result->node.reserve(length - 1);
-            auto root = result.get();
+            auto* root = result.get();
             for (size_t i = 1; i < length; i++) {
                 root->next = new ListNode(i);
                 root = root->next;
@@ -120,7 +120,7 @@ private:
         static std::unique_ptr<ListNode> new_list(const std::vector<int> &data) {
             if (data.empty())return nullptr;
             auto result = std::make_unique<ListNode>(data[0]);
-            auto root = result.get();
+            auto* root = result.get();
             result->node.reserve(data.size() - 1);
             size_t size = data.size();
             for (size_t i = 1; i < size; i++) {

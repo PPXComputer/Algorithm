@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/Offer.cpp.obj"
+  "CMakeFiles/Algorithm.dir/src/Package.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.obj"

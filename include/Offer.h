@@ -1,20 +1,18 @@
-//
+﻿//
 // Created by Administrator on 2022/3/21.
 //
 
 #ifndef SSH_OFFER_H
 #define SSH_OFFER_H
 
+#include "folly/String.h"
 #include <cassert>
-#include <folly/FBString.h>
-#include <folly/String.h>
-#include <folly/FBVector.h>
-#include <folly/Conv.h>
 
-
-using folly::fbstring;
-using folly::fbvector;
-
+#include<vector>
+#include<string>
+#include<folly/Conv.h>
+#include<folly/FBString.h>
+#include<folly/FBVector.h>
 struct Offer {
 public:
     static int divide();
@@ -79,7 +77,7 @@ private:
         int val;
 
         // [1,2,-1,32,#]
-        static std::unique_ptr<TreeNode> newTree(fbstring &data) {
+        static std::unique_ptr<TreeNode> newTree(folly::fbstring &data) {
             folly::fbvector<folly::StringPiece> cur_list;
             folly::StringPiece view(data.begin() + 1, data.end() - 1);
             folly::split(",", view, cur_list);

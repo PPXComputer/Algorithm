@@ -1,26 +1,13 @@
-//
+﻿//
 // Created by 破忆断回 on 2021/9/26.
 //
 
-#ifndef SSH_ARRAYALGO_H
-#define SSH_ARRAYALGO_H
-
-#include <iostream>
+#ifndef ARRAYALGO_H
+#define ARRAYALGO_H
 
 
-#include "folly/FBVector.h"
-#include "folly/String.h"
-#include "folly/Format.h"
-#include "GreedyAlgo.h"
-#include <string_view>
+#include <vector>
 
-using folly::fbstring;
-using folly::fbvector;
-using folly::Optional;
-using fmt::format;
-
-using std::addressof;
-using std::cout;
 
 //定义一个类 ,用于描述日期
 
@@ -58,6 +45,11 @@ public:
 
     static void salesRange();
 
+    static void binarySearch();
+
+    // leetcode 528
+    static void pickIndex();
+
     //leetcode 209
     static void  minSubArrayLen(int target, std::vector<int> &nums);
 
@@ -71,4 +63,4 @@ public:
 };
 
 
-#endif //SSH_ARRAYALGO_H
+#endif // ARRAYALGO_H

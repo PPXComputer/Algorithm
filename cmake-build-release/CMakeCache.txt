@@ -15,6 +15,78 @@
 ########################
 
 //Value Computed by CMake
+AlgoTests_BINARY_DIR:STATIC=C:/Code/Csgo/Algorithm/cmake-build-release/test
+
+//Value Computed by CMake
+AlgoTests_SOURCE_DIR:STATIC=C:/Code/Csgo/Algorithm/test
+
+//Value Computed by CMake
+Algo_BINARY_DIR:STATIC=C:/Code/Csgo/Algorithm/cmake-build-release
+
+//Build the project as an executable, rather than a library.
+Algo_BUILD_EXECUTABLE:BOOL=OFF
+
+//Build the project as a header-only library.
+Algo_BUILD_HEADERS_ONLY:BOOL=OFF
+
+//Path to a program.
+Algo_CLANG_FORMAT_BINARY:FILEPATH=C:/Software/VisualStuido/Community/VC/Tools/Llvm/bin/clang-format.exe
+
+//Enable the usage of Ccache, in order to speed up rebuild times.
+Algo_ENABLE_CCACHE:BOOL=ON
+
+//Enable static analysis with Clang-Tidy.
+Algo_ENABLE_CLANG_TIDY:BOOL=OFF
+
+//Enable code coverage through GCC.
+Algo_ENABLE_CODE_COVERAGE:BOOL=OFF
+
+//Enable the Conan package manager for this project.
+Algo_ENABLE_CONAN:BOOL=OFF
+
+//Enable static analysis with Cppcheck.
+Algo_ENABLE_CPPCHECK:BOOL=OFF
+
+//Enable Doxygen documentation builds of source.
+Algo_ENABLE_DOXYGEN:BOOL=OFF
+
+//Enable Interprocedural Optimization, aka Link Time Optimization
+// (LTO).
+Algo_ENABLE_LTO:BOOL=OFF
+
+//Enable unit tests for the projects (from the `test` subfolder).
+Algo_ENABLE_UNIT_TESTING:BOOL=ON
+
+//Enable the Vcpkg package manager for this project.
+Algo_ENABLE_VCPKG:BOOL=OFF
+
+//Create a `project_export.h` file containing all exported symbols.
+Algo_GENERATE_EXPORT_HEADER:BOOL=OFF
+
+//Value Computed by CMake
+Algo_SOURCE_DIR:STATIC=C:/Code/Csgo/Algorithm
+
+//Use alternative names for the project, such as naming the include
+// directory all lowercase.
+Algo_USE_ALT_NAMES:BOOL=ON
+
+//Use the Catch2 project for creating unit tests.
+Algo_USE_CATCH2:BOOL=OFF
+
+//Use the GoogleMock project for extending the unit tests.
+Algo_USE_GOOGLE_MOCK:BOOL=OFF
+
+//Use the GoogleTest project for creating unit tests.
+Algo_USE_GTEST:BOOL=ON
+
+//Enable verbose output, allowing for a better understanding of
+// each step taken.
+Algo_VERBOSE_OUTPUT:BOOL=ON
+
+//Treat compiler warnings as errors.
+Algo_WARNINGS_AS_ERRORS:BOOL=OFF
+
+//Value Computed by CMake
 Algorithm_BINARY_DIR:STATIC=C:/Code/Csgo/Algorithm/cmake-build-release
 
 //Value Computed by CMake
@@ -87,6 +159,9 @@ Boost_THREAD_LIBRARY_DEBUG:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/debug/l
 Boost_THREAD_LIBRARY_RELEASE:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/lib/boost_thread-vc140-mt.lib
 
 //Path to a program.
+CCACHE_FOUND:FILEPATH=CCACHE_FOUND-NOTFOUND
+
+//Path to a program.
 CMAKE_AR:FILEPATH=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx86/x64/lib.exe
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
@@ -149,8 +224,56 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 
+//User executables (bin)
+CMAKE_INSTALL_BINDIR:PATH=bin
+
+//Read-only architecture-independent data (DATAROOTDIR)
+CMAKE_INSTALL_DATADIR:PATH=
+
+//Read-only architecture-independent data root (share)
+CMAKE_INSTALL_DATAROOTDIR:PATH=share
+
+//Documentation root (DATAROOTDIR/doc/PROJECT_NAME)
+CMAKE_INSTALL_DOCDIR:PATH=
+
+//C header files (include)
+CMAKE_INSTALL_INCLUDEDIR:PATH=include
+
+//Info documentation (DATAROOTDIR/info)
+CMAKE_INSTALL_INFODIR:PATH=
+
+//Object code libraries (lib)
+CMAKE_INSTALL_LIBDIR:PATH=lib
+
+//Program executables (libexec)
+CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
+
+//Locale-dependent data (DATAROOTDIR/locale)
+CMAKE_INSTALL_LOCALEDIR:PATH=
+
+//Modifiable single-machine data (var)
+CMAKE_INSTALL_LOCALSTATEDIR:PATH=var
+
+//Man documentation (DATAROOTDIR/man)
+CMAKE_INSTALL_MANDIR:PATH=
+
+//C header files for non-gcc (/usr/include)
+CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
+
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Algorithm
+
+//Run-time variable data (LOCALSTATEDIR/run)
+CMAKE_INSTALL_RUNSTATEDIR:PATH=
+
+//System admin executables (sbin)
+CMAKE_INSTALL_SBINDIR:PATH=sbin
+
+//Modifiable architecture-independent data (com)
+CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
+
+//Read-only single-machine data (etc)
+CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx86/x64/link.exe
@@ -189,6 +312,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Algorithm
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=0.1.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //RC compiler
 CMAKE_RC_COMPILER:FILEPATH=C:/Windows Kits/10/bin/10.0.19041.0/x86/rc.exe
@@ -273,6 +411,9 @@ EABase_DIR:PATH=C:/Tools/vcpkg/installed/x64-windows/share/eabase
 //The directory containing a CMake configuration file for EASTL.
 EASTL_DIR:PATH=C:/Tools/vcpkg/installed/x64-windows/share/eastl
 
+//The directory containing a CMake configuration file for GTest.
+GTest_DIR:PATH=C:/Tools/vcpkg/installed/x64-windows/share/gtest
+
 //Path to a library.
 LIB_EAY_DEBUG:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/debug/lib/libcrypto.lib
 
@@ -287,6 +428,78 @@ OPENSSL_APPLINK_SOURCE:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/include/ope
 
 //Path to a file.
 OPENSSL_INCLUDE_DIR:PATH=C:/Tools/vcpkg/installed/x64-windows/include
+
+//Value Computed by CMake
+ProjectTests_BINARY_DIR:STATIC=C:/Code/Csgo/Algorithm/cmake-build-release/test
+
+//Value Computed by CMake
+ProjectTests_SOURCE_DIR:STATIC=C:/Code/Csgo/Algorithm/test
+
+//Value Computed by CMake
+Project_BINARY_DIR:STATIC=C:/Code/Csgo/Algorithm/cmake-build-release
+
+//Build the project as an executable, rather than a library.
+Project_BUILD_EXECUTABLE:BOOL=OFF
+
+//Build the project as a header-only library.
+Project_BUILD_HEADERS_ONLY:BOOL=OFF
+
+//Path to a program.
+Project_CLANG_FORMAT_BINARY:FILEPATH=C:/Software/VisualStuido/Community/VC/Tools/Llvm/bin/clang-format.exe
+
+//Enable the usage of Ccache, in order to speed up rebuild times.
+Project_ENABLE_CCACHE:BOOL=ON
+
+//Enable static analysis with Clang-Tidy.
+Project_ENABLE_CLANG_TIDY:BOOL=OFF
+
+//Enable code coverage through GCC.
+Project_ENABLE_CODE_COVERAGE:BOOL=OFF
+
+//Enable the Conan package manager for this project.
+Project_ENABLE_CONAN:BOOL=OFF
+
+//Enable static analysis with Cppcheck.
+Project_ENABLE_CPPCHECK:BOOL=OFF
+
+//Enable Doxygen documentation builds of source.
+Project_ENABLE_DOXYGEN:BOOL=OFF
+
+//Enable Interprocedural Optimization, aka Link Time Optimization
+// (LTO).
+Project_ENABLE_LTO:BOOL=OFF
+
+//Enable unit tests for the projects (from the `test` subfolder).
+Project_ENABLE_UNIT_TESTING:BOOL=ON
+
+//Enable the Vcpkg package manager for this project.
+Project_ENABLE_VCPKG:BOOL=ON
+
+//Create a `project_export.h` file containing all exported symbols.
+Project_GENERATE_EXPORT_HEADER:BOOL=OFF
+
+//Value Computed by CMake
+Project_SOURCE_DIR:STATIC=C:/Code/Csgo/Algorithm
+
+//Use alternative names for the project, such as naming the include
+// directory all lowercase.
+Project_USE_ALT_NAMES:BOOL=ON
+
+//Use the Catch2 project for creating unit tests.
+Project_USE_CATCH2:BOOL=OFF
+
+//Use the GoogleMock project for extending the unit tests.
+Project_USE_GOOGLE_MOCK:BOOL=OFF
+
+//Use the GoogleTest project for creating unit tests.
+Project_USE_GTEST:BOOL=ON
+
+//Enable verbose output, allowing for a better understanding of
+// each step taken.
+Project_VERBOSE_OUTPUT:BOOL=ON
+
+//Treat compiler warnings as errors.
+Project_WARNINGS_AS_ERRORS:BOOL=OFF
 
 //Path to a library.
 SSL_EAY_DEBUG:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/debug/lib/libssl.lib
@@ -360,6 +573,9 @@ _event_h:PATH=C:/Tools/vcpkg/installed/x64-windows/include
 
 //Path to a library.
 _event_lib:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/bin/event_extra.dll
+
+//Path to a program.
+ccache_exe:FILEPATH=C:/Tools/ccache-4.7.4-windows-x86_64/ccache.exe
 
 //The directory containing a CMake configuration file for double-conversion.
 double-conversion_DIR:PATH=C:/Tools/vcpkg/installed/x64-windows/share/double-conversion
@@ -484,6 +700,38 @@ CMAKE_HAVE_PTHREAD_H:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=C:/Code/Csgo/Algorithm
+//ADVANCED property for variable: CMAKE_INSTALL_BINDIR
+CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATADIR
+CMAKE_INSTALL_DATADIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATAROOTDIR
+CMAKE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DOCDIR
+CMAKE_INSTALL_DOCDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INCLUDEDIR
+CMAKE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INFODIR
+CMAKE_INSTALL_INFODIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBDIR
+CMAKE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBEXECDIR
+CMAKE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALEDIR
+CMAKE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALSTATEDIR
+CMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_MANDIR
+CMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR
+CMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_RUNSTATEDIR
+CMAKE_INSTALL_RUNSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SBINDIR
+CMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR
+CMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SYSCONFDIR
+CMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
@@ -549,6 +797,8 @@ CMAKE_TOOLCHAIN_FILE-ADVANCED:INTERNAL=1
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Boost
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[C:/Tools/vcpkg/installed/x64-windows/include][cfound components: context filesystem program_options regex system thread chrono date_time atomic ][v1.80.0()]
+//Details about finding GTest
+FIND_PACKAGE_MESSAGE_DETAILS_GTest:INTERNAL=[C:/Tools/vcpkg/installed/x64-windows/share/gtest/GTestConfig.cmake][c ][v1.12.1()]
 //Details about finding OpenSSL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[optimized;C:/Tools/vcpkg/installed/x64-windows/lib/libcrypto.lib;debug;C:/Tools/vcpkg/installed/x64-windows/debug/lib/libcrypto.lib][C:/Tools/vcpkg/installed/x64-windows/include][c ][v3.0.7()]
 //Details about finding Threads
@@ -593,4 +843,6 @@ _Boost_NAMESPACE_LAST:INTERNAL=boost
 _Boost_USE_MULTITHREADED_LAST:INTERNAL=ON
 //Last used Boost_USE_STATIC_LIBS value.
 _Boost_USE_STATIC_LIBS_LAST:INTERNAL=OFF
+//CMAKE_INSTALL_PREFIX during last run
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/Algorithm
 
