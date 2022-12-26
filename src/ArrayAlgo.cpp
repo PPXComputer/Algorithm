@@ -1,5 +1,6 @@
 ﻿#include "ArrayAlgo.h"
 #include "GreedyAlgo.h"
+#include <numeric>
 #include<vector>
 #include <dbg.h>
 #include <memory>
@@ -8,7 +9,8 @@
 #include <folly/FBVector.h>
 #include <folly/Optional.h>
 #include<array>
-#include< random>
+#include<algorithm>
+#include <random>
 #include<fmt/format.h>
 #include<folly/String.h>
 using folly::fbstring;
@@ -182,10 +184,11 @@ void ArrayAlgo::change_array_data() {
     constexpr static int data = 10;
     constexpr static auto get_first = [&](int index, int rest,
                                           auto &&get_first) -> int {
-        if (rest == 0 and index != 0)
+        if (rest == 0 and index != 0) {
             return 1;
+}
         if (index == first.size())
-            return 0;
+{return 0;}
         int count = 0;
         for (int i = rest / first[index]; i >= 0; i--) {
             count += get_first(index + 1, rest - first[index] * i, get_first);
@@ -669,6 +672,83 @@ void ArrayAlgo::binarySearch()
 
 
 
+}
+
+void ArrayAlgo::minEatingSpeed()
+{
+    const auto impl =[](){
+    fbvector<int> piles{3,6,7,11};
+    int h=8;
+    int sum =std::accumulate(piles.begin (),piles.end(),0);
+
+
+    int left = 1;
+    int right =sum;
+
+    const auto check =[&piles](int num){
+
+        int cnt=0;
+
+        int size = piles.size ();
+        for(int i=0; i < size ; ++i){
+            cnt +=  piles[i] /num   +(  piles[i]%num != 0 ? 1:0);
+        }
+        return cnt;
+    };
+
+    while(left <right ){
+        int mid=  left + ((right -left)>>1);
+        int curTime =check(mid);
+        if(  curTime<= h){  //花费的时间小了可以减少容量
+            right =mid;
+        }else {
+            left = mid+1;
+        }
+    }
+    return left;
+    };
+}
+
+void ArrayAlgo::shipWithinDays()
+{
+    fbvector<int> weights{1,2,3,4,5,6,7,8,9,10}; int days=5;
+   [[maybe_unused]] const auto splitDaty=[&weights ,days](){
+        int min =  INT_MIN;  int max =0;  // 最小值为 max-ele  最大值为  sum
+        for(int  a:weights){
+            if(min >a){
+                min =a;
+            }
+            max +=a;
+        }
+
+        const auto check=[ &weights,days]( int capcity  ){
+            int cnt =1;
+            int sum = weights.front ();
+            int size = weights.size ();
+            for (int i  =1;  i<size;++i){
+                if(sum+weights[i] > capcity){
+                    ++cnt;
+                    sum= weights[i];
+                }else{
+                    sum +=weights[i];
+                }
+            }
+            return cnt <= days;
+        };
+
+        int left = min;
+        int right = max;
+        while(left <right ){
+            int curCapcity =  left +((right - left)>>1); //当前能承载的重量
+            if (check(curCapcity)){  // 花费更小的时间 则 当前的 容量过重
+                right = curCapcity;
+            }else{
+                left = curCapcity+1; // 当前 容量轻了
+            }
+
+        }
+        return left;
+    };
 }
 
 void ArrayAlgo::minSubArrayLen(int target, std::vector<int> &nums) {

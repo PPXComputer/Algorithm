@@ -47,6 +47,12 @@ public:
 
     static void binarySearch();
 
+    // leetcode 875
+    static void minEatingSpeed();
+
+    // leetcode 1011
+    static void shipWithinDays();
+
     // leetcode 528
     static void pickIndex();
 

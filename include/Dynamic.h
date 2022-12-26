@@ -1,9 +1,5 @@
 ﻿#ifndef DYNAMIC_H
 #define DYNAMIC_H
-
-
-
-
 class Dynamic {
 public:
     static void binary_tree_counter();
