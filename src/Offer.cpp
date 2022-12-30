@@ -986,7 +986,7 @@ void Offer::wordBreak() {
             p->isEnd = true;
         }
     }
-    bool failMemo[301]{false}; //// 记录dfs中失败时对应的s中的index
+    bool failMemo[301]{false}; // 记录dfs中失败时对应的s中的index
     auto answer_dfs = [&failMemo](std::string &word, int startPos, const TrieNode &root, auto answer_dfs) {
         if (failMemo[startPos])return false;
         int wordSize = word.size();

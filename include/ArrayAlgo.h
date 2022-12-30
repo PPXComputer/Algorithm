@@ -5,68 +5,65 @@
 #ifndef ARRAYALGO_H
 #define ARRAYALGO_H
 
-
 #include <vector>
 
-
-//定义一个类 ,用于描述日期
-
+// 定义一个类 ,用于描述日期
 
 class ArrayAlgo {
-public:
-    //Consistent Hashing
-    // 一致性函数
+ public:
+  // Consistent Hashing
+  //  一致性函数
 
-    static void change_position();
+  static void change_position();
 
-    static void huffman_tree();
+  static void huffman_tree();
 
-    static void long_increase_sub_array();
+  static void long_increase_sub_array();
 
-    static void standard_str();
+  static void standard_str();
 
-    static void data_array();
+  static void data_array();
 
-    static void not_exists_num();
+  static void not_exists_num();
 
-    static void coin_change();
+  static void coin_change();
 
-    static void xor_max_range();
+  static void xor_max_range();
 
-    static void change_array_data();
+  static void change_array_data();
 
-    static void find_top_k();
+  static void find_top_k();
 
-    static void JosephProblem();
+  static void JosephProblem();
 
-    static void longestTotalArray();
+  static void longestTotalArray();
 
-    static void findKthBit();
+  static void findKthBit();
 
-    static void salesRange();
+  static void salesRange();
 
-    static void binarySearch();
+  static void binarySearch();
 
-    // leetcode 875
-    static void minEatingSpeed();
+  // LeetCode 870
+  static void advantageCount();
 
-    // leetcode 1011
-    static void shipWithinDays();
+  // leetcode 875
+  static void minEatingSpeed();
 
-    // leetcode 528
-    static void pickIndex();
+  // leetcode 1011
+  static void shipWithinDays();
 
-    //leetcode 209
-    static void  minSubArrayLen(int target, std::vector<int> &nums);
+  // leetcode 528
+  static void pickIndex();
 
-    //leetcode 219
-    static   bool containsNearbyDuplicate();
-    ///????????????????????????????????????????????
-    // 这是什么 jb写法?
-    static constexpr unsigned int (max)() {
-        return static_cast<unsigned int>(-1);
-    }
+  // leetcode 209
+  static void minSubArrayLen(int target, std::vector<int> &nums);
+
+  // leetcode 219
+  static bool containsNearbyDuplicate();
+  ///????????????????????????????????????????????
+  // 这是什么 jb写法?
+  static constexpr unsigned int(max)() { return static_cast<unsigned int>(-1); }
 };
 
-
-#endif // ARRAYALGO_H
+#endif  // ARRAYALGO_H
