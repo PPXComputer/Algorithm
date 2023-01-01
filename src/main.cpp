@@ -5,6 +5,7 @@
 #include "ArrayAlgo.h"
 #include "LeetCode.h"
 #include "Offer.h"
+#include "TreeAlgo.h"
 
 using folly::fbvector;
 using std::string;
@@ -127,7 +128,9 @@ int main() {
   // 0000001001110110
   // 0000001000110000
   // 0000000100010001
-  ArrayAlgo::pickIndex();
+  // ArrayAlgo::pickIndex();
+  // TreeAlgo::serialize();
+  ArrayAlgo::takeCharacters();
 }
 
 void bit_flip() {
@@ -167,8 +170,8 @@ void bit_flip() {
 //	auto v2 = v1;
 //	v1.erase(
 //		std::remove(begin(v1), end(v1), *std::max_element(begin(v1),
-//end(v1))), 		v1.end()); 	v2.erase(std::remove( 		begin(v2), end(v2),
-//		decay_copy(*std::max_element(begin(v2), end(v2)))),
+// end(v1))), 		v1.end()); 	v2.erase(std::remove( begin(v2),
+// end(v2), 		decay_copy(*std::max_element(begin(v2), end(v2)))),
 // 1		v2.end());
 //	std::cout << "v1.size()=" << v1.size()<< "v2.size()=" << v2.size();
 // }

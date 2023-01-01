@@ -90,7 +90,7 @@ GreedyAlgo::get_maximum_matrix() {
     constexpr int col = 6;
     array<array<int, 6>, 4> right = {};//默认全部为0
     array<array<int, 6>, 4> down = {};//默认全部为0
-    const auto &init_rigth = [&right, &matrix, row, col] {
+    const auto &rightImpl = [&right, &matrix, row, col] {
         //  先处理最右列
         for (int i = 0; i < row; i++) {
             for (int j = col - 1; j >= 0; j--) {
@@ -157,7 +157,7 @@ GreedyAlgo::get_maximum_matrix() {
         return result;
     };
     init_down();
-    init_rigth();
+    rightImpl();
     cout << dp();
 
 }

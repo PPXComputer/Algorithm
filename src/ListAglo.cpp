@@ -9,26 +9,29 @@
 #include<utility>
 #include<array>
 #include<algorithm>
+#include <functional>
+
 using std::cout;
 using std::array;
 using std::addressof;
+
 inline void ListAlgo::get_node_counter() {
 
     using ptr = BinaryTreeNode::UniquePtr;
     ptr root = BinaryTreeNode::New(0);
     int result = 0;
-    const auto& impl = [&result](const ptr& root, auto&& impl) -> void {
+    std::function<void(const ptr &)> impl = [&result, &impl](const ptr &root) -> void {
         if (root) {
             result += 1;
-            impl(root->left, impl);
-            impl(root->right, impl);
+            impl(root->left);
+            impl(root->right);
         }
     };
-    impl(root, impl);
+    impl(root);
     cout << fmt::format("result {}", result);
 
 
-    const auto& not_recusive = [&root] {
+    const auto &notRecusive = [&root] {
         // 找到最有
     };
 
@@ -36,12 +39,13 @@ inline void ListAlgo::get_node_counter() {
 }
 
 inline void ListAlgo::create_tree() {
-    array pre = { 1, 2, 4, 5, 3, 6, 7 };
-    array in = { 4, 2, 5, 1, 6, 3, 7 };//给定后续
+    array pre = {1, 2, 4, 5, 3, 6, 7};
+    array in = {4, 2, 5, 1, 6, 3, 7};//给定后续
     array<int, 7> pos;
 
-    const auto& impl = [&pre, &in, &pos]
-    (int A, int B, int C, int D, int E, int F, auto&& impl) {
+    std::function<void(int, int, int, int, int, int)> impl;
+    impl = [&pre, &in, &pos, &impl]
+            (int A, int B, int C, int D, int E, int F) {
         if (A > B)return;// 越界
         if (A == B)// 只有一个元素
         {
@@ -59,18 +63,18 @@ inline void ListAlgo::create_tree() {
         }
         pos[F] = pre[A];
         impl(A + 1, A + root - C,
-            C, root - 1,
-            E, E + root - C - 1,
-            impl);
+             C, root - 1,
+             E, E + root - C - 1
+        );
         impl(A + root - C + 1, B,
-            root + 1, D,
-            E + root - C, F - 1,
-            impl);
+             root + 1, D,
+             E + root - C, F - 1
+        );
     };
-    impl(0, 6, 0, 6, 0, 6, impl);
+    impl(0, 6, 0, 6, 0, 6);
     std::for_each(pos.begin(), pos.end(), [](int data) {
         cout << data << " ";
-        });
+    });
 }
 
 [[maybe_unused]] void ListAlgo::partition_list_by_value() {

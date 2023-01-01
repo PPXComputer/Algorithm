@@ -11,10 +11,10 @@
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 all"/>
-					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Algorithm">
@@ -49,10 +49,10 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm"/>
-					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Algorithm/fast">
@@ -87,30 +87,30 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm/fast"/>
-					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 Algorithm/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-release"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/HostX86/x64/nmake.exe /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-release\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>

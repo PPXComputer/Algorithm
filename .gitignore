@@ -409,3 +409,5 @@ FodyWeavers.xsd
 /cmake-build-debug-visual-studio
 /cmake-build-debug-visual-studio-x64/
 /cmake-build-debug-visual-studio-2022-x64/
+/cmake-build-release/
+/cmake-build-debug/

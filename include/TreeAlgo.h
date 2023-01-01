@@ -36,6 +36,11 @@ class TreeAlgo {
   // 105. 从前序与中序遍历序列构造二叉树
   static void buildTree();
 
+  static void serialize();
+
+  static void deserialize();
+
+  static void findDuplicateSubtrees();
  private:
 };
 
