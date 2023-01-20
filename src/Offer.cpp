@@ -509,8 +509,8 @@ int Offer::pivotIndex() {
     std::vector<std::vector<int>> sumCache{};
     sumCache.emplace_back(std::vector<int>{-4});
     sumCache.emplace_back(std::vector<int>{-5});
-    int row = sumCache.size();
-    int col = sumCache[0].size();
+    size_t row = sumCache.size();
+    size_t col = sumCache[0].size();
     for (int i = 0; i < row; ++i) {
         for (int j = 1; j < col; ++j) {
             sumCache[i][j] += sumCache[i][j - 1];
@@ -701,20 +701,20 @@ void Offer::maxPathSum() {
     fbstring str{"[1,-2,-3,1,3,-2,#,-1]"};
     auto a = TreeNode::newTree(str);
     int result = INT_MIN;
-    auto answer = [&result](TreeNode *root, auto &&answer) {
+    std::function<int(TreeNode *)> answer = [&](TreeNode *root) {
 
 
         if (root == nullptr)return 0;
 
-        int maxLeft = std::max(0, answer(root->left, answer));
-        int maxRight = std::max(0, answer(root->right, answer));
+        int maxLeft = std::max(0, answer(root->left));
+        int maxRight = std::max(0, answer(root->right));
         int curResult = std::max({root->val, root->val + maxLeft, root->val + maxRight});
 
         // 因为是选择 一条路径 所以 子答案中的  root+left+right不能直接作为结果返回
         result = std::max({maxLeft + maxRight + root->val, curResult, result});
         return curResult;
     };
-    dbg(answer(a.get(), answer));
+    dbg(answer(a.get()));
 }
 
 void Offer::setZero() {
@@ -944,7 +944,7 @@ void Offer::wordBreak() {
     // 使用暴力递归
     auto answer_word = [](const std::vector<string> &data, std::string &word) {
         auto answer_impl = [&](int dataIndex, int wordIndex, auto answer_impl) {
-            int wordSize = word.size();
+            size_t wordSize = word.size();
             if (wordIndex == wordSize)return true;
             if (dataIndex >= data.size())return false;
             // 还有单词的长度并未匹配到
@@ -1078,17 +1078,17 @@ void Offer::eightnum() {
             int k = static_cast<int>(cur_data.find('x'));
             int x = k / 3;
             int y = k % 3;
-            for (int i : x_four) {
-                for (int j : y_four) {
+            for (int i: x_four) {
+                for (int j: y_four) {
                     int a = x + i;
                     int b = y + j;
                     if (x >= 0 && x <= 3 && y >= 0 && y <= 3) {
                         std::swap(cur_data[k], cur_data[a * 3 + b]);
-                        if( not result_distance.count(cur_data)){
+                        if (not result_distance.count(cur_data)) {
                             result_distance[cur_data] = dist + 1;
                             queue.push(cur_data);
                         }
-                         std::swap(cur_data[k], cur_data[a * 3 + b]);
+                        std::swap(cur_data[k], cur_data[a * 3 + b]);
                     }
                 }
             }
@@ -1097,10 +1097,6 @@ void Offer::eightnum() {
     };
 
 }
-
-
-
-
 
 
 Offer::TreeNode::TreeNode() : val(0), left{nullptr}, right{nullptr} {}
@@ -1131,7 +1127,8 @@ void Offer::TreeNode::setNode(std::vector<TreeNode *> &&container) {
     node = std::forward<decltype(container)>(container);
 }
 
-void Offer::TreeNode::decode(const folly::fbvector<folly::StringPiece> &data, int pos, bool isLeft, TreeNode *preNode, std::vector<TreeNode *> &container) {
+void Offer::TreeNode::decode(const folly::fbvector<folly::StringPiece> &data, int pos, bool isLeft, TreeNode *preNode,
+                             std::vector<TreeNode *> &container) {
 
     if (preNode == nullptr or pos >= data.size() or data[pos].front() == '#') return;
     auto curNode = new TreeNode(folly::to<int>(data[pos]));
@@ -1161,7 +1158,8 @@ std::unique_ptr<Offer::TreeNode> Offer::TreeNode::newTree(int length) {
     return result;
 }
 
-void Offer::TreeNode::decode(const std::vector<int> &data, TreeNode *parent, int left, int right, bool isLeft, std::vector<TreeNode *> &container) {
+void Offer::TreeNode::decode(const std::vector<int> &data, TreeNode *parent, int left, int right, bool isLeft,
+                             std::vector<TreeNode *> &container) {
     if (left > right)return;
     int mid = (right + left) >> 1;
     if (isLeft) {

@@ -13,6 +13,7 @@
 #include <optional>
 #include <string>
 #include <unordered_map>
+#include <stack>
 
 #include "folly/String.h"
 
@@ -316,7 +317,7 @@ void TreeAlgo::findDuplicateSubtrees() {
 
     std::unordered_set<int> res;
     std::unordered_set<std::string> set;
-    std::function<std::string(TreeNode *)> impl = [&](TreeNode *root)->std::string {
+    std::function<std::string(TreeNode *)> impl = [&](TreeNode *root) -> std::string {
         if (root == nullptr)return "#";
         auto left = impl(root);
         auto right = impl(root);
@@ -328,6 +329,186 @@ void TreeAlgo::findDuplicateSubtrees() {
 
     };
     std::vector<int> vec(res.size());
-    std::transform(res.begin(),res.end(),std::back_inserter(vec),[](int a){ return a;});
+    std::transform(res.begin(), res.end(), std::back_inserter(vec), [](int a) { return a; });
 
+}
+
+void TreeAlgo::kthSmallest() {
+    const std::unique_ptr<TreeNode> &ptr = TreeAlgo::create_tree();
+    TreeNode *root = ptr.get();
+    int a = 10e4 + 1;
+    int cnt = 1;
+    int k = 1;
+    std::function<void(TreeNode *)> mid = [&](TreeNode *r) {
+        if (r != nullptr) {
+            mid(r->left);
+            if (cnt++ == k) {
+                a = r->value;
+                return;
+            }
+
+            mid(r->right);
+        }
+    };
+
+    mid(root);
+    dbg(a, cnt, k);
+}
+
+void TreeAlgo::bstToGst() {
+
+
+}
+
+void TreeAlgo::lowestCommonAncestor() {
+    //
+    TreeNode *p = nullptr;
+    TreeNode *q = nullptr;
+    std::function<TreeNode *(TreeNode *)> impl = [&](TreeNode *root) {
+        bool rootIsNull = root == nullptr;
+        bool rootIsQ = root->value == q->value;
+        bool rootIsP = root->value == p->value;
+        bool pLeft_QRight = root->value > p->value && root->value < q->value;
+        bool qLeft_PRight = root->value > q->value && root->value < p->value;
+        if (rootIsNull || rootIsP || rootIsQ || pLeft_QRight || qLeft_PRight)return root;
+
+
+        if (root->value < std::min(q->value, p->value))
+            return impl(root->right);
+
+        return impl(root->left);
+    };
+
+    decltype(impl) otherImpl = [&](TreeNode *root) {
+        if (root->value > p->value && root->value > q->value) {
+            return otherImpl(root->left);
+        } else if (root->value < p->value && root->value < q->value) {
+            return otherImpl(root->right);
+        } else return root;
+    };
+}
+
+void TreeAlgo::lowestCommonAncestor2() {
+
+}
+
+void TreeAlgo::allPathsSourceTarget() {
+    using std::vector;
+    vector<vector<int>> graph = {{0, 1, 1, 0},
+                                 {0, 0, 0, 1},
+                                 {0, 0, 0, 1},
+                                 {0, 0, 0, 0}};
+    int graphSize = graph.size();
+    vector<int> tmp{0};
+    vector<vector<int>> res;
+    std::function<void(int)> traverse = [&](int next) {
+
+        const auto &ref = graph[next];
+
+        if (std::find_if(ref.begin(),
+                         ref.end(),
+                         [](int a) {
+                             return a != 0;
+                         }) == ref.end()) {
+            res.emplace_back(tmp);
+
+        } else {
+            for (int i = 0; i < graphSize; ++i) {
+
+                if (i != next and graph[next][i] != 0) {
+                    tmp.emplace_back(i);
+                    traverse(i);
+                    tmp.pop_back();
+                };
+
+            }
+        }
+    };
+    traverse(0);
+    dbg(res);
+}
+
+void TreeAlgo::isBipartite() {
+    using std::vector;
+    vector<vector<int>> graph = {
+            {1, 3},
+            {0, 2},
+            {1, 3},
+            {0, 2}
+    };
+    const auto impl = [&]() {
+        int graphSize = static_cast<int>(graph.size());
+        vector<int> color(graphSize); //0 没色 1 2
+        vector<int> q;
+        q.reserve(graphSize);
+        for (int i = 0; i < graphSize; i++) {
+            if (color[i] == 0) {
+                color[i] = 1;
+                q.push_back(i);
+            }
+            while (!q.empty()) {
+
+                int parent_node = q.back();
+                q.pop_back();
+                dbg(parent_node, graph[parent_node]);
+                for (int next_node: graph[parent_node]) {
+                    dbg(color);
+                    // 只有没被访问的数据才能作为parent_node进入下一个
+                    if (color[next_node] == 0) {
+                        color[next_node] = color[parent_node] == 2 ? 1 : 2;
+                        q.push_back(next_node);
+
+                    } else {
+                        if (color[next_node] == color[parent_node])
+                            return false;
+                    }
+                    dbg(color);
+                }
+            }
+
+        }
+        return true;
+    };
+    dbg(impl());
+}
+
+void TreeAlgo::possibleBipartition() {
+    using std::vector;
+    vector<vector<int>> dislikes = {{1, 2},
+                                    {1, 3},
+                                    {2, 4}};
+    int n = 4;
+    const auto s = [&]() {
+
+        vector<int> vist(n);
+        std::unordered_map<int, std::unordered_set<int>> graph;
+        for (const auto &a: dislikes) {
+            graph[a[0]].insert(a[1]);
+            graph[a[1]].insert(a[0]);
+        }
+
+        std::stack<int> q;
+        for (int i = 0; i < n; ++i) {
+            if (vist[i] == 0) {
+                vist[i] = 1;
+                q.push(i);
+            }
+
+            while (!q.empty()) {
+                int parent_node = q.top();
+                q.pop();
+                if (graph.count(parent_node - 1))
+                    for (int b: graph[parent_node - 1]) {
+                        int j = b - 1;
+                        if (vist[j] == 0) {
+                            vist[j] = vist[parent_node] == 1 ? 2 : 1;
+                            q.push(j); //  这只能凑一对 找到则下家
+                        } else if (vist[j] == vist[parent_node])return false;
+                    }
+
+            }
+        }
+        return true;
+    };
+    s();
 }

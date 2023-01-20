@@ -86,13 +86,26 @@ Boost_THREAD_LIBRARY_RELEASE:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/lib/b
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx64/x64/lib.exe
 
+//Choose the type of build, options are: None Debug Release RelWithDebInfo
+// MinSizeRel ...
+CMAKE_BUILD_TYPE:STRING=Release
+
+//Id string of the compiler for the CodeBlocks IDE. Automatically
+// detected when left empty
+CMAKE_CODEBLOCKS_COMPILER_ID:STRING=
+
+//The CodeBlocks executable
+CMAKE_CODEBLOCKS_EXECUTABLE:FILEPATH=CMAKE_CODEBLOCKS_EXECUTABLE-NOTFOUND
+
+//Additional command line arguments when CodeBlocks invokes make.
+// Enter e.g. -j<some_number> to get parallel builds
+CMAKE_CODEBLOCKS_MAKE_ARGUMENTS:STRING=
+
 //Enable colored diagnostics throughout.
 CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 
-//Semicolon separated list of supported configuration types, only
-// supports Debug, Release, MinSizeRel, and RelWithDebInfo, anything
-// else will be ignored.
-CMAKE_CONFIGURATION_TYPES:STRING=Debug;Release;MinSizeRel;RelWithDebInfo
+//CXX compiler
+CMAKE_CXX_COMPILER:FILEPATH=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx64/x64/cl.exe
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /EHsc
@@ -135,6 +148,9 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Algorithm
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx64/x64/link.exe
+
+//Program used to build from makefiles.
+CMAKE_MAKE_PROGRAM:STRING=nmake
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -318,6 +334,9 @@ ZLIB_LIBRARY_RELEASE:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/lib/zlib.lib
 Z_VCPKG_BUILTIN_POWERSHELL_PATH:FILEPATH=C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe
 
 //Path to a program.
+Z_VCPKG_CL:FILEPATH=C:/Software/VisualStuido/Community/VC/Tools/MSVC/14.33.31629/bin/Hostx64/x64/cl.exe
+
+//Path to a program.
 Z_VCPKG_PWSH_PATH:FILEPATH=Z_VCPKG_PWSH_PATH-NOTFOUND
 
 //The directory which contains the installed libraries for each
@@ -328,7 +347,7 @@ _VCPKG_INSTALLED_DIR:PATH=C:/Tools/vcpkg/installed
 _event_h:PATH=C:/Tools/vcpkg/installed/x64-windows/include
 
 //Path to a library.
-_event_lib:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/debug/bin/event_extra.dll
+_event_lib:FILEPATH=C:/Tools/vcpkg/installed/x64-windows/bin/event_extra.dll
 
 //Path to a program.
 ccache_exe:FILEPATH=C:/Tools/ccache-4.7.4-windows-x86_64/ccache.exe
@@ -407,6 +426,8 @@ CMAKE_COMMAND:INTERNAL=C:/Software/CLion 2022.3.1/bin/cmake/win/bin/cmake.exe
 CMAKE_CPACK_COMMAND:INTERNAL=C:/Software/CLion 2022.3.1/bin/cmake/win/bin/cpack.exe
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=C:/Software/CLion 2022.3.1/bin/cmake/win/bin/ctest.exe
+//ADVANCED property for variable: CMAKE_CXX_COMPILER
+CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS
 CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
@@ -432,11 +453,13 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
-CMAKE_EXTRA_GENERATOR:INTERNAL=
+CMAKE_EXTRA_GENERATOR:INTERNAL=CodeBlocks
+//CXX compiler system include directories
+CMAKE_EXTRA_GENERATOR_CXX_SYSTEM_INCLUDE_DIRS:INTERNAL=C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\include;C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\ATLMFC\include;C:\Software\VisualStuido\Community\VC\Auxiliary\VS\include;C:\Windows Kits\10\include\10.0.19041.0\ucrt;C:\Windows Kits\10\\include\10.0.19041.0\\um;C:\Windows Kits\10\\include\10.0.19041.0\\shared;C:\Windows Kits\10\\include\10.0.19041.0\\winrt;C:\Windows Kits\10\\include\10.0.19041.0\\cppwinrt;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um
 //Name of generator.
-CMAKE_GENERATOR:INTERNAL=Visual Studio 17 2022
+CMAKE_GENERATOR:INTERNAL=NMake Makefiles
 //Generator instance identifier.
-CMAKE_GENERATOR_INSTANCE:INTERNAL=C:/Software/VisualStuido/Community
+CMAKE_GENERATOR_INSTANCE:INTERNAL=
 //Name of generator platform.
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
@@ -452,6 +475,8 @@ CMAKE_HAVE_PTHREAD_CREATE:INTERNAL=
 CMAKE_HOME_DIRECTORY:INTERNAL=C:/Code/Csgo/Algorithm
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_MAKE_PROGRAM
+CMAKE_MAKE_PROGRAM-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
 CMAKE_MODULE_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_DEBUG

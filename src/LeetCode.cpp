@@ -7,6 +7,7 @@
 #include <unordered_map>
 
 using std::string;
+using std::vector;
 
 void LeetCode::fib() {
     constexpr auto answer = [] {
@@ -258,22 +259,22 @@ void LeetCode::numSubarrayProductLessThanK() {
 }
 
 void LeetCode::allPathsSourceTarget() {
-    auto answer = [](vector<vector<int>> &graph) -> vector<vector<int>> {
+    auto answer = [](vector<vector<int>> &graph) {
         size_t graphSize = graph.size();
         std::vector<std::vector<int>> result;
         std::vector<int> curResult;
-        auto dfs = [&](int curPos, auto &&dfs) -> void {
+        std::function<void(int)> dfs = [&](int curPos) -> void {
             curResult.push_back(curPos);
             if (curPos == graphSize - 1) {
                 result.push_back(curResult);
             } else {
                 for (int nextPos: graph[curPos]) {
-                    dfs(nextPos, dfs);
+                    dfs(nextPos);
                     result.pop_back();
                 }
             }
         };
-        dfs(0, dfs);
+        dfs(0);
         return result;
     };
 }
@@ -371,7 +372,7 @@ void LeetCode::findTargetSumWays() {
                         continue;
                     }
                     for (int i = -maxElem; i <= maxElem; i += iter->first * 2) {
-                        dbg(i,col);
+                        dbg(i, col);
                         if (col - i >= 0 and col - i < mapSize) {
                             dbg(col - i);
                             val[col] += val[col - i];

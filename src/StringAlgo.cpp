@@ -11,11 +11,13 @@
 #include<iostream>
 #include<unordered_map>
 #include<utility>
+
 using std::cout;
 using folly::StringPiece;
 using folly::F14FastSet;
 using folly::fbstring;
 using folly::fbvector;
+
 inline fbstring StringAlgo::sub_string_range() {
     fbstring str = "364210432182613";
     fbstring target = "321";
@@ -72,11 +74,11 @@ inline void StringAlgo::all_sub() {
 }
 
 inline size_t StringAlgo::exp_n(int n) {
-    const auto &imp = [](int cur, auto &&self) -> size_t {
+    std::function<size_t(int)> imp = [&](int cur) -> size_t {
         if (cur == 1)return 1l;
-        return cur * self(cur - 1, self);
+        return cur * imp(cur - 1);
     };
-    return imp(n, imp);
+    return imp(n);
 }
 
 void StringAlgo::string_compress() {
@@ -114,23 +116,23 @@ void StringAlgo::string_compress() {
 
 void StringAlgo::string_expression() {
     std::array data = {1, 2, 2, 5, 8};
-    const auto &impl = [&data](const int index, auto &&impl) -> int {
+    std::function<int(const int)> impl = [&](const int index) -> int {
         size_t len = data.size();
         if (index == len)
             return 1; //都选择完成了当前算一个情况
         if (data.at(index) == 0) //当前是一个零
             return 0;
-        int result = impl(index + 1, impl);// 当前作为一个字符
+        int result = impl(index + 1);// 当前作为一个字符
         if (index + 1 == len) //已经是最后一个字符了
             return result;
 
         auto concat_value = data.at(index) * 10 + data.at(index + 1);
         if (index + 1 < len and concat_value < 27) {
-            result += impl(index + 2, impl);
+            result += impl(index + 2);
         }
         return result;
     };
-    cout << impl(0, impl);
+    cout << impl(0);
     const auto &dpImpl = [&data](int index) {
         if (data.at(index) == 0)return 0;
         size_t len = data.size();
@@ -206,8 +208,8 @@ void StringAlgo::boolean_expression() {
 
     fbstring expression = "1^0|0|1";
 
-    const auto impl = [&expression](auto &&impl,
-                                    bool desired, int left, int right) -> int {
+    std::function<int(bool, int, int)> impl = [&](
+            bool desired, int left, int right) -> int {
         if (left == right) {
             if (expression[left] == '1')
                 return desired ? 1 : 0;
@@ -225,22 +227,22 @@ void StringAlgo::boolean_expression() {
                 dbg(folly::StringPiece(expression.begin() + i + 1, expression.begin() + right));
                 switch (expression[i]) {
                     case '^':
-                        result += impl(impl, false, left, right - 1) *
-                                  impl(impl, true, left + 1, right);
-                        result += impl(impl, true, left, right - 1) *
-                                  impl(impl, false, left + 1, right);
+                        result += impl(false, left, right - 1) *
+                                  impl(true, left + 1, right);
+                        result += impl(true, left, right - 1) *
+                                  impl(false, left + 1, right);
                         break;
                     case '|':
-                        result += impl(impl, false, left, right - 1) *
-                                  impl(impl, true, left + 1, right);
-                        result += impl(impl, true, left, right - 1) *
-                                  impl(impl, false, left + 1, right);
-                        result += impl(impl, true, left, right - 1) *
-                                  impl(impl, true, left + 1, right);
+                        result += impl(false, left, right - 1) *
+                                  impl(true, left + 1, right);
+                        result += impl(true, left, right - 1) *
+                                  impl(false, left + 1, right);
+                        result += impl(true, left, right - 1) *
+                                  impl(true, left + 1, right);
                         break;
                     case '&':
-                        result += impl(impl, true, left, right - 1) *
-                                  impl(impl, true, left + 1, right);
+                        result += impl(true, left, right - 1) *
+                                  impl(true, left + 1, right);
                         break;
                     default:
                         break;
@@ -255,22 +257,22 @@ void StringAlgo::boolean_expression() {
                 dbg(folly::StringPiece(expression.begin() + i + 1, expression.begin() + right));
                 switch (expression[i]) {
                     case '^':
-                        result += impl(impl, true, left, right - 1) *
-                                  impl(impl, true, left + 1, right);
-                        result += impl(impl, false, left, right - 1) *
-                                  impl(impl, false, left + 1, right);
+                        result += impl(true, left, right - 1) *
+                                  impl(true, left + 1, right);
+                        result += impl(false, left, right - 1) *
+                                  impl(false, left + 1, right);
                         break;
                     case '|':
-                        result += impl(impl, false, left, right - 1) *
-                                  impl(impl, false, left + 1, right);
+                        result += impl(false, left, right - 1) *
+                                  impl(false, left + 1, right);
                         break;
                     case '&':
-                        result += impl(impl, true, left, right - 1) *
-                                  impl(impl, false, left + 1, right);
-                        result += impl(impl, false, left, right - 1) *
-                                  impl(impl, true, left + 1, right);
-                        result += impl(impl, false, left, right - 1) *
-                                  impl(impl, false, left + 1, right);
+                        result += impl(true, left, right - 1) *
+                                  impl(false, left + 1, right);
+                        result += impl(false, left, right - 1) *
+                                  impl(true, left + 1, right);
+                        result += impl(false, left, right - 1) *
+                                  impl(false, left + 1, right);
                         break;
                     default:
                         break;
@@ -280,7 +282,7 @@ void StringAlgo::boolean_expression() {
 
         return result;
     };
-    impl(impl, false, 0, expression.size() - 1);
+    impl(false, 0, expression.size() - 1);
 
 }
 
@@ -320,27 +322,27 @@ inline void StringAlgo::printAll(const folly::fbstring &cur,
 
 void StringAlgo::wordBreak() {
 
-    fbstring cur = "pineapplepenapple";
-    folly::F14FastSet<std::string> wordDict{"apple", "pen", "applepen", "pine", "pineapple"};
+    std::string cur = "pineapplepenapple";
+    std::unordered_set<std::string> wordDict{"apple", "pen", "applepen", "pine", "pineapple"};
 
     folly::fbvector<folly::fbstring> rst;
-    const auto can = [&rst](StringPiece piece, fbstring &t, const folly::F14FastSet<std::string> &set,
-                            auto &&self) {
-        if (piece.empty()) {
-            rst.emplace_back(t);
-            dbg(t);
-            return;
-        }
-        for (const auto &str: set) {
-            if (piece.startsWith(str)) {
-                t += " " + str;
-                dbg(piece.size(), str.size(), folly::join("", piece), str);
-                self(piece.subpiece(str.length()), t, set, self);
-            }
-        }
-    };
-    fbstring tmp;
-    can(cur, tmp, wordDict, can);
+    std::function<void(StringPiece, std::string &)> can
+            = [&](StringPiece piece, std::string &t) {
+                if (piece.empty()) {
+                    rst.emplace_back(t);
+                    dbg(t);
+                    return;
+                }
+                for (const auto &str: wordDict) {
+                    if (piece.startsWith(str)) {
+                        t += " " + str;
+                        dbg(piece.size(), str.size(), folly::join("", piece), str);
+                        can(piece.subpiece(str.length()), t);
+                    }
+                }
+            };
+    std::string tmp;
+    can(cur, tmp);
     dbg(folly::join("---", rst));
 }
 
@@ -365,7 +367,7 @@ void StringAlgo::searchWord() {
             for (int i = 0, wordSize = words.size(); i < wordSize; ++i) {
                 const auto &ref = words[i];
                 if (ref[0] == board[x][y]) {
-                    for (auto[xInc, yInc]: pos) {
+                    for (auto [xInc, yInc]: pos) {
                         impl(x + xInc, y + yInc, count + 1, i, impl);
                     }
                 }

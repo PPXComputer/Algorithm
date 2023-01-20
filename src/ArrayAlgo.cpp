@@ -653,7 +653,7 @@ void ArrayAlgo::binarySearch() {
 void ArrayAlgo::advantageCount() {
     fbvector<int> first;
     fbvector<int> second;
-    using constPair= const std::pair<int, int>;
+    using constPair = const std::pair<int, int>;
     auto data = [](constPair &a, constPair &b) {
         return a.first > b.first;
     };
@@ -865,3 +865,81 @@ void ArrayAlgo::pickIndex() {
     }
     dbg(left);
 }
+
+void ArrayAlgo::countSmaller() {
+
+    using std::vector;
+    vector<int> nums{5, 2, 6, 1};
+
+    int size = static_cast<int>(nums.size());
+
+    struct Val {
+        int data = 0;
+        int index = 0;
+
+        Val() = default;
+
+        explicit Val(int a, int b) : data{a}, index{b} {}
+
+    };
+
+    vector<Val> valWithIndex;
+    valWithIndex.reserve(size);
+    for (int i = 0; i < size; ++i) {
+        valWithIndex.emplace_back(nums[i], i);
+    }
+    vector<int> res(size);
+
+    dbg(nums);
+    const auto merge = [&res, &valWithIndex](
+            int
+            left, int
+            right) {
+        // 转换的时候 将当前
+        // 将当前存在于将小的坐标转换为大的坐标的情况 则添加当前的计数
+        int mid = (left + right) / 2;
+        int secondStart = mid + 1;
+
+        vector<Val> help(right - left + 1);
+
+        int index = 0;
+        while (left <= mid && secondStart <= right) {
+            if (valWithIndex[left].data < valWithIndex[secondStart].data) {
+                res[valWithIndex[left].index] += right - mid - 1;
+                help[index++] = valWithIndex[left++];
+
+            } else {
+                help[index++] = valWithIndex[secondStart++];
+            }
+        }
+
+        if (left > mid) { // 右侧有元素
+            help[index++] = valWithIndex[secondStart++];
+        } else { //左侧有元素
+            res[valWithIndex[left].index] += right - mid - 1;
+            help[index++] = valWithIndex[left++];
+        }
+
+    };
+
+    std::function<void(int, int)> mergeSort = [&](int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSort(left, mid);
+            mergeSort(mid + 1, right);
+            merge(left, right);
+        }
+    };
+
+
+    mergeSort(0, size - 1);
+
+    dbg(res);
+    //return res;
+}
+
+void ArrayAlgo::reversePair() {
+    // 求逆序对数 
+
+}
+

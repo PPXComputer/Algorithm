@@ -313,14 +313,14 @@ void Dynamic::quick_multiply() {
 inline void Dynamic::package() {
     int target = 30;
     fbvector<int> data = GreedyAlgo::geRandomArray(10, 2, 20);
-    const auto &dfsImpl = [&data](int cur, int res, auto &&dfsImpl) {
+    std::function<int(int, int)> dfsImpl = [&](int cur, int res) {
         if (res < 0) return 0;
         if (cur == data.size()) return 1;
-        auto get = dfsImpl(cur + 1, res - data[cur], dfsImpl);
-        auto not_get = dfsImpl(cur + 1, res, dfsImpl);
+        auto get = dfsImpl(cur + 1, res - data[cur]);
+        auto not_get = dfsImpl(cur + 1, res);
         return get + not_get;  // 这部分 是递归程序 将的 多次触发
     };
-    auto result = dfsImpl(0, target, dfsImpl);
+    auto result = dfsImpl(0, target);
     for (auto sd: data) {
         cout << sd << " ";
     }
@@ -377,8 +377,7 @@ inline void Dynamic::package() {
 
     // 备忘录记录路径
     fbvector<fbvector<int>> cache(data.size() + 1, fbvector<int>(target + 1, -1));
-    const auto &dfsCacheImpl = [&data, &cache](int cur, int res,
-                                               auto &&dfsCacheImpl) {
+    std::function<int(int, int)> dfsCacheImpl = [&](int cur, int res) {
         if (res < 0) return 0;
         if (cur == data.size()) {
             cache[cur][res] = 1;
@@ -391,7 +390,7 @@ inline void Dynamic::package() {
             if (cache_value != -1)
                 get = cache_value;
             else {
-                get = dfsCacheImpl(cur + 1, rest_money, dfsCacheImpl);
+                get = dfsCacheImpl(cur + 1, rest_money);
                 cache[cur + 1][rest_money] = get;
             }
         }
@@ -399,14 +398,14 @@ inline void Dynamic::package() {
         if (cache[cur + 1][res] != -1) {
             not_get = cache[cur + 1][res];
         } else {
-            not_get = dfsCacheImpl(cur + 1, res, dfsCacheImpl);
+            not_get = dfsCacheImpl(cur + 1, res);
             cache[cur + 1][res] = not_get;
         }
         cache[cur][res] = get + not_get;
         return cache[cur][res];
     };
 
-    cout << fmt::format("\n result:{}", dfsCacheImpl(0, target, dfsCacheImpl));
+    cout << fmt::format("\n result:{}", dfsCacheImpl(0, target));
 }
 
 void Dynamic::sub_matrix() {
@@ -685,26 +684,26 @@ void Dynamic::snake() {
     };
 
     // 递归暴力解法
-    const auto &enumDfs = [&data](int x, int y, int cur, auto &&dfs,
-                                  int minimum) -> int {
+    std::function<int(int, int, int, int)> enumDfs = [&](int x, int y, int cur,
+                                                         int minimum) -> int {
         if (cur < 0) return INT_MIN;
         if (x >= 5 or x < 0 or y >= 5 or y < 0) return cur;
         if (minimum > data[x][y]) minimum = data[x][y];
         cur = cur + data[x][y];
-        return std::max({dfs(x + 1, y, cur, dfs, minimum),
-                         dfs(x - 1, y + 1, cur, dfs, minimum),
-                         dfs(x, y + 1, cur, dfs, minimum)});
+        return std::max({enumDfs(x + 1, y, cur, minimum),
+                         enumDfs(x - 1, y + 1, cur, minimum),
+                         enumDfs(x, y + 1, cur, minimum)});
     };
     int result = INT_MIN;
     for (auto &item: data) {
         for (int &i: item) {
             if (i < 0) {
-                int a = enumDfs(0, 0, 0, enumDfs, INT_MAX);
+                int a = enumDfs(0, 0, 0, INT_MAX);
                 i = -i;
-                int b = enumDfs(0, 0, 0, enumDfs, INT_MAX);
+                int b = enumDfs(0, 0, 0, INT_MAX);
                 result = std::max({result, a, b});
             } else {
-                result = std::max(result, enumDfs(0, 0, 0, enumDfs, INT_MAX));
+                result = std::max(result, enumDfs(0, 0, 0, INT_MAX));
             }
         }
     }

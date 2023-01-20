@@ -4,17 +4,17 @@
 	<Project>
 		<Option title="Algorithm"/>
 		<Option makefile_is_custom="1"/>
-		<Option compiler="gcc"/>
+		<Option compiler="msvc8"/>
 		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\Tools\;CMake Files\..\..\..\Tools\vcpkg\;CMake Files\..\..\..\Tools\vcpkg\scripts\;CMake Files\..\..\..\Tools\vcpkg\scripts\buildsystems\;CMake Files\..\..\..\Tools\vcpkg\installed\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\folly\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\double-conversion\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\glog\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\gflags\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\libevent\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\zlib\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\openssl\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\fmt\;CMake Files\..\..\..\Tools\vcpkg\installed\x64-windows\share\boost\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Algorithm">
@@ -22,7 +22,7 @@
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
-				<Option compiler="gcc"/>
+				<Option compiler="msvc8"/>
 				<Compiler>
 					<Add option="-DNOMINMAX"/>
 					<Add option="-D_CRT_NONSTDC_NO_WARNINGS"/>
@@ -38,19 +38,21 @@
 					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
 					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\ATLMFC\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Windows Kits\10\include\10.0.19041.0\ucrt"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 Algorithm"/>
-					<CompileFile command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 Algorithm"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Algorithm/fast">
@@ -58,7 +60,7 @@
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
-				<Option compiler="gcc"/>
+				<Option compiler="msvc8"/>
 				<Compiler>
 					<Add option="-DNOMINMAX"/>
 					<Add option="-D_CRT_NONSTDC_NO_WARNINGS"/>
@@ -74,39 +76,41 @@
 					<Add directory="C:/Code/Csgo/Algorithm/./include"/>
 					<Add directory="C:/Code/Csgo/Algorithm/./src"/>
 					<Add directory="C:/Tools/vcpkg/installed/x64-windows/include"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Software/CLion 2022.3.1/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Tools\MSVC\14.33.31629\ATLMFC\include"/>
+					<Add directory="C:\Software\VisualStuido\Community\VC\Auxiliary\VS\include"/>
+					<Add directory="C:\Windows Kits\10\include\10.0.19041.0\ucrt"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\um"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\shared"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\winrt"/>
+					<Add directory="C:\Windows Kits\10\\include\10.0.19041.0\\cppwinrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 Algorithm/fast"/>
-					<CompileFile command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 Algorithm/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="C:/Code/Csgo/Algorithm/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Software/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Code/Csgo/Algorithm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Code\Csgo\Algorithm\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>

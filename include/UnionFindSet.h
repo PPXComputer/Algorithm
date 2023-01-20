@@ -8,20 +8,18 @@
 #include <vector>
 #include <unordered_map>
 #include <cassert>
-using std::unordered_map;
-using std::vector;
-using std::addressof;
+
 
 class UnionFindSet {
 
 private:
-    vector<int> container = {};
-    vector<int> father = {};
-    vector<int> counter_size = {};
+    std::vector<int> container = {};
+    std::vector<int> father = {};
+    std::vector<int> counter_size = {};
 public:
 
 
-    explicit UnionFindSet(vector<int> data);
+    explicit UnionFindSet(std::vector<int> data);
 
     int find_father(int val);
 

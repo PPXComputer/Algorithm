@@ -5,7 +5,6 @@
 #include<memory>
 #include <cassert>
 
-using std::vector;
 
 class LeetCode {
 public:
@@ -50,7 +49,7 @@ public:
     remove_all_words();
 
     static int
-    maxConsecutive(int bottom, int top, vector<int> &special);
+    maxConsecutive(int bottom, int top, std::vector<int> &special);
 
     static int
     largestCombination();
@@ -67,7 +66,7 @@ public:
     static void countLatticePoints();
 
     class CountIntervals {
-        vector<std::pair<int, int>> m_con;
+        std::vector<std::pair<int, int>> m_con;
     public:
         CountIntervals() = default;
 

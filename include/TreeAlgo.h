@@ -41,6 +41,26 @@ class TreeAlgo {
   static void deserialize();
 
   static void findDuplicateSubtrees();
+    //230.
+  static void kthSmallest();
+    //
+    static void bstToGst();
+
+
+    ////235. 二叉搜索树的最近公共祖先     std::function<TreeNode*()> imp=[]
+    static void lowestCommonAncestor();
+
+    // 236. 二叉树的最近公共祖先
+    static void lowestCommonAncestor2();
+
+    // 剑指 Offer II 110. 所有路径
+    static void allPathsSourceTarget();
+
+    // 785. 判断二分图
+    static void isBipartite();
+
+    //886. 可能的二分法
+    static void possibleBipartition();
  private:
 };
 

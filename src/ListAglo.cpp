@@ -41,7 +41,7 @@ inline void ListAlgo::get_node_counter() {
 inline void ListAlgo::create_tree() {
     array pre = {1, 2, 4, 5, 3, 6, 7};
     array in = {4, 2, 5, 1, 6, 3, 7};//给定后续
-    array<int, 7> pos;
+    array<int, 7> pos{};
 
     std::function<void(int, int, int, int, int, int)> impl;
     impl = [&pre, &in, &pos, &impl]
