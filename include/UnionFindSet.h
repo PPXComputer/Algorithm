@@ -13,18 +13,23 @@
 class UnionFindSet {
 
 private:
-    std::vector<int> container = {};
-    std::vector<int> father = {};
-    std::vector<int> counter_size = {};
-public:
-
-
-    explicit UnionFindSet(std::vector<int> data);
+    int m_count; //连通分量
+    std::vector<int> m_father;
 
     int find_father(int val);
 
+public:
+
+
+    explicit UnionFindSet(int n);
+
     int find_head(int val);
 
+    bool connected(int a, int b);
+
+    void merge(int a, int b);
+
+    [[nodiscard]] int count() const;
 };
 
 

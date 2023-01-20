@@ -3,31 +3,49 @@
 //
 
 #include "UnionFindSet.h"
+#include <algorithm>
+
+using std::vector;
 
 int UnionFindSet::find_father(int val) {
-    assert(val < father.size());
-    int father_val = father[val];
-    int result = father_val;
+    assert(val < m_father.size());
+    int father_val = m_father[val];
 
-    if (bool father_not_root = father[father_val] != father_val;father_not_root) {
-        do {
-            father_val = father[father_val];
-        } while (father[father_val] != father_val);
-        father[val] = father_val;
+    while (m_father[father_val] != father_val) {
+        father_val = m_father[father_val];
     }
-    return result;
+    m_father[val] = father_val;
+    return father_val;
 }
 
 int UnionFindSet::find_head(int val) {
-    assert(val < father.size());
-    if (father[val] == val) {
+    assert(val < m_father.size());
+    if (m_father[val] != val)
+        return find_father(val);
+    else
         return val;
-    }
-    return find_head(father[val]);
 }
 
-UnionFindSet::UnionFindSet(vector<int> data) {
-    container = std::move(data);
-    father = container;
-    counter_size = std::vector<int>(container.size(), 1);
+UnionFindSet::UnionFindSet(int n) : m_father{vector<int>(n)}, m_count{n} {
+    int index = 0;
+    std::for_each(m_father.begin(), m_father.end(), [&index](int &a) { a = index++; });
+}
+
+bool UnionFindSet::connected(int a, int b) {
+    assert(a < m_father.size() and a > 0);
+    assert(b < m_father.size() and b > 0);
+    return find_head(a) == find_head(b);
+}
+
+void UnionFindSet::merge(int a, int b) {
+    int father_a = find_father(a);
+    int father_b = find_father(b);
+    m_father[father_a] = father_b;
+    m_father[a] = father_b;
+    m_father[b] = father_b;
+    this->m_count--;
+}
+
+int UnionFindSet::count() const {
+    return this->m_count;
 }
