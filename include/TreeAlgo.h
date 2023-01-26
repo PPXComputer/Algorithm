@@ -4,45 +4,49 @@
 
 #ifndef SSH_TREEALGO_H
 #define SSH_TREEALGO_H
+
 #include <memory>
+
 struct TreeNode {
-  explicit TreeNode(int data) : value(data) {}
+    explicit TreeNode(int data) : value(data) {}
 
-  ~TreeNode() = default;
+    ~TreeNode() = default;
 
-  TreeNode* left = nullptr;
-  TreeNode* right = nullptr;
-  int value = 0;
+    TreeNode *left = nullptr;
+    TreeNode *right = nullptr;
+    int value = 0;
 };
 
 class TreeAlgo {
- public:
-  using Node = TreeNode;
+public:
+    using Node = TreeNode;
 
-  static std::unique_ptr<TreeNode> create_tree();
+    static std::unique_ptr<TreeNode> create_tree();
 
-  static void cal_node_distance();
+    static void cal_node_distance();
 
-  static void find_non_exist_num();
+    static void find_non_exist_num();
 
-  static void run();
+    static void run();
 
-  static void find_most_search_subtree();
+    static void find_most_search_subtree();
 
-  static void connect();  // LeetCode 116
+    static void connect();  // LeetCode 116
 
-  static void constructMaximumBinaryTree();  // leetcode 654
+    static void constructMaximumBinaryTree();  // leetcode 654
 
-  // 105. 从前序与中序遍历序列构造二叉树
-  static void buildTree();
+    // 105. 从前序与中序遍历序列构造二叉树
+    static void buildTree();
 
-  static void serialize();
+    static void serialize();
 
-  static void deserialize();
+    static void deserialize();
 
-  static void findDuplicateSubtrees();
+    static void findDuplicateSubtrees();
+
     //230.
-  static void kthSmallest();
+    static void kthSmallest();
+
     //
     static void bstToGst();
 
@@ -61,7 +65,11 @@ class TreeAlgo {
 
     //886. 可能的二分法
     static void possibleBipartition();
- private:
+
+    // 1584. 连接所有点的最小费用
+    static void minCostConnectPoints();
+
+private:
 };
 
 #endif  // SSH_TREEALGO_H

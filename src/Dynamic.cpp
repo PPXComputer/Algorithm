@@ -1,5 +1,4 @@
-﻿#include "Dynamic.h"
-
+﻿
 #include <folly/FBString.h>
 #include <folly/FBVector.h>
 
@@ -13,6 +12,7 @@
 #include <random>
 
 #include "GreedyAlgo.h"
+#include "Dynamic.h"
 
 using folly::fbstring;
 using folly::fbvector;

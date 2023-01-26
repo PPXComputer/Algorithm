@@ -2,10 +2,12 @@
 // Created by ppx on 2022/1/16.
 //
 #include "TreeAlgo.h"
+#include "UnionFindSet.h"
 
 #include <dbg.h>
 #include <fmt/core.h>
 #include <folly/FBVector.h>
+#include <folly/String.h>
 
 #include <algorithm>
 #include <array>
@@ -14,10 +16,10 @@
 #include <string>
 #include <unordered_map>
 #include <stack>
-
-#include "folly/String.h"
+#include <queue>
 
 using folly::fbvector;
+using std::vector;
 
 void TreeAlgo::cal_node_distance() {
     // ????????????
@@ -511,4 +513,131 @@ void TreeAlgo::possibleBipartition() {
         return true;
     };
     s();
+}
+
+void TreeAlgo::minCostConnectPoints() {
+    vector<vector<int>> origin{{0, 0},
+                               {2, 2},
+                               {3, 10},
+                               {5, 2},
+                               {7, 0}};
+    const auto curSize = origin.size();
+    size_t graphSize = curSize * curSize;
+    vector<vector<int>> graph(curSize, vector<int>(curSize));
+    const auto calDistance = [](const vector<int> &a, const vector<int> &b) {
+        assert(a.size() == 2);
+        assert(b.size() == 2);
+        return std::abs(a[0] - b[0]) + std::abs(b[1] - a[1]);
+    };
+
+    // build graph
+    for (int i = 0; i < curSize; ++i) {
+        for (int j = i + 1; j < curSize; ++j) {
+            graph[i][j] = calDistance(origin[i], origin[j]);
+            graph[j][i] = origin[i][j];
+        }
+    }
+
+    //最短生成树
+    // 每次选择最短的路径
+    const auto otherImpl = [curSize, &graph] {
+        struct IndexAndDistance {
+            int start;
+            int end;
+            int distance;
+        };
+        // 默认是 大顶堆
+        const auto cmp =
+                [](const IndexAndDistance &a, const IndexAndDistance &b) {
+                    return a.distance < b.distance;
+                };
+        std::priority_queue<IndexAndDistance, vector<IndexAndDistance>, decltype(cmp)> queue(cmp);
+        std::unordered_set<int> graphJointSet{0};
+        graphJointSet.reserve(curSize);
+        std::stack<int, vector<int>> jointStack;
+        jointStack.push(0);
+        int result = 0; //结果 用于累加路径和
+        while (not jointStack.empty()) {
+            int curIndex = jointStack.top();
+            for (int start: graphJointSet) {
+                for (int end = 1; end < curSize; ++end) {
+                    if (graphJointSet.count(end) == 0) {
+                        queue.push(IndexAndDistance{start, end, graph[start][end]});
+                    }
+                }
+            }
+            if (queue.empty()) {
+                break;
+            }
+            IndexAndDistance cur = queue.top();
+            jointStack.push(cur.end);
+            result += cur.distance;
+        }
+    };
+
+
+    // prim 算法
+    const auto prim = [&](int start) {
+        vector<int> distanceCost(curSize, INT_MAX);
+
+        std::unordered_set<int> jointSet{start};
+        jointSet.reserve(curSize);
+        int res = 0;
+        for (int i = 0; i < curSize; ++i) {
+            if (i == start) continue;
+            distanceCost[i] = graph[i][start];
+        }
+        while (jointSet.size() != curSize) {
+            int minDistance = INT_MAX;
+            int nextIndex = -1;
+            for (int i = 0; i < curSize; ++i) {
+                if (jointSet.count(i) == 0
+                    && distanceCost[i] < minDistance) {
+                    nextIndex = i;
+                    minDistance = distanceCost[i];
+                }
+            }
+            //加入到新的节点
+            jointSet.insert(nextIndex);
+            res += minDistance;
+            for (int i = 0; i < curSize; ++i) {
+                if (i == nextIndex) continue;
+                int newDistance = graph[i][nextIndex];
+                if (distanceCost[i] > newDistance) {
+                    distanceCost[i] = newDistance;
+                }
+            }
+        }
+
+
+    };
+
+
+    const auto Kruskal = [&]() {
+        struct IndexAndDistance {
+            int start;
+            int end;
+            int distance;
+        };
+        const auto cmp =
+                [](const IndexAndDistance &a, const IndexAndDistance &b) {
+                    return a.distance < b.distance;
+                };
+        std::priority_queue<IndexAndDistance, vector<IndexAndDistance>, decltype(cmp)> heap(cmp);
+        for (int i = 0; i < curSize; ++i) {
+            for (int j = i + 1; j < curSize; ++j) {
+                heap.push(IndexAndDistance{i, j, graph[i][j]});
+            }
+        }
+        UnionFindSet mSet{static_cast<int>(curSize)};
+        while (not heap.empty()) {
+            IndexAndDistance indexAndDistance = heap.top();
+            heap.pop();
+            int startFather = mSet.find_head(indexAndDistance.start);
+            int endFather = mSet.find_head(indexAndDistance.end);
+            if (startFather != endFather) {
+                mSet.merge(indexAndDistance.start, indexAndDistance.end);
+            }
+        }
+    };
 }
