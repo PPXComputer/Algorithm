@@ -127,7 +127,7 @@ void StringAlgo::string_expression() {
             return result;
 
         auto concat_value = data.at(index) * 10 + data.at(index + 1);
-        if (index + 1 < len and concat_value < 27) {
+        if (index + 1 < len && concat_value < 27) {
             result += impl(index + 2);
         }
         return result;
@@ -298,7 +298,7 @@ void StringAlgo::expression() {
         fbvector<int> stack(str1.size()); //stack 存储当前的表达式
         // 按照当前的进栈规则行进
 
-        while (start != str1.size() and str1[start] != '}') {
+        while (start != str1.size() && str1[start] != '}') {
         }
 
         // stack  Manipulate
@@ -472,7 +472,7 @@ void StringAlgo::findRepeatedDnaSequences() {
         cur = cur * 4 + curCharNumber(s[i + 9]);
         dbg(cur);
         dbg(mSet);
-        if (not mSet.insert(cur).second) {
+        if (! mSet.insert(cur).second) {
             res.emplace_back(s.substr(i, 10));
         }
     }
@@ -512,7 +512,7 @@ void StringAlgo::Rabin_Karp() {
                 // 出现重复的hash 值
 
                 //需要进一步判断当前是否发生了 一个hash 值对应多个的情况
-                if (not std::equal(pattern.begin(), pattern.end(), txt.begin() + left, txt.begin() + right)) {
+                if (! std::equal(pattern.begin(), pattern.end(), txt.begin() + left, txt.begin() + right)) {
                     // 没有重复记录当前位置
                     res.insert(left);
                 }

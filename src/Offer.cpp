@@ -24,7 +24,7 @@ int Offer::divide() {
     int a = 15;
     int b = 2;
     bool negative = true;
-    if (a < 0 and b < 0) negative = false;
+    if (a < 0 && b < 0) negative = false;
     a = std::abs(a);
     b = std::abs(b);
 
@@ -180,7 +180,7 @@ void Offer::threeSum() {
     //                }
     //
     //            }
-    //            if (not isSuccess) {
+    //            if (! isSuccess) {
     //                ++mMap[first];
     //            }
     //        }
@@ -220,8 +220,8 @@ void Offer::threeSum() {
                     break;
                 }
             }
-            if (i + 1 < size and data[i + 1] == data[i]) {
-                while (i + 1 < size and data[i + 1] == data[i])
+            if (i + 1 < size && data[i + 1] == data[i]) {
+                while (i + 1 < size && data[i + 1] == data[i])
                     ++i;
             } else {
                 ++i;
@@ -243,14 +243,14 @@ void Offer::threeSum() {
         //2. 当前数字匹配多次 -2,-1,0,2,3    -2 0 2   -2  -1  3 所以匹配成功后left 要转到下一个地方 不能直接打破循环
 
         for (int i = 0; i < size; ++i) {
-            if (i > 0 and data[i - 1] == data[i]) continue;
+            if (i > 0 && data[i - 1] == data[i]) continue;
             int left = i + 1;
             int right = size - 1;
             while (left < right) {
                 int curResult = data[left] + data[i] + data[right];
                 if (curResult == 0) {
                     result.emplace_back(std::vector<int>{data[i], data[left], data[right]});
-                    while (left < right and data[left] == data[1 + left])++left;
+                    while (left < right && data[left] == data[1 + left])++left;
                     ++left; //到达下一个 left 不相同的地方
                     continue;
                 } else if (curResult < 0) {
@@ -282,7 +282,7 @@ void Offer::threeSumSecondAnswer(vector<int> &data) {
                 if (mMap[first] > 0) {
                     --mMap[first];
                     const auto &iterator = mMap.find(-cur - first);
-                    if (iterator != mMap.end() and ((*iterator).second > 0)) {
+                    if (iterator != mMap.end() && ((*iterator).second > 0)) {
                         dbg(*iterator);
                         results.emplace_back(std::vector<int>{cur, first, (*iterator).first});
                         isSuccess = true;
@@ -292,7 +292,7 @@ void Offer::threeSumSecondAnswer(vector<int> &data) {
                 }
             }
 
-            if (not isSuccess) {
+            if (! isSuccess) {
                 ++mMap[cur];
             }
         }
@@ -309,7 +309,7 @@ void Offer::threeSumFirstAnswer(std::vector<int> &data) {
     int size = data.size();
     for (int i = 0; i < size; ++i) {
 
-        while (i + 1 < size and data[i] == data[i + 1]) {
+        while (i + 1 < size && data[i] == data[i + 1]) {
             ++i;
         }
         int left = i + 1;
@@ -339,7 +339,7 @@ void Offer::minSubArrayLen() {
     int curResult = data[0];
     int result = INT_MAX;
     int left = 0;
-    while (left <= right and right < size) {
+    while (left <= right && right < size) {
         if (curResult < target) {
             ++right;
             if (right < size)curResult += data[right];
@@ -661,7 +661,7 @@ int Offer::countSubstrings() {
         // right 可能为 中心点为两个元素
         // right 应该字符串的 长度相关 可能为 偶数 或者奇数
         int right = left + cur % 2;
-        while (right < len and left >= 0 and varString[left] == varString[right]) {
+        while (right < len && left >= 0 && varString[left] == varString[right]) {
             --left;
             ++right;
             ++result;
@@ -731,7 +731,7 @@ void Offer::setZero() {
             for (int j = 0; j < col; ++j) {
                 if (matrix[i][j] == 0) {
                     matrix[i][j] = INT_MIN;
-                    // search in different row and col
+                    // search in different row && col
                     for (int next = 0; next < col; ++next) {
                         if (next == j) continue;
                         if (matrix[i][next] != 0)
@@ -996,7 +996,7 @@ void Offer::wordBreak() {
             int curWordIndex = word[i] - 'a';
             if (p->next[curWordIndex] != nullptr) {
                 p = p->next[curWordIndex].get();
-                if (p->isEnd and answer_dfs(word, i + 1, root, answer_dfs))return true;
+                if (p->isEnd && answer_dfs(word, i + 1, root, answer_dfs))return true;
             } else break;
         }
         failMemo[startPos] = true; // 记录当前的失败的前缀
@@ -1010,7 +1010,7 @@ void Offer::containsNearbyAlmostDuplicate() {
         if (nums.size() <= 1)return false;
         int left = 0;
         int right = 1;
-        while (left != right and right < nums.size()) {
+        while (left != right && right < nums.size()) {
             if (abs(nums[left] - nums[right]) <= t) {
                 return true;
             }
@@ -1038,7 +1038,7 @@ void Offer::mergeKLists() {
             int curIndex = 0;
             std::for_each(lists.begin(), lists.end(), [&](ListNode *item) {
                 if (item != nullptr) {
-                    if (cur == nullptr or cur->val > item->val) {
+                    if (cur == nullptr || cur->val > item->val) {
                         cur = item;
                         index = curIndex;
                     }
@@ -1070,7 +1070,7 @@ void Offer::eightnum() {
         queue.push(cur);
         int x_four[4] = {-1, 0, 1, 0};
         int y_four[4] = {0, 1, 0, -1};
-        while (not queue.empty()) {
+        while (! queue.empty()) {
             auto cur_data = queue.front();
             queue.pop();
             int dist = result_distance[cur_data];
@@ -1084,7 +1084,7 @@ void Offer::eightnum() {
                     int b = y + j;
                     if (x >= 0 && x <= 3 && y >= 0 && y <= 3) {
                         std::swap(cur_data[k], cur_data[a * 3 + b]);
-                        if (not result_distance.count(cur_data)) {
+                        if (! result_distance.count(cur_data)) {
                             result_distance[cur_data] = dist + 1;
                             queue.push(cur_data);
                         }
@@ -1130,7 +1130,7 @@ void Offer::TreeNode::setNode(std::vector<TreeNode *> &&container) {
 void Offer::TreeNode::decode(const folly::fbvector<folly::StringPiece> &data, int pos, bool isLeft, TreeNode *preNode,
                              std::vector<TreeNode *> &container) {
 
-    if (preNode == nullptr or pos >= data.size() or data[pos].front() == '#') return;
+    if (preNode == nullptr || pos >= data.size() || data[pos].front() == '#') return;
     auto curNode = new TreeNode(folly::to<int>(data[pos]));
     if (isLeft) {
         preNode->left = curNode;

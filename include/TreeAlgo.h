@@ -7,7 +7,8 @@
 
 #include <memory>
 
-struct TreeNode {
+struct TreeNode
+{
     explicit TreeNode(int data) : value(data) {}
 
     ~TreeNode() = default;
@@ -17,7 +18,8 @@ struct TreeNode {
     int value = 0;
 };
 
-class TreeAlgo {
+class TreeAlgo
+{
 public:
     using Node = TreeNode;
 
@@ -31,9 +33,9 @@ public:
 
     static void find_most_search_subtree();
 
-    static void connect();  // LeetCode 116
+    static void connect(); // LeetCode 116
 
-    static void constructMaximumBinaryTree();  // leetcode 654
+    static void constructMaximumBinaryTree(); // leetcode 654
 
     // 105. 从前序与中序遍历序列构造二叉树
     static void buildTree();
@@ -44,12 +46,11 @@ public:
 
     static void findDuplicateSubtrees();
 
-    //230.
+    // 230.
     static void kthSmallest();
 
     //
     static void bstToGst();
-
 
     ////235. 二叉搜索树的最近公共祖先     std::function<TreeNode*()> imp=[]
     static void lowestCommonAncestor();
@@ -63,7 +64,7 @@ public:
     // 785. 判断二分图
     static void isBipartite();
 
-    //886. 可能的二分法
+    // 886. 可能的二分法
     static void possibleBipartition();
 
     // 1584. 连接所有点的最小费用
@@ -72,4 +73,4 @@ public:
 private:
 };
 
-#endif  // SSH_TREEALGO_H
+#endif // SSH_TREEALGO_H

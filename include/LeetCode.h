@@ -90,7 +90,7 @@ public:
             auto size = this->m_con.size();
             int cur = 0;
             for (int i = 0; i < size; ++i) {
-                if (this->m_con[i].first and this->m_con[i].second) {
+                if (this->m_con[i].first && this->m_con[i].second) {
 
                 }
             }

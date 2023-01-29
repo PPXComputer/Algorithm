@@ -210,8 +210,8 @@ GreedyAlgo::long_bracket() {
     fbstring data = "{{}{}{}{{}{";
     fbstring::size_type len = data.size();
     const auto &check = [&data](int start, int end) {
-        assert(start >= 0 and start < data.size());
-        assert(end > start and end < data.size());
+        assert(start >= 0 && start < data.size());
+        assert(end > start && end < data.size());
         int counter = 0;
         for (int i = start; i <= end; i++) {
             if (data[i] == '{')
@@ -292,11 +292,11 @@ GreedyAlgo::light_lame() {
         // 贪心 将数据直接传递到相关的数据实现上
         if (str.at(cur) == '2') {
             lame_counter += 1;
-            if (cur != len - 1 and str.at(cur + 1) == '2') {
+            if (cur != len - 1 && str.at(cur + 1) == '2') {
                 str.at(cur) = '1';
                 str.at(cur + 1) = '1';
                 cur += 1; // 包括了两个则 穷尽相关的数据项
-                if (cur + 1 != len and str.at(cur + 1) == '2') {
+                if (cur + 1 != len && str.at(cur + 1) == '2') {
                     str.at(cur + 1) = '1';
                     cur += 1;
                 }
@@ -314,11 +314,11 @@ bool
 GreedyAlgo::isFirstOne(const size_t rest) {
     if (rest < 5) {
         // 1 - 2+ 3 - 4 -
-        return not(rest == 0 || rest == 2);
+        return !(rest == 0 || rest == 2);
     }
     size_t subtract = 1;//避免溢出
     while (subtract <= rest) {
-        if (not isFirstOne(rest - subtract))
+        if (! isFirstOne(rest - subtract))
             return true;
         subtract *= 4;
     }
@@ -349,7 +349,7 @@ GreedyAlgo::appleImpl(int money) {
 
 inline int
 GreedyAlgo::enum_rope_way2(const fbvector<int> &data, const int rope_len) {
-    assert(not data.empty());
+    assert(! data.empty());
     int result = 1;//最少一个点
     size_t last_end = 1;
     fbvector<int>::size_type len = data.size();
@@ -588,7 +588,7 @@ void GreedyAlgo::jumpGame() {
     auto curIter = data.begin() + curPos;
     bool result = false;
     auto maxElement = std::max_element(curIter, curIter + *curIter);
-    while (curIter != data.end() - 1 and *maxElement != 0) {
+    while (curIter != data.end() - 1 && *maxElement != 0) {
         //全进
         if (*maxElement >= data.end() - curIter) {
             result = true;

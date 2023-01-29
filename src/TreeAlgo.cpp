@@ -1,7 +1,7 @@
 ﻿//
 // Created by ppx on 2022/1/16.
 //
-#include "TreeAlgo.h"
+#include "TreeAlgo.h"  
 #include "UnionFindSet.h"
 
 #include <dbg.h>
@@ -79,11 +79,11 @@ void TreeAlgo::find_most_search_subtree() {  // ????????????? ????????????
 
         std::function<bool(TreeNode *)> search_sub_tree = [&](TreeNode *data) -> bool {
             if (data == nullptr) return true;
-            if (data->left != nullptr and (data->left->value > data->value))
+            if (data->left != nullptr && (data->left->value > data->value))
                 return false;
-            if (data->right != nullptr and (data->right->value < data->value))
+            if (data->right != nullptr && (data->right->value < data->value))
                 return false;
-            return search_sub_tree(data->left) and
+            return search_sub_tree(data->left) &&
                    search_sub_tree(data->right);
         };
 
@@ -139,11 +139,11 @@ void TreeAlgo::find_most_search_subtree() {  // ????????????? ????????????
             bstNodeResult.max = std::max(right.max, bstNodeResult.max);
         }
 
-        if (leftValue and rightValue) {
+        if (leftValue && rightValue) {
             auto &left = leftValue.value();
             auto &right = rightValue.value();
-            if (left.isBst and right.isBst) {
-                if (left.max <= right.min and root->value >= left.max and
+            if (left.isBst && right.isBst) {
+                if (left.max <= right.min && root->value >= left.max &&
                     root->value <= right.min) {
                     bstNodeResult.bstNodeHead = root;  // ?????????????????????????
                 }
@@ -174,7 +174,7 @@ void TreeAlgo::connect() {  // 将完美二叉数据右侧节点进行链接
         if (root == nullptr) return root;
 
         std::function<void(Node *, Node *)> traverse = [&](Node *first, Node *second) -> void {
-            if (first == nullptr or second == nullptr) return;
+            if (first == nullptr || second == nullptr) return;
             first->next = second;  // todo 没搞懂这个三叉树遍历是什么
             traverse(first->left, first->right);
             traverse(second->left, second->right);
@@ -324,7 +324,7 @@ void TreeAlgo::findDuplicateSubtrees() {
         auto left = impl(root);
         auto right = impl(root);
         auto subTree = std::to_string(root->value) + left + right;
-        if (not set.insert(subTree).second) {
+        if (! set.insert(subTree).second) {
             res.insert(root->value);
         }
         return subTree;
@@ -417,7 +417,7 @@ void TreeAlgo::allPathsSourceTarget() {
         } else {
             for (int i = 0; i < graphSize; ++i) {
 
-                if (i != next and graph[next][i] != 0) {
+                if (i != next && graph[next][i] != 0) {
                     tmp.emplace_back(i);
                     traverse(i);
                     tmp.pop_back();
@@ -509,6 +509,7 @@ void TreeAlgo::possibleBipartition() {
                     }
 
             }
+           
         }
         return true;
     };
@@ -557,7 +558,7 @@ void TreeAlgo::minCostConnectPoints() {
         std::stack<int, vector<int>> jointStack;
         jointStack.push(0);
         int result = 0; //结果 用于累加路径和
-        while (not jointStack.empty()) {
+        while (! jointStack.empty()) {
             int curIndex = jointStack.top();
             for (int start: graphJointSet) {
                 for (int end = 1; end < curSize; ++end) {
@@ -630,7 +631,7 @@ void TreeAlgo::minCostConnectPoints() {
             }
         }
         UnionFindSet mSet{static_cast<int>(curSize)};
-        while (not heap.empty()) {
+        while (! heap.empty()) {
             IndexAndDistance indexAndDistance = heap.top();
             heap.pop();
             int startFather = mSet.find_head(indexAndDistance.start);

@@ -1,0 +1,1008 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "Algorithm.exe"
+		},
+		{
+			"path" : "Algorithm.pdb"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_add_executable",
+			"add_executable",
+			"target_link_libraries",
+			"set_target_properties",
+			"include",
+			"_find_package",
+			"find_package",
+			"find_dependency",
+			"add_compile_options",
+			"include_directories",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake",
+			"CMakeLists.txt",
+			"C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-targets.cmake",
+			"C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake",
+			"C:/Tools/vcpkg/installed/x64-windows/share/folly/vcpkg-cmake-wrapper.cmake",
+			"C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindBoost.cmake",
+			"C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake",
+			"C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/Tools/vcpkg/installed/x64-windows/share/gflags/gflags-config.cmake",
+			"C:/Tools/vcpkg/installed/x64-windows/share/gflags/vcpkg-cmake-wrapper.cmake",
+			"C:/Tools/vcpkg/installed/x64-windows/share/glog/glog-config.cmake",
+			"C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventTargets-shared.cmake",
+			"C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventConfig.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 30,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 582,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 32,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 792,
+				"parent" : 4
+			},
+			{
+				"file" : 4,
+				"parent" : 5
+			},
+			{
+				"command" : 5,
+				"file" : 4,
+				"line" : 4,
+				"parent" : 6
+			},
+			{
+				"file" : 3,
+				"parent" : 7
+			},
+			{
+				"command" : 4,
+				"file" : 3,
+				"line" : 48,
+				"parent" : 8
+			},
+			{
+				"file" : 2,
+				"parent" : 9
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 71,
+				"parent" : 10
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 78,
+				"parent" : 8
+			},
+			{
+				"command" : 6,
+				"file" : 7,
+				"line" : 47,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 792,
+				"parent" : 13
+			},
+			{
+				"file" : 6,
+				"parent" : 14
+			},
+			{
+				"command" : 5,
+				"file" : 6,
+				"line" : 11,
+				"parent" : 15
+			},
+			{
+				"file" : 5,
+				"parent" : 16
+			},
+			{
+				"command" : 3,
+				"file" : 5,
+				"line" : 2486,
+				"parent" : 17
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 56,
+				"parent" : 8
+			},
+			{
+				"command" : 6,
+				"file" : 7,
+				"line" : 47,
+				"parent" : 19
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 838,
+				"parent" : 20
+			},
+			{
+				"file" : 10,
+				"parent" : 21
+			},
+			{
+				"command" : 7,
+				"file" : 10,
+				"line" : 23,
+				"parent" : 22
+			},
+			{
+				"command" : 6,
+				"file" : 7,
+				"line" : 47,
+				"parent" : 23
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 792,
+				"parent" : 24
+			},
+			{
+				"file" : 9,
+				"parent" : 25
+			},
+			{
+				"command" : 5,
+				"file" : 9,
+				"line" : 3,
+				"parent" : 26
+			},
+			{
+				"file" : 8,
+				"parent" : 27
+			},
+			{
+				"command" : 3,
+				"file" : 8,
+				"line" : 129,
+				"parent" : 28
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 58,
+				"parent" : 8
+			},
+			{
+				"command" : 6,
+				"file" : 7,
+				"line" : 47,
+				"parent" : 30
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 838,
+				"parent" : 31
+			},
+			{
+				"file" : 12,
+				"parent" : 32
+			},
+			{
+				"command" : 4,
+				"file" : 12,
+				"line" : 168,
+				"parent" : 33
+			},
+			{
+				"file" : 11,
+				"parent" : 34
+			},
+			{
+				"command" : 3,
+				"file" : 11,
+				"line" : 60,
+				"parent" : 35
+			},
+			{
+				"command" : 8,
+				"file" : 1,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 9,
+				"file" : 1,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
+				"command" : 9,
+				"file" : 1,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 10,
+				"file" : 1,
+				"line" : 33,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
+				},
+				{
+					"backtrace" : 37,
+					"fragment" : "/utf-8"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/EHs"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/GF"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/Zc:referenceBinding"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/Zc:rvalueCast"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/Zc:implicitNoexcept"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/Zc:strictStrings"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/Zc:threadSafeInit"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/Zc:throwingNew"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/permissive-"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/std:c++17"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4191"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4291"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4309"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4310"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4366"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4587"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4592"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4628"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4723"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4724"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4868"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4996"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4068"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4091"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4146"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4800"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4018"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4365"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4388"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4389"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4100"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4459"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4505"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4701"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4702"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4061"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4127"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4200"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4201"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4296"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4316"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4324"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4355"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4371"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4435"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4514"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4548"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4571"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4574"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4582"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4583"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4619"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4623"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4625"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4626"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4643"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4647"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4668"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4706"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4710"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4711"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4714"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd4820"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd5026"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd5027"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd5031"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/wd5045"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/we4099"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/we4129"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/we4566"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "/Zc:__cplusplus"
+				},
+				{
+					"fragment" : "-std:c++17"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_CONFIG_SUPPRESS_OUTDATED_MESSAGE"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "FMT_SHARED"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "GFLAGS_IS_A_DLL=1"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "GLOG_NO_ABBREVIATED_SEVERITIES"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "NOMINMAX"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "WIN32_LEAN_AND_MEAN"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "_CRT_NONSTDC_NO_WARNINGS"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "_CRT_SECURE_NO_WARNINGS"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "_ENABLE_EXTENDED_ALIGNED_STORAGE"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "_SCL_SECURE_NO_WARNINGS"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "_STL_EXTRA_DISABLED_WARNINGS=4774 4987"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 38,
+					"isSystem" : true,
+					"path" : "C:/Code/Csgo/Algorithm/./include"
+				},
+				{
+					"backtrace" : 39,
+					"isSystem" : true,
+					"path" : "C:/Code/Csgo/Algorithm/./src"
+				},
+				{
+					"backtrace" : 40,
+					"isSystem" : true,
+					"path" : "C:/Tools/vcpkg/installed/x64-windows/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					3,
+					3,
+					3,
+					3,
+					3,
+					3,
+					3,
+					3,
+					3,
+					3,
+					3,
+					3
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			]
+		}
+	],
+	"id" : "Algorithm::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\folly.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\fmtd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "Iphlpapi.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "Ws2_32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_context-vc140-mt-gd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_filesystem-vc140-mt-gd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_program_options-vc140-mt-gd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_regex-vc140-mt-gd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_system-vc140-mt-gd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_thread-vc140-mt-gd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_chrono-vc140-mt-gd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 18,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\boost_atomic-vc140-mt-gd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\double-conversion.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\glog.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\gflags_debug.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 29,
+				"fragment" : "shlwapi.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\event_extra.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\event_core.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "iphlpapi.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "ws2_32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "shell32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "advapi32.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\zlibd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\libssl.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 11,
+				"fragment" : "C:\\Tools\\vcpkg\\installed\\x64-windows\\debug\\lib\\libcrypto.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "Algorithm",
+	"nameOnDisk" : "Algorithm.exe",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/ArrayAlgo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/Dynamic.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/GreedyAlgo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/LeetCode.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/LeetCode200.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/ListAglo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/Offer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/Package.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/SkipList.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/StringAlgo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/TreeAlgo.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/UnionFindSet.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/ArrayAlgo.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/Dynamic.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/GreedyAlgo.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/LeetCode.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/LeetCode200.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/ListAglo.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/Offer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/Package.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/SkipList.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/StringAlgo.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/TreeAlgo.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "include/UnionFindSet.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}

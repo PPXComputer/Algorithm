@@ -51,9 +51,9 @@ public:
     }
 
     int search_data(const SkipNode::HeadVector &root, int target) {
-        assert(not root.empty());
+        assert(! root.empty());
         SkipNode *curPtr = root.back().get();
-        while (curPtr and curPtr->data < target) {
+        while (curPtr && curPtr->data < target) {
             curPtr = curPtr->next.get();
         }
         if (curPtr) {
@@ -157,7 +157,7 @@ public:
             }
              p= p->next [index];
         }
-        if(p!=nullptr and p->isEnd)return true;
+        if(p!=nullptr && p->isEnd)return true;
         return false;
     }
 

@@ -126,7 +126,7 @@ void LeetCode::findAnagrams() {
     //	};
 
     //	vector<int> result;
-    //	while (first <= lastFirst and second < s.size())
+    //	while (first <= lastFirst && second < s.size())
     //	{
     //		auto compareResult = compare();
     //		if (compareResult.first == 0) {
@@ -324,7 +324,7 @@ void LeetCode::findTargetSumWays() {
                             int maxElem = iter->first * iter->second;
                             // 将相同值的部分叠加起来  注意需要叠加的值 不能越界
                             for (int i = -maxElem;
-                                 i <= maxElem and col - i >= 0 and col - i < target;
+                                 i <= maxElem && col - i >= 0 && col - i < target;
                                  i += iter->first) {
                                 cache[row][col] += cache[row + 1][col - i];
                             }
@@ -373,7 +373,7 @@ void LeetCode::findTargetSumWays() {
                     }
                     for (int i = -maxElem; i <= maxElem; i += iter->first * 2) {
                         dbg(i, col);
-                        if (col - i >= 0 and col - i < mapSize) {
+                        if (col - i >= 0 && col - i < mapSize) {
                             dbg(col - i);
                             val[col] += val[col - i];
                         }

@@ -36,7 +36,7 @@ void Dynamic::binary_tree_counter() {
         if (root) {
             cur += root->value;
             // 只有根节点才算路径
-            if (not root->left and not root->right and cur > counter) counter = cur;
+            if (! root->left && ! root->right && cur > counter) counter = cur;
             impl(root->left, cur);
             impl(root->right, cur);
         }
@@ -155,10 +155,10 @@ void Dynamic::maze_compression() {
     // 迷宫问题的压缩
 
     std::function<int(int, int)> dfs = [&](int x, int y) {
-        if (x == 3 and y == 5) {
+        if (x == 3 && y == 5) {
             return 1;
         }
-        if (x > 3 or y > 5) return 0;
+        if (x > 3 || y > 5) return 0;
         return dfs(x + 1, y) + dfs(x, y + 1);
     };
 
@@ -255,7 +255,7 @@ void Dynamic::multiply_4() {
         else
             counter_even++;
     }
-    if (not counter_odd or counter_odd + 1 <= counter_even)
+    if (! counter_odd || counter_odd + 1 <= counter_even)
         cout << fmt::format("result :{}", true);
     else
 
@@ -264,7 +264,7 @@ void Dynamic::multiply_4() {
 
 void Dynamic::achive() {
     std::function<int(int, int, int, int)> impl = [&](int num, int cur, int len, int pre) -> int {
-        if (not cur and not pre) {
+        if (! cur && ! pre) {
             return 0;
         }
         if (len == num) {
@@ -327,7 +327,7 @@ inline void Dynamic::package() {
     cout << fmt::format("\n result:{}", result);
 
     const auto &dpImpl = [&data](int target) {
-        assert(not data.empty());
+        assert(! data.empty());
         fbvector<fbvector<int>> table(data.size() + 1, fbvector<int>(target + 1));
         // f(cur,res) =f(cur+1,res-data[cur])+f(cur+1,res)
         fbvector<fbvector<int>>::reference last_array = table.back();
@@ -446,12 +446,12 @@ void Dynamic::bit_count() {
     // bit 文件的使用
 
     constexpr auto is2pow = [](const int data) {
-        return (data != 0) and (data & data - 1) == 0;
+        return (data != 0) && (data & data - 1) == 0;
     };
     is2pow(1);
     // 判断是否
     constexpr auto is4pow = [](const int data) {
-        return data != 0 and (data & data - 1) == 0 and (data & 0x55555555) == 0;
+        return data != 0 && (data & data - 1) == 0 && (data & 0x55555555) == 0;
     };
     is4pow(32);
 }
@@ -464,7 +464,7 @@ void Dynamic::different_way() {
     constexpr int k = 5;
     std::function<int(int, int)> fn;
     fn = [&](int cur_pos, int rest_k) -> int {
-        if (cur_pos == 0 or cur_pos > total) return 0;
+        if (cur_pos == 0 || cur_pos > total) return 0;
         if (rest_k == 0) {
             if (cur_pos == end)
                 return 1;
@@ -494,7 +494,7 @@ void Dynamic::different_way() {
         // f[start,k]= f[start-1,k-1] +f[start+1,k-1]
         std::function<int(int, int)> impl;
         impl = [&](int cur_pos, int cur_k) -> int {
-            if (cur_pos < 0 or cur_pos > total + 1) return 0;
+            if (cur_pos < 0 || cur_pos > total + 1) return 0;
             // 避免重复计算
             if (data.at(cur_pos).at(cur_k) != -1) {
                 return data.at(cur_pos).at(cur_k);
@@ -605,9 +605,9 @@ void Dynamic::apple() {
     // 34
     [[maybe_unused]] auto fn = [](int target) {
         if ((target & 1) == 0) {
-            if (target == 6 or target == 8)
+            if (target == 6 || target == 8)
                 return 1;
-            else if (target == 12 or target == 14 or target == 16)
+            else if (target == 12 || target == 14 || target == 16)
                 return 2;
             else {
                 return (target - 18) / 8 + 3;
@@ -625,7 +625,7 @@ void Dynamic::winner() {
     };
     [[maybe_unused]] auto fn = [&](int n, auto &&self) -> Winner {
         if (n < 5) {
-            return (n == 0) or (n == 2) ? Winner::second : Winner::first;
+            return (n == 0) || (n == 2) ? Winner::second : Winner::first;
         }
         int base = 1;
         while (base <= n) {
@@ -644,7 +644,7 @@ void Dynamic::winner() {
     //        "first" : "second");
     //    }
     auto enumerate = [](int n) -> Winner {
-        return (n % 5 == 0) or (n % 5 == 2) ? Winner::second : Winner::first;
+        return (n % 5 == 0) || (n % 5 == 2) ? Winner::second : Winner::first;
     };
     for (int i = 0; i < 100; ++i) {
         fmt::print("i {} result {} \n", i,
@@ -687,7 +687,7 @@ void Dynamic::snake() {
     std::function<int(int, int, int, int)> enumDfs = [&](int x, int y, int cur,
                                                          int minimum) -> int {
         if (cur < 0) return INT_MIN;
-        if (x >= 5 or x < 0 or y >= 5 or y < 0) return cur;
+        if (x >= 5 || x < 0 || y >= 5 || y < 0) return cur;
         if (minimum > data[x][y]) minimum = data[x][y];
         cur = cur + data[x][y];
         return std::max({enumDfs(x + 1, y, cur, minimum),
@@ -720,7 +720,7 @@ void Dynamic::snake() {
     const auto &cacheMinimum = [&data](int x, int y, MazeResult cur,
                                        auto &&dfs) -> MazeResult {
         // 越界返回
-        if (x >= 5 or x < 0 or y >= 5 or y < 0) return cur;
+        if (x >= 5 || x < 0 || y >= 5 || y < 0) return cur;
 
         // 记录路上碰到的最小值
         if (cur.find_minimum > data[x][y]) cur.find_minimum = data[x][y];
@@ -730,7 +730,7 @@ void Dynamic::snake() {
 
         // 如果记录当前值后为负数 则可能直接返回
         if (cur.cur_value < 0) {
-            if (!cur.used_flip and cur.cur_value - cur.find_minimum >= 0) {
+            if (!cur.used_flip && cur.cur_value - cur.find_minimum >= 0) {
                 // 当前为负数 并未使用过翻转所以 将最后一个元素转换为的正数
                 cur.used_flip = true;
                 cur.cur_value -= cur.find_minimum;
@@ -743,15 +743,15 @@ void Dynamic::snake() {
         MazeResult right = dfs(x, y + 1, cur, dfs);
 
         auto get_potential = [left, right, rightUp]() mutable {
-            if (!left.used_flip and left.find_minimum < 0) {
+            if (!left.used_flip && left.find_minimum < 0) {
                 left.used_flip = true;
                 left.cur_value -= left.find_minimum;
             }
-            if (!right.used_flip and right.find_minimum < 0) {
+            if (!right.used_flip && right.find_minimum < 0) {
                 right.used_flip = true;
                 right.cur_value -= right.find_minimum;
             }
-            if (!rightUp.used_flip and rightUp.find_minimum < 0) {
+            if (!rightUp.used_flip && rightUp.find_minimum < 0) {
                 rightUp.used_flip = true;
                 rightUp.cur_value -= rightUp.find_minimum;
             }

@@ -71,7 +71,7 @@ void ArrayAlgo::long_increase_sub_array() {
     for (int i = 1; i < len; i++) {
         dp.at(i) = 1;
         for (int j = 0; j < i; j++) {
-            if (data.at(j) < data.at(i) and dp.at(j) + 1 > dp.at(i)) {
+            if (data.at(j) < data.at(i) && dp.at(j) + 1 > dp.at(i)) {
                 dp.at(i) = dp.at(j) + 1;
             }
         }
@@ -149,7 +149,7 @@ void ArrayAlgo::coin_change() {
     // 当前 递归的深度也有限制
     auto base_case = [=](int coin, int end, int spend, auto &&self) -> int {
         if (coin == end) return spend;
-        if (coin < 0 or coin > maxCoin or spend > maxSpend) return INT_MAX;
+        if (coin < 0 || coin > maxCoin || spend > maxSpend) return INT_MAX;
         auto subtract = self(coin - 2, end, spend + subtract_spend, self);
         auto add = self(coin + 2, end, spend + add_spend, self);
         auto multiply = self(coin * 2, end, spend + multiply_spend, self);
@@ -180,7 +180,7 @@ void ArrayAlgo::change_array_data() {
     constexpr static std::array second = {2, 6, 7};
     constexpr static int data = 10;
     std::function<int(int, int)> get_first = [&](int index, int rest) -> int {
-        if (rest == 0 and index != 0) {
+        if (rest == 0 && index != 0) {
             return 1;
         }
         if (index == first.size()) {
@@ -298,7 +298,7 @@ void ArrayAlgo::change_array_data() {
 
     std::function<int(int, int)> get_second = [&get_second](int index, int rest
     ) -> int {
-        if (rest == 0 and index != 0) return 1;
+        if (rest == 0 && index != 0) return 1;
         if (index == first.size()) return 0;
         int count = 0;
         count += get_second(index + 1, rest - second[index]);
@@ -344,7 +344,7 @@ void ArrayAlgo::find_top_k() {
         // 获得小于等于当前的位置
         const auto get_leq_pos = [](const std::array<int, 5> &data, int left,
                                     int right, int target) {
-            assert(left <= right and left >= 0);
+            assert(left <= right && left >= 0);
             while (left <= right) {
                 int mid = (left + right) >> 2;
                 if (data[mid] < target) {
@@ -377,7 +377,7 @@ void ArrayAlgo::find_top_k() {
 
             } else {
             }
-            search_on_second = not search_on_second;
+            search_on_second = ! search_on_second;
         }
     };
 }
@@ -451,10 +451,10 @@ void ArrayAlgo::change_position() {
 
         std::sort(data.begin(), data.end());
         const auto &check = [&] {
-            assert(not data.empty());
+            assert(! data.empty());
             for (size_t i = 0; i < data.size() - 1; ++i) {
                 int cur = data.at(i) * data.at(i + 1);
-                if (cur == 0 or (cur & 1) == 0) continue;
+                if (cur == 0 || (cur & 1) == 0) continue;
                 // 100  10000 1000000    100100100100=0x555555
                 if ((cur & 0x55555555) != cur) {
                     return false;
@@ -483,8 +483,8 @@ void ArrayAlgo::standard_str() {
     //
     std::function<int(const std::string &, const int)> fn = [&](const std::string &cur, const int target) -> int {
         size_t size = cur.size();
-        if (cur == "0" or
-            (size >= 2 and cur.at(size - 1) == '0' and cur.at(size - 2) == '0'))
+        if (cur == "0" ||
+            (size >= 2 && cur.at(size - 1) == '0' && cur.at(size - 2) == '0'))
             return 0;
         if (size == target) return 1;
         int zero = fn(cur + '0', target);

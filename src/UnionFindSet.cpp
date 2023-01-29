@@ -32,8 +32,8 @@ UnionFindSet::UnionFindSet(int n) : m_father{vector<int>(n)}, m_count{n} {
 }
 
 bool UnionFindSet::connected(int a, int b) {
-    assert(a < m_father.size() and a > 0);
-    assert(b < m_father.size() and b > 0);
+    assert(a < m_father.size() && a > 0);
+    assert(b < m_father.size() && b > 0);
     return find_head(a) == find_head(b);
 }
 

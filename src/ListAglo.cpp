@@ -121,7 +121,7 @@ inline void ListAlgo::create_tree() {
         // 不断删除节点 将不同的节点下的数据作为的一个新的分类归总
         next = cur->next;
         if (cur->value < target) {
-            if (not less) {
+            if (! less) {
                 less = cur;
                 lessStart = cur;
             } else {
@@ -130,7 +130,7 @@ inline void ListAlgo::create_tree() {
             }
 
         } else if (cur->value > target) {
-            if (not more) {
+            if (! more) {
                 more = cur;
                 moreStart = cur;
             } else {
@@ -139,7 +139,7 @@ inline void ListAlgo::create_tree() {
             }
 
         } else {
-            if (not eq) {
+            if (! eq) {
                 eq = cur;
                 eqStart = cur;
             } else {

@@ -1,0 +1,362 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.23.22060601-MSVC_2/CMakeSystem.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeDependentOption.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.23.22060601-MSVC_2/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Platform/Windows.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Compiler/MSVC-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.23.22060601-MSVC_2/CMakeRCCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeRCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/folly/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/folly/folly-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/double-conversion/double-conversionTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/glog/glog-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/glog/glog-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/gflags-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/gflags-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/gflags-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/gflags-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/gflags-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/glog/glog-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/glog/glog-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/glog/glog-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/gflags-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/gflags-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/gflags/gflags-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventTargets-shared.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventTargets-shared-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventTargets-shared-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/zlib/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindZLIB.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/openssl/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindOpenSSL.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/fmt/fmt-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/fmt/fmt-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/fmt/fmt-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/fmt/fmt-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/fmt/fmt-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Tools/vcpkg/installed/x64-windows/share/boost/vcpkg-cmake-wrapper.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindBoost.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CheckIncludeFileCXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CheckCXXSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "C:/Code/Csgo/Algorithm/build",
+		"source" : "C:/Code/Csgo/Algorithm"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

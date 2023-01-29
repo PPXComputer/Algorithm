@@ -1,7 +1,7 @@
 ﻿#include <dbg.h>
 
 #include <bitset>
-
+    
 #include "ArrayAlgo.h"
 #include "LeetCode.h"
 #include "Offer.h"
@@ -21,7 +21,7 @@ struct Factorial {
 
     // 大数乘法 将得到两者相乘的数据实现
     static string big_number_multiply(const string &first, const size_t second) {
-        assert(not first.empty());
+        assert(! first.empty());
         size_t t = 0;
         const size_t first_len = first.size();
         string result;
@@ -135,7 +135,8 @@ int main() {
 //    TreeAlgo::kthSmallest();
 //    TreeAlgo::allPathsSourceTarget();
 //    TreeAlgo::isBipartite();
-    TreeAlgo::possibleBipartition();
+    TreeAlgo::possibleBipartition(); 
+    
 }
 
 void bit_flip() {
