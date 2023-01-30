@@ -7,6 +7,8 @@ CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj: ../src/Dynamic.cpp
 
 CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.obj: ../src/GreedyAlgo.cpp
 
+CMakeFiles/Algorithm.dir/src/LRU.cpp.obj: ../src/LRU.cpp
+
 CMakeFiles/Algorithm.dir/src/LeetCode.cpp.obj: ../src/LeetCode.cpp
 
 CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj: ../src/LeetCode200.cpp
@@ -33,6 +35,8 @@ CMakeFiles/Algorithm.dir/src/main.cpp.obj: ../src/main.cpp
 ../src/Dynamic.cpp:
 
 ../src/LeetCode.cpp:
+
+../src/LRU.cpp:
 
 ../src/GreedyAlgo.cpp:
 

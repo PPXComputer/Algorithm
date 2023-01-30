@@ -1,17 +1,19 @@
 ﻿#include <dbg.h>
 
 #include <bitset>
-    
+
 #include "ArrayAlgo.h"
 #include "LeetCode.h"
 #include "Offer.h"
 #include "TreeAlgo.h"
-
+#include "LRU.h"
 using folly::fbvector;
 using std::string;
 
-struct Factorial {
-    static string factorial(const size_t n) {
+struct Factorial
+{
+    static string factorial(const size_t n)
+    {
         auto start = std::to_string(n);
         string &result = factorialImpl(start, 2, n);
         std::reverse(result.begin(), result.end());
@@ -20,14 +22,17 @@ struct Factorial {
     }
 
     // 大数乘法 将得到两者相乘的数据实现
-    static string big_number_multiply(const string &first, const size_t second) {
-        assert(! first.empty());
+    static string big_number_multiply(const string &first, const size_t second)
+    {
+        assert(!first.empty());
         size_t t = 0;
         const size_t first_len = first.size();
         string result;
         result.reserve(first_len + 10);
-        for (int i = 0; i < first_len || t; i++) {
-            if (i < first.size()) {
+        for (int i = 0; i < first_len || t; i++)
+        {
+            if (i < first.size())
+            {
                 t += (static_cast<size_t>(first.at(i) - '0')) * second;
             }
             char getChar = t % 10 + '0';
@@ -37,8 +42,10 @@ struct Factorial {
         return result;
     }
 
-    static string &factorialImpl(string &first, size_t second, size_t target) {
-        if (second >= target) return first;
+    static string &factorialImpl(string &first, size_t second, size_t target)
+    {
+        if (second >= target)
+            return first;
         first = big_number_multiply(first, second);
         return factorialImpl(first, second + 1, target);
     }
@@ -46,7 +53,8 @@ struct Factorial {
 
 void bit_flip();
 
-int main() {
+int main()
+{
     //	Dynamic::package();
     //    TreeAlgo::run();
     //    Dynamic::winner();
@@ -130,22 +138,34 @@ int main() {
     // 0000000100010001
     // ArrayAlgo::pickIndex();
     // TreeAlgo::serialize();
-//  ArrayAlgo::takeCharacters();
-//    ArrayAlgo::countSmaller();
-//    TreeAlgo::kthSmallest();
-//    TreeAlgo::allPathsSourceTarget();
-//    TreeAlgo::isBipartite();
-    TreeAlgo::possibleBipartition(); 
-    
+    //  ArrayAlgo::takeCharacters();
+    //    ArrayAlgo::countSmaller();
+    //    TreeAlgo::kthSmallest();
+    //    TreeAlgo::allPathsSourceTarget();
+    //    TreeAlgo::isBipartite();
+    // TreeAlgo::possibleBipartition();
+    auto cache = LRUCache(2);
+    cache.put(1, 1);
+    cache.put(2, 2);
+    cache.get(1);
+    cache.put(3, 3);
+    cache.get(2); // 在get 2的时候出现问题
+    cache.put(4, 4);
+    cache.get(1);
+    cache.get(3);
+    cache.get(4);
 }
 
-void bit_flip() {
-    const auto hash = [](int16_t a) {
+void bit_flip()
+{
+    const auto hash = [](int16_t a)
+    {
         int16_t val = (a * 7);
         auto &&basicString = std::to_string(val);
         return std::make_pair(basicString, std::bitset<16>(val));
     };
-    for (int i = 10; i < 100; i++) {
+    for (int i = 10; i < 100; i++)
+    {
         dbg(i, hash(i));
     }
     int16_t a = 0b1110110;

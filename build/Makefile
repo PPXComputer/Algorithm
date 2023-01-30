@@ -200,6 +200,30 @@ src/GreedyAlgo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.s
 .PHONY : src/GreedyAlgo.cpp.s
 
+src/LRU.obj: src/LRU.cpp.obj
+.PHONY : src/LRU.obj
+
+# target to build an object file
+src/LRU.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make CMakeFiles/Algorithm.dir/src/LRU.cpp.obj
+.PHONY : src/LRU.cpp.obj
+
+src/LRU.i: src/LRU.cpp.i
+.PHONY : src/LRU.i
+
+# target to preprocess a source file
+src/LRU.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make CMakeFiles/Algorithm.dir/src/LRU.cpp.i
+.PHONY : src/LRU.cpp.i
+
+src/LRU.s: src/LRU.cpp.s
+.PHONY : src/LRU.s
+
+# target to generate assembly for a file
+src/LRU.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make CMakeFiles/Algorithm.dir/src/LRU.cpp.s
+.PHONY : src/LRU.cpp.s
+
 src/LeetCode.obj: src/LeetCode.cpp.obj
 .PHONY : src/LeetCode.obj
 
@@ -458,6 +482,9 @@ help:
 	@echo ... src/GreedyAlgo.obj
 	@echo ... src/GreedyAlgo.i
 	@echo ... src/GreedyAlgo.s
+	@echo ... src/LRU.obj
+	@echo ... src/LRU.i
+	@echo ... src/LRU.s
 	@echo ... src/LeetCode.obj
 	@echo ... src/LeetCode.i
 	@echo ... src/LeetCode.s
