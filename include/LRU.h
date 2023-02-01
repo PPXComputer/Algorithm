@@ -21,7 +21,7 @@ class LRUCache
         int m_size;
 
     public:
-        DoubleList(int capacity) : m_root{new DoubleListNode()}, m_tail{m_root}, m_size{0} {}
+        DoubleList() : m_root{new DoubleListNode()}, m_tail{m_root}, m_size{0} {}
         DoubleList(const DoubleList &) = delete;
         DoubleList(const DoubleList &&) = delete;
         ~DoubleList()
@@ -109,7 +109,7 @@ class LRUCache
     };
 
 public:
-    explicit LRUCache(int capacity) : m_double_list{capacity}, m_map(capacity), m_capcaity(capacity)
+    explicit LRUCache(int capacity) : m_double_list{}, m_map(capacity), m_capcaity(capacity)
     {
     }
     LRUCache(const LRUCache &) = delete;
