@@ -2,22 +2,21 @@
 
 #include <string>
 #include <vector>
-#include<memory>
+#include <memory>
 #include <cassert>
 
-
-class LeetCode {
+class LeetCode
+{
 public:
-
-    //746. 使用最小花费爬楼梯
+    // 746. 使用最小花费爬楼梯
     static void
     minCostClimbingStairs();
 
-    //844. 比较含退格的字符串
+    // 844. 比较含退格的字符串
     static void
     backspaceCompare();
 
-    //986. 区间列表的交集
+    // 986. 区间列表的交集
     static void
     intervalIntersection();
 
@@ -25,23 +24,23 @@ public:
     static void
     findAnagrams();
 
-    //713. 乘积小于K的子数组
+    // 713. 乘积小于K的子数组
     static void
     numSubarrayProductLessThanK();
 
-    //509 斐波那契 数
+    // 509 斐波那契 数
     static void
     fib();
 
-    //1137 1137. 第 N 个泰波那契数
+    // 1137 1137. 第 N 个泰波那契数
     static void
     tribonacci();
 
-    //797. 所有可能的路径
+    // 797. 所有可能的路径
     static void
     allPathsSourceTarget();
 
-    //494. 目标和
+    // 494. 目标和
     static void
     findTargetSumWays();
 
@@ -58,53 +57,66 @@ public:
     static void
     digitSum();
 
-    //2248. 多个数组求交集
+    // 2248. 多个数组求交集
     static void intersection();
 
-
-    //countLatticePoints 2249. 统计圆内格点数目
+    // countLatticePoints 2249. 统计圆内格点数目
     static void countLatticePoints();
 
-    class CountIntervals {
+    // 2549. 统计桌面上的不同数字
+    static void distinctIntegers();
+
+    //2551 
+    
+    static void putMarbles();
+    class CountIntervals
+    {
         std::vector<std::pair<int, int>> m_con;
+
     public:
         CountIntervals() = default;
 
         void
-        add(int left, int right) {
+        add(int left, int right)
+        {
             this->insert(left, right);
             this->set();
         }
 
         int
-        count() {
+        count()
+        {
             int count = 0;
-            for (std::pair<int, int> &a: this->m_con) {
+            for (std::pair<int, int> &a : this->m_con)
+            {
                 count += a.second - a.first + 1;
             }
             return count;
         }
 
         void
-        insert(int left, int right) {
+        insert(int left, int right)
+        {
             auto size = this->m_con.size();
             int cur = 0;
-            for (int i = 0; i < size; ++i) {
-                if (this->m_con[i].first && this->m_con[i].second) {
-
+            for (int i = 0; i < size; ++i)
+            {
+                if (this->m_con[i].first && this->m_con[i].second)
+                {
                 }
             }
         }
 
         void
-        set() {
+        set()
+        {
             // 合并当前的
         }
     };
 
 private:
-
-    struct ListNode {
+    struct ListNode
+    {
         ListNode() : val(0), next{nullptr} {}
 
         explicit ListNode(int x) : val(x), next(nullptr) {}
@@ -117,12 +129,14 @@ private:
         int val;
 
         static std::unique_ptr<ListNode>
-        new_list(size_t length) {
+        new_list(size_t length)
+        {
             assert(length != 0);
             auto result = std::make_unique<ListNode>(0);
             result->node.reserve(length - 1);
             auto root = result.get();
-            for (size_t i = 1; i < length; i++) {
+            for (size_t i = 1; i < length; i++)
+            {
                 root->next = new ListNode(i);
                 root = root->next;
                 result->node.emplace_back(root);
@@ -131,14 +145,16 @@ private:
         }
 
         static std::unique_ptr<ListNode>
-        new_list(const std::vector<int> &data) {
+        new_list(const std::vector<int> &data)
+        {
             if (data.empty())
                 return nullptr;
             auto result = std::make_unique<ListNode>(data[0]);
             auto root = result.get();
             result->node.reserve(data.size() - 1);
             size_t size = data.size();
-            for (size_t i = 1; i < size; i++) {
+            for (size_t i = 1; i < size; i++)
+            {
                 root->next = new ListNode(data[i]);
                 root = root->next;
                 result->node.emplace_back(root);
@@ -146,16 +162,16 @@ private:
             return result;
         }
 
-        ~ListNode() {
+        ~ListNode()
+        {
 
-            for (auto data: node) {
+            for (auto data : node)
+            {
                 delete data;
             }
         }
 
     private:
-
         std::vector<ListNode *> node = {};
     };
-
 };

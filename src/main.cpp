@@ -144,16 +144,18 @@ int main()
     //    TreeAlgo::allPathsSourceTarget();
     //    TreeAlgo::isBipartite();
     // TreeAlgo::possibleBipartition();
-    auto cache = LRUCache(2);
-    cache.put(1, 1);
-    cache.put(2, 2);
-    cache.get(1);
-    cache.put(3, 3);
-    cache.get(2); // 在get 2的时候出现问题
-    cache.put(4, 4);
-    cache.get(1);
-    cache.get(3);
-    cache.get(4);
+    // auto cache = LRUCache(2);
+    // cache.put(1, 1);
+    // cache.put(2, 2);
+    // cache.get(1);
+    // cache.put(3, 3);
+    // cache.get(2); // 在get 2的时候出现问题
+    // cache.put(4, 4);
+    // cache.get(1);
+    // cache.get(3);
+    // cache.get(4);
+    // LeetCode::distinctIntegers();
+    LeetCode::putMarbles();
 }
 
 void bit_flip()
