@@ -29,7 +29,7 @@ class LFUCache
     unsigned int capacity;
     unsigned int minf;
 
-    LFUCache(unsigned in capacity_) : capacity{capacity_}, freq2listOfKV(capacity_), key2freqWithListIter(capacity_), minf(0) {}
+    LFUCache(unsigned int capacity_) : capacity{capacity_}, freq2listOfKV(capacity_), key2freqWithListIter(capacity_), minf(0) {}
 
     void insert(unsigned int newFreq, int key, int value)
     {

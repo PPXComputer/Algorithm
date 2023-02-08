@@ -15,7 +15,7 @@
 #include <random>
 #include <utility>
 #include <vector>
-
+#include <stack>
 #include "GreedyAlgo.h"
 
 using fmt::format;
@@ -26,15 +26,21 @@ using folly::Optional;
 using std::addressof;
 using std::cout;
 
-void ArrayAlgo::huffman_tree() {
-    const auto &getFibonacci = [](int end) {
+void ArrayAlgo::huffman_tree()
+{
+    const auto &getFibonacci = [](int end)
+    {
         std::vector<int> result;
         result.reserve(end);
         int start = 0;
-        while (start != end) {
-            if (start == 0 || start == 1) {
+        while (start != end)
+        {
+            if (start == 0 || start == 1)
+            {
                 result.push_back(1);
-            } else {
+            }
+            else
+            {
                 size_t len = result.size();
                 result.push_back(result[len - 1] + result[len - 2]);
             }
@@ -44,10 +50,12 @@ void ArrayAlgo::huffman_tree() {
     };
 
     std::vector data = getFibonacci(10);
-    for (int i: data) cout << i << " ";
+    for (int i : data)
+        cout << i << " ";
     cout << "\n";
     std::make_heap(data.begin(), data.end());
-    while (data.size() != 1) {
+    while (data.size() != 1)
+    {
         std::pop_heap(data.begin(), data.end());
         int first = data.back();
         data.pop_back();
@@ -62,16 +70,20 @@ void ArrayAlgo::huffman_tree() {
     }
 }
 
-void ArrayAlgo::long_increase_sub_array() {
+void ArrayAlgo::long_increase_sub_array()
+{
     std::array data = {3, 1, 2, 6, 3, 4, 0};
 
     // 1 2 3 4
     std::array<int, 7> dp{1};
     constexpr size_t len = data.size();
-    for (int i = 1; i < len; i++) {
+    for (int i = 1; i < len; i++)
+    {
         dp.at(i) = 1;
-        for (int j = 0; j < i; j++) {
-            if (data.at(j) < data.at(i) && dp.at(j) + 1 > dp.at(i)) {
+        for (int j = 0; j < i; j++)
+        {
+            if (data.at(j) < data.at(i) && dp.at(j) + 1 > dp.at(i))
+            {
                 dp.at(i) = dp.at(j) + 1;
             }
         }
@@ -79,18 +91,22 @@ void ArrayAlgo::long_increase_sub_array() {
     std::cout << fmt::format("dp {}", folly::join(',', dp));
 }
 
-void ArrayAlgo::data_array() {
+void ArrayAlgo::data_array()
+{
     std::array data = {1, 3, 4, 3};
     std::unordered_map<int, int> map;
-    for (const int &ref: data) {
-        if (map.find(ref) != map.cend()) {
+    for (const int &ref : data)
+    {
+        if (map.find(ref) != map.cend())
+        {
             std::cout << "result: " << ref;
             break;
         }
         map.insert({ref, 1});
     }
     constexpr auto len = data.size();
-    for (int i = 1; i < len; i++) {
+    for (int i = 1; i < len; i++)
+    {
         std::swap(data[i], i);
         //			if () {
         //
@@ -98,23 +114,30 @@ void ArrayAlgo::data_array() {
     }
 }
 
-void ArrayAlgo::not_exists_num() {
+void ArrayAlgo::not_exists_num()
+{
     // 连续序列中未出现的数字
-    std::array<int, 7> data = {3, 2, 1, 6, 2, 7, 5};  // 1-n
+    std::array<int, 7> data = {3, 2, 1, 6, 2, 7, 5}; // 1-n
     //                          0 1 2 3 4 5 6
     size_t cur = 0;
     constexpr auto size = data.size();
-    while (cur < size) {
+    while (cur < size)
+    {
         int cur_value = data[cur];
         size_t promise_pos = static_cast<size_t>(cur_value) - 1;
-        if (cur + 1 == cur_value) {
+        if (cur + 1 == cur_value)
+        {
             cur += 1;
-        } else {
+        }
+        else
+        {
             int swap_value = data[promise_pos];
-            if (swap_value != cur_value) {
+            if (swap_value != cur_value)
+            {
                 std::swap(data[cur], data[promise_pos]);
-
-            } else {
+            }
+            else
+            {
                 // 当前的位置的值为重复的
                 fmt::print("result data :{}", promise_pos + 1);
                 break;
@@ -124,15 +147,18 @@ void ArrayAlgo::not_exists_num() {
     }
 }
 
-void ArrayAlgo::coin_change() {
+void ArrayAlgo::coin_change()
+{
     int cur = 6;
     int target = 10;
     constexpr int add_spend = 120;
     constexpr int multiply_spend = 500;
     constexpr int subtract_spend = 140;
 
-    auto fault = [=](int coin, int end, auto &&self) -> int {
-        if (coin == end) {
+    auto fault = [=](int coin, int end, auto &&self) -> int
+    {
+        if (coin == end)
+        {
             return 0;
         }
         // 递归中的重复范围会将重新出现 导致无限递归
@@ -147,16 +173,20 @@ void ArrayAlgo::coin_change() {
     // 当前 有一定的 递归的范围
     // 而且 避免 f(2) ->f(4) ->f(2) 的情况出现的时候
     // 当前 递归的深度也有限制
-    auto base_case = [=](int coin, int end, int spend, auto &&self) -> int {
-        if (coin == end) return spend;
-        if (coin < 0 || coin > maxCoin || spend > maxSpend) return INT_MAX;
+    auto base_case = [=](int coin, int end, int spend, auto &&self) -> int
+    {
+        if (coin == end)
+            return spend;
+        if (coin < 0 || coin > maxCoin || spend > maxSpend)
+            return INT_MAX;
         auto subtract = self(coin - 2, end, spend + subtract_spend, self);
         auto add = self(coin + 2, end, spend + add_spend, self);
         auto multiply = self(coin * 2, end, spend + multiply_spend, self);
         return std::min({subtract, add, multiply});
     };
 
-    auto dfImpl = [maxCoin, maxSpend](int coin, int end) {
+    auto dfImpl = [maxCoin, maxSpend](int coin, int end)
+    {
         fbvector<fbvector<int>> data(maxCoin, fbvector<int>(maxSpend));
         // result= f(coin,0)
         //  = std::min({f(coin-2,subtract_spend),
@@ -164,49 +194,61 @@ void ArrayAlgo::coin_change() {
     };
 }
 
-void ArrayAlgo::xor_max_range() {
+void ArrayAlgo::xor_max_range()
+{
     // xor  最多的区间划分为
 
     constexpr std::array data = {1, 2, 0, 3, 2, 2, 1};
     // 当前的划分区间为
     int result = 0;
-    for (int cur: data) {
-        if (cur == 0) result++;
+    for (int cur : data)
+    {
+        if (cur == 0)
+            result++;
     }
 }
 
-void ArrayAlgo::change_array_data() {
+void ArrayAlgo::change_array_data()
+{
     constexpr static std::array first = {1, 3, 5, 6};
     constexpr static std::array second = {2, 6, 7};
     constexpr static int data = 10;
-    std::function<int(int, int)> get_first = [&](int index, int rest) -> int {
-        if (rest == 0 && index != 0) {
+    std::function<int(int, int)> get_first = [&](int index, int rest) -> int
+    {
+        if (rest == 0 && index != 0)
+        {
             return 1;
         }
-        if (index == first.size()) {
+        if (index == first.size())
+        {
             return 0;
         }
         int count = 0;
-        for (int i = rest / first[index]; i >= 0; i--) {
+        for (int i = rest / first[index]; i >= 0; i--)
+        {
             count += get_first(index + 1, rest - first[index] * i);
         }
         return count;
     };
 
     constexpr static auto get_first_reverse = [&](int index, int rest,
-                                                  auto &&self) -> int {
-        if (index == -1) {
+                                                  auto &&self) -> int
+    {
+        if (index == -1)
+        {
             return rest == 0 ? 1 : 0;
         }
         int result = 0;
-        for (int k = 0; first[index] * k <= rest; k++) {
+        for (int k = 0; first[index] * k <= rest; k++)
+        {
             result += self(index - 1, rest - first[index] * k, self);
         }
 
         return result;
     };
 
-    constexpr auto get_first_forward = [&]() -> int {
+    constexpr auto get_first_forward = [&]() -> int
+    {
         //// f(index,rest) = f(index+1,rest-array[index]*1)+
         /// f(index+1,rest-array[index]*2) + ......
         // std::vector<std::vector<int>>
@@ -223,33 +265,42 @@ void ArrayAlgo::change_array_data() {
         auto dp = std::make_unique<int[]>(row_index * column_rest);
         // 钱为0的情况下 各个节点的为1   在节点0处 钱为第一个元素的倍数全为1
         std::memset(dp.get(), 0, row_index * column_rest);
-        for (size_t i = 0; i < row_index; i++) {
+        for (size_t i = 0; i < row_index; i++)
+        {
             dp[i * column_rest] = 1;
         }
-        for (size_t j = 0; j * first[0] < column_rest; j++) {
+        for (size_t j = 0; j * first[0] < column_rest; j++)
+        {
             dp[j * first[0]] = 1;
         }
-        const auto enum_all_element = [&]() {
+        const auto enum_all_element = [&]()
+        {
             // 当前节点的 转换上将 由当前行 的取值 将由上一行 数字存储过程
             // 目标dp[first.size()][data]
-            for (size_t row = 1; row < row_index; row++) {
-                for (size_t column = 1; column < column_rest; column++) {
-                    size_t cur = row * column_rest + column;  // dp[row][column]
-                    for (size_t take = 0; take * first[row] <= data; take++) {
+            for (size_t row = 1; row < row_index; row++)
+            {
+                for (size_t column = 1; column < column_rest; column++)
+                {
+                    size_t cur = row * column_rest + column; // dp[row][column]
+                    for (size_t take = 0; take * first[row] <= data; take++)
+                    {
                         // 假设当前的元素拿了 take 数 则查询上一层中的
                         // dp[row-1][data-take*first[row]]
                         size_t take_cur =
-                                (row - 1) * column_rest + data - take * first[row];
+                            (row - 1) * column_rest + data - take * first[row];
                         dp[cur] += dp[take_cur];
                     }
                 }
             }
-            return dp[row_index * column_rest - 1];  // dp[first.size()][data]
+            return dp[row_index * column_rest - 1]; // dp[first.size()][data]
         };
         // 斜优化
-        const auto inclined_to_optimize = [&]() {
-            for (size_t row = 1; row < row_index; row++) {
-                for (size_t column = 1; column < column_rest; column++) {
+        const auto inclined_to_optimize = [&]()
+        {
+            for (size_t row = 1; row < row_index; row++)
+            {
+                for (size_t column = 1; column < column_rest; column++)
+                {
                     size_t cur = row * column_rest + column;
 
                     // dp[row][column]
@@ -260,31 +311,37 @@ void ArrayAlgo::change_array_data() {
 
                     // 同层元素存在着
                     // dp[row][column] += dp[row][column - first[row]];
-                    if (column - first[row] >= 0) {
+                    if (column - first[row] >= 0)
+                    {
                         dp[cur] = dp[cur - first[row]];
                     }
                     size_t pre_layer = (row - 1) * column_rest + column;
                     dp[cur] += dp[pre_layer];
                 }
             }
-            return dp[row_index * column_rest - 1];  // dp[first.size()][data]
+            return dp[row_index * column_rest - 1]; // dp[first.size()][data]
         };
 
         // 压缩存储 只需要两个向量空间
-        const auto compression_storage = [&]() {
+        const auto compression_storage = [&]()
+        {
             std::array<int, 11> dp[2]{};
             // 只需要两个数组即可
             // i 为first 的倍数
-            for (size_t i = 0; i * first[0] < column_rest; i++) {
+            for (size_t i = 0; i * first[0] < column_rest; i++)
+            {
                 dp[0][i] = 1;
             }
-            dp[1][0] = 1;  // 当前的钱为0 则方法数为1
+            dp[1][0] = 1; // 当前的钱为0 则方法数为1
             size_t cur_row = 0;
-            for (int row = 1; row < row_index; row++) {
+            for (int row = 1; row < row_index; row++)
+            {
                 cur_row = (cur_row + 1) % 2;
-                for (size_t column = 0; column < column_rest; column++) {
+                for (size_t column = 0; column < column_rest; column++)
+                {
                     size_t pre_column = column - first[row];
-                    if (pre_column >= 0) {
+                    if (pre_column >= 0)
+                    {
                         dp[cur_row][column] = dp[cur_row][pre_column];
                     }
                     size_t pre_row = (cur_row + 1) % 2;
@@ -296,41 +353,50 @@ void ArrayAlgo::change_array_data() {
         return -1;
     };
 
-    std::function<int(int, int)> get_second = [&get_second](int index, int rest
-    ) -> int {
-        if (rest == 0 && index != 0) return 1;
-        if (index == first.size()) return 0;
+    std::function<int(int, int)> get_second = [&get_second](int index, int rest) -> int
+    {
+        if (rest == 0 && index != 0)
+            return 1;
+        if (index == first.size())
+            return 0;
         int count = 0;
         count += get_second(index + 1, rest - second[index]);
         count += get_second(index + 1, rest);
         return count;
     };
     int count = 0;
-    for (int i = 0; i <= data; i++) {
+    for (int i = 0; i <= data; i++)
+    {
         int a = get_first(0, data - i) * get_second(0, i);
         count += a;
         dbg(a, data - i, i);
     }
 }
 
-void ArrayAlgo::find_top_k() {
+void ArrayAlgo::find_top_k()
+{
     // 当前的 计算数据为
     // 从两个有序地列表中找到 第k小的元素
     std::array<int, 5> first = {1, 4, 7, 8, 9};
     std::array<int, 5> second = {2, 3, 5, 6, 10};
 
     constexpr int k = 6;
-    const auto counter = [&]() {
+    const auto counter = [&]()
+    {
         // 双指针
         size_t first_index = 0;
         size_t second_index = 0;
         int count = 0;
         int target = first[0];
-        while (count != k) {
-            if (first[first_index] < second[second_index]) {
+        while (count != k)
+        {
+            if (first[first_index] < second[second_index])
+            {
                 target = first[first_index];
                 first_index++;
-            } else {
+            }
+            else
+            {
                 target = second[second_index];
                 second_index++;
             }
@@ -340,18 +406,26 @@ void ArrayAlgo::find_top_k() {
     };
 
     // 多次使用 二分搜索
-    const auto binary = [&]() {
+    const auto binary = [&]()
+    {
         // 获得小于等于当前的位置
         const auto get_leq_pos = [](const std::array<int, 5> &data, int left,
-                                    int right, int target) {
+                                    int right, int target)
+        {
             assert(left <= right && left >= 0);
-            while (left <= right) {
+            while (left <= right)
+            {
                 int mid = (left + right) >> 2;
-                if (data[mid] < target) {
+                if (data[mid] < target)
+                {
                     right = mid - 1;
-                } else if (data[mid] > target) {
+                }
+                else if (data[mid] > target)
+                {
                     left = mid + 1;
-                } else {
+                }
+                else
+                {
                     return mid;
                 }
             }
@@ -367,32 +441,41 @@ void ArrayAlgo::find_top_k() {
                     get_leq_pos(second, second_left, second_right, first[start]) +
                     1;
         bool search_on_second = true;
-        while (cur_k != k) {
-            if (cur_k < k) {
-                if (search_on_second) {
+        while (cur_k != k)
+        {
+            if (cur_k < k)
+            {
+                if (search_on_second)
+                {
                     first_left = ((first_left + first_right) >> 2) + 1;
                     // cur_k =
-                } else {
                 }
-
-            } else {
+                else
+                {
+                }
             }
-            search_on_second = ! search_on_second;
+            else
+            {
+            }
+            search_on_second = !search_on_second;
         }
     };
 }
 
-void ArrayAlgo::JosephProblem() {
+void ArrayAlgo::JosephProblem()
+{
     // 约瑟夫问题
     constexpr int total = 20;
     constexpr int m = 3;
     fbvector<int> data;
     data.reserve(total);
-    for (size_t i = 0; i < total; i++) {
+    for (size_t i = 0; i < total; i++)
+    {
         data.emplace_back(i);
     }
     size_t start = 0;
-    while (data.size() != 1) {
+    while (data.size() != 1)
+    {
         start = (start + m - 1) % data.size();
         dbg(data[start]);
         data.erase(data.begin() + start);
@@ -405,7 +488,8 @@ void ArrayAlgo::JosephProblem() {
     const auto ysf = [](int start, int interval, int total) {};
 }
 
-void ArrayAlgo::longestTotalArray() {
+void ArrayAlgo::longestTotalArray()
+{
     // 子数组中总和达到目标  最长的子数组为
     std::array arr = {1, 2, 5, 3, 2, 1};
     constexpr int k = 5;
@@ -415,27 +499,36 @@ void ArrayAlgo::longestTotalArray() {
     int sum = arr[left] + arr[right];
     int result = INT_MAX;
     int size = arr.size();
-    while (right != size) {  // 当前数据
-        if (sum > k) {
+    while (right != size)
+    { // 当前数据
+        if (sum > k)
+        {
             sum -= arr[left];
             left += 1;
-
-        } else if (sum < k) {
+        }
+        else if (sum < k)
+        {
             right += 1;
-            if (right == size) break;
+            if (right == size)
+                break;
             sum += arr[right];
-
-        } else {
+        }
+        else
+        {
             int interval = right - left + 1;
             std::string data = fmt::format(
-                    "{}", fmt::join(arr.begin() + left, arr.begin() + right + 1, ","));
+                "{}", fmt::join(arr.begin() + left, arr.begin() + right + 1, ","));
             dbg(data, left, right);
-            if (interval < result) {
+            if (interval < result)
+            {
                 result = interval;
             }
-            if (right == size - 1) {
+            if (right == size - 1)
+            {
                 return;
-            } else {
+            }
+            else
+            {
                 right += 1;
                 sum += arr[right];
             }
@@ -443,27 +536,34 @@ void ArrayAlgo::longestTotalArray() {
     }
 }
 
-void ArrayAlgo::change_position() {
+void ArrayAlgo::change_position()
+{
     // 使得排列的数据要求4的倍数最少的情况下
     //  改变当前的数组的排列 使相邻数据相乘为4的倍数
     {
         fbvector<int> data = GreedyAlgo::geRandomArray(10, 0, 30);
 
         std::sort(data.begin(), data.end());
-        const auto &check = [&] {
-            assert(! data.empty());
-            for (size_t i = 0; i < data.size() - 1; ++i) {
+        const auto &check = [&]
+        {
+            assert(!data.empty());
+            for (size_t i = 0; i < data.size() - 1; ++i)
+            {
                 int cur = data.at(i) * data.at(i + 1);
-                if (cur == 0 || (cur & 1) == 0) continue;
+                if (cur == 0 || (cur & 1) == 0)
+                    continue;
                 // 100  10000 1000000    100100100100=0x555555
-                if ((cur & 0x55555555) != cur) {
+                if ((cur & 0x55555555) != cur)
+                {
                     return false;
                 }
             }
             return true;
         };
-        do {
-            if (check()) {
+        do
+        {
+            if (check())
+            {
                 fmt::print("data:{}", fmt::join(data, ","));
             }
         } while (std::next_permutation(data.begin(), data.end()));
@@ -479,14 +579,17 @@ void ArrayAlgo::change_position() {
     }
 }
 
-void ArrayAlgo::standard_str() {
+void ArrayAlgo::standard_str()
+{
     //
-    std::function<int(const std::string &, const int)> fn = [&](const std::string &cur, const int target) -> int {
+    std::function<int(const std::string &, const int)> fn = [&](const std::string &cur, const int target) -> int
+    {
         size_t size = cur.size();
         if (cur == "0" ||
             (size >= 2 && cur.at(size - 1) == '0' && cur.at(size - 2) == '0'))
             return 0;
-        if (size == target) return 1;
+        if (size == target)
+            return 1;
         int zero = fn(cur + '0', target);
         int one = fn(cur + '1', target);
         return zero + one;
@@ -507,9 +610,11 @@ void ArrayAlgo::standard_str() {
     size_t base = 10;
     size_t result = 1;
     // 10^35   10 0011 10^1 *10^2 *10^32
-    while (power != 0) {
+    while (power != 0)
+    {
         base *= base;
-        if ((power & 1) == 1) {
+        if ((power & 1) == 1)
+        {
             result *= base;
         }
         power >>= 1;
@@ -517,13 +622,15 @@ void ArrayAlgo::standard_str() {
 
     // 快速矩阵相乘
 
-    struct MyMatrix {
+    struct MyMatrix
+    {
         int a, b, c, d;
 
         MyMatrix(int a_value, int b_value, int c_value, int d_value)
-                : a(a_value), b(b_value), c(c_value), d(d_value) {}
+            : a(a_value), b(b_value), c(c_value), d(d_value) {}
 
-        void Multiply(const MyMatrix &second) {
+        void Multiply(const MyMatrix &second)
+        {
             this->a = a * second.a + b * second.c;
             this->b = a * second.b + b * second.d;
             this->c = c * second.a + d * second.c;
@@ -535,26 +642,32 @@ void ArrayAlgo::standard_str() {
     MyMatrix base_matrix = MyMatrix(1, 1, 1, 0);
     MyMatrix result_matrix = MyMatrix(1, 0, 1, 0);
     // 10^35   10 0011 10^1 *10^2 *10^32
-    while (power_matrix != 0) {
+    while (power_matrix != 0)
+    {
         base_matrix.Multiply(base_matrix);
-        if ((power_matrix & 1) == 1) {
+        if ((power_matrix & 1) == 1)
+        {
             result_matrix.Multiply(base_matrix);
         }
         power_matrix >>= 1;
     }
 }
 
-void ArrayAlgo::findKthBit() {
-    auto data = [] {
+void ArrayAlgo::findKthBit()
+{
+    auto data = []
+    {
         fbstring data = "0";
         folly::fbvector<folly::fbstring> result;
         constexpr int count = 20;
         result.reserve(count);
-        for (int i = 0; i < count; ++i) {
+        for (int i = 0; i < count; ++i)
+        {
             fbstring tmp;
             tmp.reserve(data.size());
             std::transform(data.rbegin(), data.rend(), std::back_inserter(tmp),
-                           [](char ch) { return ch == '1' ? '0' : '1'; });
+                           [](char ch)
+                           { return ch == '1' ? '0' : '1'; });
 
             data += '1' + tmp;
             result.emplace_back(folly::fbstring{data.data(), data.size()});
@@ -564,45 +677,62 @@ void ArrayAlgo::findKthBit() {
 
     constexpr int len = (2 << 5) - 1;
     constexpr int k = 10;
-    std::function<char(int, int)> impl = [&impl](int n, int k) -> char {
-        if (n == 1) {
+    std::function<char(int, int)> impl = [&impl](int n, int k) -> char
+    {
+        if (n == 1)
+        {
             return '0';
         }
         int midPos = (1 << (n - 1)) - 1;
         dbg(midPos, k);
         // 再前一半的位数是没有进行翻转的
-        if (k < midPos) {
+        if (k < midPos)
+        {
             dbg(n - 1, k);
             return impl(n - 1, k);
-        } else if (k > midPos) {
+        }
+        else if (k > midPos)
+        {
             dbg(n - 1, midPos * 2 - k);
             // 映射到前半部分
             return impl(n - 1, midPos * 2 - k) == '0' ? '1' : '0';
-        } else {
+        }
+        else
+        {
             return '1';
         }
     };
-    dbg(impl(4, 11 - 1));  //"0111001"
+    dbg(impl(4, 11 - 1)); //"0111001"
 }
 
-void ArrayAlgo::salesRange() {
-    auto impl = [] {
+void ArrayAlgo::salesRange()
+{
+    auto impl = []
+    {
         folly::fbvector<int> data{10, 2, 1, 4, 3, 9, 6, 9, 9};
         int result = 0;
-        std::function<void(int, int, int)> dfs = [&](int left, int right, int cur) -> void {
-            if (left > right) return;
+        std::function<void(int, int, int)> dfs = [&](int left, int right, int cur) -> void
+        {
+            if (left > right)
+                return;
 
             result = std::max(result, cur);
             dbg(folly::join(",", data.begin() + left, data.begin() + right), cur);
-            if (right == data.size() - 1) {
+            if (right == data.size() - 1)
+            {
                 cur += data[right] > 8 ? 1 : -1;
-                if (left == right) {
+                if (left == right)
+                {
                     result = std::max(result, data.back() > 8 ? 1 : 0);
                     return;
-                } else {
+                }
+                else
+                {
                     dfs(left + 1, right, cur - (data[left] > 8 ? 1 : -1));
                 }
-            } else {
+            }
+            else
+            {
                 cur += data[right] > 8 ? 1 : -1;
                 result = std::max(result, cur);
                 dfs(left + 1, right, cur - (data[left] > 8 ? 1 : -1));
@@ -615,34 +745,45 @@ void ArrayAlgo::salesRange() {
     impl();
 }
 
-void ArrayAlgo::binarySearch() {
+void ArrayAlgo::binarySearch()
+{
     // 搜索左侧边界 小左进一 右等中
 
-    const auto leftBound = [](std::vector<int> &array, int target) {
+    const auto leftBound = [](std::vector<int> &array, int target)
+    {
         int left = 0;
         int right = array.size();
 
-        while (left < right) {
+        while (left < right)
+        {
             int mid = left + ((right - left) >> 1);
-            if (array[mid] < target) {
+            if (array[mid] < target)
+            {
                 left = mid + 1;
-            } else {
-                right = mid;  // 相等则继续缩短右边界
+            }
+            else
+            {
+                right = mid; // 相等则继续缩短右边界
             }
         }
         return left;
     };
 
     // 搜索右侧边届  大右等中 左进一
-    const auto rightBound = [](std::vector<int> &array, int target) {
+    const auto rightBound = [](std::vector<int> &array, int target)
+    {
         int left = 0;
         int right = array.size();
 
-        while (left < right) {
+        while (left < right)
+        {
             int mid = left + ((right - left) >> 1);
-            if (array[mid] > target) {
+            if (array[mid] > target)
+            {
                 right = mid;
-            } else {
+            }
+            else
+            {
                 left = mid + 1;
             }
         }
@@ -650,19 +791,22 @@ void ArrayAlgo::binarySearch() {
     };
 }
 
-void ArrayAlgo::advantageCount() {
+void ArrayAlgo::advantageCount()
+{
     fbvector<int> first;
     fbvector<int> second;
     using constPair = const std::pair<int, int>;
-    auto data = [](constPair &a, constPair &b) {
+    auto data = [](constPair &a, constPair &b)
+    {
         return a.first > b.first;
     };
 
     std::priority_queue<std::pair<int, int>, fbvector<std::pair<int, int>>,
-            decltype(data)>
-            myQueue{data};
+                        decltype(data)>
+        myQueue{data};
     int secondSize = second.size();
-    for (int i = 0; i < secondSize; ++i) {
+    for (int i = 0; i < secondSize; ++i)
+    {
         myQueue.emplace(second[i], i);
     }
 
@@ -671,22 +815,28 @@ void ArrayAlgo::advantageCount() {
     int right = first.size() - 1;
     fbvector<int> res(secondSize);
 
-    while (!myQueue.empty()) {
+    while (!myQueue.empty())
+    {
         auto cur = myQueue.top();
         myQueue.pop();
-        if (first[right] > cur.first) {
+        if (first[right] > cur.first)
+        {
             // 如果打得过
             res[cur.second] = first[right];
             right--;
-        } else {
+        }
+        else
+        {
             res[cur.second] = first[left];
             left++;
         }
     }
 }
 
-void ArrayAlgo::minEatingSpeed() {
-    const auto impl = []() {
+void ArrayAlgo::minEatingSpeed()
+{
+    const auto impl = []()
+    {
         fbvector<int> piles{3, 6, 7, 11};
         int h = 8;
         int sum = std::accumulate(piles.begin(), piles.end(), 0);
@@ -694,22 +844,28 @@ void ArrayAlgo::minEatingSpeed() {
         int left = 1;
         int right = sum;
 
-        const auto check = [&piles](int num) {
+        const auto check = [&piles](int num)
+        {
             int cnt = 0;
 
             int size = piles.size();
-            for (int i = 0; i < size; ++i) {
+            for (int i = 0; i < size; ++i)
+            {
                 cnt += piles[i] / num + (piles[i] % num != 0 ? 1 : 0);
             }
             return cnt;
         };
 
-        while (left < right) {
+        while (left < right)
+        {
             int mid = left + ((right - left) >> 1);
             int curTime = check(mid);
-            if (curTime <= h) {  // 花费的时间小了可以减少容量
+            if (curTime <= h)
+            { // 花费的时间小了可以减少容量
                 right = mid;
-            } else {
+            }
+            else
+            {
                 left = mid + 1;
             }
         }
@@ -717,28 +873,37 @@ void ArrayAlgo::minEatingSpeed() {
     };
 }
 
-void ArrayAlgo::shipWithinDays() {
+void ArrayAlgo::shipWithinDays()
+{
     fbvector<int> weights{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int days = 5;
-    [[maybe_unused]] const auto splitDaty = [&weights, days]() {
+    [[maybe_unused]] const auto splitDaty = [&weights, days]()
+    {
         int min = INT_MIN;
-        int max = 0;  // 最小值为 max-ele  最大值为  sum
-        for (int a: weights) {
-            if (min > a) {
+        int max = 0; // 最小值为 max-ele  最大值为  sum
+        for (int a : weights)
+        {
+            if (min > a)
+            {
                 min = a;
             }
             max += a;
         }
 
-        const auto check = [&weights, days](int capcity) {
+        const auto check = [&weights, days](int capcity)
+        {
             int cnt = 1;
             int sum = weights.front();
             int size = weights.size();
-            for (int i = 1; i < size; ++i) {
-                if (sum + weights[i] > capcity) {
+            for (int i = 1; i < size; ++i)
+            {
+                if (sum + weights[i] > capcity)
+                {
                     ++cnt;
                     sum = weights[i];
-                } else {
+                }
+                else
+                {
                     sum += weights[i];
                 }
             }
@@ -747,29 +912,38 @@ void ArrayAlgo::shipWithinDays() {
 
         int left = min;
         int right = max;
-        while (left < right) {
-            int curCapcity = left + ((right - left) >> 1);  // 当前能承载的重量
-            if (check(curCapcity)) {  // 花费更小的时间 则 当前的 容量过重
+        while (left < right)
+        {
+            int curCapcity = left + ((right - left) >> 1); // 当前能承载的重量
+            if (check(curCapcity))
+            { // 花费更小的时间 则 当前的 容量过重
                 right = curCapcity;
-            } else {
-                left = curCapcity + 1;  // 当前 容量轻了
+            }
+            else
+            {
+                left = curCapcity + 1; // 当前 容量轻了
             }
         }
         return left;
     };
 }
 
-void ArrayAlgo::minSubArrayLen(int target, std::vector<int> &nums) {
+void ArrayAlgo::minSubArrayLen(int target, std::vector<int> &nums)
+{
     int left = 0;
     int right = 0;
     int resLen = INT_MAX;
     int sum = 0;
-    while (right < nums.size()) {
+    while (right < nums.size())
+    {
         int curRight = nums[right++];
-        if (sum < target) sum += curRight;
+        if (sum < target)
+            sum += curRight;
         // 缩小当前左侧节点
-        while (sum >= target) {
-            if (sum >= target && right - left < resLen) {
+        while (sum >= target)
+        {
+            if (sum >= target && right - left < resLen)
+            {
                 resLen = right - left;
             }
             int curLeft = nums[left++];
@@ -779,14 +953,17 @@ void ArrayAlgo::minSubArrayLen(int target, std::vector<int> &nums) {
     dbg(resLen == INT_MAX ? 0 : resLen);
 }
 
-bool ArrayAlgo::containsNearbyDuplicate() {
+bool ArrayAlgo::containsNearbyDuplicate()
+{
     std::vector<int> nums = {1, 2, 3, 1};
     int k = 3;
-    if (k == 0) return false;
+    if (k == 0)
+        return false;
     int left = 0;
     int right = 0;
     std::unordered_set<int> mSet;
-    while (right < nums.size()) {
+    while (right < nums.size())
+    {
         int curRight = nums[right++];
         // 判断当前元素添加是否合理
         // 添加后元素个数
@@ -794,19 +971,23 @@ bool ArrayAlgo::containsNearbyDuplicate() {
         dbg(curRight);
         dbg(eleCount, folly::join(",", nums.begin() + left, nums.begin() + right),
             left, right);
-        if (eleCount <= k + 1 && !mSet.insert(curRight).second) {
+        if (eleCount <= k + 1 && !mSet.insert(curRight).second)
+        {
             return true;
         }
 
-        if (eleCount > k + 1) {
+        if (eleCount > k + 1)
+        {
             mSet.erase(nums[left++]);
-            if (!mSet.insert(curRight).second) return true;
+            if (!mSet.insert(curRight).second)
+                return true;
         }
     }
     return false;
 }
 
-void ArrayAlgo::takeCharacters() {
+void ArrayAlgo::takeCharacters()
+{
     std::string s = "aabaaaacaabc";
     int k = 2;
     std::array<int, 3> array{0, 0, 0};
@@ -814,19 +995,23 @@ void ArrayAlgo::takeCharacters() {
     int n = size;
     // 没前缀的情况  只取后缀
     int ans = -1;
-    while (array[0] < k && array[1] < k && array[2] < k) {
-        if (n == 0) return;  // return  -1
+    while (array[0] < k && array[1] < k && array[2] < k)
+    {
+        if (n == 0)
+            return; // return  -1
         --n;
         ++array[static_cast<int>(s[n] - 'a')];
         dbg(n, array);
     }
     ans = size - n;
 
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i)
+    {
         int chIndex = static_cast<int>(s[i] - 'a');
         ++array[chIndex];
         dbg(n, array);
-        while (n < size && array[chIndex] > k) {
+        while (n < size && array[chIndex] > k)
+        {
             array[chIndex]--;
             n++;
             dbg(n, array);
@@ -837,64 +1022,111 @@ void ArrayAlgo::takeCharacters() {
     // return ans
 }
 
-void ArrayAlgo::pickIndex() {
+void ArrayAlgo::nextGreaterElement()
+{
+    std::vector<int> nums = {2, 1, 2, 4, 3};
+    int size = nums.size();
+    std::vector<int> res(size);
+    // 维护单调队列
+    std::deque<int> mStack;
+    const auto push = [&](int value)
+    {
+        while (not mStack.empty())
+        {
+            if (mStack.front() < value)
+            {
+                mStack.pop_front();
+            }
+            else
+            {
+                break;
+            }
+        }
+        mStack.push_back(value);
+    };
+
+    const auto pop = [&](int index)
+    {
+        if (nums[index] == mStack.front())
+        {
+            mStack.pop_front();
+        }
+    };
+
+    int i = 0;
+    for_each(nums.rbegin(), nums.rend() - 1, [&](int value) {
+
+    });
+}
+
+void ArrayAlgo::pickIndex()
+{
     std::vector<int> data{1, 3};
     std::vector<int> preSum;
     preSum.reserve(data.size());
     int sum = 0;
     std::transform(data.begin(), data.end(), std::back_inserter(preSum),
-                   [&sum](int i) {
+                   [&sum](int i)
+                   {
                        sum += i;
                        return sum;
                    });
     dbg(preSum);
     std::random_device device;
 
-    std::uniform_int_distribution dis(1, sum);  // 这边是 [1,sum]
+    std::uniform_int_distribution dis(1, sum); // 这边是 [1,sum]
     int randomNum = dis(device);
     int left = 0;
     int right = preSum.size();
     // 找到第一个大于等于的数
-    while (left < right) {
+    while (left < right)
+    {
         int mid = left + ((right - left) >> 1);
-        if (preSum[mid] < randomNum) {
+        if (preSum[mid] < randomNum)
+        {
             left = mid + 1;
-        } else {
+        }
+        else
+        {
             right = mid;
         }
     }
     dbg(left);
 }
 
-void ArrayAlgo::countSmaller() {
+void ArrayAlgo::countSmaller()
+{
 
     using std::vector;
     vector<int> nums{5, 2, 6, 1};
 
     int size = static_cast<int>(nums.size());
 
-    struct Val {
+    struct Val
+    {
         int data = 0;
         int index = 0;
 
         Val() = default;
 
         explicit Val(int a, int b) : data{a}, index{b} {}
-
     };
 
     vector<Val> valWithIndex;
     valWithIndex.reserve(size);
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i)
+    {
         valWithIndex.emplace_back(nums[i], i);
     }
     vector<int> res(size);
 
     dbg(nums);
     const auto merge = [&res, &valWithIndex](
-            int
-            left, int
-            right) {
+                           int
+                               left,
+                           int
+                               right)
+    {
         // 转换的时候 将当前
         // 将当前存在于将小的坐标转换为大的坐标的情况 则添加当前的计数
         int mid = (left + right) / 2;
@@ -903,27 +1135,34 @@ void ArrayAlgo::countSmaller() {
         vector<Val> help(right - left + 1);
 
         int index = 0;
-        while (left <= mid && secondStart <= right) {
-            if (valWithIndex[left].data < valWithIndex[secondStart].data) {
+        while (left <= mid && secondStart <= right)
+        {
+            if (valWithIndex[left].data < valWithIndex[secondStart].data)
+            {
                 res[valWithIndex[left].index] += right - mid - 1;
                 help[index++] = valWithIndex[left++];
-
-            } else {
+            }
+            else
+            {
                 help[index++] = valWithIndex[secondStart++];
             }
         }
 
-        if (left > mid) { // 右侧有元素
+        if (left > mid)
+        { // 右侧有元素
             help[index++] = valWithIndex[secondStart++];
-        } else { //左侧有元素
+        }
+        else
+        { // 左侧有元素
             res[valWithIndex[left].index] += right - mid - 1;
             help[index++] = valWithIndex[left++];
         }
-
     };
 
-    std::function<void(int, int)> mergeSort = [&](int left, int right) {
-        if (left < right) {
+    std::function<void(int, int)> mergeSort = [&](int left, int right)
+    {
+        if (left < right)
+        {
             int mid = (left + right) / 2;
             mergeSort(left, mid);
             mergeSort(mid + 1, right);
@@ -931,15 +1170,13 @@ void ArrayAlgo::countSmaller() {
         }
     };
 
-
     mergeSort(0, size - 1);
 
     dbg(res);
-    //return res;
+    // return res;
 }
 
-void ArrayAlgo::reversePair() {
-    // 求逆序对数 
-
+void ArrayAlgo::reversePair()
+{
+    // 求逆序对数
 }
-
