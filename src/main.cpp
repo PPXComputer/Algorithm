@@ -157,7 +157,7 @@ int main() {
   // t.follow(2, 1);
   // dbg(t.getNewsFeed(1));
   // dbg(t.getNewsFeed(2));
-  Package::pack01();
+  Package::pack02();
 }
 
 void bit_flip() {
