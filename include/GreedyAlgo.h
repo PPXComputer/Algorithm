@@ -4,16 +4,13 @@
 
 #include <folly/FBVector.h>
 
-
-
 class GreedyAlgo {
-    template<typename T>
-    using fbvector= folly::fbvector<T>;
+    template <typename T>
+    using fbvector = folly::fbvector<T>;
     using FlexMatrix = folly::fbvector<folly::fbvector<int>>;
 
 public:
-    static fbvector<int> geRandomArray
-            (int len = 10, int min = 0, int max = 10, bool unique = false);
+    static fbvector<int> geRandomArray(int len = 10, int min = 0, int max = 10, bool unique = false);
 
     static void CompareResult();
 
@@ -22,8 +19,8 @@ public:
     // 切分铜板
     static void split_metal();
 
-    template<typename T>
-    static void get_last_two(folly::fbvector<int> &data, const T &min_heap);
+    template <typename T>
+    static void get_last_two(folly::fbvector<int>& data, const T& min_heap);
 
     static void walk();
 
@@ -56,29 +53,28 @@ private:
 
     static int appleImpl(int money);
 
-    //使用滑动窗口解法
-    static int enum_rope_way2(const fbvector<int> &data, int rope_len);
+    // 使用滑动窗口解法
+    static int enum_rope_way2(const fbvector<int>& data, int rope_len);
 
-    static int enum_rope(const fbvector<int> &data, const int rope_len);
+    static int enum_rope(const fbvector<int>& data, const int rope_len);
 
-    static int money_way3(const fbvector<int> &cost, int aim);
+    static int money_way3(const fbvector<int>& cost, int aim);
 
-    static int money_way2(const fbvector<int> &cost, int aim);
+    static int money_way2(const fbvector<int>& cost, int aim);
 
-    static int money_way1(int cur, int index, const fbvector<int> &cost);
+    static int money_way1(int cur, int index, const fbvector<int>& cost);
 
-    static void walkImpl(int x, int y, int cur, const fbvector<fbvector<int>> &matrix, int &result);
+    static void walkImpl(int x, int y, int cur, const fbvector<fbvector<int>>& matrix, int& result);
 
-    static int walkImplWithNotVal(int x, int y, const fbvector<fbvector<int>> &matrix);
+    static int walkImplWithNotVal(int x, int y, const fbvector<fbvector<int>>& matrix);
 
     // 备忘录递归
-    static int walkMemo(int x, int y, const fbvector<fbvector<int>> &matrix,
-                        fbvector<fbvector<int>> &memo);
+    static int walkMemo(int x, int y, const fbvector<fbvector<int>>& matrix,
+        fbvector<fbvector<int>>& memo);
 
-    static bool aimPlusImpl(const fbvector<int> &datas, int index, int cur_sum, int aim);
+    static bool aimPlusImpl(const fbvector<int>& datas, int index, int cur_sum, int aim);
 
-    static int cheesImpl(int x, int y, const std::pair<int, int> &target, int step);
+    static int cheesImpl(int x, int y, const std::pair<int, int>& target, int step);
 };
-
 
 #endif // GREEDYALGO_H

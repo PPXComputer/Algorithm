@@ -7,12 +7,22 @@
 
 class Package {
 public:
-  // 背包问题 汇总
-  static void pack01();
-  static void pack02();
-  static void pack03();
+    // 背包问题 汇总
+    static void pack01();
+    static void pack02();
+    static void pack03();
 
-  static void longestCommntSub();
+    static void longestCommntSub();
+
+    // 63. 不同路径 II
+    static void uniquePathsWithObstacles();
+    static void jump();
+
+    // 343. 整数拆分
+    static void integerBreak();
+
+    // 96. 不同的二叉搜索树 numTrees
+    static void numTrees();
 };
 
 #endif // PACKAGE_H

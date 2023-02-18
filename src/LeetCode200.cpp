@@ -1,35 +1,37 @@
 #include "LeetCode200.h"
 #include <array>
 
-#include <string>
-#include <queue>
-#include <map>
-#include <fmt/format.h>
-#include <dbg.h>
-#include <unordered_map>
-#include <set>
 #include <algorithm>
+#include <dbg.h>
+#include <fmt/format.h>
+#include <map>
+#include <queue>
+#include <set>
+#include <string>
+#include <unordered_map>
 
+#include <cmath>
 #include <folly/String.h>
-#include<cmath>
 
 using std::array;
-using std::vector;
 using std::queue;
 using std::string;
+using std::vector;
 
-inline void LeetCode200::medium_33() {
-    //找到当前数据的最小值
+inline void LeetCode200::medium_33()
+{
+    // 找到当前数据的最小值
 
     auto impl = []() {
-        std::array<int, 7> nums{4, 5, 6, 7, 0, 1, 2};
+        std::array<int, 7> nums { 4, 5, 6, 7, 0, 1, 2 };
         int target = 0;
         int left = 0;
         int right = nums.size() - 1;
         while (left < right) {
             int mid = ((right - left) >> 1) + left;
             dbg(left, right, mid, nums[mid]);
-            if (target == nums[mid]) return mid;
+            if (target == nums[mid])
+                return mid;
             if (nums[mid] <= nums[right]) // ???????
             {
                 if (target <= nums[right] && target > nums[mid]) {
@@ -48,16 +50,19 @@ inline void LeetCode200::medium_33() {
                 }
             }
         }
-        if (nums[left] == target)return left;
+        if (nums[left] == target)
+            return left;
         return -1;
     };
     dbg(impl());
 }
 
-inline void LeetCode200::medium_34() {
+inline void LeetCode200::medium_34()
+{
     using std::vector;
-    auto answer = [](vector<int> &nums, int target) -> vector<int> {
-        if (nums.empty())return {-1, -1};
+    auto answer = [](vector<int>& nums, int target) -> vector<int> {
+        if (nums.empty())
+            return { -1, -1 };
         int left = 0;
         int right = static_cast<int>(nums.size() - 1);
         while (left < right) {
@@ -72,7 +77,8 @@ inline void LeetCode200::medium_34() {
                 right = mid; //??????? ??????????????
             }
         }
-        if (nums[left] != target)return {-1, -1};
+        if (nums[left] != target)
+            return { -1, -1 };
         int left_result = left;
         left = 0;
         right = static_cast<int>(nums.size() - 1);
@@ -88,31 +94,31 @@ inline void LeetCode200::medium_34() {
             } else {
                 left = mid;
             }
-
         }
-        return {left_result, left};
+        return { left_result, left };
     };
-    vector<int> data{5, 7, 7, 8, 8, 10};
+    vector<int> data { 5, 7, 7, 8, 8, 10 };
     dbg(answer(data, 8));
 }
 
 //. ???????????
 
-inline void LeetCode200::medium_74() {
+inline void LeetCode200::medium_74()
+{
     std::array<std::array<int, 4>, 3> matrix = {
-            std::array<int, 4>{1, 3, 5, 7},
-            {10, 11, 16, 20},
-            {23, 30, 34, 60}
+        std::array<int, 4> { 1, 3, 5, 7 },
+        { 10, 11, 16, 20 },
+        { 23, 30, 34, 60 }
     };
     // ??????????? ???????????
     int left = 0;
     constexpr size_t matrix_column = matrix.front().size();
     constexpr size_t matrix_row = matrix.size();
-    int right = static_cast<int> (matrix_row * matrix_column - 1);
+    int right = static_cast<int>(matrix_row * matrix_column - 1);
     int target = 3;
     auto transform_really_pos = [](int pos, int row, int column) -> std::pair<int, int> {
         assert(pos >= 0 && pos < row * column);
-        return {pos / column, pos % column};
+        return { pos / column, pos % column };
     };
     auto find = [&]() {
         while (left < right) {
@@ -130,31 +136,29 @@ inline void LeetCode200::medium_74() {
         }
         auto pos = transform_really_pos(left, matrix_row, matrix_column);
         return matrix[pos.first][pos.second] == target;
-
     };
     dbg(find());
-
 }
 
 // 25  k ????鷭?????
 
-inline void LeetCode200::reverseKGroup() {
+inline void LeetCode200::reverseKGroup()
+{
     constexpr int length = 10;
     std::unique_ptr<ListNode> ptr = ListNode::new_list(length);
 
-    ListNode *root = ptr.get();
+    ListNode* root = ptr.get();
     //????????
     //?????????????????
     int k = 4;
     int time = length / 4;
 
-
     // ?????? ?  β ?????????
-    auto reverse_list = [](ListNode *start, int need) {
-        ListNode *head = nullptr;
-        ListNode *cur = nullptr;
+    auto reverse_list = [](ListNode* start, int need) {
+        ListNode* head = nullptr;
+        ListNode* cur = nullptr;
         int repeat_time = 0;
-        std::tuple<ListNode *, ListNode *, ListNode *> result{nullptr, start, nullptr};
+        std::tuple<ListNode*, ListNode*, ListNode*> result { nullptr, start, nullptr };
         while (repeat_time != need) {
             cur = start->next;
             start->next = head;
@@ -172,9 +176,9 @@ inline void LeetCode200::reverseKGroup() {
         return result;
     };
 
-    ListNode *result = nullptr;
-    ListNode *lastTail = nullptr;
-    ListNode *lastStart = root;
+    ListNode* result = nullptr;
+    ListNode* lastTail = nullptr;
+    ListNode* lastStart = root;
     if (time > 0) {
         int start = 0;
         while (time != start) {
@@ -182,22 +186,21 @@ inline void LeetCode200::reverseKGroup() {
             if (start == 0) {
                 result = std::get<0>(result_tuple); //?????????
             } else {
-                if (lastTail)lastTail->next = std::get<0>(result_tuple);
-
+                if (lastTail)
+                    lastTail->next = std::get<0>(result_tuple);
             }
             lastStart = std::get<2>(result_tuple);
             lastTail = std::get<1>(result_tuple);
             start++;
         }
     }
-
-
 }
 
-//162 ?????
+// 162 ?????
 
-inline void LeetCode200::findPeakElement() { //???? ???????????????
-    vector<int> data{1, 2, 1, 3, 5, 6, 4};
+inline void LeetCode200::findPeakElement()
+{ //???? ???????????????
+    vector<int> data { 1, 2, 1, 3, 5, 6, 4 };
     size_t left = 0;
     size_t right = data.size() - 1;
     while (left < right) {
@@ -213,16 +216,16 @@ inline void LeetCode200::findPeakElement() { //???? ???????????????
         }
     }
     dbg(left);
-
 }
 
 // 153 ??????????????С?
 
-inline void LeetCode200::findMin() {
-    std::vector<int> data = {3, 4, 5, 1, 2};
+inline void LeetCode200::findMin()
+{
+    std::vector<int> data = { 3, 4, 5, 1, 2 };
     //?????????????С?
     // ??????????е????????? ????????????? ???????????? ??????С????
-    auto ans = [](vector<int> &nums) {
+    auto ans = [](vector<int>& nums) {
         // ????????????
         int left = 0;
         int right = static_cast<int>(nums.size() - 1);
@@ -235,67 +238,69 @@ inline void LeetCode200::findMin() {
                 right = mid;
             else
                 left = mid + 1;
-
         }
         dbg(nums[left]);
-
     };
     ans(data);
-
 }
 
-//198. ??????
+// 198. ??????
 
-inline void LeetCode200::houseRobber() {
+inline void LeetCode200::houseRobber()
+{
     /*
     * ???????????С???????????????????????????????????
     ?????????Ψ????????????????????????????????????????????????????????????С??????????????????
 
     ????????????????????????????????飬?????? ??????????????????? ????????????????????
     */
-    vector<int> data{2, 7, 9, 3, 1};
-    const auto answerEnum = [](std::vector<int> &nums) {
-
-        const auto answerImpl = [](int cur, int money, std::vector<int> &nums, auto &&answerImpl) -> int {
-            if (cur >= nums.size())return money;
+    vector<int> data { 2, 7, 9, 3, 1 };
+    const auto answerEnum = [](std::vector<int>& nums) {
+        const auto answerImpl = [](int cur, int money, std::vector<int>& nums, auto&& answerImpl) -> int {
+            if (cur >= nums.size())
+                return money;
             int result = money + nums[cur];
 
-            std::max({answerImpl(cur + 1, money, answerImpl),
-                      result,
-                      answerImpl(cur + 2, money, answerImpl)});
+            std::max({ answerImpl(cur + 1, money, answerImpl),
+                result,
+                answerImpl(cur + 2, money, answerImpl) });
             return result;
         };
-
     };
-    const auto answerDp = [](std::vector<int> &nums) {
+    const auto answerDp = [](std::vector<int>& nums) {
 
     };
 }
 
-//11. ???????????
+// 11. ???????????
 
-inline void LeetCode200::maxArea() {
-    vector data{1, 8, 6, 2, 5, 4, 8, 3, 7};
-    const auto answer = [](vector<int> &height) {
-        int j = static_cast<int> (height.size() - 1);
+inline void LeetCode200::maxArea()
+{
+    vector data { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
+    const auto answer = [](vector<int>& height) {
+        int j = static_cast<int>(height.size() - 1);
         int i = 0;
         int result = (j - i) * std::min(height[i], height[j]);
         while (i != j) {
             result = std::max((j - i) * (std::min(height[i], height[j])), result);
-            if (height[i] < height[j])i++;
-            else j++;
+            if (height[i] < height[j])
+                i++;
+            else
+                j++;
         }
         return result;
     };
-    const auto answerForward = [](vector<int> &height) {
-        int j = static_cast<int> (height.size() - 1);
+    const auto answerForward = [](vector<int>& height) {
+        int j = static_cast<int>(height.size() - 1);
         int i = 0;
         int result = (j - i) * std::min(height[i], height[j]);
         int n = 0;
 
         while (i != j) {
-            if (height[i] < height[j])n = height[i];
-            else n = height[j];
+            if (height[i] < height[j])
+                n = height[i];
+            else
+                n = height[j];
             result = std::max(result, n * (j - i));
             while (i != j && height[i] <= n) {
                 i++;
@@ -308,19 +313,21 @@ inline void LeetCode200::maxArea() {
     };
 }
 
-//82. ????????????е??????? II
+// 82. ????????????е??????? II
 
-inline void LeetCode200::deleteDuplicatesFromList() {
+inline void LeetCode200::deleteDuplicatesFromList()
+{
     //???????????????????? head ?? ?????????????????????????????????????? ?????? ??????????? ??
-    std::vector<int> data = {1, 1, 2, 2};
+    std::vector<int> data = { 1, 1, 2, 2 };
     std::unique_ptr<ListNode> ptr = ListNode::new_list(data);
-    ListNode *head = ptr.get();
+    ListNode* head = ptr.get();
     auto answer_forward = [&]() {
         auto root = head;
-        if (root == nullptr)return head;
+        if (root == nullptr)
+            return head;
         int val;
-        ListNode *cur = root->next;
-        ListNode *prev = root;
+        ListNode* cur = root->next;
+        ListNode* prev = root;
         bool isFirstTime = true;
         while (cur != nullptr) {
             val = root->val;
@@ -331,7 +338,8 @@ inline void LeetCode200::deleteDuplicatesFromList() {
                 }
 
                 if (prev == root) {
-                    if (cur == nullptr)return static_cast<ListNode *>(nullptr);
+                    if (cur == nullptr)
+                        return static_cast<ListNode*>(nullptr);
                     else {
                         head = cur;
                         prev = cur;
@@ -341,7 +349,8 @@ inline void LeetCode200::deleteDuplicatesFromList() {
                     prev->next = cur;
                     root = cur;
                 }
-                if (cur == nullptr)break;
+                if (cur == nullptr)
+                    break;
                 cur = cur->next;
 
             } else {
@@ -349,20 +358,22 @@ inline void LeetCode200::deleteDuplicatesFromList() {
                 root = cur;
                 cur = cur->next;
             }
-
         }
         return head;
     };
-    //answer_forward();
+    // answer_forward();
     auto answer_dummpy_head = [&]() {
         auto root = head;
-        if (root == nullptr)return head;
+        if (root == nullptr)
+            return head;
         auto dummy = std::make_unique<ListNode>(0, head);
         auto cur = dummy.get();
         while (cur->next != nullptr && cur->next->next != nullptr) {
             if (cur->next->val == cur->next->next->val) {
                 auto forward = cur->next->next;
-                do { forward = forward->next; } while (forward != nullptr && forward->val != cur->next->val);
+                do {
+                    forward = forward->next;
+                } while (forward != nullptr && forward->val != cur->next->val);
                 cur->next = forward;
             } else {
                 cur = cur->next;
@@ -372,26 +383,28 @@ inline void LeetCode200::deleteDuplicatesFromList() {
     };
 }
 
-//15. ???????
+// 15. ???????
 
-inline void LeetCode200::three_num() {
+inline void LeetCode200::three_num()
+{
     // ??????к?? 0?????????????
-    std::vector nums = {-2, 0, 0, 2, 2};
+    std::vector nums = { -2, 0, 0, 2, 2 };
 
-    auto answer = [&](const std::vector<int> &data) -> std::vector<std::vector<int>> {
-        if (nums.size() < 3)return {};
+    auto answer = [&](const std::vector<int>& data) -> std::vector<std::vector<int>> {
+        if (nums.size() < 3)
+            return {};
         // ?????????
         std::unordered_map<int, int> map;
-        for (auto i: data) {
+        for (auto i : data) {
             if (map.find(i) == map.end()) {
-                map.insert({i, 1});
+                map.insert({ i, 1 });
             } else {
                 map[i] += 1;
             }
         }
         dbg(map);
         std::vector<std::vector<int>> result;
-        for (auto first: data) {
+        for (auto first : data) {
             if (map[first] > 0) {
                 //????????????????????
 
@@ -399,13 +412,13 @@ inline void LeetCode200::three_num() {
                 int value = -first;
                 map[first] -= 1;
                 bool if_not_match = true;
-                for (auto second: data) {
+                for (auto second : data) {
                     if (map[second] > 0) {
                         //???????????
                         map[second] -= 1;
                         int third = value - second;
                         if (map.find(third) != map.end() && map[third] > 0) {
-                            if (! if_not_match) {
+                            if (!if_not_match) {
                                 if (map[first] <= 0) {
                                     map[second] += 1;
                                     continue;
@@ -417,7 +430,7 @@ inline void LeetCode200::three_num() {
                             map[third] -= 1;
                             dbg(map[third], map[first], if_not_match ? map[first] : map[first] - 1);
 
-                            result.emplace_back(vector<int>{first, second, third});
+                            result.emplace_back(vector<int> { first, second, third });
 
                         } else {
                             map[second] += 1;
@@ -427,19 +440,18 @@ inline void LeetCode200::three_num() {
                 if (if_not_match) {
                     map[first] += 1;
                 }
-
             }
         }
         dbg(map);
         dbg(result);
         return result;
-
     };
-    //answer(nums);
+    // answer(nums);
 
-    auto sort_answer = [&](std::vector<int> &data) -> std::vector<std::vector<int>> {
+    auto sort_answer = [&](std::vector<int>& data) -> std::vector<std::vector<int>> {
         std::vector<int>::size_type size = data.size();
-        if (size < 3)return {};
+        if (size < 3)
+            return {};
         std::sort(data.begin(), data.end());
         int start = 0;
 
@@ -449,19 +461,21 @@ inline void LeetCode200::three_num() {
                 start++;
                 continue;
             } // ???????????
-            //data ???????????? ?????????????????????????
+            // data ???????????? ?????????????????????????
             int left = start + 1;
             int right = static_cast<int>(size - 1);
             while (left < right) {
                 int cur = data[left] + data[start] + data[right];
-                //auto str = fmt::format("left{} right{} start{}", left, right, start);
-                //dbg(str, cur);
+                // auto str = fmt::format("left{} right{} start{}", left, right, start);
+                // dbg(str, cur);
                 if (cur == 0) {
-                    //dbg(data[start], data[left], data[right]);
-                    result.emplace_back(std::vector<int>{data[start], data[left], data[right]});
+                    // dbg(data[start], data[left], data[right]);
+                    result.emplace_back(std::vector<int> { data[start], data[left], data[right] });
                     // ?????????left ?????????????????λ??
-                    while (left < right && data[left] == data[static_cast<size_t>(left) + 1])left++;
-                    while (left < right && data[right] == data[static_cast<size_t>(right) - 1])right--;
+                    while (left < right && data[left] == data[static_cast<size_t>(left) + 1])
+                        left++;
+                    while (left < right && data[right] == data[static_cast<size_t>(right) - 1])
+                        right--;
                     left++;
                     right--; //????????????????????????
                 } else if (cur > 0) {
@@ -474,17 +488,17 @@ inline void LeetCode200::three_num() {
         }
         return result;
     };
-    auto parm = vector<int>{-1, 0, 1, 2, -1, -4};
+    auto parm = vector<int> { -1, 0, 1, 2, -1, -4 };
     dbg(sort_answer(parm));
 }
 
-//70. ?????
+// 70. ?????
 
-inline void LeetCode200::climbStairs() {
+inline void LeetCode200::climbStairs()
+{
     auto answer = [](int n) -> int {
-
         constexpr auto fib_impl = [] {
-            std::array<int, 31> fib{0, 1};
+            std::array<int, 31> fib { 0, 1 };
             for (int i = 2; i != 31; ++i) {
                 fib[i] = fib[i - 1] + fib[i - 2];
             }
@@ -494,15 +508,16 @@ inline void LeetCode200::climbStairs() {
     };
 }
 
-void LeetCode200::connectRight() {
-    //std::list<ListNode*> container;
-    //std::unique_ptr<ListNode> first = LeetCode200::decode(10);
-    //auto root = first.get();
-    //if (root == NULL)return NULL;
-    //vector<Node*> container;
-    //container.push_back(root);
+void LeetCode200::connectRight()
+{
+    // std::list<ListNode*> container;
+    // std::unique_ptr<ListNode> first = LeetCode200::decode(10);
+    // auto root = first.get();
+    // if (root == NULL)return NULL;
+    // vector<Node*> container;
+    // container.push_back(root);
 
-    //while (! container.empty())
+    // while (! container.empty())
     //{
     //	int curLayer = container.size();
     //	Node* lastNode = nullptr;
@@ -522,58 +537,63 @@ void LeetCode200::connectRight() {
     //			container.push_back(back->right);
     //		}
     //	}
-    //}
-    //return root;
-
+    // }
+    // return root;
 }
 
-void LeetCode200::shortestPathBinaryMatrix() {
-    //vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,0} };
-    // 8????????????л??????????? ??????б??????????????
-    auto dfsDp = [&](const vector<vector<int>> &grid, int x, int y, int count, auto dfs) -> int {
-        if (x == grid.size() - 1 && y == grid[0].size() - 1)return count + 1;
+void LeetCode200::shortestPathBinaryMatrix()
+{
+    // vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,0} };
+    //  8????????????л??????????? ??????б??????????????
+    auto dfsDp = [&](const vector<vector<int>>& grid, int x, int y, int count, auto dfs) -> int {
+        if (x == grid.size() - 1 && y == grid[0].size() - 1)
+            return count + 1;
 
-        if (x >= grid.size() || x < 0 || y < 0 || y >= grid[0].size())return INT_MAX;
+        if (x >= grid.size() || x < 0 || y < 0 || y >= grid[0].size())
+            return INT_MAX;
         dbg(x, y);
-        if (grid[x][y] == 1)return INT_MAX;
+        if (grid[x][y] == 1)
+            return INT_MAX;
         count += 1;
-        return std::min({dfs(grid, x + 1, y, count, dfs),
-                         dfs(grid, x, y + 1, count, dfs),
-                         dfs(grid, x - 1, y, count, dfs),
-                         dfs(grid, x, y - 1, count, dfs),
-                         dfs(grid, x + 1, y + 1, count, dfs),
-                         dfs(grid, x - 1, y - 1, count, dfs),
-                         dfs(grid, x - 1, y + 1, count, dfs),
-                         dfs(grid, x + 1, y - 1, count, dfs)});
+        return std::min({ dfs(grid, x + 1, y, count, dfs),
+            dfs(grid, x, y + 1, count, dfs),
+            dfs(grid, x - 1, y, count, dfs),
+            dfs(grid, x, y - 1, count, dfs),
+            dfs(grid, x + 1, y + 1, count, dfs),
+            dfs(grid, x - 1, y - 1, count, dfs),
+            dfs(grid, x - 1, y + 1, count, dfs),
+            dfs(grid, x + 1, y - 1, count, dfs) });
     };
-
 
     /*vector<vector<int>> grid = { {0, 1, 0, 0, 1, 1, 0},
         {1, 0, 0, 0, 0, 0, 0},{1, 0, 0, 1, 1, 1, 1},
         {0, 1, 0, 0, 0, 0, 0},{1, 0, 0, 0, 0, 0, 1},
         {1, 0, 0, 1, 0, 0, 0},{1, 0, 1, 0, 0, 1, 0} };*/
-    vector<vector<int>> grid = {{0, 0, 0},
-                                {1, 1, 0},
-                                {1, 1, 0}};
-
+    vector<vector<int>> grid = { { 0, 0, 0 },
+        { 1, 1, 0 },
+        { 1, 1, 0 } };
 
     //	vector<vector<int>> grid = { {0,0,0},{1,1,0},{1,1,1} };
 
-    const auto answerDfsWithVisited = [&](int x, int y, int count, int n, auto &&dfs) -> int {
-        if (x == n - 1 && y == n - 1)return count + 1;
-        if (x >= n || x < 0 || y < 0 || y >= n)return INT_MAX;
-        if (grid[x][y] == 1)return INT_MAX;
+    const auto answerDfsWithVisited = [&](int x, int y, int count, int n, auto&& dfs) -> int {
+        if (x == n - 1 && y == n - 1)
+            return count + 1;
+        if (x >= n || x < 0 || y < 0 || y >= n)
+            return INT_MAX;
+        if (grid[x][y] == 1)
+            return INT_MAX;
 
         count += 1;
 
         int result = INT_MAX;
 
-
         grid[x][y] = 1;
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
-                if (i == 0 && j == 0) continue;
-                if (x + i >= n || x + i < 0 || y + j < 0 || y + j >= n) continue;
+                if (i == 0 && j == 0)
+                    continue;
+                if (x + i >= n || x + i < 0 || y + j < 0 || y + j >= n)
+                    continue;
                 result = std::min(result, dfs(x + i, y + j, count, n, dfs));
                 dbg(x + i, y + j, result);
             }
@@ -582,95 +602,100 @@ void LeetCode200::shortestPathBinaryMatrix() {
         return result;
     };
 
-    //dbg(answerDfsWithVisited(0, 0, 0, grid.size(), answerDfsWithVisited));
-    const auto answerQueue = [](vector<vector<int>> &grid) {
-        if (grid[0][0] == 1)return -1;
+    // dbg(answerDfsWithVisited(0, 0, 0, grid.size(), answerDfsWithVisited));
+    const auto answerQueue = [](vector<vector<int>>& grid) {
+        if (grid[0][0] == 1)
+            return -1;
         size_t n = grid.size();
         int ans = 1;
-        const int dire[8][2] = {{1,  0},
-                                {-1, 0},
-                                {0,  1},
-                                {0,  -1},
-                                {1,  1},
-                                {1,  -1},
-                                {-1, -1},
-                                {-1, 1}};
-        queue<std::pair<int, int> > q;
-        q.emplace(0, 0);         //??0,0???
-        grid[0][0] = 1;           //????1???????
-        while (!q.empty()) {      // bfs
+        const int dire[8][2] = { { 1, 0 },
+            { -1, 0 },
+            { 0, 1 },
+            { 0, -1 },
+            { 1, 1 },
+            { 1, -1 },
+            { -1, -1 },
+            { -1, 1 } };
+        queue<std::pair<int, int>> q;
+        q.emplace(0, 0); //??0,0???
+        grid[0][0] = 1; //????1???????
+        while (!q.empty()) { // bfs
             size_t m = q.size(); //?????????е????
             while (m--) {
-                auto[x, y] = q.front();
+                auto [x, y] = q.front();
                 q.pop();
-                if (x == n - 1 && y == n - 1)return ans;
-                for (auto i: dire) {                       //????????????
+                if (x == n - 1 && y == n - 1)
+                    return ans;
+                for (auto i : dire) { //????????????
                     int nx = x + i[0];
                     int ny = y + i[1];
-                    if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //?ж???????
-                    if (grid[nx][ny] == 0) {        //?ж????????
+                    if (nx < 0 || ny < 0 || nx >= n || ny >= n)
+                        continue; //?ж???????
+                    if (grid[nx][ny] == 0) { //?ж????????
                         q.emplace(nx, ny);
-                        grid[nx][ny] = 1;         //???
+                        grid[nx][ny] = 1; //???
                         dbg(grid);
                     }
                 }
             }
-            ans++;          //??????????
+            ans++; //??????????
         }
         return -1;
     };
-    //dbg(answerQueue(grid));
+    // dbg(answerQueue(grid));
 
-
-    const auto answerQueueWidth = [](vector<vector<int>> &grid) {
-        if (grid[0][0] == 1)return -1;
+    const auto answerQueueWidth = [](vector<vector<int>>& grid) {
+        if (grid[0][0] == 1)
+            return -1;
         size_t n = grid.size();
         int ans = 1;
-        const int dire[8][2] = {{1,  0},
-                                {-1, 0},
-                                {0,  1},
-                                {0,  -1},
-                                {1,  1},
-                                {1,  -1},
-                                {-1, -1},
-                                {-1, 1}};
-        queue<std::pair<int, int> > q;
-        q.emplace(0, 0);         //??0,0???
-        grid[0][0] = 1;           //????1???????
-        while (!q.empty()) {      //bfs
+        const int dire[8][2] = { { 1, 0 },
+            { -1, 0 },
+            { 0, 1 },
+            { 0, -1 },
+            { 1, 1 },
+            { 1, -1 },
+            { -1, -1 },
+            { -1, 1 } };
+        queue<std::pair<int, int>> q;
+        q.emplace(0, 0); //??0,0???
+        grid[0][0] = 1; //????1???????
+        while (!q.empty()) { // bfs
             size_t m = q.size(); //?????????е???? ?????
             while (m--) {
-                auto[x, y] = q.front();
+                auto [x, y] = q.front();
                 q.pop();
-                if (x == n - 1 && y == n - 1)return ans;
-                for (auto i: dire) {                       //????????????
+                if (x == n - 1 && y == n - 1)
+                    return ans;
+                for (auto i : dire) { //????????????
                     int nx = x + i[0];
                     int ny = y + i[1];
-                    if (nx < 0 || ny < 0 || nx >= n || ny >= n)continue;   //?ж???????
-                    if (grid[nx][ny] == 0) {        //?ж????????
+                    if (nx < 0 || ny < 0 || nx >= n || ny >= n)
+                        continue; //?ж???????
+                    if (grid[nx][ny] == 0) { //?ж????????
                         q.emplace(nx, ny);
-                        grid[nx][ny] = 1;         //???
+                        grid[nx][ny] = 1; //???
                         dbg(grid);
                     }
                 }
             }
-            ans++;          //??????????
+            ans++; //??????????
         }
         return -1;
     };
-
 }
 
-void LeetCode200::solveRound() {
+void LeetCode200::solveRound()
+{
 
-    const auto answerDfs = [](vector<vector<char>> &board) {
+    const auto answerDfs = [](vector<vector<char>>& board) {
         size_t n = board.size();
         size_t m = board[0].size();
         vector<int> visited(n * m);
 
-
-        auto dfsAllBoard = [&](int x, int y, auto &&dfsAllBoard) {
-            if (x < 0 || y < 0 || x >= n || y >= m)return;
+        auto dfsAllBoard = [&](int x, int y, auto&& dfsAllBoard) {
+            if (x < 0 || y < 0 || x >= n || y >= m)
+                return;
             if (visited[x * m + y] == 0 && board[x][y] == 'O') {
                 visited[x * m + y] = 1;
                 dfsAllBoard(x + 1, y, dfsAllBoard);
@@ -682,14 +707,13 @@ void LeetCode200::solveRound() {
 
         // ???????? ?????δ??????????????д???
         for (int i = 0; i < m; i++) {
-            for (auto j: std::initializer_list<size_t>{0, n - 1}) {
+            for (auto j : std::initializer_list<size_t> { 0, n - 1 }) {
                 dfsAllBoard(static_cast<int>(j), i, dfsAllBoard);
             }
         }
         for (int i = 0; i < n; i++) {
-            for (auto j: std::initializer_list<size_t>{0, m - 1}) {
+            for (auto j : std::initializer_list<size_t> { 0, m - 1 }) {
                 dfsAllBoard(i, static_cast<int>(j), dfsAllBoard);
-
             }
         }
         for (int i = 0; i < n; i++) {
@@ -702,36 +726,36 @@ void LeetCode200::solveRound() {
         }
     };
     vector<vector<char>> board = {
-            {'X', 'O', 'X', 'O', 'X', 'O'},
-            {'O', 'X', 'O', 'X', 'O', 'X'},
-            {'X', 'O', 'X', 'O', 'X', 'O'},
-            {'O', 'X', 'O', 'X', 'O', 'X'}};
+        { 'X', 'O', 'X', 'O', 'X', 'O' },
+        { 'O', 'X', 'O', 'X', 'O', 'X' },
+        { 'X', 'O', 'X', 'O', 'X', 'O' },
+        { 'O', 'X', 'O', 'X', 'O', 'X' }
+    };
 
     answerDfs(board);
-    //dbg(answerDfsWithVisited(0, 0, 0, 2, answerDfsWithVisited));
-
+    // dbg(answerDfsWithVisited(0, 0, 0, 2, answerDfsWithVisited));
 }
 
-void LeetCode200::allPathsSourceTarget() {
-    const auto answerDfs = [](vector<vector<int>> &graph) {
+void LeetCode200::allPathsSourceTarget()
+{
+    const auto answerDfs = [](vector<vector<int>>& graph) {
         vector<vector<int>>::size_type nodeNum = graph.size();
         std::set<int> visited;
         vector<vector<int>> result;
 
         for (int node = 0; node < nodeNum; node++) {
-            if (! graph[node].empty()) {
-
+            if (!graph[node].empty()) {
             }
-
         }
     };
 }
 
-void LeetCode200::subsets() {
-    vector<vector<int>> (*answer)(vector<int> &) = [](vector<int> &nums) -> vector<vector<int>> {
+void LeetCode200::subsets()
+{
+    vector<vector<int>> (*answer)(vector<int>&) = [](vector<int>& nums) -> vector<vector<int>> {
         std::vector<std::vector<int>> result;
         size_t numsSize = nums.size();
-        auto dfs = [&result, numsSize, &nums](int curPos, vector<int> &other, auto &&dfs) -> void {
+        auto dfs = [&result, numsSize, &nums](int curPos, vector<int>& other, auto&& dfs) -> void {
             if (curPos == numsSize) {
                 result.emplace_back(other);
             } else {
@@ -746,7 +770,7 @@ void LeetCode200::subsets() {
         return result;
     };
 
-    vector<vector<int>> (*answerBinary)(vector<int> &) = [](vector<int> &nums) -> vector<vector<int>> {
+    vector<vector<int>> (*answerBinary)(vector<int>&) = [](vector<int>& nums) -> vector<vector<int>> {
         std::vector<int> temp;
         vector<vector<int>> result;
         auto numSize = nums.size();
@@ -770,8 +794,9 @@ void LeetCode200::subsets() {
     };
 }
 
-void LeetCode200::otherSubSets() {
-    vector<vector<int>> (*subsetsWithDup)(vector<int> &) = [](vector<int> &nums) -> vector<vector<int>> {
+void LeetCode200::otherSubSets()
+{
+    vector<vector<int>> (*subsetsWithDup)(vector<int>&) = [](vector<int>& nums) -> vector<vector<int>> {
         std::vector<int> temp;
         vector<vector<int>> result;
         auto numSize = nums.size();
@@ -780,10 +805,10 @@ void LeetCode200::otherSubSets() {
         for (int i = 0; i < last; ++i) {
             temp.clear();
             int cur = i;
-            if ((cur & 1) == 1 && ! uniqueSet.insert(nums[static_cast<size_t>(std::sqrt(cur))]).second) { //需要选择当前的元素
+            if ((cur & 1) == 1 && !uniqueSet.insert(nums[static_cast<size_t>(std::sqrt(cur))]).second) { // 需要选择当前的元素
                 continue;
             } else {
-                int start = 0;// 只有start 元素时 将当前存在的
+                int start = 0; // 只有start 元素时 将当前存在的
                 do {
                     if ((cur & 1) == 1) {
                         temp.push_back(nums[start]);
@@ -797,17 +822,17 @@ void LeetCode200::otherSubSets() {
         return result;
     };
 
-    vector<vector<int>> (*subsetsWithDupSet)(vector<int> &) = [](vector<int> &nums) -> vector<vector<int>> {
+    vector<vector<int>> (*subsetsWithDupSet)(vector<int>&) = [](vector<int>& nums) -> vector<vector<int>> {
         std::vector<int> temp;
         vector<vector<int>> result;
         auto numSize = nums.size();
         auto last = 1 << numSize;
         std::set<std::vector<int>> uniqueSet;
-        std::sort(nums.begin(), nums.end()); //要不然 122  和 221 就不一样了
+        std::sort(nums.begin(), nums.end()); // 要不然 122  和 221 就不一样了
         for (int i = 0; i < last; ++i) {
             temp.clear();
             int cur = i;
-            int start = 0;// 只有start 元素时 将当前存在的
+            int start = 0; // 只有start 元素时 将当前存在的
             do {
                 if ((cur & 1) == 1) {
                     temp.push_back(nums[start]);
@@ -820,27 +845,28 @@ void LeetCode200::otherSubSets() {
         }
         return result;
     };
-
 }
 
-void LeetCode200::combinationSum() {
+void LeetCode200::combinationSum()
+{
     /*
      * 给你一个 无重复元素 的整数数组candidates 和一个目标整数target，找出candidates中可以使数字和为目标数target
      * 的 所有不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
      */
 
-    //warn 错误方法 将多余的数字重复进行了计算
-    vector<vector<int>> (*answer)(vector<int> &, int) = [](vector<int> &candidates, int target) -> vector<vector<int>> {
+    // warn 错误方法 将多余的数字重复进行了计算
+    vector<vector<int>> (*answer)(vector<int>&, int) = [](vector<int>& candidates, int target) -> vector<vector<int>> {
         size_t size = candidates.size();
         vector<vector<int>> result;
-        auto dfs = [&, target, size](int curPos, int curNum, std::vector<int> &cur,
-                                     auto &&dfs) -> void {
+        auto dfs = [&, target, size](int curPos, int curNum, std::vector<int>& cur,
+                       auto&& dfs) -> void {
             dbg(curNum);
             if (curNum == target) {
                 dbg(cur);
                 result.push_back(cur);
             }
-            if (curNum > target || curPos >= size) return;
+            if (curNum > target || curPos >= size)
+                return;
 
             dfs(curPos + 1, curNum, cur, dfs);
             size_t curContainer = cur.size();
@@ -857,27 +883,25 @@ void LeetCode200::combinationSum() {
     //    std::vector<int> data{2, 3, 6, 7};
     //    dbg(answer(data, 7));
 
-    vector<vector<int>>
-    (*answerOther)(vector<int> &, int) =
-    [](vector<int> &candidates, int target) -> vector<vector<int>> {
+    vector<vector<int>> (*answerOther)(vector<int>&, int) =
+        [](vector<int>& candidates, int target) -> vector<vector<int>> {
         size_t size = candidates.size();
         vector<vector<int>> result;
-        auto dfs = [&, target, size]
-                (int curPos, int curSum, std::vector<int> &cur,
-                 auto &&dfs) -> void {
-
+        auto dfs = [&, target, size](int curPos, int curSum, std::vector<int>& cur,
+                       auto&& dfs) -> void {
             if (curSum == target) {
                 result.push_back(cur);
                 return;
             }
-            if (curSum > target || curPos >= size) return;
+            if (curSum > target || curPos >= size)
+                return;
 
             dfs(curPos + 1, curSum, cur, dfs);
             size_t curContainer = cur.size();
             for (int i = 1; i <= (target - curSum) / candidates[curPos]; ++i) {
                 cur.push_back(candidates[curPos]);
                 dbg(curPos + 1, curSum + i * candidates[curPos], cur);
-                //不应该当前的进入下一步 应该重复当前 将当前的数字 从零到满的情况全部拿全
+                // 不应该当前的进入下一步 应该重复当前 将当前的数字 从零到满的情况全部拿全
                 dfs(curPos + 1, curSum + i * candidates[curPos], cur, dfs);
             }
             cur.erase(cur.begin() + static_cast<long long>(curContainer), cur.end());
@@ -888,17 +912,16 @@ void LeetCode200::combinationSum() {
     };
     //    std::vector<int> data{2, 3, 6, 7};
     //    dbg(answerOther(data, 7));
-    vector<vector<int>>
-    (*answerWithOutDup)(vector<int> &, int) =
-    [](vector<int> &candidates, int target) -> vector<vector<int>> {
+    vector<vector<int>> (*answerWithOutDup)(vector<int>&, int) =
+        [](vector<int>& candidates, int target) -> vector<vector<int>> {
         vector<vector<int>> ans;
         vector<int> nums;
         sort(candidates.begin(), candidates.end());
-        auto backtrace = [](vector<vector<int>> &ans,
-                            vector<int> &candidates,
-                            vector<int> &nums,
-                            int cur, int target,
-                            auto &&backtrace) {
+        auto backtrace = [](vector<vector<int>>& ans,
+                             vector<int>& candidates,
+                             vector<int>& nums,
+                             int cur, int target,
+                             auto&& backtrace) {
             if (0 == target) {
                 ans.push_back(nums);
                 return;
@@ -909,7 +932,7 @@ void LeetCode200::combinationSum() {
             //             1    2
             //          1        1(错误)
             for (int next = cur; next < candidates.size() && target - candidates[next] >= 0; next++) {
-                bool isNotFirstOne = next > cur; //不是第一个 并且元素还相同 则直接跳过
+                bool isNotFirstOne = next > cur; // 不是第一个 并且元素还相同 则直接跳过
                 if (isNotFirstOne && candidates[next - 1] == candidates[next]) { //
                     dbg(next, cur, candidates[next - 1], candidates[next]);
                     continue;
@@ -924,37 +947,37 @@ void LeetCode200::combinationSum() {
         backtrace(ans, candidates, nums, 0, target, backtrace);
         return ans;
     };
-    std::vector<int> data{6, 1, 1, 2, 5};
+    std::vector<int> data { 6, 1, 1, 2, 5 };
     dbg(answerWithOutDup(data, 8));
 }
 
-void LeetCode200::letterCombinations() {
+void LeetCode200::letterCombinations()
+{
     //
 
-
     auto answer = [&](const std::string_view digit) {
-        std::vector<std::vector<char>> data = {{'a', 'b', 'c'},
-                                               {'d', 'e', 'f'},
-                                               {'g', 'h', 'i'},
-                                               {'j', 'k', 'l'},
-                                               {'m', 'n', 'o'},
-                                               {'p', 'q', 'r', 's'},
-                                               {'t', 'u', 'v'},
-                                               {'w', 'x', 'y', 'z'}};
+        std::vector<std::vector<char>> data = { { 'a', 'b', 'c' },
+            { 'd', 'e', 'f' },
+            { 'g', 'h', 'i' },
+            { 'j', 'k', 'l' },
+            { 'm', 'n', 'o' },
+            { 'p', 'q', 'r', 's' },
+            { 't', 'u', 'v' },
+            { 'w', 'x', 'y', 'z' } };
         // dfs
         vector<string> result;
         size_t capacity = 1;
-        for (char ch: digit) {
+        for (char ch : digit) {
             capacity *= data[static_cast<size_t>(ch - '0' - 2)].size();
         }
         result.reserve(capacity);
-        auto dfs = [&](std::string &last, std::string_view curDigit, auto &&dfs) -> void {
+        auto dfs = [&](std::string& last, std::string_view curDigit, auto&& dfs) -> void {
             if (curDigit.empty()) {
                 result.emplace_back(last);
                 return;
             }
             size_t num = curDigit[0] - '0' - 2;
-            for (char curChar: data[num]) {
+            for (char curChar : data[num]) {
                 last += curChar;
                 dbg(last + "  " + curChar);
                 dfs(last, curDigit.substr(1), dfs);
@@ -968,7 +991,8 @@ void LeetCode200::letterCombinations() {
     dbg(answer("8"));
 }
 
-void LeetCode200::generateParenthesisByBrackets() {
+void LeetCode200::generateParenthesisByBrackets()
+{
     auto answer = [](int n) {
         std::vector<string> result;
         std::vector<int> tmp;
@@ -979,9 +1003,10 @@ void LeetCode200::generateParenthesisByBrackets() {
         do {
             int count = 0;
             bool isSuccess = true;
-            for (int i: tmp) {
-                if (i == 0) { count++; }
-                else {
+            for (int i : tmp) {
+                if (i == 0) {
+                    count++;
+                } else {
                     if (count == 0) {
                         isSuccess = false;
                         break;
@@ -991,7 +1016,7 @@ void LeetCode200::generateParenthesisByBrackets() {
             }
             if (isSuccess) {
                 curResult.clear();
-                for (int i: tmp) {
+                for (int i : tmp) {
                     if (i == 0) {
                         curResult.push_back('(');
                     } else {
@@ -1007,7 +1032,7 @@ void LeetCode200::generateParenthesisByBrackets() {
     auto answerDp = [](int n) {
         std::vector<string> result;
         result.reserve(n * 2);
-        auto dfs = [&](string &cur, int left, int right, auto &&dfs) -> void {
+        auto dfs = [&](string& cur, int left, int right, auto&& dfs) -> void {
             if (left == 0 && right == 0) {
                 result.emplace_back(cur);
             }
@@ -1033,32 +1058,36 @@ void LeetCode200::generateParenthesisByBrackets() {
     answerDp(3);
 }
 
-void LeetCode200::existInMesh() {
-    auto exist = []() -> bool { //vector<vector<char>> &board, string const &word
+void LeetCode200::existInMesh()
+{
+    auto exist = []() -> bool { // vector<vector<char>> &board, string const &word
         // [0-row][0-column]
-//        auto cache = std::vector<int>((board.size() + 1) * (board[0].size() + 1) * (word.size() + 1));
+        //        auto cache = std::vector<int>((board.size() + 1) * (board[0].size() + 1) * (word.size() + 1));
 
-        std::vector<std::vector<char>> board = {{'A', 'B', 'C', 'E'},
-                                                {'S', 'F', 'C', 'S'},
-                                                {'A', 'D', 'E', 'E'}};
+        std::vector<std::vector<char>> board = { { 'A', 'B', 'C', 'E' },
+            { 'S', 'F', 'C', 'S' },
+            { 'A', 'D', 'E', 'E' } };
         string word = "SEE";
         std::unique_ptr<int[]> visited(new int[board.size() * board[0].size()]);
-        auto dfs = [&](int row, int column, int wordPos, auto &&dfs) -> bool {
-
+        auto dfs = [&](int row, int column, int wordPos, auto&& dfs) -> bool {
             if (wordPos == word.size()) {
                 dbg(row, column, wordPos);
                 return true;
             }
-            if (row == board.size() || row < 0 || column < 0 || column == board[0].size())return false;
+            if (row == board.size() || row < 0 || column < 0 || column == board[0].size())
+                return false;
             if (board[row][column] == word[wordPos] && visited[row * board[0].size() + column] == 0) {
                 ++wordPos;
                 visited[row * board[0].size() + column] = 1;
-                if (dfs(row + 1, column, wordPos, dfs)) return true;
-                if (dfs(row, column + 1, wordPos, dfs)) return true;
-                if (dfs(row - 1, column, wordPos, dfs)) return true;
-                if (dfs(row, column - 1, wordPos, dfs)) return true;
+                if (dfs(row + 1, column, wordPos, dfs))
+                    return true;
+                if (dfs(row, column + 1, wordPos, dfs))
+                    return true;
+                if (dfs(row - 1, column, wordPos, dfs))
+                    return true;
+                if (dfs(row, column - 1, wordPos, dfs))
+                    return true;
                 visited[row * board[0].size() + column] = 0;
-
             }
             return false;
         };
@@ -1079,12 +1108,12 @@ void LeetCode200::existInMesh() {
     };
 
     exist();
-
 }
 
-void LeetCode200::robOnStreet() {
-    vector<int> nums{1, 3, 1, 3, 100};
-    auto rob = [&]() {// 每次只需要知道当前 需要计算的式子就是了
+void LeetCode200::robOnStreet()
+{
+    vector<int> nums { 1, 3, 1, 3, 100 };
+    auto rob = [&]() { // 每次只需要知道当前 需要计算的式子就是了
         std::vector<int> dp(nums.size() + 1);
         dp[0] = 0;
         dp[1] = nums[0];
@@ -1097,10 +1126,11 @@ void LeetCode200::robOnStreet() {
     };
     //    rob();
     auto rob2 = [&]() {
-        if (nums.size() <= 3)return *std::max_element(nums.begin(), nums.end());
-        auto robImpl = [](vector<int> &nums, int start, int end) {
+        if (nums.size() <= 3)
+            return *std::max_element(nums.begin(), nums.end());
+        auto robImpl = [](vector<int>& nums, int start, int end) {
             int pre = nums[start];
-            //left 为当前的下一个位置 所以应该为 f(2) 而不是直接变成 nums[start+1]
+            // left 为当前的下一个位置 所以应该为 f(2) 而不是直接变成 nums[start+1]
             int next = std::max(nums[start + 1], pre);
             int result = next;
             for (int i = start + 2; i < end; i++) {
@@ -1117,23 +1147,26 @@ void LeetCode200::robOnStreet() {
     dbg(rob2());
 }
 
-void LeetCode200::jumpGame() {
+void LeetCode200::jumpGame()
+{
     //
-    std::vector<int> data{1, 1, 1, 4};
+    std::vector<int> data { 1, 1, 1, 4 };
 
-    auto dfs = [&](int pos, int length, auto &&dfs) -> bool {
-        if (pos == length)return true;
-        else if (pos > length)return false;
+    auto dfs = [&](int pos, int length, auto&& dfs) -> bool {
+        if (pos == length)
+            return true;
+        else if (pos > length)
+            return false;
         else {
             for (int i = 1; i <= data[pos]; ++i) {
-                if (dfs(pos + i, length, dfs)) return true;
+                if (dfs(pos + i, length, dfs))
+                    return true;
             }
             return false;
         }
-
     };
 
-    auto dp = [](vector<int> &data) {
+    auto dp = [](vector<int>& data) {
         std::vector<int> dp(data.size() + 1);
         dp[data.size()] = 1;
         for (int cur = static_cast<int>(data.size() - 1); cur >= 0; cur++) {
@@ -1147,12 +1180,11 @@ void LeetCode200::jumpGame() {
                     dp[cur] = 0;
                 }
             }
-
         }
         return dp[0] == 1;
     };
     //    dbg(greedy(data));
-    auto greedy = [](vector<int> &data) {
+    auto greedy = [](vector<int>& data) {
         int n = data.size();
         int last = n - 1;
         for (int i = last - 1; i >= 0; i--) {
@@ -1163,10 +1195,10 @@ void LeetCode200::jumpGame() {
         return last == 0;
     };
 
-
-    auto dp2 = [](vector<int> &data) {
+    auto dp2 = [](vector<int>& data) {
         int n = static_cast<int>(data.size());
-        if (n == 1)return 0;
+        if (n == 1)
+            return 0;
         std::vector<int> dp(n);
         dp[n - 1] = 1;
 
@@ -1197,11 +1229,10 @@ void LeetCode200::jumpGame() {
     };
 
     //    dbg(dp2(data));
-    auto greedy2 = [](std::vector<int> &data) {
-
+    auto greedy2 = [](std::vector<int>& data) {
         // 贪心 算法当前的 当前跳跃的范围找到然后找到下一次可以到达的次数
         int start = 0;
-        int end = 1; //到达位置的下一个位置
+        int end = 1; // 到达位置的下一个位置
         int n = data.size();
         int result = 0;
         while (end < n) { // 当 end=n 表示当前的 end 可以到达 n-1  end >n 则 end可以到达 n
@@ -1240,31 +1271,29 @@ void LeetCode200::jumpGame() {
     }(3, 2);
 
     // c++ 不支持变长数组
-//    int vlaResult = [](int m, int n) {
-//        int dp[m][n];
-//        dp[m - 1][n - 1] = 1;
-//        for (int row = m - 1; row >= 0; --row) {
-//            for (int column = n - 1; column >= 0; --column) {
-//
-//                if (column + 1 < n) {
-//                    dp[row][column] += dp[row][column + 1];
-//                }
-//                if (row + 1 < m) {
-//                    dp[row][column] += dp[row + 1][column];
-//                }
-//            }
-//        }
-//        return dp[0][0];
-//
-//    }(3, 2);
-//    dbg(result == vlaResult);
-
-
-
+    //    int vlaResult = [](int m, int n) {
+    //        int dp[m][n];
+    //        dp[m - 1][n - 1] = 1;
+    //        for (int row = m - 1; row >= 0; --row) {
+    //            for (int column = n - 1; column >= 0; --column) {
+    //
+    //                if (column + 1 < n) {
+    //                    dp[row][column] += dp[row][column + 1];
+    //                }
+    //                if (row + 1 < m) {
+    //                    dp[row][column] += dp[row + 1][column];
+    //                }
+    //            }
+    //        }
+    //        return dp[0][0];
+    //
+    //    }(3, 2);
+    //    dbg(result == vlaResult);
 }
 
-void LeetCode200::longestPalindrome() {
-    string s = "abb";
+void LeetCode200::longestPalindrome()
+{
+    string s = "abaea";
     //    if (s.size() == 1)return std::tostring(s[0]);
     auto reverseBegin = s.rbegin();
     auto reverseEnd = s.rend();
@@ -1299,16 +1328,15 @@ void LeetCode200::longestPalindrome() {
         }
     }
 
-
     dbg(string(s.begin() + left, s.begin() + right));
-
 }
 
-void LeetCode200::maxNum() {
-    //给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。
+void LeetCode200::maxNum()
+{
+    // 给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。
     //
-    //注意：输出结果可能非常大，所以你需要返回一个字符串而不是整数。
-    std::vector<int> nums = {0, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    // 注意：输出结果可能非常大，所以你需要返回一个字符串而不是整数。
+    std::vector<int> nums = { 0, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
     auto answer_first = [&]() mutable {
         std::sort(nums.begin(), nums.end(), [](int first, int second) {
             // 得到每个数的最高位
@@ -1327,30 +1355,34 @@ void LeetCode200::maxNum() {
                 ++firstIndex;
                 ++secondIndex;
             }
-            if (firstSize == secondSize)return true;
+            if (firstSize == secondSize)
+                return true;
             else if (firstSize < secondSize) {
                 char curFirstNum = firstStr.back();
                 while (secondIndex < secondSize) {
-                    if (secondStr[secondIndex] > curFirstNum)return false;
-                    else if (secondStr[secondIndex] < curFirstNum)return true;
+                    if (secondStr[secondIndex] > curFirstNum)
+                        return false;
+                    else if (secondStr[secondIndex] < curFirstNum)
+                        return true;
                     ++secondIndex;
                 }
 
             } else {
                 char curSecondNum = secondStr.back();
                 while (firstIndex < firstSize) {
-                    if (firstStr[firstIndex] > curSecondNum)return true;
-                    else if (firstStr[firstIndex] < curSecondNum)return false;
+                    if (firstStr[firstIndex] > curSecondNum)
+                        return true;
+                    else if (firstStr[firstIndex] < curSecondNum)
+                        return false;
                     ++firstIndex;
                 }
             }
 
             return true;
-
         });
     };
 
-    auto answer_second = [&]()mutable {
+    auto answer_second = [&]() mutable {
         std::sort(nums.begin(), nums.end(), [](int first, int second) {
             auto numWei = [](int cur) {
                 int w = 0;
@@ -1369,10 +1401,9 @@ void LeetCode200::maxNum() {
                 return firstCopy > secondCopy;
             }
             return std::to_string(first) + std::to_string(second) > std::to_string(second) + std::to_string(first);
-
         });
     };
-//    answer_second();
+    //    answer_second();
     auto impl = [](int first, int second) {
         auto numWei = [](int cur) {
             int w = 0;
@@ -1391,7 +1422,6 @@ void LeetCode200::maxNum() {
             return firstCopy > secondCopy;
         }
         return std::to_string(first) + std::to_string(second) > std::to_string(second) + std::to_string(first);
-
     };
 
     auto answer_final = [&]() mutable {
@@ -1418,52 +1448,44 @@ void LeetCode200::maxNum() {
             double firstCopy = first * pow(10, secondWei) + second;
             double secondCopy = second * pow(10, firstWei) + first;
             return firstCopy > secondCopy;
-
-
         });
-
     };
 
     string result;
     result.reserve(nums.size());
-    for (const int val: nums) {
+    for (const int val : nums) {
         result.append(std::to_string(val));
     }
-
 
     fmt::print("{} {}", fmt::join(nums, ","), result);
 }
 
-void LeetCode200::rotateImage() {
+void LeetCode200::rotateImage()
+{
     //[[1,2,3],[4,5,6],[7,8,9] 原地旋转矩阵
-    std::vector<std::vector<int>> container{{1, 2, 3},
-                                            {4, 5, 6},
-                                            {7, 8, 9}};
+    std::vector<std::vector<int>> container { { 1, 2, 3 },
+        { 4, 5, 6 },
+        { 7, 8, 9 } };
 
     // 原地旋转矩阵 则保证当前的矩阵形状大概 最初的形式上移动
     // 先对角交换 然后再列交换
-
 }
 
-void LeetCode200::groupAnagrams() {
-    vector<string> strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+void LeetCode200::groupAnagrams()
+{
+    vector<string> strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
 
     if (strs.size() == 1) {
-        vector<vector<string>> result = {std::vector<string>{std::move(strs[0])}};
+        vector<vector<string>> result = { std::vector<string> { std::move(strs[0]) } };
         return;
     }
     vector<vector<string>> result;
     std::vector<int> target(strs.size());
     std::map<string, int> con;
-    for (string str: strs) {
+    for (string str : strs) {
         std::sort(str.begin(), str.end());
         if (con.count(str)) {
             con[str];
         }
     }
-
 }
-
-
-
-
