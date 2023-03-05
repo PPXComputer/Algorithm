@@ -100,7 +100,8 @@
 			"xtree": "cpp",
 			"xutility": "cpp",
 			"*.ipp": "cpp",
-			"ciso646": "cpp"
+			"ciso646": "cpp",
+			"any": "cpp"
 		}
 	}
 }

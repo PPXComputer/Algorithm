@@ -23,7 +23,7 @@ class LFUCache
     // key: frequency, value: list of original key-value pairs that have the same frequency.
     std::unordered_map<int, listOfKV> freq2listOfKV;
     // key: original key,
-    // value: pair of frequency and the iterator corresponding key int the
+    // value: pair of frequency && the iterator corresponding key int the
     // frequencies map's list.
     std::unordered_map<int, freqWithListIter> key2freqWithListIter;
     unsigned int capacity;

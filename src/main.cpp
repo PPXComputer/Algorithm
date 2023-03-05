@@ -1,7 +1,7 @@
 ﻿#include <dbg.h>
 
 #include <bitset>
-
+#include <numeric>
 #include "ArrayAlgo.h"
 #include "LRU.h"
 #include "LeetCode.h"
@@ -164,7 +164,17 @@ int main()
     // dbg(t.getNewsFeed(2));
     // Package::pack02();
     // LeetCode200::longestPalindrome();
-    Package::integerBreak();
+    // Package::integerBreak();
+    // std::vector<int> data{10,4,8,3};
+    // std::vector<int> leftSum(data.size());
+    // std::vector<int> rightSum(data.size());
+
+    // std::partial_sum(data.begin(),data.end()-1,leftSum.begin()+1);
+    // std::partial_sum(data.rbegin(),data.rend()-1,rightSum.rbegin()+1);
+    // // java.lang.collectio.
+    // fmt::print("{}",fmt::join(leftSum,","));
+    // fmt::print("\n {}",fmt::join(rightSum,","));
+    Package::findMaxForm();
 }
 
 void bit_flip()

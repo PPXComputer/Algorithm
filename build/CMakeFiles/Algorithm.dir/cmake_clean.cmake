@@ -1,8 +1,5 @@
 file(REMOVE_RECURSE
-  "Algorithm.exe"
-  "Algorithm.exe.manifest"
   "Algorithm.lib"
-  "Algorithm.pdb"
   "CMakeFiles/Algorithm.dir/src/ArrayAlgo.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/ArrayAlgo.cpp.obj.d"
   "CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj"
@@ -31,6 +28,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.obj.d"
   "CMakeFiles/Algorithm.dir/src/main.cpp.obj"
   "CMakeFiles/Algorithm.dir/src/main.cpp.obj.d"
+  "Debug/bin/Algorithm.exe"
+  "Debug/bin/Algorithm.exe.manifest"
+  "Debug/bin/Algorithm.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

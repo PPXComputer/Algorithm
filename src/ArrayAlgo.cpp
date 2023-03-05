@@ -16,6 +16,7 @@
 #include <utility>
 #include <vector>
 #include <stack>
+
 #include "GreedyAlgo.h"
 
 using fmt::format;
@@ -1031,7 +1032,7 @@ void ArrayAlgo::nextGreaterElement()
     std::deque<int> mStack;
     const auto push = [&](int value)
     {
-        while (not mStack.empty())
+        while (! mStack.empty())
         {
             if (mStack.front() < value)
             {

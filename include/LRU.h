@@ -12,15 +12,17 @@ class LRUCache {
     struct DoubleListNode {
         DoubleListNode() = default;
         ~DoubleListNode() = default;
-        DoubleListNode(DoubleListNode* prev, DoubleListNode* next, int val)
+        DoubleListNode(DoubleListNode* prev, DoubleListNode* next, int val, int key)
             : prev { prev }
             , next { next }
             , val { val }
+            , key { key }
         {
         }
         DoubleListNode* prev;
         DoubleListNode* next;
         int val;
+        int key;
     };
     class DoubleList {
         DoubleListNode* m_root;
@@ -47,15 +49,15 @@ class LRUCache {
             }
         }
 
-        DoubleListNode* add_to_front(int val)
+        DoubleListNode* add_to_front(int key, int val)
         {
             DoubleListNode* curNode {};
             if (this->m_size == 0) {
-                curNode = new DoubleListNode { this->m_root, nullptr, val };
+                curNode = new DoubleListNode { this->m_root, nullptr, val, key };
                 this->m_tail = curNode;
                 this->m_root->next = curNode;
             } else {
-                curNode = new DoubleListNode { this->m_root, this->m_root->next, val };
+                curNode = new DoubleListNode { this->m_root, this->m_root->next, val, key };
                 this->m_root->next->prev = curNode;
                 this->m_root->next = curNode;
             }
@@ -130,10 +132,10 @@ public:
             // 添加新的元素
             int listSize = this->m_double_list.get_size();
             if (listSize == this->m_capcaity) {
-                this->m_map.erase(this->m_double_list.get_tail()->val);
+                this->m_map.erase(this->m_double_list.get_tail()->key);
                 this->m_double_list.delete_tail();
             }
-            auto curNode = this->m_double_list.add_to_front(value);
+            auto curNode = this->m_double_list.add_to_front(key, value);
             this->m_map.insert({ key, curNode });
         }
     }
@@ -225,7 +227,7 @@ public:
     std::vector<int> res = std::vector<int>(10);
 };
 /**
- * Your Twitter object will be instantiated and called as such:
+ * Your Twitter object will be instantiated && called as such:
  * Twitter* obj = new Twitter();
  * obj->postTweet(userId,tweetId);
  * vector<int> param_2 = obj->getNewsFeed(userId);

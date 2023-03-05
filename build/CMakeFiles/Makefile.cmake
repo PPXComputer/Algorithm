@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.23.22060601-MSVC_2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.23.22060601-MSVC_2/CMakeRCCompiler.cmake"
   "CMakeFiles/3.23.22060601-MSVC_2/CMakeSystem.cmake"
+  "../test/CMakeLists.txt"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeCXXInformation.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/CMakeDependentOption.cmake"
@@ -27,11 +28,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Compiler/MSVC-CXX.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindBoost.cmake"
+  "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindGTest.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindOpenSSL.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindThreads.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/FindZLIB.cmake"
+  "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/GoogleTest.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC-CXX.cmake"
   "C:/Software/VisualStuido/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC.cmake"
@@ -65,6 +68,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Tools/vcpkg/installed/x64-windows/share/glog/glog-targets-debug.cmake"
   "C:/Tools/vcpkg/installed/x64-windows/share/glog/glog-targets-release.cmake"
   "C:/Tools/vcpkg/installed/x64-windows/share/glog/glog-targets.cmake"
+  "C:/Tools/vcpkg/installed/x64-windows/share/gtest/GTestConfig.cmake"
+  "C:/Tools/vcpkg/installed/x64-windows/share/gtest/GTestConfigVersion.cmake"
+  "C:/Tools/vcpkg/installed/x64-windows/share/gtest/GTestTargets-debug.cmake"
+  "C:/Tools/vcpkg/installed/x64-windows/share/gtest/GTestTargets-release.cmake"
+  "C:/Tools/vcpkg/installed/x64-windows/share/gtest/GTestTargets.cmake"
   "C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventConfig.cmake"
   "C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventConfigVersion.cmake"
   "C:/Tools/vcpkg/installed/x64-windows/share/libevent/LibeventTargets-shared-debug.cmake"
@@ -84,9 +92,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "test/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Algorithm.dir/DependInfo.cmake"
+  "test/CMakeFiles/testRunner.dir/DependInfo.cmake"
   )

@@ -11,6 +11,7 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
+
 using std::array;
 using std::function;
 using std::pair;
@@ -139,8 +140,8 @@ void Package::pack02()
                       return;
                   }
 
-                  if (index != data.size() - 1 and data[index] <= '2'
-                      and data[index + 1] <= '6') {
+                  if (index != data.size() - 1 && data[index] <= '2'
+                      && data[index + 1] <= '6') {
                       char curChar
                           = (data[index] - '1') * 10 + (data[index + 1] - '1' + 'A');
                       impl(index + 2, cur + curChar);
@@ -159,7 +160,7 @@ void Package::pack02()
                 help[1] = 0;
             }
         } else {
-            if (data[0] <= '2' and data[1] <= '6') {
+            if (data[0] <= '2' && data[1] <= '6') {
                 help[1] = 2;
             } else {
                 help[1] = 1;
@@ -170,13 +171,13 @@ void Package::pack02()
         for (size_t i = 2; i < size; ++i) {
             if (data[i] == '0') {
 
-                if (data[i - 1] == '2' or data[i - 1] == '1') {
+                if (data[i - 1] == '2' || data[i - 1] == '1') {
                     help[i] = help[i - 2];
                 } else {
                     help[i] = 0;
                 }
             } else {
-                if (data[i - 1] <= '2' and data[i] <= '6') {
+                if (data[i - 1] <= '2' && data[i] <= '6') {
                     help[i] = help[i - 2] + help[i - 1];
                 } else {
                     help[i] = help[i - 1];
@@ -200,7 +201,7 @@ void Package::pack02()
                   int way = impl2(index + 1, cur);
 
                   if (index + 1 < data.size()
-                      and (cur[index] - '0') * 10 + cur[index + 1] - '0' < 27) {
+                      && (cur[index] - '0') * 10 + cur[index + 1] - '0' < 27) {
                       way += impl2(index + 2, cur);
                   }
                   return way;
@@ -213,10 +214,10 @@ void Package::pack02()
             char curChar = data[i];
             if (curChar == '0') {
                 help[i] = 0;
-            } else if (curChar == '1' or curChar == '2') {
+            } else if (curChar == '1' || curChar == '2') {
                 help[i] = help[i + 1];
                 if (i + 1 < dataSize
-                    and ((curChar - '0') * 10 + data[i + 1] - '0') < 27) {
+                    && ((curChar - '0') * 10 + data[i + 1] - '0') < 27) {
                     help[i] += help[i + 2];
                 }
             } else {
@@ -326,7 +327,7 @@ void Package::longestCommntSub()
     // str2 [0...j]
     // 以 i j 结尾的最长公共子序列长度
     function<int(int, int)> impl = [&](int i, int j) {
-        if (i == 0 and j == 0) {
+        if (i == 0 && j == 0) {
             return str1[i] == str2[j] ? 1 : 0;
         } else if (j == 0) {
             if (str1[i] == str2[j]) {
@@ -443,14 +444,14 @@ void Package::jump()
     };
     function<int(int, int, int)> impl = [&](int k, int x, int y) {
         if (k == 0) {
-            return (targetX == x and targetY == y) ? 1 : 0;
+            return (targetX == x && targetY == y) ? 1 : 0;
         }
 
-        if (y < 0 or x < 0 or x > 9 or y > 10) {
+        if (y < 0 || x < 0 || x > 9 || y > 10) {
             return 0;
         }
 
-        if (k * 2 + x < targetX or k + y < targetY or targetX + 2 * k < x or targetY + k < y) {
+        if (k * 2 + x < targetX || k + y < targetY || targetX + 2 * k < x || targetY + k < y) {
             return 0;
         }
         int res = 0;
@@ -524,4 +525,68 @@ void Package::numTrees()
         help[i - 1] = res;
     }
     dbg(help[n - 1]);
+}
+
+void Package::findMaxForm()
+{
+    std::array<string, 5> strs { "10", "0001", "111001", "1", "0" };
+    constexpr int m = 5;
+    constexpr int n = 3;
+
+    vector<vector<vector<int>>> memo(strs.size() + 1, vector<vector<int>>(m + 1, vector<int>(n + 1, -1)));
+    std::function<int(int, int, int)> max_len = [&](int size, int i, int j) -> int {
+        if (size == strs.size()) {
+            dbg(fmt::format("size: {} i: {} j: {}", size, i, j));
+            memo[size][i][j] = 0;
+            return 0;
+        }
+        const auto curStr = strs[size];
+        int curM = 0;
+        int curN = 0;
+        for (char a : strs[size]) {
+            if (a == '0') {
+                ++curM;
+            } else {
+                ++curN;
+            }
+        }
+
+        if (i + curM > m || j + curN > n) {
+            dbg(fmt::format("size: {} i: {} j: {}", size + 1, i, j));
+            memo[size][i][j] = max_len(size + 1, i, j);
+        } else {
+            dbg(fmt::format("size: {} i: {} j: {}  size+1:{} i+curM:{} j+curN:{}",
+                size + 1, i, j, size + 1, i + curM, j + curN));
+            memo[size][i][j] = std::max(max_len(size + 1, i, j), max_len(size + 1, i + curM, j + curN) + 1);
+        }
+
+        return memo[size][i][j];
+    };
+    max_len(0, 0, 0);
+    for (size_t i = 0; i < memo.size(); i++) {
+        dbg(i);
+        for (const auto& vec : memo[i]) {
+            dbg(vec);
+        }
+    }
+
+    vector<vector<int>> help(m + 1, vector<int>(n + 1));
+    for (int size = strs.size() - 1; size >= 0; --size) {
+        // f(size-1 , i,j)= max(f(size ,i+strs[c],n+strs[c],f(size,i,j)));
+        int curM = 0;
+        int curN = 0;
+        for (char a : strs[size]) {
+            if (a == '0') {
+                ++curM;
+            } else {
+                ++curN;
+            }
+        }
+        for (int i = m-curM; i >= 0; --i) {
+            for (int j = n-curN; j >= 0; --j) {
+
+                help[i][j] = std::max(help[i + curM][j + curN] + 1, help[i][j]);
+            }
+        }
+    }
 }

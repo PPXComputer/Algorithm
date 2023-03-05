@@ -23,6 +23,8 @@ public:
 
     // 96. 不同的二叉搜索树 numTrees
     static void numTrees();
+    // 474. 一和零
+    static void findMaxForm();
 };
 
 #endif // PACKAGE_H

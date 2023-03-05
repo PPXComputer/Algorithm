@@ -1,12 +1,18 @@
 {
+    "env": {
+        // ...
+        "VCPKG_ROOT": "C:/Tools/vcpkg" // example of setting VCPKG_ROOT
+        // ...
+    },
     "configurations": [
         {
+            
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/include",
-                "${vcpkgRoot}/x64-windows/include",
-                "${vcpkgRoot}/x64-windows-static/include",
-                "${vcpkgRoot}/x86-windows/include"
+                "${env:VCPKG_ROOT}/x64-windows/include",
+                "${env:VCPKG_ROOT}/x64-windows-static/include",
+                "${env:VCPKG_ROOT}/x86-windows/include"
             ],
             "defines": [
                 "_DEBUG",

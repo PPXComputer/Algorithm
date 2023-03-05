@@ -128,6 +128,19 @@ Algorithm/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make CMakeFiles/Algorithm.dir/build
 .PHONY : Algorithm/fast
 
+#=============================================================================
+# Target rules for targets named testRunner
+
+# Build rule for target.
+testRunner: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 testRunner
+.PHONY : testRunner
+
+# fast build rule for target.
+testRunner/fast:
+	$(MAKE) $(MAKESILENT) -f test\CMakeFiles\testRunner.dir\build.make test/CMakeFiles/testRunner.dir/build
+.PHONY : testRunner/fast
+
 src/ArrayAlgo.obj: src/ArrayAlgo.cpp.obj
 .PHONY : src/ArrayAlgo.obj
 
@@ -473,6 +486,7 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Algorithm
+	@echo ... testRunner
 	@echo ... src/ArrayAlgo.obj
 	@echo ... src/ArrayAlgo.i
 	@echo ... src/ArrayAlgo.s

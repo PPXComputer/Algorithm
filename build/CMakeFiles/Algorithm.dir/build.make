@@ -284,47 +284,49 @@ Algorithm_OBJECTS = \
 # External object files for target Algorithm
 Algorithm_EXTERNAL_OBJECTS =
 
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/ArrayAlgo.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/LRU.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/LeetCode.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/Offer.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/Package.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/src/main.cpp.obj
-Algorithm.exe: CMakeFiles/Algorithm.dir/build.make
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/folly.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/fmtd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_context-vc140-mt-gd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_filesystem-vc140-mt-gd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_program_options-vc140-mt-gd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_regex-vc140-mt-gd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_system-vc140-mt-gd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_thread-vc140-mt-gd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_chrono-vc140-mt-gd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_atomic-vc140-mt-gd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/double-conversion.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/glog.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/gflags_debug.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/event_extra.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/event_core.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/zlibd.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/libssl.lib
-Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/libcrypto.lib
-Algorithm.exe: CMakeFiles/Algorithm.dir/objects1.rsp
-Algorithm.exe: CMakeFiles/Algorithm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Code\Csgo\Algorithm\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable Algorithm.exe"
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/ArrayAlgo.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/Dynamic.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/GreedyAlgo.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/LRU.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/LeetCode.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/LeetCode200.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/ListAglo.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/Offer.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/Package.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/SkipList.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/StringAlgo.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/TreeAlgo.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/UnionFindSet.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/src/main.cpp.obj
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/build.make
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/folly.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/manual-link/gtest_main.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/fmtd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_context-vc140-mt-gd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_filesystem-vc140-mt-gd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_program_options-vc140-mt-gd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_regex-vc140-mt-gd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_system-vc140-mt-gd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_thread-vc140-mt-gd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_chrono-vc140-mt-gd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/boost_atomic-vc140-mt-gd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/double-conversion.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/glog.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/gflags_debug.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/event_extra.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/event_core.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/zlibd.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/libssl.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/libcrypto.lib
+Debug/bin/Algorithm.exe: C:/Tools/vcpkg/installed/x64-windows/debug/lib/gtest.lib
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/objects1.rsp
+Debug/bin/Algorithm.exe: CMakeFiles/Algorithm.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Code\Csgo\Algorithm\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable Debug\bin\Algorithm.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Algorithm.dir\link.txt --verbose=$(VERBOSE)
-	C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Tools/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Code/Csgo/Algorithm/build/Algorithm.exe -installedDir C:/Tools/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+	C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Tools/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Code/Csgo/Algorithm/build/Debug/bin/Algorithm.exe -installedDir C:/Tools/vcpkg/installed/x64-windows/debug/bin -OutVariable out
 
 # Rule to build all files generated by this target.
-CMakeFiles/Algorithm.dir/build: Algorithm.exe
+CMakeFiles/Algorithm.dir/build: Debug/bin/Algorithm.exe
 .PHONY : CMakeFiles/Algorithm.dir/build
 
 CMakeFiles/Algorithm.dir/clean:

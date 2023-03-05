@@ -63,15 +63,32 @@ CMAKE_BINARY_DIR = C:\Code\Csgo\Algorithm\build
 
 # The main recursive "all" target.
 all: CMakeFiles/Algorithm.dir/all
+all: test/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: test/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/Algorithm.dir/clean
+clean: test/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory test
+
+# Recursive "all" directory target.
+test/all: test/CMakeFiles/testRunner.dir/all
+.PHONY : test/all
+
+# Recursive "preinstall" directory target.
+test/preinstall:
+.PHONY : test/preinstall
+
+# Recursive "clean" directory target.
+test/clean: test/CMakeFiles/testRunner.dir/clean
+.PHONY : test/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/Algorithm.dir
@@ -98,6 +115,32 @@ Algorithm: CMakeFiles/Algorithm.dir/rule
 CMakeFiles/Algorithm.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Algorithm.dir\build.make CMakeFiles/Algorithm.dir/clean
 .PHONY : CMakeFiles/Algorithm.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/testRunner.dir
+
+# All Build rule for target.
+test/CMakeFiles/testRunner.dir/all:
+	$(MAKE) $(MAKESILENT) -f test\CMakeFiles\testRunner.dir\build.make test/CMakeFiles/testRunner.dir/depend
+	$(MAKE) $(MAKESILENT) -f test\CMakeFiles\testRunner.dir\build.make test/CMakeFiles/testRunner.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Code\Csgo\Algorithm\build\CMakeFiles --progress-num=16,17,18,19,20,21,22,23,24,25,26,27,28,29,30 "Built target testRunner"
+.PHONY : test/CMakeFiles/testRunner.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/testRunner.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Code\Csgo\Algorithm\build\CMakeFiles 15
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test/CMakeFiles/testRunner.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Code\Csgo\Algorithm\build\CMakeFiles 0
+.PHONY : test/CMakeFiles/testRunner.dir/rule
+
+# Convenience name for target.
+testRunner: test/CMakeFiles/testRunner.dir/rule
+.PHONY : testRunner
+
+# clean rule for target.
+test/CMakeFiles/testRunner.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test\CMakeFiles\testRunner.dir\build.make test/CMakeFiles/testRunner.dir/clean
+.PHONY : test/CMakeFiles/testRunner.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -3,15 +3,36 @@ project(Algorithm CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(Boost_NO_WARN_NEW_VERSIONS 1)
-add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
-add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/Debug/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/Release/bin)
 
-include_directories(SYSTEM ./include)
-include_directories(SYSTEM ./src)
+# 使用多线程编译
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+  add_compile_options(/MP)
+
+# 禁用 RTTI 
+
+  add_compile_options(/GR)
+
+# 根据目标平台进行优化
+
+  if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "8")
+    add_compile_options("/favor:INTEL64")
+  else()
+    add_compile_options("/favor:INTEL32")
+  endif()
+  endif()
+add_compile_options("$<$<C_COMPILER_ID:MSVC>:/source-charset:utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>")
+add_compile_options("$<$<C_COMPILER_ID:MSVC>:/execution-charset:utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/execution-charset:utf-8>")
+
 
 find_package(folly CONFIG REQUIRED)
 #find_package(GTest CONFIG REQUIRED)
 find_path(DBG_MACRO_INCLUDE_DIRS "dbg.h")
+find_package(GTest CONFIG REQUIRED)
+
 find_program(ccache_exe "C:\\Tools\\ccache-4.7.4-windows-x86_64\\ccache.exe")
 if (ccache_exe)
 
@@ -24,11 +45,16 @@ if (ccache_exe)
             )
 endif ()
 
-file(GLOB SRC_FILES src/*.cpp)
-file(GLOB HEAD_FILES include/*.h)
+# 添加头文件搜索路径
+include_directories(${PROJECT_SOURCE_DIR}/include)
+# 获取该目录下所有源文件
+aux_source_directory(src SRC_FILES)
 
 add_executable(Algorithm ${SRC_FILES} ${HEAD_FILES})
 #target_link_libraries(Algorithm PRIVATE  GTest::gtest  GTest::gtest_main)
 target_link_libraries(Algorithm PRIVATE Folly::folly)
 target_include_directories(Algorithm PRIVATE ${DBG_MACRO_INCLUDE_DIRS})
+target_link_libraries(Algorithm PRIVATE GTest::gtest GTest::gtest_main)
+
 # target_link_libraries(Algorithm PRIVATE gflags::gflags)
+add_subdirectory(test)

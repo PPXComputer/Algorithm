@@ -1,3 +1,6 @@
 C:/Code/Csgo/Algorithm/build/CMakeFiles/Algorithm.dir
 C:/Code/Csgo/Algorithm/build/CMakeFiles/edit_cache.dir
 C:/Code/Csgo/Algorithm/build/CMakeFiles/rebuild_cache.dir
+C:/Code/Csgo/Algorithm/build/test/CMakeFiles/testRunner.dir
+C:/Code/Csgo/Algorithm/build/test/CMakeFiles/edit_cache.dir
+C:/Code/Csgo/Algorithm/build/test/CMakeFiles/rebuild_cache.dir
