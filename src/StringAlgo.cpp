@@ -154,8 +154,10 @@ void StringAlgo::find_longest_not_repeat_sub() {
     int pre = -1;// 判断当前可以判断的字符起始位置在哪里
     fbstring::size_type size = str.size();
     //如果以当前字符结尾的情况下 将获得最长的间隔为多少
+
     for (size_t i = 0; i < size; i++) {
         // 当前的起始位置 要不就是与上一次一致  要不然就是上一次出现当前字符的位置
+        // 去掉转化str[i
         pre = std::max(pre, data[static_cast<size_t>(str[i])]);
         // 当前可以达到的最大长度为
         interval = i - pre;
@@ -321,10 +323,8 @@ inline void StringAlgo::printAll(const folly::fbstring &cur,
 }
 
 void StringAlgo::wordBreak() {
-
     std::string cur = "pineapplepenapple";
     std::unordered_set<std::string> wordDict{"apple", "pen", "applepen", "pine", "pineapple"};
-
     folly::fbvector<folly::fbstring> rst;
     std::function<void(StringPiece, std::string &)> can
             = [&](StringPiece piece, std::string &t) {

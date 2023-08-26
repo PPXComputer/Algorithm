@@ -4,7 +4,7 @@
 
 #include "UnionFindSet.h"
 #include <algorithm>
-
+#include<cassert>
 using std::vector;
 
 int UnionFindSet::find_father(int val) {

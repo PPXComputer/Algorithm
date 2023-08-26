@@ -187,6 +187,8 @@ void TreeAlgo::find_most_search_subtree()
 
 void TreeAlgo::connect()
 { // 将完美二叉数据右侧节点进行链接
+    // 当前Node 的构造函数 有一定转化风险需要注意
+
     class Node
     {
     public:
@@ -197,7 +199,8 @@ void TreeAlgo::connect()
 
         Node() : val(0), left(NULL), right(NULL), next(NULL) {}
 
-        Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+        // 修改以下构造函数 避免转化风险
+        explicit Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
 
         Node(int _val, Node *_left, Node *_right, Node *_next)
             : val(_val), left(_left), right(_right), next(_next) {}
@@ -206,7 +209,10 @@ void TreeAlgo::connect()
     {
         if (root == nullptr)
             return root;
-
+        // traverse(root->left, root->right);
+        // 是一个三叉树的遍历 以下函数应该替换成函数递归 而不是lambda递归
+        // 修改以下函数 使其成为递归函数
+        //
         std::function<void(Node *, Node *)> traverse = [&](Node *first, Node *second) -> void
         {
             if (first == nullptr || second == nullptr)

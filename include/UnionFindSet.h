@@ -6,8 +6,6 @@
 #define SSH_UNIONFINDSET_H
 
 #include <vector>
-#include <unordered_map>
-#include <cassert>
 
 
 class UnionFindSet {

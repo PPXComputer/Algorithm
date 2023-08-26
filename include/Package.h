@@ -12,6 +12,9 @@ public:
     static void pack02();
     static void pack03();
 
+    static void pack_416();
+
+    static void pack_1049();
     static void longestCommntSub();
 
     // 63. 不同路径 II

@@ -11,6 +11,7 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include <numeric>
 
 using std::array;
 using std::function;
@@ -18,24 +19,24 @@ using std::pair;
 using std::string;
 using std::unordered_map;
 using std::vector;
-void Package::pack01()
-{
+
+void Package::pack01() {
 
     // 01 背包问题
 
-    std::array values { 2, 4, 4, 5, 2 };
-    std::array volumes { 1, 2, 3, 4, 5 };
+    std::array values{2, 4, 4, 5, 2};
+    std::array volumes{1, 2, 3, 4, 5};
     constexpr int packVolume = 10;
     {
         std::vector<std::vector<int>> dp(values.size() + 1,
-            std::vector<int>(packVolume + 1));
+                                         std::vector<int>(packVolume + 1));
         auto answer_enum = [&](int rest, int index, int count, auto answer_dfs) {
             if (rest <= 0 || index == values.size())
                 return count;
             int get = 0;
             if (rest >= volumes[index]) {
                 get = answer_dfs(rest - volumes[index], index + 1,
-                    count + values[index], answer_dfs);
+                                 count + values[index], answer_dfs);
             }
             return std::max(get, answer_dfs(rest, index + 1, count, answer_dfs));
         };
@@ -44,19 +45,19 @@ void Package::pack01()
     {
         // 暴力递归
         std::function<int(int, int, int)> impl
-            = [&](int index, int value, int amount) {
-                  if (index == volumes.size()) {
-                      if (amount >= 0) {
-                          return value;
-                      }
-                      return INT_MIN;
-                  }
+                = [&](int index, int value, int amount) {
+                    if (index == volumes.size()) {
+                        if (amount >= 0) {
+                            return value;
+                        }
+                        return INT_MIN;
+                    }
 
-                  int get = impl(index + 1, value + values[index],
-                      amount - volumes[index]);
-                  int not_get = impl(index + 1, value, amount);
-                  return std::max(get, not_get);
-              };
+                    int get = impl(index + 1, value + values[index],
+                                   amount - volumes[index]);
+                    int not_get = impl(index + 1, value, amount);
+                    return std::max(get, not_get);
+                };
 
         impl(0, 0, packVolume);
     }
@@ -78,7 +79,7 @@ void Package::pack01()
         };
         {
             vector<vector<int>> vt(volumes.size() + 1,
-                vector<int>(packVolume + 1));
+                                   vector<int>(packVolume + 1));
 
             for (int index = volumes.size() - 1; index >= 0; --index) {
                 // std::for_each(vt[i].begin(), vt[i].begin() + volumes[i],
@@ -88,8 +89,8 @@ void Package::pack01()
                         vt[index][bag] = vt[index + 1][bag];
                     } else {
                         vt[index][bag] = std::max(
-                            values[index] + vt[index + 1][bag - volumes[index]],
-                            vt[index + 1][bag]);
+                                values[index] + vt[index + 1][bag - volumes[index]],
+                                vt[index + 1][bag]);
                     }
                 }
             }
@@ -105,13 +106,13 @@ void Package::pack01()
             for (int index = volumes.size() - 1; index >= 0; --index) {
                 for (int bag = packVolume; bag >= volumes[index]; --bag) {
                     vt[bag] = std::max(values[index] + vt[bag - volumes[index]],
-                        vt[bag]);
+                                       vt[bag]);
                 }
                 // 依赖部分应该是没有被使用的部分  从小到大
                 // 小的部分已经填上了最新的值了 所以被覆盖了 不能用
                 for (int bag = volumes[index]; bag <= packVolume; ++bag) {
                     vtDbg[bag] = std::max(
-                        values[index] + vtDbg[bag - volumes[index]], vtDbg[bag]);
+                            values[index] + vtDbg[bag - volumes[index]], vtDbg[bag]);
                 }
                 vtRes.emplace_back(vt);
                 vtResDbg.emplace_back(vtDbg);
@@ -124,8 +125,7 @@ void Package::pack01()
     //
 }
 
-void Package::pack02()
-{
+void Package::pack02() {
 
     // 选择当前的字符串
     string data = "111011"; //  转化为 A-1 B--2  Z--26
@@ -133,23 +133,23 @@ void Package::pack02()
     {
         vector<string> res;
 
-        function<void(int, const string&)> impl
-            = [&](int index, const string& cur) {
-                  if (index == data.size()) {
-                      res.emplace_back(cur);
-                      return;
-                  }
+        function<void(int, const string &)> impl
+                = [&](int index, const string &cur) {
+                    if (index == data.size()) {
+                        res.emplace_back(cur);
+                        return;
+                    }
 
-                  if (index != data.size() - 1 && data[index] <= '2'
-                      && data[index + 1] <= '6') {
-                      char curChar
-                          = (data[index] - '1') * 10 + (data[index + 1] - '1' + 'A');
-                      impl(index + 2, cur + curChar);
-                  }
+                    if (index != data.size() - 1 && data[index] <= '2'
+                        && data[index + 1] <= '6') {
+                        char curChar
+                                = (data[index] - '1') * 10 + (data[index + 1] - '1' + 'A');
+                        impl(index + 2, cur + curChar);
+                    }
 
-                  char curChar = data[index] - '1' + 'A';
-                  impl(index + 1, cur + curChar);
-              };
+                    char curChar = data[index] - '1' + 'A';
+                    impl(index + 1, cur + curChar);
+                };
 
         vector<int> help = vector<int>(data.size());
         help[0] = 1;
@@ -189,23 +189,23 @@ void Package::pack02()
     // 结果是res的长度
 
     {
-        function<int(int, const string&)> impl2
-            = [&](int index, const string& cur) {
-                  if (index == data.size()) {
-                      return 1;
-                  }
-                  if (cur[index] == '0') {
-                      return 0;
-                  }
+        function<int(int, const string &)> impl2
+                = [&](int index, const string &cur) {
+                    if (index == data.size()) {
+                        return 1;
+                    }
+                    if (cur[index] == '0') {
+                        return 0;
+                    }
 
-                  int way = impl2(index + 1, cur);
+                    int way = impl2(index + 1, cur);
 
-                  if (index + 1 < data.size()
-                      && (cur[index] - '0') * 10 + cur[index + 1] - '0' < 27) {
-                      way += impl2(index + 2, cur);
-                  }
-                  return way;
-              };
+                    if (index + 1 < data.size()
+                        && (cur[index] - '0') * 10 + cur[index + 1] - '0' < 27) {
+                        way += impl2(index + 2, cur);
+                    }
+                    return way;
+                };
 
         size_t dataSize = data.size();
         vector<int> help = vector<int>(dataSize + 1);
@@ -227,18 +227,17 @@ void Package::pack02()
     }
 }
 
-void Package::pack03()
-{
-    string str { "babac" };
-    vector<string> arr { "ba", "c", "abcd" };
+void Package::pack03() {
+    string str{"babac"};
+    vector<string> arr{"ba", "c", "abcd"};
 
-    array<int, 26> state {};
-    for (char a : str) {
+    array<int, 26> state{};
+    for (char a: str) {
         ++state[a - 'a'];
     }
-    auto minus = [](array<int, 26> preState, const string& curStr) {
+    auto minus = [](array<int, 26> preState, const string &curStr) {
         bool isMinus = false;
-        for (char i : curStr) {
+        for (char i: curStr) {
             int stateIndex = i - 'a';
             if (preState[stateIndex] > 0) {
                 --preState[i - 'a'];
@@ -249,38 +248,38 @@ void Package::pack03()
     };
     auto equalTOZero = [](int a) { return a == 0; };
     // 最少需要多少张
-    function<int(const array<int, 26>&)> impl
-        = [&](const array<int, 26>& curState) {
-              if (std::all_of(curState.begin(), curState.end(), equalTOZero)) {
-                  return 0;
-              }
+    function<int(const array<int, 26> &)> impl
+            = [&](const array<int, 26> &curState) {
+                if (std::all_of(curState.begin(), curState.end(), equalTOZero)) {
+                    return 0;
+                }
 
-              int res = INT_MAX;
+                int res = INT_MAX;
 
-              // 可以挑选无数张贴纸
-              for (const string& arrStr : arr) {
+                // 可以挑选无数张贴纸
+                for (const string &arrStr: arr) {
 
-                  auto [isMinus, newState] = minus(curState, arrStr);
+                    auto [isMinus, newState] = minus(curState, arrStr);
 
-                  if (isMinus) {
-                      res = std::min(res, impl(newState));
-                  }
-              }
-              return res + ((res == INT_MAX) ? 0 : 1);
-          };
+                    if (isMinus) {
+                        res = std::min(res, impl(newState));
+                    }
+                }
+                return res + ((res == INT_MAX) ? 0 : 1);
+            };
 
     size_t arrSize = arr.size();
     vector<array<int, 26>> stickers = vector<array<int, 26>>(arrSize);
 
     for (size_t i = 0; i < arrSize; i++) {
-        for (char a : arr[i]) {
+        for (char a: arr[i]) {
             ++stickers[i][a - 'a'];
         }
     }
 
-    array<int, 26> curState {};
+    array<int, 26> curState{};
     unordered_map<string, int> cache;
-    function<int(const string&)> impl2 = [&](const string& rest) {
+    function<int(const string &)> impl2 = [&](const string &rest) {
         if (rest.empty()) {
             return 0;
         }
@@ -289,7 +288,7 @@ void Package::pack03()
         }
         curState.fill(0);
 
-        for (char a : rest) {
+        for (char a: rest) {
             ++curState[a - 'a'];
         }
         int minCount = INT_MAX;
@@ -316,8 +315,7 @@ void Package::pack03()
     };
 }
 
-void Package::longestCommntSub()
-{
+void Package::longestCommntSub() {
     /// 最长公共子序列
 
     string str1 = "assda1231asd";
@@ -346,7 +344,7 @@ void Package::longestCommntSub()
         int p1 = impl(i - 1, j); // 可能以i结尾在公共子序列部分
         int p2 = impl(i, j - 1); // 可能以j结尾在公共子序列部分
         int p3 = str1[i] == str2[j] ? 1 + impl(i - 1, j - 1) : 0;
-        return std::max({ p1, p2, p3 });
+        return std::max({p1, p2, p3});
     };
     {
         vector<vector<int>> help(str1.size(), vector<int>(str2.size()));
@@ -361,7 +359,7 @@ void Package::longestCommntSub()
             for (size_t j = 1; j < str2.size(); j++) {
                 int endWithIJ = str1[i] == str2[j] ? 1 + help[i - 1][j - 1] : 0;
                 help[i][j]
-                    = std::max({ endWithIJ, help[i - 1][j], help[i][j - 1] });
+                        = std::max({endWithIJ, help[i - 1][j], help[i][j - 1]});
             }
         }
         int res = help[str1.size()][str2.size()];
@@ -369,37 +367,36 @@ void Package::longestCommntSub()
     }
 }
 
-void Package::uniquePathsWithObstacles()
-{
+void Package::uniquePathsWithObstacles() {
     vector<vector<int>> obstacleGrid = {
-        { 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0 },
-        { 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0 },
-        { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1 },
-        { 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 },
-        { 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0 },
-        { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0 },
-        { 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1 },
-        { 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0 },
-        { 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0 },
-        { 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1 },
-        { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0 },
-        { 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 },
-        { 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 },
-        { 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 },
-        { 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0 },
-        { 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 },
-        { 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0 },
-        { 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 },
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+            {0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0},
+            {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1},
+            {0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+            {0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0},
+            {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0},
+            {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1},
+            {0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+            {1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0},
+            {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1},
+            {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0},
+            {1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+            {0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+            {0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0},
+            {0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+            {0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+            {0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0},
+            {0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
     };
     int row = obstacleGrid.size();
@@ -425,22 +422,21 @@ void Package::uniquePathsWithObstacles()
     dbg(help[0][0]);
 }
 
-void Package::jump()
-{
+void Package::jump() {
     // 象棋马在(0,0) 跳到(x,y)  k步下有多少中方法
 
     constexpr int targetX = 2;
     constexpr int targetY = 1;
     constexpr int targetK = 5;
-    constexpr array<pair<int, int>, 8> forward {
-        pair<int, int> { 2, 1 },
-        { -2, 1 },
-        { -2, -1 },
-        { 2, -1 },
-        { 1, 2 },
-        { 1, -2 },
-        { -1, -2 },
-        { -1, 2 }
+    constexpr array<pair<int, int>, 8> forward{
+            pair<int, int>{2, 1},
+            {-2, 1},
+            {-2, -1},
+            {2, -1},
+            {1, 2},
+            {1, -2},
+            {-1, -2},
+            {-1, 2}
     };
     function<int(int, int, int)> impl = [&](int k, int x, int y) {
         if (k == 0) {
@@ -456,7 +452,7 @@ void Package::jump()
         }
         int res = 0;
 
-        for (const auto a : forward) {
+        for (const auto a: forward) {
             res += impl(k - 1, x + a.first, y + a.second);
         }
         return res;
@@ -465,8 +461,7 @@ void Package::jump()
     dbg(impl(targetK, 0, 0));
 }
 
-void Package::integerBreak()
-{
+void Package::integerBreak() {
 
     function<int(int)> impl = [&](int cur) {
         if (cur == 1) {
@@ -498,8 +493,7 @@ void Package::integerBreak()
     }
 }
 
-void Package::numTrees()
-{
+void Package::numTrees() {
     int n = 12;
     if (n == 1) {
         dbg(1);
@@ -527,9 +521,8 @@ void Package::numTrees()
     dbg(help[n - 1]);
 }
 
-void Package::findMaxForm()
-{
-    std::array<string, 5> strs { "10", "0001", "111001", "1", "0" };
+void Package::findMaxForm() {
+    std::array<string, 5> strs{"10", "0001", "111001", "1", "0"};
     constexpr int m = 5;
     constexpr int n = 3;
 
@@ -543,7 +536,7 @@ void Package::findMaxForm()
         const auto curStr = strs[size];
         int curM = 0;
         int curN = 0;
-        for (char a : strs[size]) {
+        for (char a: strs[size]) {
             if (a == '0') {
                 ++curM;
             } else {
@@ -556,7 +549,7 @@ void Package::findMaxForm()
             memo[size][i][j] = max_len(size + 1, i, j);
         } else {
             dbg(fmt::format("size: {} i: {} j: {}  size+1:{} i+curM:{} j+curN:{}",
-                size + 1, i, j, size + 1, i + curM, j + curN));
+                            size + 1, i, j, size + 1, i + curM, j + curN));
             memo[size][i][j] = std::max(max_len(size + 1, i, j), max_len(size + 1, i + curM, j + curN) + 1);
         }
 
@@ -565,7 +558,7 @@ void Package::findMaxForm()
     max_len(0, 0, 0);
     for (size_t i = 0; i < memo.size(); i++) {
         dbg(i);
-        for (const auto& vec : memo[i]) {
+        for (const auto &vec: memo[i]) {
             dbg(vec);
         }
     }
@@ -575,18 +568,143 @@ void Package::findMaxForm()
         // f(size-1 , i,j)= max(f(size ,i+strs[c],n+strs[c],f(size,i,j)));
         int curM = 0;
         int curN = 0;
-        for (char a : strs[size]) {
+        for (char a: strs[size]) {
             if (a == '0') {
                 ++curM;
             } else {
                 ++curN;
             }
         }
-        for (int i = m-curM; i >= 0; --i) {
-            for (int j = n-curN; j >= 0; --j) {
+        for (int i = m - curM; i >= 0; --i) {
+            for (int j = n - curN; j >= 0; --j) {
 
                 help[i][j] = std::max(help[i + curM][j + curN] + 1, help[i][j]);
             }
         }
     }
 }
+
+void Package::pack_416() {
+    vector<int> data{1, 5, 11, 12, 123};
+    auto impl = [&data]() {
+
+        int sum = std::accumulate(data.begin(), data.end(), 0);
+        if (sum % 2 == 1) {
+            return false;
+        }
+        int target = sum / 2;
+
+        std::function<bool(int, int)> dfs_impl = [&](int index, int curSum) -> bool {
+            if (curSum == target) {
+                return true;
+            }
+            if (index == data.size() or curSum > target) {
+                return false;
+            }
+            return dfs_impl(index + 1, curSum + data[index]) or dfs_impl(index + 1, curSum);
+        };
+
+        auto first_ans = dfs_impl(0, 0);
+        vector<vector<int>> dp(data.size(), vector<int>(target + 1));
+        for (int i = 0; i < data.size(); ++i) {
+            dp[i][target] = 1;
+        }
+        // 下列循环有可能会溢出size_t 修改为int
+        for (int row = static_cast<int>(data.size()) - 2; row >= 0; --row) {
+            for (int col = 0; col < target; ++col) {
+                if (col + data[row] > target) {
+                    dp[row][col] = dp[row + 1][col];
+                } else {
+                    dp[row][col] = dp[row + 1][col] or dp[row + 1][col + data[row]];
+                }
+            }
+        }
+        auto second_ans = dp[0][0];
+        //  修改成一维数组
+        vector<int> dp2(target + 1);
+        dp2[target] = 1;
+        for (int row = static_cast<int>(data.size()) - 2; row >= 0; --row) {
+            for (int col = 0; col < target; ++col) {
+                if (col + data[row] <= target) {
+                    dp2[col] = std::max(dp2[col], dp2[col + data[row]]);
+                }
+            }
+        }
+
+        auto third_ans = dp2[0];
+        // 如果需要三者都相等要不然debug打印
+        if (third_ans != second_ans or second_ans != first_ans or first_ans != third_ans) {
+            dbg(third_ans, second_ans, first_ans);
+        }
+        return first_ans;
+    };
+    impl();
+
+}
+
+void Package::pack_1049() {
+    // 能组成不超过给定值的最大数
+    vector<int> data{1, 2, 3, 4};
+    auto impl = [&] {
+        if (data.size() == 1) {
+            return data.front();
+        }
+        int sum = std::accumulate(data.begin(), data.end(), 0);
+        int target = sum / 2;
+
+        std::function<int(int, int)> dfs_impl = [&](int index, int value) -> int {
+            if (value > target) {
+                return INT_MIN;
+            }
+            if (index == data.size()) {
+                return value;
+            }
+
+            return std::max(dfs_impl(index + 1, value), dfs_impl(index + 1, value + data[index]));
+        };
+
+        auto first_ans = sum - 2 * dfs_impl(0, 0);
+
+        vector<vector<int>> dp2(data.size(), vector<int>(target + 1));
+        vector<int> &back = dp2.back();
+        for (int j = 1; j <= target; ++j) {
+            back[j] = j;
+        }
+
+        for (int row = static_cast<int>(data.size()) - 2; row >= 0; --row) {
+            for (int col = 0; col <= target; ++col) {
+                if (col + data[row] > target) {
+                    dp2[row][col] = dp2[row + 1][col];
+                } else {
+                    dp2[row][col] = std::max(dp2[row + 1][col], dp2[row + 1][col + data[row]]);
+                }
+            }
+        }
+        dbg(dp2);
+        auto second_ans = sum - 2 * dp2[0][0];
+        //  修改成一维数组
+        vector<int> dp3(target + 1);
+        vector<int> &back2 = dp3;
+        for (int j = 1; j <= target; ++j) {
+            back2[j] = j;
+        }
+        for (int row = static_cast<int>(data.size()) - 2; row >= 0; --row) {
+            dbg(dp3);
+
+            for (int col = 0; col <= target; ++col) {
+                if (col + data[row] <= target) {
+                    dp3[col] = std::max(dp3[col], dp3[col + data[row]]);
+                }
+            }
+
+        }
+        auto third_ans = sum - 2 * dp3[0];
+        // 如果需要三者都相等要不然debug打印
+        if (third_ans != second_ans or second_ans != first_ans or first_ans != third_ans) {
+            dbg(third_ans, second_ans, first_ans);
+        }
+        return first_ans;
+    };
+    impl();
+}
+
