@@ -6,5 +6,6 @@ int main() {
     // 1. 从前序与中序遍历序列构造二叉树
 
 //    Package::pack_416();
-    Package::pack_1049();
+//    Package::pack_1049();
+    Package::pack_494();
 }

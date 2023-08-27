@@ -14,6 +14,8 @@ public:
 
     static void pack_416();
 
+    static void pack_494();
+
     static void pack_1049();
     static void longestCommntSub();
 

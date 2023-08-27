@@ -708,3 +708,83 @@ void Package::pack_1049() {
     impl();
 }
 
+void Package::pack_494() {
+    vector<int> data{1, 1, 1, 1, 1};
+    int target = 3;
+    //  有多少种方法使得和为target
+    auto impl = [&] {
+        auto size = static_cast<int>(data.size());
+        std::function<int(int, int)> dfs_impl = [&](int index, int curSum) -> int {
+            if (index == size) {
+                return curSum == target ? 1 : 0;
+            }
+            return dfs_impl(index + 1, curSum + data[index]) + dfs_impl(index + 1, curSum - data[index]);
+        };
+        int first_ans = dfs_impl(0, 0);
+        int sum = std::accumulate(data.cbegin(), data.cend(), 0);
+        int target_len = 2 * sum;
+        auto dp2 = vector<vector<int>>(size + 1, vector<int>(target_len + 1));
+        dp2.back()[target + sum] = 1;
+        int dataSize = static_cast<int>(size);
+        for (int row = dataSize - 1; row >= 0; --row) {
+            for (int col = 0; col <= target_len; ++col) {
+                int rightPos = col + data[row];
+                int right = rightPos <= target_len ? dp2[row + 1][rightPos] : 0;
+                int leftPos = col - data[row];
+                int left = leftPos >= 0 ? dp2[row + 1][leftPos] : 0;
+                dp2[row][col] = left + right;
+            }
+        }
+        dbg(dp2);
+        auto second_ans = dp2[0][sum];
+        //  修改成一维数组
+        vector<int> dp3(2 * sum + 1);
+        dp3[target + sum] = 1;
+        vector<int> dp3_copy = dp3;
+
+        for (int row = dataSize - 1; row >= 0; --row) {
+            for (int col = 0; col <= 2 * sum; ++col) {
+                int left = col - data[row] >= 0 ? dp3_copy[col - data[row]] : 0;
+                int right = col + data[row] <= 2 * sum ? dp3_copy[col + data[row]] : 0;
+                dp3[col] = left + right;
+            }
+            dbg(dp3, dp3_copy);
+            swap(dp3, dp3_copy);
+        }
+        auto third_ans = dp3_copy[sum];
+        // 如果需要三者都相等要不然debug打印
+        if (third_ans != second_ans or second_ans != first_ans or first_ans != third_ans) {
+            dbg(third_ans, second_ans, first_ans);
+        }
+
+        int origin_all = target + sum;
+        if (origin_all % 2 == 1) {
+            auto fourth_ans = 0;
+        }
+        int postivate = origin_all / 2;
+        std::function<int(int, int)> dfs_pos = [&](int index, int curSum) {
+            if (index == size) {
+                return curSum == postivate ? 1 : 0;
+            }
+            return dfs_pos(index + 1, curSum) + dfs_pos(index + 1, curSum + data[index]);
+        };
+        auto fourth_ans = dfs_pos(0, 0);
+        auto dp_pos = vector<int>(postivate + 1);
+        dp_pos[postivate] = 1;
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j <= postivate; ++postivate) {
+                int right = j + data[i] <= postivate ? dp_pos[j + data[i]] : 0;
+                dp_pos[j] += right;
+            }
+        }
+        auto five_ans = dp_pos[0];
+        // 如果需要五者都相等要不然debug打印
+        if (five_ans != fourth_ans or fourth_ans != third_ans
+            or third_ans != second_ans or second_ans != first_ans or first_ans != five_ans) {
+            dbg(five_ans, fourth_ans, third_ans, second_ans, first_ans);
+        }
+    };
+    impl();
+
+}
+
