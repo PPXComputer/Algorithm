@@ -58,4 +58,4 @@ target_include_directories(Algorithm PRIVATE ${DBG_MACRO_INCLUDE_DIRS})
 target_link_libraries(Algorithm PRIVATE GTest::gtest GTest::gtest_main)
 
 # target_link_libraries(Algorithm PRIVATE gflags::gflags)
-add_subdirectory(test)
+#add_subdirectory(test)

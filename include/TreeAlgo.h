@@ -21,17 +21,17 @@ struct TreeNode
 class TreeAlgo
 {
 public:
-    using Node = TreeNode;
+    using node = TreeNode;
 
-    static std::unique_ptr<TreeNode> create_tree();
+    static std::unique_ptr<TreeNode> createTree();
 
-    static void cal_node_distance();
+    static void calNodeDistance();
 
-    static void find_non_exist_num();
+    static void findNonExistNum();
 
     static void run();
 
-    static void find_most_search_subtree();
+    static void findMostSearchSubtree();
 
     static void connect(); // LeetCode 116
 
@@ -70,6 +70,7 @@ public:
     // 1584. 连接所有点的最小费用
     static void minCostConnectPoints();
 
+    static void treeSerializeAndDeserialize();
 private:
 };
 

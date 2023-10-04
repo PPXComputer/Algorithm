@@ -514,16 +514,16 @@ void LeetCode200::connectRight()
     // std::unique_ptr<ListNode> first = LeetCode200::decode(10);
     // auto root = first.get();
     // if (root == NULL)return NULL;
-    // vector<Node*> container;
+    // vector<node*> container;
     // container.push_back(root);
 
     // while (! container.empty())
     //{
     //	int curLayer = container.size();
-    //	Node* lastNode = nullptr;
+    //	node* lastNode = nullptr;
     //	for (int i = 0; i < curLayer; i++)
     //	{
-    //		Node* back = container.back();
+    //		node* back = container.back();
     //		container.pop_back();
     //		if (lastNode != nullptr) {
     //			lastNode->left = back;

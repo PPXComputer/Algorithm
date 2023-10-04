@@ -21,20 +21,15 @@
 using folly::fbvector;
 using std::vector;
 
-void TreeAlgo::cal_node_distance()
-{
+void TreeAlgo::calNodeDistance() {
     // ????????????
-    const std::unique_ptr<TreeNode> &tree = create_tree();
+    const std::unique_ptr<TreeNode> &tree = createTree();
 
-    std::function<std::pair<int, int>(TreeNode *)> impl = [&](TreeNode *root) -> std::pair<int, int>
-    {
+    std::function<std::pair<int, int>(TreeNode *)> impl = [&](TreeNode *root) -> std::pair<int, int> {
         // ??????? root ??????
-        if (root == nullptr)
-        {
+        if (root == nullptr) {
             return {0, 0}; //??????????
-        }
-        else
-        {
+        } else {
             std::pair<int, int> left = impl(root->left);
             std::pair<int, int> right = impl(root->right);
             int cur_height = std::max(left.first, right.first) + 1;
@@ -45,8 +40,7 @@ void TreeAlgo::cal_node_distance()
     fmt::print("impl(tree, impl) {}", impl(tree.get()).second);
 }
 
-std::unique_ptr<TreeNode> TreeAlgo::create_tree()
-{
+std::unique_ptr<TreeNode> TreeAlgo::createTree() {
     using std::make_unique;
     std::unique_ptr<TreeNode> root = make_unique<TreeNode>(0);
     root->left = new TreeNode(1);
@@ -59,39 +53,31 @@ std::unique_ptr<TreeNode> TreeAlgo::create_tree()
     return root;
 }
 
-void TreeAlgo::find_non_exist_num()
-{
+void TreeAlgo::findNonExistNum() {
     // ?????????? ???????? 2^16 ?????? 2^15
     // ???????????????д????m_count???
     //        constexpr int length = 1 << 16;
     //        std::array<int, length> data{};
 }
 
-void TreeAlgo::run() { TreeAlgo::cal_node_distance(); }
+void TreeAlgo::run() { TreeAlgo::calNodeDistance(); }
 
-void TreeAlgo::find_most_search_subtree()
-{ // ????????????? ????????????
+void TreeAlgo::findMostSearchSubtree() { // ????????????? ????????????
 
-    std::unique_ptr<TreeNode> root = TreeAlgo::create_tree();
+    std::unique_ptr<TreeNode> root = TreeAlgo::createTree();
 
-    auto fn = [](TreeNode *cur)
-    {
-        std::function<int(TreeNode *)> count = [&](TreeNode *subTree) -> int
-        {
-            if (subTree != nullptr)
-            {
+    auto fn = [](TreeNode *cur) {
+        std::function<int(TreeNode *)> count = [&](TreeNode *subTree) -> int {
+            if (subTree != nullptr) {
                 int left = count(subTree->left);
                 int right = count(subTree->right);
                 return left + right + 1;
-            }
-            else
-            {
+            } else {
                 return 0;
             }
         };
 
-        std::function<bool(TreeNode *)> search_sub_tree = [&](TreeNode *data) -> bool
-        {
+        std::function<bool(TreeNode *)> search_sub_tree = [&](TreeNode *data) -> bool {
             if (data == nullptr)
                 return true;
             if (data->left != nullptr && (data->left->value > data->value))
@@ -102,21 +88,16 @@ void TreeAlgo::find_most_search_subtree()
                    search_sub_tree(data->right);
         };
 
-        auto impl = [&](TreeNode *data) -> int
-        {
-            if (search_sub_tree(data))
-            {
+        auto impl = [&](TreeNode *data) -> int {
+            if (search_sub_tree(data)) {
                 return count(data);
             }
-            if (data != nullptr)
-            {
+            if (data != nullptr) {
                 int left = 0, right = 0;
-                if (search_sub_tree(data->left))
-                {
+                if (search_sub_tree(data->left)) {
                     left = count(data->left);
                 }
-                if (search_sub_tree(data->right))
-                {
+                if (search_sub_tree(data->right)) {
                     right = count(data->right);
                 }
                 return std::max(left, right);
@@ -126,58 +107,48 @@ void TreeAlgo::find_most_search_subtree()
         return impl(cur);
     };
 
-    struct BstNodeResult
-    {
+    struct BstNodeResult {
         int min; // ???? ????С?? ?
         int max; // ???? ?????? ?
-        Node *bstNodeHead;
+        node *bstNodeHead;
         int height;
         bool isBst; //???????????? ???????????ж?
-        BstNodeResult(int mi, int ma, Node *bst, int he, int isb)
-            : min(mi), max(ma), bstNodeHead(bst), height(he), isBst(isb) {}
+        BstNodeResult(int mi, int ma, node *bst, int he, int isb)
+                : min(mi), max(ma), bstNodeHead(bst), height(he), isBst(isb) {}
     };
-    auto searchImpl = [](Node *root,
-                         auto &&searchImpl) -> std::optional<BstNodeResult>
-    {
-        if (root == nullptr)
-        {
+    auto searchImpl = [](node *root,
+                         auto &&searchImpl) -> std::optional<BstNodeResult> {
+        if (root == nullptr) {
             return {};
         }
 
         std::optional<BstNodeResult> leftValue = searchImpl(root->left, searchImpl);
         std::optional<BstNodeResult> rightValue =
-            searchImpl(root->right, searchImpl);
+                searchImpl(root->right, searchImpl);
 
         BstNodeResult bstNodeResult =
-            BstNodeResult(INT_MAX, INT_MIN, nullptr, 1, false);
+                BstNodeResult(INT_MAX, INT_MIN, nullptr, 1, false);
 
-        if (leftValue)
-        {
+        if (leftValue) {
             auto &left = leftValue.value();
             bstNodeResult.min = std::min(left.min, bstNodeResult.min);
             bstNodeResult.max = std::max(left.max, bstNodeResult.max);
         }
-        if (rightValue)
-        {
+        if (rightValue) {
             auto &right = rightValue.value();
             bstNodeResult.min = std::min(right.min, bstNodeResult.min);
             bstNodeResult.max = std::max(right.max, bstNodeResult.max);
         }
 
-        if (leftValue && rightValue)
-        {
+        if (leftValue && rightValue) {
             auto &left = leftValue.value();
             auto &right = rightValue.value();
-            if (left.isBst && right.isBst)
-            {
+            if (left.isBst && right.isBst) {
                 if (left.max <= right.min && root->value >= left.max &&
-                    root->value <= right.min)
-                {
+                                             root->value <= right.min) {
                     bstNodeResult.bstNodeHead = root; // ?????????????????????????
                 }
-            }
-            else
-            {
+            } else {
             }
         }
 
@@ -185,36 +156,32 @@ void TreeAlgo::find_most_search_subtree()
     };
 }
 
-void TreeAlgo::connect()
-{ // 将完美二叉数据右侧节点进行链接
+void TreeAlgo::connect() { // 将完美二叉数据右侧节点进行链接
     // 当前Node 的构造函数 有一定转化风险需要注意
 
-    class Node
-    {
+    class node {
     public:
         int val;
-        Node *left;
-        Node *right;
-        Node *next;
+        node *left;
+        node *right;
+        node *next;
 
-        Node() : val(0), left(NULL), right(NULL), next(NULL) {}
+        node() : val(0), left(nullptr), right(nullptr), next(nullptr) {}
 
         // 修改以下构造函数 避免转化风险
-        explicit Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+        explicit node(int val_) : val(val_), left(nullptr), right(nullptr), next(nullptr) {}
 
-        Node(int _val, Node *_left, Node *_right, Node *_next)
-            : val(_val), left(_left), right(_right), next(_next) {}
+        node(int val_, node *_left, node *_right, node *_next)
+                : val(val_), left(_left), right(_right), next(_next) {}
     };
-    const auto dfs = [](Node *root)
-    {
+    const auto dfs = [](node *root) {
         if (root == nullptr)
             return root;
         // traverse(root->left, root->right);
         // 是一个三叉树的遍历 以下函数应该替换成函数递归 而不是lambda递归
         // 修改以下函数 使其成为递归函数
         //
-        std::function<void(Node *, Node *)> traverse = [&](Node *first, Node *second) -> void
-        {
+        std::function<void(node *, node *)> traverse = [&](node *first, node *second) -> void {
             if (first == nullptr || second == nullptr)
                 return;
             first->next = second; // todo 没搞懂这个三叉树遍历是什么
@@ -224,13 +191,11 @@ void TreeAlgo::connect()
         };
 
         // 遍历相关节点将当前的子节点链接完成 则可以完成所有的节点链接
-        const auto impl = [](Node *cur, auto self) -> void
-        {
+        const auto impl = [](node *cur, auto self) -> void {
             if (cur == nullptr || cur->left == nullptr || cur->right == nullptr)
                 return;
             cur->left->next = cur->right;
-            if (cur->next != nullptr)
-            {
+            if (cur->next != nullptr) {
                 cur->right->next = cur->next->left;
             }
             self(cur->left);
@@ -241,37 +206,32 @@ void TreeAlgo::connect()
     };
 }
 
-void TreeAlgo::constructMaximumBinaryTree()
-{
+void TreeAlgo::constructMaximumBinaryTree() {
     // 最大二叉树
 
     folly::fbvector<int> nums{3, 2, 1, 6, 0, 5};
     auto maxIndex = std::max_element(nums.begin(), nums.end());
     using iter = decltype(nums.begin());
 
-    using TreeNodePtr = TreeNode *;
-    const auto dfs = [&nums](iter cur, iter left, iter right,
-                             TreeNodePtr &curNode, auto dfs) -> void
-    {
+    using treeNodePtr = TreeNode *;
+    const auto dfs = [](iter cur, iter left, iter right,
+                        treeNodePtr &curNode, auto dfs) -> void {
         // 将当前的转化为 left  转化为左子树
         curNode = new TreeNode{*cur};
-        if (cur != left)
-        { // 有左子树
+        if (cur != left) { // 有左子树
             dfs(std::max_element(left, cur), left, cur, curNode->left, dfs);
         }
 
-        if (cur + 1 != right)
-        { // 有右子树
+        if (cur + 1 != right) { // 有右子树
             dfs(std::max_element(cur + 1, right), cur + 1, right, curNode->right,
                 dfs);
         }
     };
-    TreeNodePtr root = nullptr;
+    treeNodePtr root = nullptr;
     // dfs(maxIndex, nums.begin(), nums.end(), root, dfs);
 }
 
-void TreeAlgo::buildTree()
-{
+void TreeAlgo::buildTree() {
     // 均无重复元素
 
     // 中左右
@@ -283,15 +243,13 @@ void TreeAlgo::buildTree()
     std::unordered_map<int, int> map;
     map.reserve(inorder.size());
     int index = 0;
-    for (int i : inorder)
-    {
+    for (int i: inorder) {
         map[i] = index++;
     }
 
     // 所有的右边界是闭的区间
     const auto dfs2 = [&](int preorderLeft, int preorderRight, int inorderLeft,
-                          int inorderRight, auto dfs2) -> TreeNode *
-    {
+                          int inorderRight, auto dfs2) -> TreeNode * {
         if (preorderLeft > preorderRight)
             return nullptr;
         int curValue = preorder[preorderLeft]; // 当前root 的值
@@ -311,8 +269,7 @@ void TreeAlgo::buildTree()
     //  return dfs2(preorder,0, preorder.size()-1,0,inorder.size()-1);
 }
 
-void TreeAlgo::serialize()
-{
+void TreeAlgo::serialize() {
     auto *root = new TreeNode(1);
     root->left = new TreeNode(2);
 
@@ -320,22 +277,15 @@ void TreeAlgo::serialize()
     root->right->left = new TreeNode(4);
     root->right->right = new TreeNode(5);
 
-    std::function<void(std::string &, TreeNode *)> serImpl = [&](std::string &str, TreeNode *root) -> void
-    {
-        if (str.empty())
-        {
+    std::function<void(std::string &, TreeNode *)> serImpl = [&](std::string &str, TreeNode *root) -> void {
+        if (str.empty()) {
             str.push_back(root->value + '0');
             serImpl(str, root->left);
             serImpl(str, root->right);
-        }
-        else
-        {
-            if (root == nullptr)
-            {
+        } else {
+            if (root == nullptr) {
                 str.append(",#");
-            }
-            else
-            {
+            } else {
                 char a = '0' + root->value;
                 str.append({',', a});
                 serImpl(str, root->left);
@@ -343,8 +293,7 @@ void TreeAlgo::serialize()
             }
         }
     };
-    auto serialize = [serImpl](TreeNode *root) -> std::string
-    {
+    auto serialize = [serImpl](TreeNode *root) -> std::string {
         if (root == nullptr)
             return {};
         std::string a;
@@ -352,25 +301,22 @@ void TreeAlgo::serialize()
         return a;
     };
 
-    std::function<std::string(TreeNode *)> serOtherImpl = [&](TreeNode *root) -> std::string
-    {
+    std::function<std::string(TreeNode *)> serOtherImpl = [&](TreeNode *root) -> std::string {
         if (root == nullptr)
             return {"#,"};
         auto left = serOtherImpl(root->left);
         auto right = serOtherImpl(root->right);
         return std::to_string(root->value) + "," + left + right;
     };
-    dbg(serialize(root)); //[ 1, 2, 3, null, null, 4, 5 ]
+    dbg(serialize(root)); //[ 1, 2, 3, nullptr, nullptr, 4, 5 ]
     dbg(serOtherImpl(root));
 }
 
-void TreeAlgo::deserialize()
-{
+void TreeAlgo::deserialize() {
     std::string str{"2,1,#,6,#,#,3,#,#"};
     std::vector<char> res;
     folly::split(",", str, res);
-    const auto impl = [&res](int cur, auto impl) -> TreeNode *
-    {
+    const auto impl = [&res](int cur, auto impl) -> TreeNode * {
         if (cur >= res.size() || res[cur] == '#')
             return nullptr;
 
@@ -382,43 +328,35 @@ void TreeAlgo::deserialize()
     // return impl(0,impl)
 }
 
-void TreeAlgo::findDuplicateSubtrees()
-{
+void TreeAlgo::findDuplicateSubtrees() {
 
     std::unordered_set<int> res;
     std::unordered_set<std::string> set;
-    std::function<std::string(TreeNode *)> impl = [&](TreeNode *root) -> std::string
-    {
+    std::function<std::string(TreeNode *)> impl = [&](TreeNode *root) -> std::string {
         if (root == nullptr)
             return "#";
         auto left = impl(root);
         auto right = impl(root);
         auto subTree = std::to_string(root->value) + left + right;
-        if (!set.insert(subTree).second)
-        {
+        if (!set.insert(subTree).second) {
             res.insert(root->value);
         }
         return subTree;
     };
     std::vector<int> vec(res.size());
-    std::transform(res.begin(), res.end(), std::back_inserter(vec), [](int a)
-                   { return a; });
+    std::transform(res.begin(), res.end(), std::back_inserter(vec), [](int a) { return a; });
 }
 
-void TreeAlgo::kthSmallest()
-{
-    const std::unique_ptr<TreeNode> &ptr = TreeAlgo::create_tree();
+void TreeAlgo::kthSmallest() {
+    const std::unique_ptr<TreeNode> &ptr = TreeAlgo::createTree();
     TreeNode *root = ptr.get();
     int a = 10e4 + 1;
     int cnt = 1;
     int k = 1;
-    std::function<void(TreeNode *)> mid = [&](TreeNode *r)
-    {
-        if (r != nullptr)
-        {
+    std::function<void(TreeNode *)> mid = [&](TreeNode *r) {
+        if (r != nullptr) {
             mid(r->left);
-            if (cnt++ == k)
-            {
+            if (cnt++ == k) {
                 a = r->value;
                 return;
             }
@@ -431,17 +369,14 @@ void TreeAlgo::kthSmallest()
     dbg(a, cnt, k);
 }
 
-void TreeAlgo::bstToGst()
-{
+void TreeAlgo::bstToGst() {
 }
 
-void TreeAlgo::lowestCommonAncestor()
-{
+void TreeAlgo::lowestCommonAncestor() {
     //
     TreeNode *p = nullptr;
     TreeNode *q = nullptr;
-    std::function<TreeNode *(TreeNode *)> impl = [&](TreeNode *root)
-    {
+    std::function<TreeNode *(TreeNode *)> impl = [&](TreeNode *root) {
         bool rootIsNull = root == nullptr;
         bool rootIsQ = root->value == q->value;
         bool rootIsP = root->value == p->value;
@@ -456,55 +391,41 @@ void TreeAlgo::lowestCommonAncestor()
         return impl(root->left);
     };
 
-    decltype(impl) otherImpl = [&](TreeNode *root)
-    {
-        if (root->value > p->value && root->value > q->value)
-        {
+    decltype(impl) otherImpl = [&](TreeNode *root) {
+        if (root->value > p->value && root->value > q->value) {
             return otherImpl(root->left);
-        }
-        else if (root->value < p->value && root->value < q->value)
-        {
+        } else if (root->value < p->value && root->value < q->value) {
             return otherImpl(root->right);
-        }
-        else
+        } else
             return root;
     };
 }
 
-void TreeAlgo::lowestCommonAncestor2()
-{
+void TreeAlgo::lowestCommonAncestor2() {
 }
 
-void TreeAlgo::allPathsSourceTarget()
-{
+void TreeAlgo::allPathsSourceTarget() {
     using std::vector;
     vector<vector<int>> graph = {{0, 1, 1, 0},
                                  {0, 0, 0, 1},
                                  {0, 0, 0, 1},
                                  {0, 0, 0, 0}};
-    int graphSize = graph.size();
+    int graphSize = static_cast<int>(graph.size());
     vector<int> tmp{0};
     vector<vector<int>> res;
-    std::function<void(int)> traverse = [&](int next)
-    {
+    std::function<void(int)> traverse = [&](int next) {
         const auto &ref = graph[next];
 
         if (std::find_if(ref.begin(),
                          ref.end(),
-                         [](int a)
-                         {
+                         [](int a) {
                              return a != 0;
-                         }) == ref.end())
-        {
+                         }) == ref.end()) {
             res.emplace_back(tmp);
-        }
-        else
-        {
-            for (int i = 0; i < graphSize; ++i)
-            {
+        } else {
+            for (int i = 0; i < graphSize; ++i) {
 
-                if (i != next && graph[next][i] != 0)
-                {
+                if (i != next && graph[next][i] != 0) {
                     tmp.emplace_back(i);
                     traverse(i);
                     tmp.pop_back();
@@ -516,44 +437,35 @@ void TreeAlgo::allPathsSourceTarget()
     dbg(res);
 }
 
-void TreeAlgo::isBipartite()
-{
+void TreeAlgo::isBipartite() {
     using std::vector;
     vector<vector<int>> graph = {
-        {1, 3},
-        {0, 2},
-        {1, 3},
-        {0, 2}};
-    const auto impl = [&]()
-    {
+            {1, 3},
+            {0, 2},
+            {1, 3},
+            {0, 2}};
+    const auto impl = [&]() {
         int graphSize = static_cast<int>(graph.size());
         vector<int> color(graphSize); // 0 没色 1 2
         vector<int> q;
         q.reserve(graphSize);
-        for (int i = 0; i < graphSize; i++)
-        {
-            if (color[i] == 0)
-            {
+        for (int i = 0; i < graphSize; i++) {
+            if (color[i] == 0) {
                 color[i] = 1;
                 q.push_back(i);
             }
-            while (!q.empty())
-            {
+            while (!q.empty()) {
 
                 int parent_node = q.back();
                 q.pop_back();
                 dbg(parent_node, graph[parent_node]);
-                for (int next_node : graph[parent_node])
-                {
+                for (int next_node: graph[parent_node]) {
                     dbg(color);
                     // 只有没被访问的数据才能作为parent_node进入下一个
-                    if (color[next_node] == 0)
-                    {
+                    if (color[next_node] == 0) {
                         color[next_node] = color[parent_node] == 2 ? 1 : 2;
                         q.push_back(next_node);
-                    }
-                    else
-                    {
+                    } else {
                         if (color[next_node] == color[parent_node])
                             return false;
                     }
@@ -566,46 +478,37 @@ void TreeAlgo::isBipartite()
     dbg(impl());
 }
 
-void TreeAlgo::possibleBipartition()
-{
+void TreeAlgo::possibleBipartition() {
     using std::vector;
     vector<vector<int>> dislikes = {{1, 2},
                                     {1, 3},
                                     {2, 4}};
     int n = 4;
-    const auto s = [&]()
-    {
+    const auto s = [&]() {
         vector<int> vist(n);
         std::unordered_map<int, std::unordered_set<int>> graph;
-        for (const auto &a : dislikes)
-        {
+        for (const auto &a: dislikes) {
             graph[a[0]].insert(a[1]);
             graph[a[1]].insert(a[0]);
         }
 
         std::stack<int> q;
-        for (int i = 0; i < n; ++i)
-        {
-            if (vist[i] == 0)
-            {
+        for (int i = 0; i < n; ++i) {
+            if (vist[i] == 0) {
                 vist[i] = 1;
                 q.push(i);
             }
 
-            while (!q.empty())
-            {
+            while (!q.empty()) {
                 int parent_node = q.top();
                 q.pop();
                 if (graph.count(parent_node - 1))
-                    for (int b : graph[parent_node - 1])
-                    {
+                    for (int b: graph[parent_node - 1]) {
                         int j = b - 1;
-                        if (vist[j] == 0)
-                        {
+                        if (vist[j] == 0) {
                             vist[j] = vist[parent_node] == 1 ? 2 : 1;
                             q.push(j); //  这只能凑一对 找到则下家
-                        }
-                        else if (vist[j] == vist[parent_node])
+                        } else if (vist[j] == vist[parent_node])
                             return false;
                     }
             }
@@ -616,8 +519,7 @@ void TreeAlgo::possibleBipartition()
 }
 
 /// @brief
-void TreeAlgo::minCostConnectPoints()
-{
+void TreeAlgo::minCostConnectPoints() {
     vector<vector<int>> origin{{0, 0},
                                {2, 2},
                                {3, 10},
@@ -626,18 +528,15 @@ void TreeAlgo::minCostConnectPoints()
     const auto curSize = origin.size();
     size_t graphSize = curSize * curSize;
     vector<vector<int>> graph(curSize, vector<int>(curSize));
-    const auto calDistance = [](const vector<int> &a, const vector<int> &b)
-    {
+    const auto calDistance = [](const vector<int> &a, const vector<int> &b) {
         assert(a.size() == 2);
         assert(b.size() == 2);
         return std::abs(a[0] - b[0]) + std::abs(b[1] - a[1]);
     };
 
     // build graph
-    for (int i = 0; i < curSize; ++i)
-    {
-        for (int j = i + 1; j < curSize; ++j)
-        {
+    for (int i = 0; i < curSize; ++i) {
+        for (int j = i + 1; j < curSize; ++j) {
             graph[i][j] = calDistance(origin[i], origin[j]);
             graph[j][i] = origin[i][j];
         }
@@ -645,41 +544,33 @@ void TreeAlgo::minCostConnectPoints()
 
     // 最短生成树
     //  每次选择最短的路径
-    const auto otherImpl = [curSize, &graph]
-    {
-        struct IndexAndDistance
-        {
+    const auto otherImpl = [curSize, &graph] {
+        struct IndexAndDistance {
             int start;
             int end;
             int distance;
         };
         // 默认是 大顶堆
         const auto cmp =
-            [](const IndexAndDistance &a, const IndexAndDistance &b)
-        {
-            return a.distance < b.distance;
-        };
+                [](const IndexAndDistance &a, const IndexAndDistance &b) {
+                    return a.distance < b.distance;
+                };
         std::priority_queue<IndexAndDistance, vector<IndexAndDistance>, decltype(cmp)> queue(cmp);
         std::unordered_set<int> graphJointSet{0};
         graphJointSet.reserve(curSize);
         std::stack<int, vector<int>> jointStack;
         jointStack.push(0);
         int result = 0; // 结果 用于累加路径和
-        while (!jointStack.empty())
-        {
+        while (!jointStack.empty()) {
             int curIndex = jointStack.top();
-            for (int start : graphJointSet)
-            {
-                for (int end = 1; end < curSize; ++end)
-                {
-                    if (graphJointSet.count(end) == 0)
-                    {
+            for (int start: graphJointSet) {
+                for (int end = 1; end < curSize; ++end) {
+                    if (graphJointSet.count(end) == 0) {
                         queue.push(IndexAndDistance{start, end, graph[start][end]});
                     }
                 }
             }
-            if (queue.empty())
-            {
+            if (queue.empty()) {
                 break;
             }
             IndexAndDistance cur = queue.top();
@@ -689,27 +580,22 @@ void TreeAlgo::minCostConnectPoints()
     };
 
     // prim 算法
-    const auto prim = [&](int start)
-    {
+    const auto prim = [&](int start) {
         vector<int> distanceCost(curSize, INT_MAX);
 
         std::unordered_set<int> jointSet{start};
         jointSet.reserve(curSize);
         int res = 0;
-        for (int i = 0; i < curSize; ++i)
-        {
+        for (int i = 0; i < curSize; ++i) {
             if (i == start)
                 continue;
             distanceCost[i] = graph[i][start];
         }
-        while (jointSet.size() != curSize)
-        {
+        while (jointSet.size() != curSize) {
             int minDistance = INT_MAX;
             int nextIndex = -1;
-            for (int i = 0; i < curSize; ++i)
-            {
-                if (jointSet.count(i) == 0 && distanceCost[i] < minDistance)
-                {
+            for (int i = 0; i < curSize; ++i) {
+                if (jointSet.count(i) == 0 && distanceCost[i] < minDistance) {
                     nextIndex = i;
                     minDistance = distanceCost[i];
                 }
@@ -717,56 +603,46 @@ void TreeAlgo::minCostConnectPoints()
             // 加入到新的节点
             jointSet.insert(nextIndex);
             res += minDistance;
-            for (int i = 0; i < curSize; ++i)
-            {
+            for (int i = 0; i < curSize; ++i) {
                 if (i == nextIndex)
                     continue;
                 int newDistance = graph[i][nextIndex];
-                if (distanceCost[i] > newDistance)
-                {
+                if (distanceCost[i] > newDistance) {
                     distanceCost[i] = newDistance;
                 }
             }
         }
     };
 
-    const auto Kruskal = [&]()
-    {
-        struct IndexAndDistance
-        {
+    const auto Kruskal = [&]() {
+        struct IndexAndDistance {
             int start;
             int end;
             int distance;
         };
         const auto cmp =
-            [](const IndexAndDistance &a, const IndexAndDistance &b)
-        {
-            return a.distance < b.distance;
-        };
+                [](const IndexAndDistance &a, const IndexAndDistance &b) {
+                    return a.distance < b.distance;
+                };
         std::priority_queue<IndexAndDistance, vector<IndexAndDistance>, decltype(cmp)> heap(cmp);
-        for (int i = 0; i < curSize; ++i)
-        {
-            for (int j = i + 1; j < curSize; ++j)
-            {
+        for (int i = 0; i < curSize; ++i) {
+            for (int j = i + 1; j < curSize; ++j) {
                 heap.push(IndexAndDistance{i, j, graph[i][j]});
             }
         }
         UnionFindSet mSet{static_cast<int>(curSize)};
-        while (!heap.empty())
-        {
+        while (!heap.empty()) {
             IndexAndDistance indexAndDistance = heap.top();
             heap.pop();
             int startFather = mSet.find_head(indexAndDistance.start);
             int endFather = mSet.find_head(indexAndDistance.end);
-            if (startFather != endFather)
-            {
+            if (startFather != endFather) {
                 mSet.merge(indexAndDistance.start, indexAndDistance.end);
             }
         }
     };
 
-    const auto dijkstra = [&]()
-    {
+    const auto dijkstra = [&]() {
         vector<uint8_t> visited(curSize);
         vector<int32_t> distance(curSize, INT32_MAX);
         uint32_t res = 0;
@@ -774,41 +650,85 @@ void TreeAlgo::minCostConnectPoints()
         visited[start] = 1;
         distance[start] = 0;
 
-        std::for_each(distance.begin(), distance.end(), [&, idx = 0](int &a) mutable
-                      { a = graph[idx++][start]; });
+        std::for_each(distance.begin(), distance.end(), [&, idx = 0](int &a) mutable { a = graph[idx++][start]; });
 
-        for (size_t j = 0; j < curSize; j++)
-        {
+        for (size_t j = 0; j < curSize; j++) {
             int32_t minElem = INT_MAX;
             int minPoint = -1;
 
-            std::for_each(distance.cbegin(), distance.cend(), [&, idx = 0](int a) mutable
-                          {
-                    if(visited[idx]==0 && a<minElem){
-                        minElem =a;
-                        minPoint=idx;
-                    }
-                    ++idx; });
+            std::for_each(distance.cbegin(), distance.cend(), [&, idx = 0](int a) mutable {
+                if (visited[idx] == 0 && a < minElem) {
+                    minElem = a;
+                    minPoint = idx;
+                }
+                ++idx;
+            });
             visited[minPoint] = 1;
-            for (size_t i = 0; i < curSize; i++)
-            {
+            for (size_t i = 0; i < curSize; i++) {
                 distance[i] = std::min(distance[i], graph[minPoint][i] + distance[minPoint]);
             }
         }
     };
 
-    const auto folyd = [&]()
-    {
+    const auto folyd = [&]() {
         vector<vector<int>> distance(curSize, vector<int>(curSize, INT_MAX));
-        for (size_t k = 1; k < curSize; ++k)
-        {
-            for (size_t i = 0; i < curSize; i++)
-            {
-                for (size_t j = 0; j < curSize; j++)
-                {
+        for (size_t k = 1; k < curSize; ++k) {
+            for (size_t i = 0; i < curSize; i++) {
+                for (size_t j = 0; j < curSize; j++) {
                     distance[i][j] = std::min(distance[i][j], distance[i][k] + distance[k][j]);
                 }
             }
         }
     };
+}
+
+void TreeAlgo::treeSerializeAndDeserialize() {
+    //二叉搜索数的 序列化  后序遍历后 排序就是 中序遍历
+    using std::string;
+    using std::to_string;
+    auto impl = [] {
+
+        std::function<void(TreeNode *, string &)> serializeImpl = [&](TreeNode *root, string &res) {
+            if (root) {
+                serializeImpl(root->left, res);
+                serializeImpl(root->left, res);
+                res += "," + to_string(root->value);
+            }
+        };
+
+        auto serialize = [&](TreeNode *root) -> string {
+            if (root == nullptr) {
+                return {};
+            }
+            string res;
+            serializeImpl(root, res);
+            return res;
+        };
+
+        std::function<string(TreeNode *)> other_serialize = [&](TreeNode *root) {
+            if (root == nullptr) {
+                return string{"#"};
+            }
+            return to_string(root->value) + ' ' + other_serialize(root->left) + ' ' + other_serialize(root->right);
+        };
+        std::function<TreeNode *(std::stringstream &)> rebuilder_treee = [&](std::stringstream &ss) {
+            string tmp;
+            ss >> tmp;
+            if (tmp == "#") {
+                TreeNode *res = nullptr;
+                return res;
+            }
+            auto *node = new TreeNode(std::stoi(tmp));
+            node->left = rebuilder_treee(ss);
+            node->right = rebuilder_treee(ss);
+            return node;
+        };
+        auto deserialize = [&](const string &data) -> TreeNode * {
+            std::stringstream ss(data);
+            return rebuilder_treee(ss);
+        };
+        auto ptr = TreeAlgo::createTree();
+        dbg(other_serialize(ptr.get()));
+    };
+    impl();
 }

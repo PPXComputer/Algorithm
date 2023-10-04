@@ -12,12 +12,15 @@
 #include <utility>
 #include <vector>
 #include <numeric>
+#include <folly/String.h>
+
 
 using std::array;
 using std::function;
 using std::pair;
 using std::string;
 using std::unordered_map;
+using std::unordered_set;
 using std::vector;
 
 void Package::pack01() {
@@ -771,16 +774,15 @@ void Package::pack_494() {
         auto fourth_ans = dfs_pos(0, 0);
         auto dp_pos = vector<int>(postivate + 1);
         dp_pos[postivate] = 1;
-        for (int i = 0; i < size; ++i) {
+        for (int num: data) {
             for (int j = 0; j <= postivate; ++postivate) {
-                int right = j + data[i] <= postivate ? dp_pos[j + data[i]] : 0;
+                int right = j + num <= postivate ? dp_pos[j + num] : 0;
                 dp_pos[j] += right;
             }
         }
         auto five_ans = dp_pos[0];
-        // 如果需要五者都相等要不然debug打印
-        if (five_ans != fourth_ans or fourth_ans != third_ans
-            or third_ans != second_ans or second_ans != first_ans or first_ans != five_ans) {
+        // 如果需要五者都相等要不然debug打印 使用all_of函数替换相等判断
+        if (five_ans != fourth_ans or fourth_ans != third_ans or third_ans != second_ans or second_ans != first_ans) {
             dbg(five_ans, fourth_ans, third_ans, second_ans, first_ans);
         }
     };
@@ -788,3 +790,474 @@ void Package::pack_494() {
 
 }
 
+void Package::pack_476() {
+    vector<string> data{"10", "0001", "111001", "1", "0"};
+    constexpr int zero_target = 5;
+    constexpr int one_target = 3;
+//    // 装满这个背包最多多少物品数量
+    const int dataSize = static_cast<int>(data.size());
+    auto impl = [&] {
+
+        std::function<int(int, int, int)> dfs_impl = [&](int index, int zero, int one) {
+
+            if (index == dataSize) {
+                return 0;
+            }
+            int count_one = 0;
+            int count_zero = 0;
+            for (char cur: data[index]) {
+                if (cur == '0') {
+                    count_zero += 1;
+                } else {
+                    count_one += 1;
+                }
+            }
+            int new_zero = zero + count_zero;
+            int new_one = one + count_one;
+            int not_add = dfs_impl(index + 1, zero, one);
+            if (new_zero <= zero_target and new_one <= one_target) {
+                int add = 1 + dfs_impl(index + 1, new_zero, new_one);
+                return std::max(add, not_add);
+            }
+            return not_add;
+        };
+
+        vector<vector<int>> dp(zero_target + 1, vector<int>(one_target + 1));
+        // dp[0][0] ? ?
+        for (const auto &str: data) {
+            int count_one = 0;
+            int count_zero = 0;
+            for (char cur: str) {
+                if (cur == '0') {
+                    count_zero += 1;
+                } else {
+                    count_one += 1;
+                }
+            }
+            for (int i = zero_target - count_zero; i >= 0; --i) {
+                for (int j = one_target - count_one; j >= 0; --j) {
+                    dp[i][j] = std::max(dp[i][j], 1 + dp[i + count_zero][j + count_one]);
+                }
+            }
+        }
+        dbg("所有需要dfs入口函数 应该放置的是 target 而不是 0");
+        int forward_dp_result = dp[0][0];
+        int dfs_result = dfs_impl(0, 0, 0);
+        std::function<int(int, int, int)> dfs_impl_reverse = [&](int index, int zero, int one) {
+
+            if (index == dataSize) {
+                return 0;
+            }
+            int count_one = 0;
+            int count_zero = 0;
+            for (char cur: data[index]) {
+                if (cur == '0') {
+                    count_zero += 1;
+                } else {
+                    count_one += 1;
+                }
+            }
+            int new_zero = zero - count_zero;
+            int new_one = one - count_one;
+            int not_add = dfs_impl_reverse(index + 1, zero, one);
+            if (new_zero >= 0 and new_one >= 0) {
+                int add = 1 + dfs_impl_reverse(index + 1, new_zero, new_one);
+                return std::max(add, not_add);
+            }
+            return not_add;
+        };
+        int dfs_reverse_result = dfs_impl_reverse(0, zero_target, one_target);
+
+        vector<vector<int>> new_dp(zero_target + 1, vector<int>(one_target + 1));
+        // dp[0][0] ??
+        for (const auto &str: data) {
+            int count_one = 0;
+            int count_zero = 0;
+            for (char cur: str) {
+                if (cur == '0') {
+                    count_zero += 1;
+                } else {
+                    count_one += 1;
+                }
+            }
+
+            for (int i = zero_target; i >= count_zero; --i) {
+                for (int j = one_target; j >= count_one; --j) {
+                    new_dp[i][j] = std::max(new_dp[i][j], 1 + new_dp[i - count_zero][j - count_one]);
+                }
+            }
+        }
+        int new_dp_result = new_dp[zero_target][one_target];
+        if (forward_dp_result != dfs_result or dfs_reverse_result != forward_dp_result or
+            dfs_reverse_result != dfs_result) {
+            dbg(forward_dp_result, dfs_result, dfs_reverse_result);
+        }
+        dbg(new_dp_result);
+
+    };
+    impl();
+//
+    auto other_question = [] {
+        // 装满背包重量后 物品的最大数量
+        vector<int> cur_data = {1, 2, 4, 7, 8};
+        constexpr int target = 6;
+        std::function<int(int, int, int)> dfs_impl = [&](int index, int num, int cur_weight) {
+            if (index == cur_data.size()) {
+                return cur_weight == target ? num : 0;
+            }
+            if (cur_weight > target) {
+                return 0;
+            }
+            int add = dfs_impl(index + 1, num + 1, cur_weight + cur_data[index]);
+            int not_add = dfs_impl(index + 1, num, cur_weight);
+            return std::max(add, not_add);
+
+        };
+
+        std::function<int(int, int)> dfs_not_impl = [&](int index, int cur_weight) {
+            if (index == cur_data.size()) {
+                return 0;
+            }
+            int not_add = dfs_not_impl(index + 1, cur_weight);
+            if (int new_weight = cur_weight + cur_data[index]; new_weight <= target) {
+                int add = 1 + dfs_not_impl(index + 1, new_weight);
+                return std::max(add, not_add);
+            }
+            return not_add;
+        };
+        int first = dfs_impl(0, 0, 0);
+        int second = dfs_not_impl(0, 0);
+        if (first != second) {
+            dbg(first, second);
+        }
+    };
+    other_question();
+}
+
+void Package::pack_518() {
+    // 零钱兑换 可拿任意数量 得到当前的总数 最小物品数量
+    auto impl = [] {
+        constexpr array<int, 3> data{1, 2, 5};
+        constexpr int target = 11;
+
+
+        std::function<int(int, int, int)> dp_impl = [&](int index, int amount, int num) {
+            if (amount == 0) {
+                return num;
+            }
+            if (index == data.size()) {
+                return 0;
+            }
+            int res = 0;
+            for (int get_num = 0; get_num * data[index] <= amount; ++get_num) {
+                res = std::max(res, dp_impl(index + 1, amount - (get_num * data[index]), num + get_num));
+            }
+            return res;
+        };
+//        int max_num = target / (*std::min_element(data.begin(), data.end()));
+//        vector<vector<int>> origin_dp(target + 1, vector<int>(max_num + 1));
+//        for (int i = 0; i <= max_num; ++i) {
+//            origin_dp[0][i] = i;
+//        }
+//        for (int cur: data) {
+//            for (int amount = target; amount >= 0; --amount) {
+//                for (int num = max_num; num >= 0; --num) {
+//                    int res = 0;
+//                    for (int get_num = 0; get_num * cur <= amount; ++get_num) {
+//                        res = std::max(res, origin_dp[amount - (get_num * cur)][num + get_num]);
+//                    }
+//                }
+//            }
+//        }
+        dbg(dp_impl(0, target, 0));
+        std::function<int(int, int)> dpNotNum = [&](int index, int amount) {
+            if (amount == 0 or index == data.size()) {
+                return 0;
+            }
+            int res = 0;
+            for (int getNum = 0; getNum * data[index] <= amount; ++getNum) {
+                res = std::max(res, getNum + dpNotNum(index + 1, amount - (getNum * data[index])));
+            }
+            return res;
+        };
+        dbg(dpNotNum(0, target));
+        vector<int> dp(target + 1);
+        for (int cur: data) {
+            for (int amount = target; amount >= 0; --amount) {
+                for (int getNum = 0; getNum * cur <= amount; ++getNum) {
+                    dp[amount] = std::max(dp[amount], getNum + dp[amount - (getNum * cur)]);
+                }
+            }
+        }
+        dbg(dp[target]);
+
+        int res = INT_MAX;
+        // 完全背包问题 求组合数量最小的
+        std::function<int(int, int)> dp_not_num_min = [&](int index, int res_weight) {
+            if (res_weight < 0) {
+                return 0;
+            }
+            if (res_weight == 0) {
+                return 1;
+            }
+
+            int count = 0;
+            for (int i = index; i < data.size(); ++i) {
+                count += dp_not_num_min(i, res_weight - data[i]);
+            }
+            return count;
+        };
+//        vector<int> last_dp(target + 1, target + 1);
+//        last_dp[0] = 0;
+//        for (int coin: data) {
+//            for (int i = coin; i <= target; i++) {
+//                last_dp[i] = std::min(last_dp[i], last_dp[i - coin] + 1);
+//            }
+//        }
+        vector<int> last_dp_array(target + 1, target + 1);
+        last_dp_array[0] = 0;
+        for (int coin: data) {
+            for (int i = coin; i <= target; i++) {
+                last_dp_array[i] = std::min(last_dp_array[i], last_dp_array[i - coin] + 1);
+            }
+        }
+        int last_ans = last_dp_array[target] == target + 1 ? -1 : last_dp_array[target];
+        std::function<int(int, int)> last_dp_impl = [&](int index, int rest) {
+            if (rest == 0) {
+                return 0;
+            }
+            if (rest < 0 or index == data.size()) {
+                return target + 1;
+            }
+            int res = target + 1;
+            for (int i = index; i < data.size(); ++i) {
+                res = std::min(res, last_dp_impl(i, rest - data[i]));
+            }
+            return res;
+        };
+        int l = last_dp_impl(0, target);
+        int lastDPImpl = l == target + 1 ? -1 : l;
+        dbg(lastDPImpl);
+        dbg(last_ans);
+    };
+    impl();
+}
+
+void Package::pack_279() {
+    constexpr int target = 13;
+    const auto impl = [] {
+        const std::function<int(int, int)> dfs = [&](int index, int res) {
+            if (res == 0) {
+                return 0;
+            } else if (index == 0) {
+                return res;
+            }
+            const int curValue = 2 << (index - 1);
+            int result = res;
+            for (int num = 0; num * curValue <= res; ++num) {
+                result = std::min(result, dfs(index - 1, res - num * curValue));
+            }
+            return result;
+        };
+        vector<int> dp(target + 1);
+        for (int coin = 1; coin * coin <= target; ++coin) {
+            for (int index = coin * coin; index <= target; ++index) {
+                dp[index] = std::min(dp[index], dp[index - coin * coin] + 1);
+            }
+        }
+    };
+    impl();
+}
+
+void Package::pack322() {
+    // 零钱兑换2 请问拿多少个物品装满target (物品数量最小) 每个物品可以拿容易数量
+    const auto impl = [] {
+        constexpr array<int, 3> data = {1, 2, 5};
+        constexpr int target = 11;
+        std::function<int(int, int)> dfs = [&](int index, int restAmount) {
+            if (restAmount == 0) {
+                return 0;
+            }
+            if (restAmount < 0 or index == data.size()) {
+                return INT_MAX;
+            }
+            int count = INT_MAX;
+            for (int getNum = 0; getNum * data[index] <= restAmount; ++getNum) {
+                const int dfsVal = dfs(index + 1, restAmount - getNum * data[index]);
+                if (dfsVal != INT_MAX) {
+                    count = std::min(count, getNum + dfsVal);
+                }
+
+            }
+            return count;
+        };
+
+        vector<vector<int>> dp2(data.size() + 1, vector<int>(target + 1, INT_MAX));
+        for (auto &vec: dp2) {
+            vec[0] = 0;
+        }
+        for (int i = data.size() - 1; i >= 0; --i) {
+            for (int restAmount = target; restAmount >= 0; --restAmount) {
+                for (int getNum = 0; getNum * data[i] <= restAmount; ++getNum) {
+                    const int dfsVal = dp2[i + 1][restAmount - getNum * data[i]];
+                    if (dfsVal != INT_MAX) {
+                        dp2[i][restAmount] = std::min(dp2[i][restAmount], getNum + dfsVal);
+                    }
+                }
+            }
+        }
+        for (auto &dp: dp2) {
+            std::cout << fmt::format("dp {}\n", folly::join(',', dp));
+        }
+
+        dbg(dfs(0, target));
+        dbg(dp2[0][target]);
+        vector<int> dp3(target + 1, INT_MAX);
+        dp3[0] = 0;
+        for (int i = data.size() - 1; i >= 0; --i) {
+            for (int restAmount = 0; restAmount <= target; ++restAmount) {
+                const int num = data[i];
+                for (int getNum = 0; getNum * num <= restAmount; ++getNum) {
+                    const int dfsVal = dp3[restAmount - getNum * num];
+                    if (dfsVal != INT_MAX) {
+                        dp3[restAmount] = std::min(dp3[restAmount], getNum + dfsVal);
+                    }
+                }
+            }
+        }
+        std::cout << fmt::format("dp3 {}\n", folly::join(',', dp3));
+        dbg(dp3[target]);
+
+
+        // 根据表达来生成
+        // dp[amount] //是当前amount 数量下最小的组合数
+        //dp[amount ] = min(dp[amount-num]+1,dp[amount])
+        vector<int> dp(target + 1, INT_MAX);
+        dp[0] = 0;
+        for (int num: data) {
+            for (int amount = num; amount <= target; ++amount) {
+                dp[amount] = std::min(dp[amount - num] + 1, dp[amount]);
+            }
+        }
+        std::cout << fmt::format("dp {}\n", folly::join(',', dp));
+        dbg(dp[target]);
+        // 内存优化
+//        auto ans_dp2 = dp2[0][target];
+//        for(int num:data){
+//            for(int rest_amount = target ; rest_amount >= 0; --rest_amount ){
+//                int count = INT_MAX;
+//                for (int get_num = 0; get_num * num <= rest_amount; ++get_num) {
+//                    count = min(count, get_num + dfs(index + 1, rest_amount - get_num * data[index], dfs));
+//                }
+//            }
+//        }
+    };
+    impl();
+
+}
+
+void Package::pack_139() {
+    const string s = {"applepenapple"};
+    vector<string> wordDict = {"apple", "pen"};
+    const auto impl = [&] {
+        std::function<bool(int)> dfs = [&](int index) {
+            if (index == s.size()) {
+                return true;
+            }
+            int resLen = s.size() - index;
+            bool res = std::any_of(wordDict.begin(), wordDict.end(), [&](const string &word) {
+                const auto &iterator = s.cbegin() + index;
+                bool equalVal = std::equal(iterator, iterator + word.size(), word.cbegin(), word.cend());
+                if (resLen >= word.size() and equalVal and dfs(index + word.size())) {
+                    return true;
+                }
+                return false;
+            });
+
+            return res;
+        };
+        dbg(dfs(0));
+
+
+        // dp[index]
+        // dp[index]  == if(dp[index -word.size()] and equal_range)
+        vector<int> dp(s.size() + 1);
+        dp[0] = 1;
+        unordered_set<string> wordSet(wordDict.begin(), wordDict.end());
+        for (int index = 1; index <= s.size(); ++index) { //求排列数 先遍历背包
+            for (int startIndex = 0; startIndex < index; ++startIndex) { //在遍历 数字
+                if (dp[startIndex] and wordSet.count(s.substr(startIndex, index - startIndex))) {
+                    dp[index] = 1;
+                }
+            }
+        }
+
+        dbg(dp[s.size()]);
+    };
+
+    impl();
+
+}
+
+void Package::pack_198() {
+    //打家劫舍
+    const auto impl = [] {
+        constexpr array<int, 5> nums{2, 7, 9, 3, 1};
+        const std::function<int(int, bool)> dfs = [&](int index, bool getLast) {
+            if (index == nums.size()) {
+                return 0;
+            }
+            int get = 0;
+            if (not getLast) {
+                get = dfs(index + 1, true) + nums[index];
+            }
+            return std::max(dfs(index + 1, false), get);
+        };
+        vector<vector<int>> dp2(nums.size() + 1, vector<int>(2));
+        for (int index = nums.size() - 1; index >= 0; index--) {
+            dp2[index][0] = std::max(dp2[index + 1][0], dp2[index + 1][1] + nums[index]);
+            dp2[index][1] = dp2[index + 1][0];
+        }
+        dbg(dfs(0, false));
+        dbg(dp2[0][false]);
+        vector<int> dp = getVector(nums);
+
+
+        dbg(dp.back());
+        // 打家劫舍2
+        vector<int> dpMid = getVector3(vector<int>(nums.begin() + 1, nums.end() - 1));
+        vector<int> dpFirst = getVector4(vector<int>(nums.begin(), nums.end() - 1));
+        vector<int> dpLast = getVector4(vector<int>(nums.begin() + 1, nums.end()));
+    };
+    impl();
+}
+
+vector<int> Package::getVector(const array<int, 5> &nums) {// 使用公式 dp[index]是能获得最大的值
+    vector<int> dp(nums.size());
+    dp[0] = nums[0];
+    dp[1] = std::max(nums[1], nums[0]);
+    for (int i = 2; i < nums.size(); ++i) {
+        dp[i] = std::max(dp[i - 2] + nums[i], dp[i - 1]);
+    }
+    return dp;
+}
+
+vector<int> Package::getVector3(const std::vector<int> &nums) {// 使用公式 dp[index]是能获得最大的值
+    vector<int> dp(nums.size());
+    dp[0] = nums[0];
+    dp[1] = std::max(nums[1], nums[0]);
+    for (int i = 2; i < nums.size(); ++i) {
+        dp[i] = std::max(dp[i - 2] + nums[i], dp[i - 1]);
+    }
+    return dp;
+}
+
+vector<int> Package::getVector4(const vector<int> &nums) {// 使用公式 dp[index]是能获得最大的值
+    vector<int> dp(nums.size());
+    dp[0] = nums[0];
+    dp[1] = std::max(nums[1], nums[0]);
+    for (int i = 2; i < nums.size(); ++i) {
+        dp[i] = std::max(dp[i - 2] + nums[i], dp[i - 1]);
+    }
+    return dp;
+}
